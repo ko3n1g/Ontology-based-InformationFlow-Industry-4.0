@@ -182,5 +182,5 @@ Combining OWL and RuleML: [https://www.w3.org/Submission/SWRL/](https://www.w3.o
 <a name="ref_17"></a>
 [17] - Raynaud, Tanguy, Samir Amir, and Rafiqul Haque. "A generic and high-performance RDF instance generator." International Journal of Web Engineering and Technology 11.2 (2016): 133-152.
 
-[hero]: assets/industry-2496192_1920.jpg
+[hero]: assets/15.12.17_logo_blau.png
 [tagcloud]: assets/Tagcloud.png
