@@ -131,7 +131,7 @@ Information of how to use this document to be found at: [License](LICENSE).
 ## References
 
 <a name="ref_1"></a>
-[1] - P. K. der Forschungsunion Wirtschaft. Wissenschaft (Hrsg.): Bericht der Promotorengruppe Kommunikation: Im Fokus: Das Zukunftspro- jekt Industrie 4.0–Handlungsempfehlungen zur Umsetzung, 2012. [https://www.bmbf.de/pub_hts/kommunikation_bericht_2012-1.pdf](https://www.bmbf.de/pub_hts/kommunikation_bericht_2012-1.pdf)
+[1] - P. K. der Forschungsunion Wirtschaft. Wissenschaft (Hrsg.): Bericht der Promotorengruppe Kommunikation: Im Fokus: Das Zukunftsprojekt Industrie 4.0–Handlungsempfehlungen zur Umsetzung, 2012. [https://www.bmbf.de/pub_hts/kommunikation_bericht_2012-1.pdf](https://www.bmbf.de/pub_hts/kommunikation_bericht_2012-1.pdf)
 
 <a name="ref_2"></a>
 [2] - W3C. Description of W3C Technology Stack Illustration. [https://www.w3.org/Consortium/techstack-desc.html](https://www.w3.org/Consortium/techstack-desc.html), 2010. Accessed: 2017- 09-14.
@@ -146,7 +146,7 @@ Information of how to use this document to be found at: [License](LICENSE).
 [5] - The Organization Ontology: [https://www.w3.org/TR/vocab-org/](https://www.w3.org/TR/vocab-org/)
 
 <a name="ref_6"></a>
-[6] - Simple part-whole relations in OWL Ontologies [https://www.w3.org/2001/sw/BestPractices/OEP/SimplePartWhole/](https://www.w3.org/2001/sw/BestPractices/OEP/SimplePartWhole/)
+[6] - Simple part-whole relations in OWL Ontologies: [https://www.w3.org/2001/sw/BestPractices/OEP/SimplePartWhole/](https://www.w3.org/2001/sw/BestPractices/OEP/SimplePartWhole/)
 
 <a name="ref_7"></a>
 [7] - A. Blumauer und T. Pellegrini. Semantic Web und semantische Technologien: Zentrale Begriffe und Unterscheidungen. Semantic Web, 2006, S. 9–25.
