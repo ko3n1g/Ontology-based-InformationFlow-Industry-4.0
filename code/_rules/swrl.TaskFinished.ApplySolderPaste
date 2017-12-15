@@ -1,0 +1,12 @@
+sick:ApplySolderPasteTask(?x) ^ 
+
+gn:hasFunctionalTaskStatus(?x, gn:FINISHED) ^
+gn:hasFunctionalTaskInput(?x, ?input_1) ^
+gn:hasFunctionalTaskInput(?x, ?input_2) ^
+
+gn:hasFunctionalTaskOutput(?x, ?output) ^
+-> 
+
+	part:hasPart_directly(?output, ?input_1) ^
+	part:hasPart_directly(?output, ?input_2)
+

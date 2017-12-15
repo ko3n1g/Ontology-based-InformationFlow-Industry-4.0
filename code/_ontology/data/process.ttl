@@ -1,0 +1,60 @@
+@prefix : <http://localhost/concept/ManufacturingOntologyLanguage.Sick#> .
+@prefix aoi: <http://localhost/concept/aoi#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix part: <http://www.w3.org/2001/sw/BestPractices/OEP/SimplePartWhole/part.owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sick: <http://localhost/concept/ManufacturingOntologyLanguage.Sick#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix oml.gn: <http://localhost/concept/ManufacturingOntologyLanguage.General#> .
+@prefix shopfloor: <http://localhost/concept/shopfloor#> .
+
+
+###  http://localhost/concept/processes/smd
+<http://localhost/concept/process/smd> rdf:type owl:NamedIndividual ;
+                                         oml.gn:hasProcessEnd <http://localhost/concept/processStep/smd_05> ;
+                                         oml.gn:hasProcessStart <http://localhost/concept/processStep/smd_01> .
+
+###  http://localhost/concept/processSteps/smd_01
+<http://localhost/concept/processStep/smd_01> rdf:type owl:NamedIndividual ;
+                                               oml.gn:hasFunctionalTask <http://localhost/concept/task/smd_solderPasteApplication> ;
+                                               oml.gn:hasNextStep_directly <http://localhost/concept/processStep/smd_02> .
+
+
+###  http://localhost/concept/processSteps/smd_02
+<http://localhost/concept/processStep/smd_02> rdf:type owl:NamedIndividual ;
+                                               oml.gn:hasFunctionalTask <http://localhost/concept/task/smd_componentApplication> ;
+                                               oml.gn:hasNextStep_directly <http://localhost/concept/processStep/smd_03> .
+
+
+###  http://localhost/concept/processSteps/smd_03
+<http://localhost/concept/processStep/smd_03> rdf:type owl:NamedIndividual ;
+                                               oml.gn:hasFunctionalTask <http://localhost/concept/task/smd_aoiInspection_01> ;
+                                               oml.gn:hasNextStep_directly <http://localhost/concept/processStep/smd_04> .
+
+
+###  http://localhost/concept/processSteps/smd_04
+<http://localhost/concept/processStep/smd_04> rdf:type owl:NamedIndividual ;
+                                               oml.gn:hasFunctionalTask <http://localhost/concept/task/smd_boardSetting> ;
+                                               oml.gn:hasNextStep_directly <http://localhost/concept/processStep/smd_05> .
+
+
+###  http://localhost/concept/processSteps/smd_05
+<http://localhost/concept/processStep/smd_05> rdf:type owl:NamedIndividual ;
+                                               oml.gn:hasFunctionalTask <http://localhost/concept/task/smd_aoiInspection_02> .
+
+                                               
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( <http://localhost/concept/processStep/smd_01>
+                        <http://localhost/concept/processStep/smd_02>
+                        <http://localhost/concept/processStep/smd_03>
+                        <http://localhost/concept/processStep/smd_04>
+                        <http://localhost/concept/processStep/smd_05>
+                      )
+] .
+ 

@@ -1,0 +1,25 @@
+{{#if [@values]}}
+  <strong class="property_label" data-toggle="tooltip" data-placement="right" title="{{[@egadComment]}}">
+  {{#if [@egadLabel]}}{{[@egadLabel]}}{{else}}{{#localname [@id]}}{{this}}{{/localname}}{{/if}}
+  </strong>
+  <div class="controls">
+    <ul class="list-no-bullets obj-prop-container">
+      {{#if [@values]}}
+      {{#each [@values]}}
+      <li>
+        <strong>{{this}}</strong>
+      </li>
+      {{/each}}
+      {{else}}
+      <li>
+        <span class="label label-warning">Empty</span>
+      </li>
+      {{/if}}
+    </ul>
+    {{#if [@showMore]}}
+    <div>
+      <button class="btn btn-default btn-xs btn-more" type="button" style="width: 135px;">More</button>
+    </div>
+    {{/if}}
+  </div>
+{{/if}}

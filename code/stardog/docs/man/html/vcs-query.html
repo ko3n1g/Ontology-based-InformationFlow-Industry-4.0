@@ -1,0 +1,137 @@
+<html>
+<head>
+<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+</head>
+<style>
+    body { margin: 50px; }
+</style>
+<body>
+<hr/>
+<h1 class="text-info">stardog vcs query Manual Page
+<hr/>
+<h1 class="text-info">NAME</h1>
+<br/>
+<div class="row"><div class="span8 offset1">stardog vcs query &mdash;Queries the version metadata in the database using a SPARQL query.</div>
+</div>
+<br/>
+<h1 class="text-info">SYNOPSIS</h1>
+<br/>
+<div class="row">
+<div class="span8 offset1">
+stardog vcs query [ {-b | --bind} &lt;variables to bind&gt;... ] [ {-f | --format} &lt;resultFormat&gt; ] [ {-g | --named-graph} &lt;Named graph&gt; ] [ {-l | --limit} &lt;N&gt; ] [ {-o | --offset} &lt;N&gt; ] [ {-p | --passwd} &lt;password&gt; ] [ {-P | --ask-password} ] [ {-r | --reasoning} ] [ {-u | --username} &lt;username&gt; ] [ {-v | --verbose} ] [--] &lt;database&gt; &lt;query&gt;...</div>
+</div>
+<br/>
+<h1 class="text-info">OPTIONS</h1>
+<br/>
+<div class="row">
+<div class="span8 offset1">
+-b &lt;variables to bind&gt;, --bind &lt;variables to bind&gt;</div>
+</div>
+<div class="row">
+<div class="span8 offset2">
+Variable bindings. One or more variable bindings to apply before executing query. Each binding is provided as a 'var=value' pair; multiple bindings should be separated with whitespaces. Variables must exist in the query and the value should be a valid RDF term in Turtle syntax. Namespaces stored in the database can be used in the values; e.g. x=ex:name. Quotes areneeded around IRIs to avoid special characters to be evaluated by the shell; e.g. y="&lt;http://example.org/test&gt;". In Turtle syntax literals have quotes which need to be escaped to differentiate them from shell quotes; e.g. z=\"value\". Finally, if a literal contains special characters or a space then additional quotes are needed for the shell; e.g. z="\"another value\"".</div>
+</div>
+<div class="row">
+<div class="span8 offset1">
+-f &lt;resultFormat&gt;, --format &lt;resultFormat&gt;</div>
+</div>
+<div class="row">
+<div class="span8 offset2">
+Result format for RDF [NTRIPLES, RDF/XML, TURTLE, PRETTY_TURTLE, TRIG, TRIX, N3, NQUADS] or SPARQL [SPARQL, JSON, TEXT, TABLE, CSV, TSV, HTML].</div>
+</div>
+<div class="row">
+<div class="span8 offset1">
+-g &lt;Named graph&gt;, --named-graph &lt;Named graph&gt;</div>
+</div>
+<div class="row">
+<div class="span8 offset2">
+Default graph to run the queries against.</div>
+</div>
+<div class="row">
+<div class="span8 offset1">
+-l &lt;N&gt;, --limit &lt;N&gt;</div>
+</div>
+<div class="row">
+<div class="span8 offset2">
+Limit the number of results the query will return. Specifying the limit willoverride any limit specified in the original query string</div>
+</div>
+<div class="row">
+<div class="span8 offset1">
+-o &lt;N&gt;, --offset &lt;N&gt;</div>
+</div>
+<div class="row">
+<div class="span8 offset2">
+Skip the first N results the query will return. Specifying the offset willoverride any offset specified in the original query string</div>
+</div>
+<div class="row">
+<div class="span8 offset1">
+-p &lt;password&gt;, --passwd &lt;password&gt;</div>
+</div>
+<div class="row">
+<div class="span8 offset2">
+Password.</div>
+</div>
+<div class="row">
+<div class="span8 offset1">
+-P, --ask-password</div>
+</div>
+<div class="row">
+<div class="span8 offset2">
+Prompt for password.</div>
+</div>
+<div class="row">
+<div class="span8 offset1">
+-r, --reasoning</div>
+</div>
+<div class="row">
+<div class="span8 offset2">
+Turn reasoning on.</div>
+</div>
+<div class="row">
+<div class="span8 offset1">
+-u &lt;username&gt;, --username &lt;username&gt;</div>
+</div>
+<div class="row">
+<div class="span8 offset2">
+User name.</div>
+</div>
+<div class="row">
+<div class="span8 offset1">
+-v, --verbose</div>
+</div>
+<div class="row">
+<div class="span8 offset2">
+Verbose flag that causes more detailed information to be printed</div>
+</div>
+<div class="row">
+<div class="span8 offset1">
+--
+</div>
+</div>
+<div class="row">
+<div class="span8 offset2">
+This option can be used to separate command-line options from the list of argument, (useful when arguments might be mistaken for command-line options
+</div>
+</div>
+<div class="row">
+<div class="span8 offset1">
+&lt;database&gt; &lt;query&gt;</div>
+</div>
+<div class="row">
+<div class="span8 offset2">
+The name of the database or the full connection string of the database to connect to. If only the name is provided, the default server URL will be pre-pended to the name of the database in order to construct the connection string. Connection parameters such as ';reasoning=true' can be included in the provided database name. Connection parameters specified like this can be overridden by specific options on the command. The default server URL will be read from the JVM argument 'stardog.default.cli.server'. If the JVM argument is not set, the default value 'http://localhost:5820' is used. If the server URL has no explicit port value, the default port value '5820' is used.  To use a secure connection, you should specify the full connection string and postfix 's' to the protocol, e.g. https. The subsequent argument is the SPARQL query string to execute.  This can either be a file name, a SPARQL query string, or astored query name.</div>
+</div>
+<br/>
+<h1 class="text-info">EXAMPLES</h1>
+<br/>
+<div class="row">
+<div class="span12 offset1">
+<p>
+Query the versions in a database</p>
+<pre>
+    $ stardog vcs query myDb 'select * where { ?s ?p ?o } limit 10'</pre>
+</div>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,70 @@
+.\" generated with Ronn/v0.7.3
+.\" http://github.com/rtomayko/ronn/tree/0.7.3
+.
+.TH "STARDOG_ICV_FIX" "1" "October 2017" "Stardog Union" "stardog"
+.
+.SH "NAME"
+\fBstardog_icv_fix\fR \- Generate an update plan that will fix one or more Integrity Constraint violations command with existing or new constraints\.
+.
+.SH "SYNOPSIS"
+\fBstardog\fR \fBicv\fR \fBfix\fR [ \-\-execute ] [ {\-f | \-\-format} \fIformat\fR ] [ {\-g | \-\-named\-graph} \fInamed graph\fR\.\.\. ] [ {\-l | \-\-limit} \fIlimit\fR ] [ {\-p | \-\-passwd} \fIpassword\fR ] [ {\-P | \-\-ask\-password} ] [ {\-r | \-\-reasoning} ] [ {\-u | \-\-username} \fIusername\fR ] [ \-\-update\-schema ] [ {\-v | \-\-verbose} ] [\-\-] \fIdbname\fR \fIconstraint_files\fR\.\.\.
+.
+.SH "DESCRIPTION"
+Generate an update plan that will fix one or more Integrity Constraint violations command with existing or new constraints\. The command can generate multiple different plans showing different possibilities but executing only one plan will fix all the violations for the specified constraints\.The generated plans are output as SPARQL update sequences and can be executed with the query command that will apply the suggested changes\. You can use the \-\-execute option tothis command to execute the update directly\.By default this command will fix the violations of all the constraints stored in the database\. If you would like to fix violations for a specific set of constraints, you can provide the constraints as an additional argument at the end\. Note that, a possible fix to a constraint violation is removing the constraint but this command does not suggest such changes and only creates update plans
+.
+.SH "OPTIONS"
+.
+.TP
+\fB\-\-execute\fR
+Executes the first update plan generated
+.
+.TP
+\fB\-f\fR \fIformat\fR, \fB\-\-format\fR \fIformat\fR
+RDF Format [N\-TRIPLES, RDF/XML, TURTLE, TRIG] for the constraints or [SPARQL] for constraints specified as SPARQL queries\.
+.
+.TP
+\fB\-g\fR \fInamed graph\fR, \fB\-\-named\-graph\fR \fInamed graph\fR
+The list of contexts which should be validated, if none are specified, the entire database is validated wrt to the provided constraint(s)\.
+.
+.TP
+\fB\-l\fR \fIlimit\fR, \fB\-\-limit\fR \fIlimit\fR
+Limits the number of update plans returned\. The default limit is 1\. Each plan may contain more than one update operation\.
+.
+.TP
+\fB\-p\fR \fIpassword\fR, \fB\-\-passwd\fR \fIpassword\fR
+Password\.
+.
+.TP
+\fB\-P\fR, \fB\-\-ask\-password\fR
+Prompt for password\.
+.
+.TP
+\fB\-r\fR, \fB\-\-reasoning\fR
+Turn reasoning on\.
+.
+.TP
+\fB\-u\fR \fIusername\fR, \fB\-\-username\fR \fIusername\fR
+User name\.
+.
+.TP
+\fB\-\-update\-schema\fR
+Includes schema axioms in the update plans
+.
+.TP
+\fB\-v\fR, \fB\-\-verbose\fR
+Verbose flag that causes more detailed information to be printed
+.
+.TP
+\-\-
+This option can be used to separate command\-line options from the list of arguments (useful when arguments might be mistaken for command\-line options)\.
+.
+.TP
+\fIdbname\fR \fIconstraint_files\fR
+The name of the database or the full connection string of the database to connect to\. If only the name is provided, the default server URL will be pre\-pended to the name of the database in order to construct the connection string\. Connection parameters such as \';reasoning=true\' can be included in the provided database name\. Connection parameters specified like this can be overridden by specific options on the command\. The default server URL will be read from the JVM argument \'stardog\.default\.cli\.server\'\. If the JVM argument is not set, the default value \'http://localhost:5820\' is used\. If the server URL has no explicit port value, the default port value \'5820\' is used\. To use a secure connection, you should specify the full connection string and postfix \'s\' to the protocol, e\.g\. https\. Then optionally the list of files which contain Integrity Constraints\.
+.
+.SH "EXAMPLES"
+.
+.TP
+Generate a plan that will fix all the constraint violations in the db
+$ stardog icv fix db
+

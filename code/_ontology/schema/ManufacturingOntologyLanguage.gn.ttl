@@ -1,0 +1,1343 @@
+@prefix : <http://localhost/concept/oml/gn##> .
+@prefix gn: <http://localhost/concept/oml/gn#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix part: <http://www.w3.org/2001/sw/BestPractices/OEP/SimplePartWhole/part.owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+
+<http://localhost/concept/oml/gn#> a owl:Ontology ;
+	owl:imports <http://www.w3.org/ns/sosa/> , <http://www.w3.org/2001/sw/BestPractices/OEP/SimplePartWhole/part.owl#> , <http://www.w3.org/ns/ssn/> , <http://www.w3.org/ns/org#> .
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# http://localhost/concept/oml/gn#buildBy
+
+gn:buildBy a owl:ObjectProperty ;
+	rdfs:subPropertyOf gn:productProperty ;
+	rdfs:domain gn:Product ;
+	rdfs:range gn:Process .
+# 
+# http://localhost/concept/oml/gn#canRead
+
+gn:canRead a owl:ObjectProperty ;
+	rdfs:subPropertyOf gn:dataCollectionProperty .
+# 
+# http://localhost/concept/oml/gn#canWrite
+
+gn:canWrite a owl:ObjectProperty ;
+	rdfs:subPropertyOf gn:dataCollectionProperty .
+# 
+# http://localhost/concept/oml/gn#dataCollectionProperty
+
+gn:dataCollectionProperty a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	rdfs:domain gn:DataCollection ;
+	rdfs:range owl:Thing .
+# 
+# http://localhost/concept/oml/gn#functionalTaskProperty
+
+gn:functionalTaskProperty a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty .
+# 
+# http://localhost/concept/oml/gn#hasAvailability
+
+gn:hasAvailability a owl:ObjectProperty ;
+	rdfs:subPropertyOf gn:internalProperty .
+# 
+# http://localhost/concept/oml/gn#hasFunctionalTask
+
+gn:hasFunctionalTask a owl:ObjectProperty ;
+	rdfs:subPropertyOf gn:functionalTaskProperty ;
+	owl:inverseOf gn:isFunctionalTaskOf ;
+	a owl:InverseFunctionalProperty ;
+	rdfs:domain gn:ProcessStep ;
+	rdfs:range gn:FunctionalTask .
+# 
+# http://localhost/concept/oml/gn#hasFunctionalTaskInput
+
+gn:hasFunctionalTaskInput a owl:ObjectProperty ;
+	rdfs:subPropertyOf gn:functionalTaskProperty ;
+	owl:inverseOf gn:isMaterialOf ;
+	rdfs:domain gn:FunctionalTask ;
+	rdfs:range gn:RawMaterial .
+# 
+# http://localhost/concept/oml/gn#hasFunctionalTaskOutput
+
+gn:hasFunctionalTaskOutput a owl:ObjectProperty ;
+	rdfs:subPropertyOf gn:functionalTaskProperty ;
+	rdfs:domain gn:FunctionalTask ;
+	rdfs:range gn:IntermediateMaterial .
+# 
+# http://localhost/concept/oml/gn#hasFunctionalTaskOwner
+
+gn:hasFunctionalTaskOwner a owl:ObjectProperty ;
+	rdfs:subPropertyOf gn:functionalTaskProperty ;
+	owl:inverseOf gn:ownsFunctionalTask ;
+	a owl:FunctionalProperty ;
+	rdfs:domain gn:FunctionalTask ;
+	rdfs:range gn:Internal .
+# 
+# http://localhost/concept/oml/gn#hasFunctionalTaskStatus
+
+gn:hasFunctionalTaskStatus a owl:ObjectProperty ;
+	rdfs:subPropertyOf gn:functionalTaskProperty ;
+	a owl:FunctionalProperty ;
+	rdfs:domain gn:FunctionalTask ;
+	rdfs:range gn:ActivityStatus .
+# 
+# http://localhost/concept/oml/gn#hasNextStep
+
+gn:hasNextStep a owl:ObjectProperty ;
+	rdfs:subPropertyOf gn:processStepProperty ;
+	owl:inverseOf gn:hasPrevStep ;
+	a owl:TransitiveProperty ;
+	rdfs:domain gn:ProcessStep ;
+	rdfs:range gn:ProcessStep .
+# 
+# http://localhost/concept/oml/gn#hasNextStep_directly
+
+gn:hasNextStep_directly a owl:ObjectProperty ;
+	rdfs:subPropertyOf gn:hasNextStep ;
+	owl:inverseOf gn:hasPrevStep_directly ;
+	a owl:FunctionalProperty , owl:InverseFunctionalProperty ;
+	rdfs:domain gn:ProcessStep ;
+	rdfs:range gn:ProcessStep .
+# 
+# http://localhost/concept/oml/gn#hasPrevStep
+
+gn:hasPrevStep a owl:ObjectProperty ;
+	rdfs:subPropertyOf gn:processStepProperty ;
+	a owl:TransitiveProperty ;
+	rdfs:domain gn:ProcessStep ;
+	rdfs:range gn:ProcessStep .
+# 
+# http://localhost/concept/oml/gn#hasPrevStep_directly
+
+gn:hasPrevStep_directly a owl:ObjectProperty ;
+	rdfs:subPropertyOf gn:hasPrevStep ;
+	a owl:FunctionalProperty , owl:InverseFunctionalProperty ;
+	rdfs:domain gn:ProcessStep ;
+	rdfs:range gn:ProcessStep .
+# 
+# http://localhost/concept/oml/gn#hasProcessEnd
+
+gn:hasProcessEnd a owl:ObjectProperty ;
+	rdfs:subPropertyOf gn:hasProcessStep ;
+	owl:inverseOf gn:isProcessEndOf ;
+	a owl:FunctionalProperty , owl:InverseFunctionalProperty .
+# 
+# http://localhost/concept/oml/gn#hasProcessOwner
+
+gn:hasProcessOwner a owl:ObjectProperty ;
+	rdfs:subPropertyOf gn:processProperty ;
+	owl:inverseOf gn:ownsProcess ;
+	a owl:FunctionalProperty ;
+	rdfs:domain gn:Process ;
+	rdfs:range gn:Manager .
+# 
+# http://localhost/concept/oml/gn#hasProcessStart
+
+gn:hasProcessStart a owl:ObjectProperty ;
+	rdfs:subPropertyOf gn:hasProcessStep ;
+	owl:inverseOf gn:isProcessStartOf ;
+	a owl:FunctionalProperty , owl:InverseFunctionalProperty .
+# 
+# http://localhost/concept/oml/gn#hasProcessStatus
+
+gn:hasProcessStatus a owl:ObjectProperty ;
+	rdfs:subPropertyOf gn:processProperty .
+# 
+# http://localhost/concept/oml/gn#hasProcessStep
+
+gn:hasProcessStep a owl:ObjectProperty ;
+	rdfs:subPropertyOf gn:processProperty ;
+	owl:inverseOf gn:isProcessStepOf ;
+	rdfs:domain gn:Process ;
+	rdfs:range gn:ProcessStep ;
+	rdfs:comment "Cannot be set inverse functional (not decidable by owl, because of chaining)"@en .
+# 
+# http://localhost/concept/oml/gn#hasProcessStepOwner
+
+gn:hasProcessStepOwner a owl:ObjectProperty ;
+	rdfs:subPropertyOf gn:processStepProperty ;
+	owl:inverseOf gn:ownsProcessStep ;
+	a owl:FunctionalProperty ;
+	rdfs:domain gn:ProcessStep ;
+	rdfs:range gn:Internal .
+# 
+# http://localhost/concept/oml/gn#hasProcessStepStatus
+
+gn:hasProcessStepStatus a owl:ObjectProperty ;
+	rdfs:subPropertyOf gn:processStepProperty .
+# 
+# http://localhost/concept/oml/gn#internalProperty
+
+gn:internalProperty a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty .
+# 
+# http://localhost/concept/oml/gn#isFunctionalTaskOf
+
+gn:isFunctionalTaskOf a owl:ObjectProperty ;
+	rdfs:subPropertyOf gn:functionalTaskProperty ;
+	a owl:FunctionalProperty ;
+	rdfs:domain gn:FunctionalTask ;
+	rdfs:range gn:ProcessStep .
+# 
+# http://localhost/concept/oml/gn#isMaterialOf
+
+gn:isMaterialOf a owl:ObjectProperty ;
+	rdfs:subPropertyOf gn:materialProperty ;
+	rdfs:domain gn:Material ;
+	rdfs:range gn:FunctionalTask .
+# 
+# http://localhost/concept/oml/gn#isProcessEndOf
+
+gn:isProcessEndOf a owl:ObjectProperty ;
+	rdfs:subPropertyOf gn:isProcessStepOf .
+# 
+# http://localhost/concept/oml/gn#isProcessStartOf
+
+gn:isProcessStartOf a owl:ObjectProperty ;
+	rdfs:subPropertyOf gn:isProcessStepOf .
+# 
+# http://localhost/concept/oml/gn#isProcessStepOf
+
+gn:isProcessStepOf a owl:ObjectProperty ;
+	rdfs:subPropertyOf gn:processStepProperty ;
+	rdfs:domain gn:ProcessStep ;
+	rdfs:range gn:Process .
+# 
+# http://localhost/concept/oml/gn#materialProperty
+
+gn:materialProperty a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty .
+# 
+# http://localhost/concept/oml/gn#needsMaterial
+
+gn:needsMaterial a owl:ObjectProperty ;
+	rdfs:subPropertyOf gn:productProperty ;
+	rdfs:comment "oml.gn:buildBy o oml.gn:hasProcessStep o oml.gn:hasFunctionalTask o oml.gn:hasFunctionalTaskInput" .
+# 
+# http://localhost/concept/oml/gn#orderBy
+
+gn:orderBy a owl:ObjectProperty ;
+	rdfs:subPropertyOf gn:orderProperty ;
+	a owl:FunctionalProperty ;
+	rdfs:domain gn:Order ;
+	rdfs:range gn:External .
+# 
+# http://localhost/concept/oml/gn#orderDate
+
+gn:orderDate a owl:ObjectProperty ;
+	rdfs:subPropertyOf gn:orderProperty ;
+	a owl:FunctionalProperty ;
+	rdfs:domain gn:Order .
+# 
+# http://localhost/concept/oml/gn#orderEndDate
+
+gn:orderEndDate a owl:ObjectProperty ;
+	rdfs:subPropertyOf gn:orderProperty ;
+	a owl:FunctionalProperty ;
+	rdfs:domain gn:Order .
+# 
+# http://localhost/concept/oml/gn#orderList
+
+gn:orderList a owl:ObjectProperty ;
+	rdfs:subPropertyOf gn:orderProperty ;
+	a owl:InverseFunctionalProperty ;
+	rdfs:domain gn:Order ;
+	rdfs:range gn:OrderList .
+# 
+# http://localhost/concept/oml/gn#orderProduct
+
+gn:orderProduct a owl:ObjectProperty ;
+	rdfs:subPropertyOf gn:orderProperty ;
+	a owl:FunctionalProperty ;
+	rdfs:domain gn:OrderList ;
+	rdfs:range gn:Product .
+# 
+# http://localhost/concept/oml/gn#orderProperty
+
+gn:orderProperty a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty .
+# 
+# http://localhost/concept/oml/gn#ownsDataCollection
+
+gn:ownsDataCollection a owl:ObjectProperty ;
+	rdfs:subPropertyOf gn:internalProperty ;
+	rdfs:range gn:DataCollection .
+# 
+# http://localhost/concept/oml/gn#ownsFunctionalTask
+
+gn:ownsFunctionalTask a owl:ObjectProperty ;
+	rdfs:subPropertyOf gn:internalProperty ;
+	a owl:InverseFunctionalProperty ;
+	rdfs:domain gn:Internal ;
+	rdfs:range gn:FunctionalTask .
+# 
+# http://localhost/concept/oml/gn#ownsProcess
+
+gn:ownsProcess a owl:ObjectProperty ;
+	rdfs:subPropertyOf gn:internalProperty ;
+	a owl:InverseFunctionalProperty ;
+	rdfs:domain gn:Manager ;
+	rdfs:range gn:Process .
+# 
+# http://localhost/concept/oml/gn#ownsProcessStep
+
+gn:ownsProcessStep a owl:ObjectProperty ;
+	rdfs:subPropertyOf gn:internalProperty ;
+	a owl:InverseFunctionalProperty ;
+	rdfs:domain gn:Internal ;
+	rdfs:range gn:ProcessStep .
+# 
+# http://localhost/concept/oml/gn#processProperty
+
+gn:processProperty a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty .
+# 
+# http://localhost/concept/oml/gn#processStepProperty
+
+gn:processStepProperty a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty .
+# 
+# http://localhost/concept/oml/gn#productProperty
+
+gn:productProperty a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# http://localhost/concept/oml/gn#available_from
+
+gn:available_from a owl:DatatypeProperty .
+# 
+# http://localhost/concept/oml/gn#available_to
+
+gn:available_to a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty .
+# 
+# http://localhost/concept/oml/gn#isAvailable
+
+gn:isAvailable a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty .
+# 
+# http://localhost/concept/oml/gn#orderNr
+
+gn:orderNr a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty .
+# 
+# http://localhost/concept/oml/gn#orderQuantity
+
+gn:orderQuantity a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://localhost/concept/oml/gn#Activity
+
+gn:Activity a owl:Class .
+# 
+# http://localhost/concept/oml/gn#ActivityStatus
+
+gn:ActivityStatus a owl:Class ;
+	rdfs:comment "Jeder Task, Prozessschritt und Prozess wird durch einen aktuellen Status beschrieben. One of PENDING, ACTIVE, FINISHED" .
+# 
+# http://localhost/concept/oml/gn#Assembly
+
+gn:Assembly a owl:Class ;
+	rdfs:subClassOf gn:Production , _:genid1 .
+
+_:genid1 a owl:Restriction ;
+	owl:onProperty org:hasMember ;
+	owl:someValuesFrom gn:AssemblyManager .
+
+gn:Assembly owl:disjointWith gn:ShopFloor .
+# 
+# http://localhost/concept/oml/gn#AssemblyEvent
+
+gn:AssemblyEvent a owl:Class ;
+	rdfs:subClassOf gn:ProductionEvent ;
+	owl:disjointWith gn:ShopfloorEvent .
+# 
+# http://localhost/concept/oml/gn#AssemblyManager
+
+gn:AssemblyManager a owl:Class ;
+	rdfs:subClassOf gn:ProductionManager , _:genid2 .
+
+_:genid2 a owl:Restriction ;
+	owl:onProperty gn:ownsFunctionalTask ;
+	owl:someValuesFrom gn:AssemblyTask .
+
+gn:AssemblyManager rdfs:subClassOf _:genid3 .
+
+_:genid3 a owl:Restriction ;
+	owl:onProperty gn:ownsFunctionalTask ;
+	owl:allValuesFrom gn:AssemblyTask .
+
+gn:AssemblyManager rdfs:subClassOf _:genid4 .
+
+_:genid4 a owl:Restriction ;
+	owl:onProperty org:reportsTo ;
+	owl:allValuesFrom gn:ProductionManager .
+
+gn:AssemblyManager owl:disjointWith gn:ShopFloorManager .
+# 
+# http://localhost/concept/oml/gn#AssemblyTask
+
+gn:AssemblyTask a owl:Class ;
+	rdfs:subClassOf gn:ProductionTask ;
+	owl:disjointWith gn:ShopFloorTask .
+# 
+# http://localhost/concept/oml/gn#Availability
+
+gn:Availability a owl:Class ;
+	rdfs:subClassOf _:genid5 .
+
+_:genid5 a owl:Restriction ;
+	owl:onProperty gn:available_from ;
+	owl:someValuesFrom rdfs:Literal .
+
+gn:Availability rdfs:subClassOf _:genid6 .
+
+_:genid6 a owl:Restriction ;
+	owl:onProperty gn:available_to ;
+	owl:someValuesFrom rdfs:Literal .
+
+gn:Availability rdfs:subClassOf _:genid7 .
+
+_:genid7 a owl:Restriction ;
+	owl:onProperty gn:isAvailable ;
+	owl:someValuesFrom rdfs:Literal .
+# 
+# http://localhost/concept/oml/gn#BrokenMaterial
+
+gn:BrokenMaterial a owl:Class ;
+	rdfs:subClassOf gn:WasteMaterial .
+# 
+# http://localhost/concept/oml/gn#Cell
+
+gn:Cell a owl:Class ;
+	rdfs:subClassOf gn:Equipment .
+# 
+# http://localhost/concept/oml/gn#Company
+
+gn:Company a owl:Class ;
+	rdfs:subClassOf owl:Thing , org:FormalOrganization , _:genid8 .
+
+_:genid8 a owl:Restriction ;
+	owl:onProperty org:hasUnit ;
+	owl:someValuesFrom gn:Department .
+# 
+# http://localhost/concept/oml/gn#Customer
+
+gn:Customer a owl:Class ;
+	rdfs:subClassOf gn:External ;
+	owl:disjointWith gn:Supplier .
+# 
+# http://localhost/concept/oml/gn#CustomerOrder
+
+gn:CustomerOrder a owl:Class ;
+	owl:equivalentClass _:genid9 .
+
+_:genid9 a owl:Restriction ;
+	owl:onProperty gn:orderBy ;
+	owl:someValuesFrom gn:Customer .
+
+gn:CustomerOrder rdfs:subClassOf gn:Order ;
+	owl:disjointWith gn:SupplierOrder .
+# 
+# http://localhost/concept/oml/gn#DataCollection
+
+gn:DataCollection a owl:Class ;
+	rdfs:subClassOf _:genid10 .
+
+_:genid10 a owl:Restriction ;
+	owl:onProperty gn:canRead ;
+	owl:someValuesFrom owl:Thing .
+
+gn:DataCollection rdfs:subClassOf _:genid11 .
+
+_:genid11 a owl:Restriction ;
+	owl:onProperty gn:canWrite ;
+	owl:someValuesFrom owl:Thing .
+# 
+# http://localhost/concept/oml/gn#Department
+
+gn:Department a owl:Class ;
+	rdfs:subClassOf owl:Thing , org:OrganizationalUnit , _:genid12 .
+
+_:genid12 a owl:Restriction ;
+	owl:onProperty org:hasMember ;
+	owl:someValuesFrom gn:Internal .
+
+gn:Department rdfs:subClassOf _:genid13 .
+
+_:genid13 a owl:Restriction ;
+	owl:onProperty org:hasPost ;
+	owl:someValuesFrom org:Post .
+# 
+# http://localhost/concept/oml/gn#DispositionManager
+
+gn:DispositionManager a owl:Class ;
+	rdfs:subClassOf gn:MaterialdispositionManager , _:genid14 .
+
+_:genid14 a owl:Restriction ;
+	owl:onProperty org:reportsTo ;
+	owl:allValuesFrom gn:MaterialdispositionManager .
+
+gn:DispositionManager owl:disjointWith gn:PurchaseManager .
+# 
+# http://localhost/concept/oml/gn#Employee
+
+gn:Employee a owl:Class ;
+	rdfs:subClassOf gn:Internal , _:genid15 .
+
+_:genid15 a owl:Restriction ;
+	owl:onProperty gn:ownsFunctionalTask ;
+	owl:someValuesFrom gn:FunctionalTask .
+
+gn:Employee rdfs:subClassOf _:genid16 .
+
+_:genid16 a owl:Restriction ;
+	owl:onProperty gn:ownsProcessStep ;
+	owl:someValuesFrom gn:ProcessStep .
+
+gn:Employee rdfs:subClassOf _:genid17 .
+
+_:genid17 a owl:Restriction ;
+	owl:onProperty org:reportsTo ;
+	owl:someValuesFrom gn:Manager .
+
+gn:Employee rdfs:subClassOf _:genid18 .
+
+_:genid18 a owl:Restriction ;
+	owl:onProperty gn:ownsFunctionalTask ;
+	owl:allValuesFrom gn:FunctionalTask .
+
+gn:Employee rdfs:subClassOf _:genid19 .
+
+_:genid19 a owl:Restriction ;
+	owl:onProperty gn:ownsProcessStep ;
+	owl:allValuesFrom gn:ProcessStep .
+
+gn:Employee rdfs:subClassOf _:genid20 .
+
+_:genid20 a owl:Restriction ;
+	owl:onProperty org:reportsTo ;
+	owl:allValuesFrom gn:Manager .
+# 
+# http://localhost/concept/oml/gn#Equipment
+
+gn:Equipment a owl:Class ;
+	rdfs:subClassOf gn:Resource .
+# 
+# http://localhost/concept/oml/gn#Event
+
+gn:Event a owl:Class ;
+	rdfs:subClassOf gn:Activity ;
+	rdfs:comment "An Event is something similar to a FunctionalTask, except it is created by the enviroment in case of defined preconditions. It serves as a thing, similar to a notification."@en .
+# 
+# http://localhost/concept/oml/gn#External
+
+gn:External a owl:Class ;
+	rdfs:subClassOf gn:Role ;
+	owl:disjointWith gn:Internal ;
+	rdfs:comment "An external is also kind of a role, isn't it?" .
+# 
+# http://localhost/concept/oml/gn#FinishedMaterial
+
+gn:FinishedMaterial a owl:Class ;
+	owl:equivalentClass gn:Product ;
+	rdfs:subClassOf gn:Material ;
+	rdfs:comment "Eigentlich das Gleiche wie Produkte, nur sind Produkte Definitionen, wohingegen hier konkrete, erzeugte Instanzen zugeordnet werden" .
+# 
+# http://localhost/concept/oml/gn#Foreman
+
+gn:Foreman a owl:Class ;
+	rdfs:subClassOf gn:Worker , _:genid21 .
+
+_:genid21 a owl:Restriction ;
+	owl:onProperty gn:ownsFunctionalTask ;
+	owl:someValuesFrom gn:ProductionTask .
+
+gn:Foreman rdfs:subClassOf _:genid22 .
+
+_:genid22 a owl:Restriction ;
+	owl:onProperty gn:ownsFunctionalTask ;
+	owl:allValuesFrom gn:ProductionTask .
+
+gn:Foreman rdfs:subClassOf _:genid23 .
+
+_:genid23 a owl:Restriction ;
+	owl:onProperty org:reportsTo ;
+	owl:allValuesFrom gn:ShopFloorManager .
+# 
+# http://localhost/concept/oml/gn#FunctionalTask
+
+gn:FunctionalTask a owl:Class ;
+	rdfs:subClassOf gn:Activity , _:genid24 .
+
+_:genid24 a owl:Restriction ;
+	owl:onProperty gn:hasFunctionalTaskInput ;
+	owl:someValuesFrom gn:Material .
+
+gn:FunctionalTask rdfs:subClassOf _:genid25 .
+
+_:genid25 a owl:Restriction ;
+	owl:onProperty gn:hasFunctionalTaskOutput ;
+	owl:someValuesFrom gn:Material .
+
+gn:FunctionalTask rdfs:subClassOf _:genid26 .
+
+_:genid26 a owl:Restriction ;
+	owl:onProperty gn:hasFunctionalTaskStatus ;
+	owl:someValuesFrom gn:ActivityStatus .
+
+gn:FunctionalTask rdfs:subClassOf _:genid27 .
+
+_:genid27 a owl:Restriction ;
+	owl:onProperty gn:hasFunctionalTaskInput ;
+	owl:allValuesFrom gn:Material .
+
+gn:FunctionalTask rdfs:subClassOf _:genid28 .
+
+_:genid28 a owl:Restriction ;
+	owl:onProperty gn:hasFunctionalTaskOutput ;
+	owl:allValuesFrom gn:Material .
+
+gn:FunctionalTask rdfs:comment "Ein FunctionalTask entspricht einer Aufgabe, die ein Mitarbeiter zu verrichten hat. Sie unterscheidet von einem Prozess oder Prozessschritt durch die tatsächliche Ausführbarkeit."@de , "Ein Task enthält Materialien (Einzelteile = Rohmaterialien; Baugruppe = Intermediate) und produziert Daten (!) oder Materialien (Baugruppen; Intermediates)" .
+# 
+# http://localhost/concept/oml/gn#HumanResource
+
+gn:HumanResource a owl:Class ;
+	rdfs:subClassOf gn:Resource , <http://xmlns.com/foaf/0.1/Agent> , _:genid29 .
+
+_:genid29 a owl:Restriction ;
+	owl:onProperty org:holds ;
+	owl:someValuesFrom org:Post .
+
+gn:HumanResource rdfs:comment "A Human who works at a company's department and finds his place at a Post" .
+# 
+# http://localhost/concept/oml/gn#IntermediateMaterial
+
+gn:IntermediateMaterial a owl:Class ;
+	rdfs:subClassOf gn:Material ;
+	rdfs:comment "Verarbeitete Materialien, auch Baugruppen" .
+# 
+# http://localhost/concept/oml/gn#Internal
+
+gn:Internal a owl:Class ;
+	owl:equivalentClass org:Post ;
+	rdfs:subClassOf gn:Role ;
+	rdfs:comment "An Internal is like a Post. It's not a concrete person, but a concrete person has to fullfill the post in order to do his job" .
+# 
+# http://localhost/concept/oml/gn#Line
+
+gn:Line a owl:Class ;
+	rdfs:subClassOf gn:Equipment .
+# 
+# http://localhost/concept/oml/gn#Maintainer
+
+gn:Maintainer a owl:Class ;
+	rdfs:subClassOf gn:Worker , _:genid30 .
+
+_:genid30 a owl:Restriction ;
+	owl:onProperty gn:ownsFunctionalTask ;
+	owl:someValuesFrom gn:QualityControlTask .
+
+gn:Maintainer rdfs:subClassOf _:genid31 .
+
+_:genid31 a owl:Restriction ;
+	owl:onProperty org:reportsTo ;
+	owl:allValuesFrom gn:QualityControlManager .
+# 
+# http://localhost/concept/oml/gn#Manager
+
+gn:Manager a owl:Class ;
+	rdfs:subClassOf gn:Employee , _:genid32 .
+
+_:genid32 a owl:Restriction ;
+	owl:onProperty gn:ownsFunctionalTask ;
+	owl:someValuesFrom gn:FunctionalTask .
+
+gn:Manager rdfs:subClassOf _:genid33 .
+
+_:genid33 a owl:Restriction ;
+	owl:onProperty gn:ownsProcess ;
+	owl:someValuesFrom gn:Process .
+
+gn:Manager rdfs:subClassOf _:genid34 .
+
+_:genid34 a owl:Restriction ;
+	owl:onProperty gn:ownsProcessStep ;
+	owl:someValuesFrom gn:ProcessStep .
+
+gn:Manager rdfs:subClassOf _:genid35 .
+
+_:genid35 a owl:Restriction ;
+	owl:onProperty gn:ownsFunctionalTask ;
+	owl:allValuesFrom gn:FunctionalTask .
+
+gn:Manager rdfs:subClassOf _:genid36 .
+
+_:genid36 a owl:Restriction ;
+	owl:onProperty gn:ownsProcess ;
+	owl:allValuesFrom gn:Process .
+
+gn:Manager rdfs:subClassOf _:genid37 .
+
+_:genid37 a owl:Restriction ;
+	owl:onProperty gn:ownsProcessStep ;
+	owl:allValuesFrom gn:ProcessStep .
+
+gn:Manager rdfs:subClassOf _:genid38 .
+
+_:genid38 a owl:Restriction ;
+	owl:onProperty org:reportsTo ;
+	owl:allValuesFrom gn:Manager .
+# 
+# http://localhost/concept/oml/gn#Material
+
+gn:Material a owl:Class ;
+	rdfs:subClassOf gn:Resource .
+# 
+# http://localhost/concept/oml/gn#MaterialPlaningTask
+
+gn:MaterialPlaningTask a owl:Class ;
+	rdfs:subClassOf gn:MaterialdispositionTask .
+# 
+# http://localhost/concept/oml/gn#Materialdisposition
+
+gn:Materialdisposition a owl:Class ;
+	rdfs:subClassOf gn:Department , _:genid39 .
+
+_:genid39 a owl:Restriction ;
+	owl:onProperty org:hasMember ;
+	owl:someValuesFrom gn:MaterialdispositionManager .
+# 
+# http://localhost/concept/oml/gn#MaterialdispositionEvent
+
+gn:MaterialdispositionEvent a owl:Class ;
+	rdfs:subClassOf gn:Event .
+# 
+# http://localhost/concept/oml/gn#MaterialdispositionManager
+
+gn:MaterialdispositionManager a owl:Class ;
+	rdfs:subClassOf gn:Manager , _:genid40 .
+
+_:genid40 a owl:Restriction ;
+	owl:onProperty gn:ownsFunctionalTask ;
+	owl:someValuesFrom gn:MaterialdispositionTask .
+
+gn:MaterialdispositionManager rdfs:subClassOf _:genid41 .
+
+_:genid41 a owl:Restriction ;
+	owl:onProperty gn:ownsFunctionalTask ;
+	owl:allValuesFrom gn:MaterialdispositionTask .
+# 
+# http://localhost/concept/oml/gn#MaterialdispositionTask
+
+gn:MaterialdispositionTask a owl:Class ;
+	rdfs:subClassOf gn:FunctionalTask .
+# 
+# http://localhost/concept/oml/gn#Order
+
+gn:Order a owl:Class ;
+	rdfs:subClassOf _:genid42 .
+
+_:genid42 a owl:Restriction ;
+	owl:onProperty gn:orderDate ;
+	owl:someValuesFrom owl:Thing .
+
+gn:Order rdfs:subClassOf _:genid43 .
+
+_:genid43 a owl:Restriction ;
+	owl:onProperty gn:orderEndDate ;
+	owl:someValuesFrom owl:Thing .
+
+gn:Order rdfs:subClassOf _:genid44 .
+
+_:genid44 a owl:Restriction ;
+	owl:onProperty gn:orderList ;
+	owl:someValuesFrom gn:OrderList .
+
+gn:Order rdfs:subClassOf _:genid45 .
+
+_:genid45 a owl:Restriction ;
+	owl:onProperty gn:orderBy ;
+	owl:allValuesFrom gn:External .
+
+gn:Order rdfs:subClassOf _:genid46 .
+
+_:genid46 a owl:Restriction ;
+	owl:onProperty gn:orderNr ;
+	owl:someValuesFrom rdfs:Literal .
+# 
+# http://localhost/concept/oml/gn#OrderList
+
+gn:OrderList a owl:Class ;
+	rdfs:subClassOf _:genid47 .
+
+_:genid47 a owl:Restriction ;
+	owl:onProperty gn:orderProduct ;
+	owl:allValuesFrom gn:Product .
+
+gn:OrderList rdfs:subClassOf _:genid48 .
+
+_:genid48 a owl:Restriction ;
+	owl:onProperty gn:orderQuantity ;
+	owl:allValuesFrom rdfs:Literal .
+# 
+# http://localhost/concept/oml/gn#Process
+
+gn:Process a owl:Class ;
+	rdfs:subClassOf gn:Activity , _:genid49 .
+
+_:genid49 a owl:Restriction ;
+	owl:onProperty gn:hasProcessStatus ;
+	owl:someValuesFrom gn:ActivityStatus .
+
+gn:Process rdfs:subClassOf _:genid50 .
+
+_:genid50 a owl:Restriction ;
+	owl:onProperty gn:hasProcessStep ;
+	owl:someValuesFrom gn:ProcessStep .
+
+gn:Process rdfs:comment "Ein Prozess delegiert Aufgaben durch seine Prozessschritte und hat ein Produkt oder Teilprodukt als Ziel." .
+# 
+# http://localhost/concept/oml/gn#ProcessStep
+
+gn:ProcessStep a owl:Class ;
+	rdfs:subClassOf gn:Activity , _:genid51 .
+
+_:genid51 a owl:Restriction ;
+	owl:onProperty gn:hasFunctionalTask ;
+	owl:someValuesFrom gn:FunctionalTask .
+
+gn:ProcessStep rdfs:subClassOf _:genid52 .
+
+_:genid52 a owl:Restriction ;
+	owl:onProperty gn:hasProcessStepStatus ;
+	owl:someValuesFrom gn:ActivityStatus .
+
+gn:ProcessStep rdfs:subClassOf _:genid53 .
+
+_:genid53 a owl:Restriction ;
+	owl:onProperty gn:hasNextStep_directly ;
+	owl:allValuesFrom gn:ProcessStep .
+# 
+# http://localhost/concept/oml/gn#Product
+
+gn:Product a owl:Class ;
+	rdfs:subClassOf _:genid54 .
+
+_:genid54 a owl:Restriction ;
+	owl:onProperty gn:buildBy ;
+	owl:someValuesFrom gn:Process .
+# 
+# http://localhost/concept/oml/gn#Production
+
+gn:Production a owl:Class ;
+	rdfs:subClassOf gn:Department , _:genid55 .
+
+_:genid55 a owl:Restriction ;
+	owl:onProperty org:hasMember ;
+	owl:someValuesFrom gn:Foreman .
+
+gn:Production rdfs:subClassOf _:genid56 .
+
+_:genid56 a owl:Restriction ;
+	owl:onProperty org:hasMember ;
+	owl:someValuesFrom gn:ProductionManager .
+
+gn:Production rdfs:subClassOf _:genid57 .
+
+_:genid57 a owl:Restriction ;
+	owl:onProperty org:hasMember ;
+	owl:someValuesFrom gn:Worker .
+# 
+# http://localhost/concept/oml/gn#ProductionEvent
+
+gn:ProductionEvent a owl:Class ;
+	rdfs:subClassOf gn:Event .
+# 
+# http://localhost/concept/oml/gn#ProductionManager
+
+gn:ProductionManager a owl:Class ;
+	rdfs:subClassOf gn:Manager , _:genid58 .
+
+_:genid58 a owl:Restriction ;
+	owl:onProperty gn:ownsFunctionalTask ;
+	owl:someValuesFrom gn:ProductionTask .
+
+gn:ProductionManager rdfs:subClassOf _:genid59 .
+
+_:genid59 a owl:Restriction ;
+	owl:onProperty gn:ownsFunctionalTask ;
+	owl:allValuesFrom gn:ProductionTask .
+# 
+# http://localhost/concept/oml/gn#ProductionPlaningTask
+
+gn:ProductionPlaningTask a owl:Class ;
+	rdfs:subClassOf gn:MaterialdispositionTask .
+# 
+# http://localhost/concept/oml/gn#ProductionSchedulingTask
+
+gn:ProductionSchedulingTask a owl:Class ;
+	rdfs:subClassOf gn:MaterialdispositionTask .
+# 
+# http://localhost/concept/oml/gn#ProductionTask
+
+gn:ProductionTask a owl:Class ;
+	rdfs:subClassOf gn:FunctionalTask .
+# 
+# http://localhost/concept/oml/gn#PurchaseManager
+
+gn:PurchaseManager a owl:Class ;
+	rdfs:subClassOf gn:MaterialdispositionManager , _:genid60 .
+
+_:genid60 a owl:Restriction ;
+	owl:onProperty org:reportsTo ;
+	owl:allValuesFrom gn:MaterialdispositionManager .
+# 
+# http://localhost/concept/oml/gn#QualityControl
+
+gn:QualityControl a owl:Class ;
+	rdfs:subClassOf gn:Department , _:genid61 .
+
+_:genid61 a owl:Restriction ;
+	owl:onProperty org:hasMember ;
+	owl:someValuesFrom gn:QualityControlManager .
+# 
+# http://localhost/concept/oml/gn#QualityControlEvent
+
+gn:QualityControlEvent a owl:Class ;
+	rdfs:subClassOf gn:Event .
+# 
+# http://localhost/concept/oml/gn#QualityControlManager
+
+gn:QualityControlManager a owl:Class ;
+	rdfs:subClassOf gn:Manager , _:genid62 .
+
+_:genid62 a owl:Restriction ;
+	owl:onProperty gn:ownsFunctionalTask ;
+	owl:someValuesFrom gn:QualityControlTask .
+
+gn:QualityControlManager rdfs:subClassOf _:genid63 .
+
+_:genid63 a owl:Restriction ;
+	owl:onProperty gn:ownsFunctionalTask ;
+	owl:allValuesFrom gn:QualityControlTask .
+# 
+# http://localhost/concept/oml/gn#QualityControlTask
+
+gn:QualityControlTask a owl:Class ;
+	rdfs:subClassOf gn:FunctionalTask .
+# 
+# http://localhost/concept/oml/gn#RawMaterial
+
+gn:RawMaterial a owl:Class ;
+	rdfs:subClassOf gn:Material ;
+	rdfs:comment "Landherr würde diese hier Einzelteile nennen" .
+# 
+# http://localhost/concept/oml/gn#Resource
+
+gn:Resource a owl:Class .
+# 
+# http://localhost/concept/oml/gn#Role
+
+gn:Role a owl:Class ;
+	rdfs:subClassOf owl:Thing , org:Role ;
+	rdfs:comment "This class only exists to capsulate Internal and External and making them a subclass of owl:Thing without modifing org:" .
+# 
+# http://localhost/concept/oml/gn#Sales
+
+gn:Sales a owl:Class ;
+	rdfs:subClassOf gn:Department , _:genid64 .
+
+_:genid64 a owl:Restriction ;
+	owl:onProperty org:hasMember ;
+	owl:someValuesFrom gn:SalesManager .
+# 
+# http://localhost/concept/oml/gn#SalesEvent
+
+gn:SalesEvent a owl:Class ;
+	rdfs:subClassOf gn:Event .
+# 
+# http://localhost/concept/oml/gn#SalesManager
+
+gn:SalesManager a owl:Class ;
+	rdfs:subClassOf gn:Manager , _:genid65 .
+
+_:genid65 a owl:Restriction ;
+	owl:onProperty gn:ownsFunctionalTask ;
+	owl:someValuesFrom gn:SalesTask .
+
+gn:SalesManager rdfs:subClassOf _:genid66 .
+
+_:genid66 a owl:Restriction ;
+	owl:onProperty gn:ownsFunctionalTask ;
+	owl:allValuesFrom gn:SalesTask .
+# 
+# http://localhost/concept/oml/gn#SalesTask
+
+gn:SalesTask a owl:Class ;
+	rdfs:subClassOf gn:FunctionalTask .
+# 
+# http://localhost/concept/oml/gn#Sensor
+
+gn:Sensor a owl:Class ;
+	rdfs:subClassOf gn:Equipment , sosa:Sensor ;
+	rdfs:comment "Eine Subklasse, um eine Verbindung zur SSN Ontology zu erhalten" .
+# 
+# http://localhost/concept/oml/gn#ShopFloor
+
+gn:ShopFloor a owl:Class ;
+	rdfs:subClassOf gn:Production , _:genid67 .
+
+_:genid67 a owl:Restriction ;
+	owl:onProperty org:hasMember ;
+	owl:someValuesFrom gn:ShopFloorManager .
+# 
+# http://localhost/concept/oml/gn#ShopFloorManager
+
+gn:ShopFloorManager a owl:Class ;
+	rdfs:subClassOf gn:ProductionManager , _:genid68 .
+
+_:genid68 a owl:Restriction ;
+	owl:onProperty gn:ownsFunctionalTask ;
+	owl:someValuesFrom gn:ShopFloorTask .
+
+gn:ShopFloorManager rdfs:subClassOf _:genid69 .
+
+_:genid69 a owl:Restriction ;
+	owl:onProperty gn:ownsFunctionalTask ;
+	owl:allValuesFrom gn:ShopFloorTask .
+
+gn:ShopFloorManager rdfs:subClassOf _:genid70 .
+
+_:genid70 a owl:Restriction ;
+	owl:onProperty org:reportsTo ;
+	owl:allValuesFrom gn:ProductionManager .
+# 
+# http://localhost/concept/oml/gn#ShopFloorTask
+
+gn:ShopFloorTask a owl:Class ;
+	rdfs:subClassOf gn:ProductionTask .
+# 
+# http://localhost/concept/oml/gn#ShopfloorEvent
+
+gn:ShopfloorEvent a owl:Class ;
+	rdfs:subClassOf gn:ProductionEvent .
+# 
+# http://localhost/concept/oml/gn#Station
+
+gn:Station a owl:Class ;
+	rdfs:subClassOf gn:Equipment .
+# 
+# http://localhost/concept/oml/gn#Supplier
+
+gn:Supplier a owl:Class ;
+	rdfs:subClassOf gn:External .
+# 
+# http://localhost/concept/oml/gn#SupplierOrder
+
+gn:SupplierOrder a owl:Class ;
+	owl:equivalentClass _:genid71 .
+
+_:genid71 a owl:Restriction ;
+	owl:onProperty gn:orderBy ;
+	owl:someValuesFrom gn:Supplier .
+
+gn:SupplierOrder rdfs:subClassOf gn:Order .
+# 
+# http://localhost/concept/oml/gn#Tool
+
+gn:Tool a owl:Class ;
+	rdfs:subClassOf gn:Equipment .
+# 
+# http://localhost/concept/oml/gn#UnusableMaterial
+
+gn:UnusableMaterial a owl:Class ;
+	rdfs:subClassOf gn:Material .
+# 
+# http://localhost/concept/oml/gn#UsedMaterial
+
+gn:UsedMaterial a owl:Class ;
+	rdfs:subClassOf gn:Material .
+# 
+# http://localhost/concept/oml/gn#WasteMaterial
+
+gn:WasteMaterial a owl:Class ;
+	rdfs:subClassOf gn:UnusableMaterial .
+# 
+# http://localhost/concept/oml/gn#Worker
+
+gn:Worker a owl:Class ;
+	rdfs:subClassOf gn:Internal , _:genid72 .
+
+_:genid72 a owl:Restriction ;
+	owl:onProperty gn:ownsFunctionalTask ;
+	owl:someValuesFrom gn:ProductionTask .
+
+gn:Worker rdfs:subClassOf _:genid73 .
+
+_:genid73 a owl:Restriction ;
+	owl:onProperty org:reportsTo ;
+	owl:allValuesFrom gn:Foreman .
+# 
+# http://www.w3.org/ns/org#Post
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Individuals
+# #
+# #################################################################
+# 
+# 
+# http://localhost/concept/oml/gn#ACTIVE
+
+gn:ACTIVE a owl:NamedIndividual , gn:ActivityStatus .
+# 
+# http://localhost/concept/oml/gn#FINISHED
+
+gn:FINISHED a owl:NamedIndividual , gn:ActivityStatus .
+# 
+# http://localhost/concept/oml/gn#PENDING
+
+gn:PENDING a owl:NamedIndividual , gn:ActivityStatus .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    General axioms
+# #
+# #################################################################
+# 
+# 
+
+_:genid74 a owl:AllDisjointClasses ;
+	owl:members _:genid79 .
+
+_:genid79 a rdf:List ;
+	rdf:first gn:Activity ;
+	rdf:rest _:genid78 .
+
+_:genid78 a rdf:List ;
+	rdf:first gn:Company ;
+	rdf:rest _:genid77 .
+
+_:genid77 a rdf:List ;
+	rdf:first gn:Order ;
+	rdf:rest _:genid76 .
+
+_:genid76 a rdf:List ;
+	rdf:first gn:OrderList ;
+	rdf:rest _:genid75 .
+
+_:genid75 a rdf:List ;
+	rdf:first gn:Resource ;
+	rdf:rest rdf:nil .
+# 
+
+_:genid80 a owl:AllDisjointClasses ;
+	owl:members _:genid84 .
+
+_:genid84 a rdf:List ;
+	rdf:first gn:ActivityStatus ;
+	rdf:rest _:genid83 .
+
+_:genid83 a rdf:List ;
+	rdf:first gn:FunctionalTask ;
+	rdf:rest _:genid82 .
+
+_:genid82 a rdf:List ;
+	rdf:first gn:Process ;
+	rdf:rest _:genid81 .
+
+_:genid81 a rdf:List ;
+	rdf:first gn:ProcessStep ;
+	rdf:rest rdf:nil .
+# 
+
+_:genid85 a owl:AllDisjointClasses ;
+	owl:members _:genid90 .
+
+_:genid90 a rdf:List ;
+	rdf:first gn:Cell ;
+	rdf:rest _:genid89 .
+
+_:genid89 a rdf:List ;
+	rdf:first gn:Line ;
+	rdf:rest _:genid88 .
+
+_:genid88 a rdf:List ;
+	rdf:first gn:Sensor ;
+	rdf:rest _:genid87 .
+
+_:genid87 a rdf:List ;
+	rdf:first gn:Station ;
+	rdf:rest _:genid86 .
+
+_:genid86 a rdf:List ;
+	rdf:first gn:Tool ;
+	rdf:rest rdf:nil .
+# 
+
+_:genid91 a owl:AllDisjointClasses ;
+	owl:members _:genid94 .
+
+_:genid94 a rdf:List ;
+	rdf:first gn:Equipment ;
+	rdf:rest _:genid93 .
+
+_:genid93 a rdf:List ;
+	rdf:first gn:HumanResource ;
+	rdf:rest _:genid92 .
+
+_:genid92 a rdf:List ;
+	rdf:first gn:Material ;
+	rdf:rest rdf:nil .
+# 
+
+_:genid95 a owl:AllDisjointClasses ;
+	owl:members _:genid98 .
+
+_:genid98 a rdf:List ;
+	rdf:first gn:MaterialPlaningTask ;
+	rdf:rest _:genid97 .
+
+_:genid97 a rdf:List ;
+	rdf:first gn:ProductionPlaningTask ;
+	rdf:rest _:genid96 .
+
+_:genid96 a rdf:List ;
+	rdf:first gn:ProductionSchedulingTask ;
+	rdf:rest rdf:nil .
+# 
+
+_:genid99 a owl:AllDisjointClasses ;
+	owl:members _:genid103 .
+
+_:genid103 a rdf:List ;
+	rdf:first gn:Materialdisposition ;
+	rdf:rest _:genid102 .
+
+_:genid102 a rdf:List ;
+	rdf:first gn:Production ;
+	rdf:rest _:genid101 .
+
+_:genid101 a rdf:List ;
+	rdf:first gn:QualityControl ;
+	rdf:rest _:genid100 .
+
+_:genid100 a rdf:List ;
+	rdf:first gn:Sales ;
+	rdf:rest rdf:nil .
+# 
+
+_:genid104 a owl:AllDisjointClasses ;
+	owl:members _:genid108 .
+
+_:genid108 a rdf:List ;
+	rdf:first gn:MaterialdispositionEvent ;
+	rdf:rest _:genid107 .
+
+_:genid107 a rdf:List ;
+	rdf:first gn:ProductionEvent ;
+	rdf:rest _:genid106 .
+
+_:genid106 a rdf:List ;
+	rdf:first gn:QualityControlEvent ;
+	rdf:rest _:genid105 .
+
+_:genid105 a rdf:List ;
+	rdf:first gn:SalesEvent ;
+	rdf:rest rdf:nil .
+# 
+
+_:genid109 a owl:AllDisjointClasses ;
+	owl:members _:genid113 .
+
+_:genid113 a rdf:List ;
+	rdf:first gn:MaterialdispositionManager ;
+	rdf:rest _:genid112 .
+
+_:genid112 a rdf:List ;
+	rdf:first gn:ProductionManager ;
+	rdf:rest _:genid111 .
+
+_:genid111 a rdf:List ;
+	rdf:first gn:QualityControlManager ;
+	rdf:rest _:genid110 .
+
+_:genid110 a rdf:List ;
+	rdf:first gn:SalesManager ;
+	rdf:rest rdf:nil .
+# 
+
+_:genid114 a owl:AllDisjointClasses ;
+	owl:members _:genid118 .
+
+_:genid118 a rdf:List ;
+	rdf:first gn:MaterialdispositionTask ;
+	rdf:rest _:genid117 .
+
+_:genid117 a rdf:List ;
+	rdf:first gn:ProductionTask ;
+	rdf:rest _:genid116 .
+
+_:genid116 a rdf:List ;
+	rdf:first gn:QualityControlTask ;
+	rdf:rest _:genid115 .
+
+_:genid115 a rdf:List ;
+	rdf:first gn:SalesTask ;
+	rdf:rest rdf:nil .
+# 
+
+_:genid119 a owl:AllDifferent ;
+	owl:distinctMembers _:genid122 .
+
+_:genid122 a rdf:List ;
+	rdf:first gn:ACTIVE ;
+	rdf:rest _:genid121 .
+
+_:genid121 a rdf:List ;
+	rdf:first gn:FINISHED ;
+	rdf:rest _:genid120 .
+
+_:genid120 a rdf:List ;
+	rdf:first gn:PENDING ;
+	rdf:rest rdf:nil .
+# 
+# Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi

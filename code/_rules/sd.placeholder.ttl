@@ -1,0 +1,17 @@
+PREFIX gn: <http://localhost/concept/oml/sick#> 
+PREFIX sick: <http://localhost/concept/oml/sick#> 
+PREFIX part: <http://www.w3.org/2001/sw/BestPractices/OEP/SimplePartWhole/part.owl#> 
+PREFIX shopfloor: <http://localhost/concept/shopfloor#> 
+PREFIX aoi: <http://localhost/concept/aoi#>
+
+    IF {
+      
+      ?s a aoi:BadComponent
+
+      BIND (UUID() as ?x)
+    }
+     THEN {
+
+     	?x a gn:MaterialdispositionEvent
+   
+    }

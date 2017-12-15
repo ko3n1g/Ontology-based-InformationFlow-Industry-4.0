@@ -1,0 +1,9 @@
+script(src='https://code.jquery.com/jquery-3.2.1.min.js')
+
+li.column
+    ul
+        each item in result
+            - var item = JSON.stringify(item.s.value).slice(1, -1);
+
+            li
+                a(href=item) #{item}

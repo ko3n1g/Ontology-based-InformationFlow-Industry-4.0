@@ -1,0 +1,91 @@
+[2017-12-14 17:42:01] Server     INFO  Apache Jena Fuseki 3.4.0
+[2017-12-14 17:42:01] Config     INFO  FUSEKI_HOME=/Users/oliver/Documents/Projects/BA-Thesis/public/code/fuseki
+[2017-12-14 17:42:01] Config     INFO  FUSEKI_BASE=/Users/oliver/Documents/Projects/BA-Thesis/public/code/fuseki/run
+[2017-12-14 17:42:01] Config     INFO  Shiro file: file:///Users/oliver/Documents/Projects/BA-Thesis/public/code/fuseki/run/shiro.ini
+[2017-12-14 17:42:01] Config     INFO  Configuration file: /Users/oliver/Documents/Projects/BA-Thesis/public/code/fuseki/run/config.ttl
+[2017-12-14 17:42:01] Config     INFO  Load configuration: file:///Users/oliver/Documents/Projects/BA-Thesis/public/code/fuseki/run/configuration/combined.ttl
+[2017-12-14 17:42:01] info       ERROR Does not exist: /Users/oliver/Documents/Projects/BA-Thesis/bitbucket/project/fuseki/run/databases/inferred/
+[2017-12-14 17:42:01] Server     ERROR Exception in initialization: caught: Does not exist: /Users/oliver/Documents/Projects/BA-Thesis/bitbucket/project/fuseki/run/databases/inferred/
+[2017-12-14 17:42:01] WebAppContext WARN  Failed startup of context o.e.j.w.WebAppContext@4e406694{/,file:///Users/oliver/Documents/Projects/BA-Thesis/public/code/fuseki/webapp/,UNAVAILABLE}
+org.apache.jena.assembler.exceptions.AssemblerException: caught: Does not exist: /Users/oliver/Documents/Projects/BA-Thesis/bitbucket/project/fuseki/run/databases/inferred/
+  doing:
+    root: http://base/#inferredGraph with type: http://jena.hpl.hp.com/2008/tdb#GraphTDB assembler class: class org.apache.jena.tdb.assembler.TDBGraphAssembler
+    root: http://base/#unionGraph with type: http://jena.hpl.hp.com/2005/11/Assembler#UnionModel assembler class: class org.apache.jena.assembler.assemblers.UnionModelAssembler
+    root: http://base/#dataset with type: http://jena.hpl.hp.com/2005/11/Assembler#RDFDataset assembler class: class org.apache.jena.sparql.core.assembler.DatasetAssembler
+
+	at org.apache.jena.assembler.assemblers.AssemblerGroup$PlainAssemblerGroup.openBySpecificType(AssemblerGroup.java:165)
+	at org.apache.jena.assembler.assemblers.AssemblerGroup$PlainAssemblerGroup.open(AssemblerGroup.java:144)
+	at org.apache.jena.assembler.assemblers.AssemblerGroup$ExpandingAssemblerGroup.open(AssemblerGroup.java:93)
+	at org.apache.jena.assembler.assemblers.AssemblerBase.openModel(AssemblerBase.java:74)
+	at org.apache.jena.assembler.assemblers.UnionModelAssembler.addSubModels(UnionModelAssembler.java:56)
+	at org.apache.jena.assembler.assemblers.UnionModelAssembler.openEmptyModel(UnionModelAssembler.java:41)
+	at org.apache.jena.assembler.assemblers.ModelAssembler.openModel(ModelAssembler.java:36)
+	at org.apache.jena.assembler.assemblers.ModelAssembler.open(ModelAssembler.java:43)
+	at org.apache.jena.assembler.assemblers.AssemblerGroup$PlainAssemblerGroup.openBySpecificType(AssemblerGroup.java:157)
+	at org.apache.jena.assembler.assemblers.AssemblerGroup$PlainAssemblerGroup.open(AssemblerGroup.java:144)
+	at org.apache.jena.assembler.assemblers.AssemblerGroup$ExpandingAssemblerGroup.open(AssemblerGroup.java:93)
+	at org.apache.jena.assembler.assemblers.AssemblerBase.open(AssemblerBase.java:39)
+	at org.apache.jena.assembler.assemblers.AssemblerBase.open(AssemblerBase.java:35)
+	at org.apache.jena.assembler.assemblers.AssemblerGroup.openModel(AssemblerGroup.java:47)
+	at org.apache.jena.sparql.core.assembler.DatasetAssembler.createDataset(DatasetAssembler.java:56)
+	at org.apache.jena.sparql.core.assembler.DatasetAssembler.open(DatasetAssembler.java:43)
+	at org.apache.jena.assembler.assemblers.AssemblerGroup$PlainAssemblerGroup.openBySpecificType(AssemblerGroup.java:157)
+	at org.apache.jena.assembler.assemblers.AssemblerGroup$PlainAssemblerGroup.open(AssemblerGroup.java:144)
+	at org.apache.jena.assembler.assemblers.AssemblerGroup$ExpandingAssemblerGroup.open(AssemblerGroup.java:93)
+	at org.apache.jena.assembler.assemblers.AssemblerBase.open(AssemblerBase.java:39)
+	at org.apache.jena.assembler.assemblers.AssemblerBase.open(AssemblerBase.java:35)
+	at org.apache.jena.fuseki.build.FusekiBuilder.getDataset(FusekiBuilder.java:111)
+	at org.apache.jena.fuseki.build.FusekiBuilder.buildDataService(FusekiBuilder.java:70)
+	at org.apache.jena.fuseki.build.FusekiBuilder.buildDataAccessPoint(FusekiBuilder.java:61)
+	at org.apache.jena.fuseki.build.FusekiConfig.readConfiguration(FusekiConfig.java:214)
+	at org.apache.jena.fuseki.build.FusekiConfig.readConfigurationDirectory(FusekiConfig.java:184)
+	at org.apache.jena.fuseki.server.FusekiSystem.initializeDataAccessPoints(FusekiSystem.java:207)
+	at org.apache.jena.fuseki.server.FusekiServerListener.serverInitialization(FusekiServerListener.java:88)
+	at org.apache.jena.fuseki.server.FusekiServerListener.contextInitialized(FusekiServerListener.java:52)
+	at org.eclipse.jetty.server.handler.ContextHandler.callContextInitialized(ContextHandler.java:890)
+	at org.eclipse.jetty.servlet.ServletContextHandler.callContextInitialized(ServletContextHandler.java:532)
+	at org.eclipse.jetty.server.handler.ContextHandler.startContext(ContextHandler.java:853)
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:344)
+	at org.eclipse.jetty.webapp.WebAppContext.startWebapp(WebAppContext.java:1501)
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1463)
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:785)
+	at org.eclipse.jetty.servlet.ServletContextHandler.doStart(ServletContextHandler.java:261)
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:545)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:68)
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.start(ContainerLifeCycle.java:131)
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.doStart(ContainerLifeCycle.java:105)
+	at org.eclipse.jetty.server.handler.AbstractHandler.doStart(AbstractHandler.java:113)
+	at org.eclipse.jetty.server.handler.gzip.GzipHandler.doStart(GzipHandler.java:272)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:68)
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.start(ContainerLifeCycle.java:131)
+	at org.eclipse.jetty.server.Server.start(Server.java:452)
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.doStart(ContainerLifeCycle.java:105)
+	at org.eclipse.jetty.server.handler.AbstractHandler.doStart(AbstractHandler.java:113)
+	at org.eclipse.jetty.server.Server.doStart(Server.java:419)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:68)
+	at org.apache.jena.fuseki.jetty.JettyFuseki.start(JettyFuseki.java:139)
+	at org.apache.jena.fuseki.cmd.FusekiCmd.runFuseki(FusekiCmd.java:367)
+	at org.apache.jena.fuseki.cmd.FusekiCmd$FusekiCmdInner.exec(FusekiCmd.java:351)
+	at jena.cmd.CmdMain.mainMethod(CmdMain.java:93)
+	at jena.cmd.CmdMain.mainRun(CmdMain.java:58)
+	at jena.cmd.CmdMain.mainRun(CmdMain.java:45)
+	at org.apache.jena.fuseki.cmd.FusekiCmd$FusekiCmdInner.innerMain(FusekiCmd.java:103)
+	at org.apache.jena.fuseki.cmd.FusekiCmd.main(FusekiCmd.java:67)
+Caused by: org.apache.jena.tdb.TDBException: Does not exist: /Users/oliver/Documents/Projects/BA-Thesis/bitbucket/project/fuseki/run/databases/inferred/
+	at org.apache.jena.tdb.setup.DatasetBuilderStd.error(DatasetBuilderStd.java:319)
+	at org.apache.jena.tdb.setup.DatasetBuilderStd.checkLocation(DatasetBuilderStd.java:147)
+	at org.apache.jena.tdb.setup.DatasetBuilderStd.build(DatasetBuilderStd.java:161)
+	at org.apache.jena.tdb.setup.DatasetBuilderStd.create(DatasetBuilderStd.java:90)
+	at org.apache.jena.tdb.StoreConnection.make(StoreConnection.java:213)
+	at org.apache.jena.tdb.StoreConnection.make(StoreConnection.java:220)
+	at org.apache.jena.tdb.transaction.DatasetGraphTransaction.<init>(DatasetGraphTransaction.java:70)
+	at org.apache.jena.tdb.sys.TDBMaker._create(TDBMaker.java:55)
+	at org.apache.jena.tdb.sys.TDBMaker.createDatasetGraphTransaction(TDBMaker.java:42)
+	at org.apache.jena.tdb.TDBFactory._createDatasetGraph(TDBFactory.java:89)
+	at org.apache.jena.tdb.TDBFactory.createDatasetGraph(TDBFactory.java:71)
+	at org.apache.jena.tdb.TDBFactory.createDataset(TDBFactory.java:55)
+	at org.apache.jena.tdb.assembler.TDBGraphAssembler.open(TDBGraphAssembler.java:82)
+	at org.apache.jena.tdb.assembler.TDBGraphAssembler.open(TDBGraphAssembler.java:42)
+	at org.apache.jena.assembler.assemblers.AssemblerGroup$PlainAssemblerGroup.openBySpecificType(AssemblerGroup.java:157)
+	... 57 more
+[2017-12-14 17:42:01] Server     INFO  Started 2017/12/14 17:42:01 MEZ on port 3030

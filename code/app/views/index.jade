@@ -1,0 +1,41 @@
+extends layout
+
+
+block content
+  h1= title
+
+  div#container
+    ul.outer
+        li.column
+          ul
+            each item in result
+              - if(item.s)
+                - var item = JSON.stringify(item.s.value).slice(1, -1);
+
+                li
+                    a(href=item) #{item}
+
+
+  script.
+      $(document).on('click', 'a', function (e) {
+          e.preventDefault();
+
+          var mode = "#{mode}";
+
+          const el = $(this);
+
+          el.parent().parent().find(".active").toggleClass("active");
+          el.parent().toggleClass("active");
+          el
+              .parents("li.column")
+              .nextAll()
+              .remove();
+
+          $.get("http://localhost:3000/endpoint", {subject: el.attr("href"), mode: mode}, function (data) {
+
+
+              el.parents("ul.outer").append(data);
+
+          });
+      });
+

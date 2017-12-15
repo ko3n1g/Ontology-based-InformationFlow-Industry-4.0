@@ -1,0 +1,2030 @@
+Lehrstuhl Pervasive Computing Systems
+PCS/TECO
+Prof. Dr.-Ing. Michael Beigl
+
+Ontology-based Information Flow
+Control  Visualization in an
+Industry 4.0 scenario
+
+Bachelorarbeit
+von
+
+Oliver König
+an der Fakultät  Informatik
+
+Erstgutachter:
+Zweitgutachter:
+Betreuender Mitarbeiter:
+
+Bearbeitungszeit:
+
+Prof. Dr.-Ing. M. Beigl
+Prof. Dr. H. Hartenstein
+Dipl.-Ing. A. Karatzoglou
+
+01. Mai 2017 – 30. Oktober 2017
+
+Kurzfassung
+Im Kontext der Digitalisierung schreitet auch die Vernetzung produzierender Unternehmen weiter voran. Die Entwicklungen dieser Domäne werden unter dem Begriff
+Industrie 4.0 zusammengefasst, welche neben der Vernetzung von Mensch und Maschine auch Fabriken und Produktionsanlagen umfasst.  Sensoren und Sensornetzwerken sollen Daten der Produktion erfasst und  Technologien des
+Semantic Webs die hohe resultierende Informationsdichte verarbeitet werden.
+Dabei finden die Entwicklungen der Industrie 4.0 ihren Ursprung in den Entwicklungen des Semantic Webs. Diese bietet durch die Beschreibungssprache
+Web Ontology Language (OWL) die Möglichkeit Informationsmodelle zu entwerfen,
+welche von autonomen Systemen maschinell verarbeitet werden .
+Im  dieser Arbeit soll ein Informationsmodell  produzierende Unternehmen entwickelt werden, welches  dieser Beschreibungssprache umgesetzt wird.
+Dieses Modell wird  den Strukturen produzierender Unternehmen entworfen,
+welche im  dieser Arbeit erarbeitet werden.
+Das Informationsmodell soll sich dabei nicht nur auf den Informationsfluss beschränken, sondern diesen um die Informationsflusskontrolle erweitern. Diese findet ihren
+Ursprung in der klassischen Zugangskontrolle und erweitert sie um die Frage wer,
+wann Zugriff auf welche Informationen erhalten soll und wie dieser Zugriff erfolgen
+soll.
+Abgeschlossen wird diese Arbeit durch eine Implementierung, in der  eines
+praktischen Anwendungsbeispieles die Möglichkeiten von OWL in einem Industrie
+4.0 Szenario untersucht werden. Dabei werden  verschiedene Datenbanken
+sowie quelloffene Java-Biblioken auf deren Funktionalität untersucht und in der
+abschließenden Evaluation bewertet.
+
+Abstract
+In  context of digitization, networking of manufacturing companies is also progressing.  developments in this domain are summarized under  term Industry
+4.0, which covers not only  networking of human  machine, but also factories
+ production facilities. Using sensors  sensor networks, production data is to
+be captured   resulting high density of information is to be processed using
+Semantic Web technologies.
+ developments of Industry 4.0 find ir origin in  developments of  Semantic Web. This provides  possibility to design information models, which can
+be processed by autonomous systems, by  description language
+Web Ontology Language (OWL).
+Within  scope of this work, an information model for manufacturing companies is
+to be developed, which will be implemented by means of this description language.
+This model is designed by  structures of manufacturing companies, which are
+developed within this work.
+ information model should not only be limited to  flow of information, but
+should also be extended to include information flow control. This originates from
+classical access control  extends it to include  question of who is to be granted
+access to which information, when  how this access is to take place.
+This work is concluded by an implementation, in which  possibilities of OWL in
+an industry 4.0 scenario are examined by means of a practical application example. Various databases  open source Java libraries are also examined for ir
+functionality  evaluated in  final evaluation.
+
+Ich erkläre hiermit, dass ich die vorliegende Arbeit selbständig verfasst und keine
+eren als die angegebenen Quellen und Hilfsmittel benutzt, die wörtlich oder
+inhaltlich übernommenen Stellen als solche kenntlich gemacht und die Satzung des
+KIT zur Sicherung guter wissenschaftlicher Praxis in der jeweils gültigen Fassung
+beachtet habe.
+
+Karlsruhe, den 6. November 2017
+
+Inhaltsverzeichnis
+1 Einleitung
+1.1 Zielsetzung der Arbeit . . . . . . . . . . . . . . . . . . . . . . . . . .
+1.2 Gliederung der Arbeit . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+1
+3
+3
+
+2 Grundlagen
+2.1 Digitale Vernetzung in der Industrie 4.0 . . . .
+2.2 Information Flow Control in der Industrie 4.0
+2.3 Linked Data in der Industrie 4.0 . . . . . . . .
+2.4 Verwte Arbeiten . . . . . . . . . . . . . . .
+
+.
+.
+.
+.
+
+3 Analyse
+3.1 Die Domäne eines Industrie 4.0 Szenarios .
+3.2 Spezifikationen und Technologien des
+Semantic Web . . . . . . . . . . . . . . . .
+3.3 Konzepte des Information Flow Controls .
+3.4 Anforderungen . . . . . . . . . . . . . . .
+3.5 Anwendungsfall des Industrie 4.0 Szenarios
+3.6 Zusammenfassung . . . . . . . . . . . . . .
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+14
+19
+22
+23
+24
+
+4 Entwurf
+4.1 Entwurf der generischen Ontologie . . . .
+4.2 Entwurf der spezifischen Ontologie . . .
+4.3 Integration des Information Flow Control
+4.4 Zusammenfassung . . . . . . . . . . . . .
+
+.
+.
+.
+.
+
+.
+.
+.
+.
+
+.
+.
+.
+.
+
+.
+.
+.
+.
+
+.
+.
+.
+.
+
+.
+.
+.
+.
+
+.
+.
+.
+.
+
+.
+.
+.
+.
+
+.
+.
+.
+.
+
+.
+.
+.
+.
+
+.
+.
+.
+.
+
+.
+.
+.
+.
+
+.
+.
+.
+.
+
+.
+.
+.
+.
+
+.
+.
+.
+.
+
+25
+26
+30
+34
+35
+
+.
+.
+.
+.
+
+.
+.
+.
+.
+
+.
+.
+.
+.
+
+.
+.
+.
+.
+
+.
+.
+.
+.
+
+.
+.
+.
+.
+
+.
+.
+.
+.
+
+.
+.
+.
+.
+
+.
+.
+.
+.
+
+.
+.
+.
+.
+
+.
+.
+.
+.
+
+.
+.
+.
+.
+
+.
+.
+.
+.
+
+5
+6
+9
+10
+11
+
+13
+. . . . . . . . . . . . . . . 13
+
+5 Implementierung
+37
+5.1 Implementierung der Java-App . . . . . . . . . . . . . . . . . . . . . 38
+5.2 Implementierung der Datenbank . . . . . . . . . . . . . . . . . . . . . 39
+5.3 Implementierung der Client-App . . . . . . . . . . . . . . . . . . . . . 40
+6 Evaluierung
+6.1 Evaluation der Implementierung . . .
+6.2 Evaluation der Performance . . . . .
+6.3 Evaluation der Ontologie . . . . . . .
+6.4 Weitere Möglichkeiten der Evaluation
+6.5 Zusammenfassung . . . . . . . . . . .
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+41
+41
+42
+44
+45
+45
+
+7 Zusammenfassung und Ausblick
+
+47
+
+Literaturverzeichnis
+
+49
+
+Abbildungsverzeichnis
+1.1
+
+Industrie 4.0: Bestteile des Forschungsgebietes [Admi17] . . . . . .
+
+1
+
+1.2
+
+DIKW-Modell der Informationsabstaktion [Long15] . . . . . . . . . .
+
+2
+
+2.1
+
+Vernetzung in der Industrie 4.0 [Alfa17] . . . . . . . . . . . . . . . . .
+
+5
+
+2.2
+
+Die Automatisierungspyramide der Industrie 4.0 [BKCC+ 14] . . . . .
+
+6
+
+2.3
+
+Vertikaler und horizontaler Informationsfluss [Aach17] . . . . . . . . .
+
+7
+
+2.4
+
+Klassifikation einzelner Daten entstehend in Prozessen einzelner Produktionslinien [Schm17] . . . . . . . . . . . . . . . . . . . . . . . . .
+
+8
+
+2.5
+
+Die Entwicklung von Spezifikationen in Richtung dynamischer und
+maschinell verarbeitbarer Technologien [KhHC09] . . . . . . . . . . . 10
+
+3.1
+
+W3C Technology Stack [W3C10] . . . . . . . . . . . . . . . . . . . . 14
+
+3.2
+
+Die relevanten Bestteile des SOSA Vocabularies . . . . . . . . . . 17
+
+3.3
+
+Die Struktur des Organizational Vocabularies . . . . . . . . . . . . . 18
+
+3.4
+
+Der Vorschlag des N-ary Design [W3C06] . . . . . . . . . . . . . . . . 18
+
+3.5
+
+Traditional  Role-based Access Control [Chen08] . . . . . . . . . . 19
+
+3.6
+
+Kontext Ontologie nach [ChCK14] . . . . . . . . . . . . . . . . . . . . 20
+
+3.7
+
+Ontologie-basierte Zugriffskontrolle nach [MaJo10] . . . . . . . . . . . 21
+
+3.8
+
+Die Abgrenzung existierender OWL Profile [Fram13] . . . . . . . . . 22
+
+4.1
+
+Die Struktur des Organizational Vocabularies . . . . . . . . . . . . . 26
+
+4.2
+
+Die Ausrichtung von internen Angestellten zu den Abteilungen eines
+Unternehmens . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 27
+
+4.3
+
+Aufgabe und Materialien . . . . . . . . . . . . . . . . . . . . . . . . . 28
+
+4.4
+
+Die Modellierung von Aufgabe, Prozessschritt, Prozess, Produkt und
+Auftragsliste zu seinem Auftrag . . . . . . . . . . . . . . . . . . . . . 29
+
+4.5
+
+Materialien eines spezifischen Unternehmens . . . . . . . . . . . . . . 30
+
+4.6
+
+Die Abbildung eines Prozesses am Beispiel der Qualitätssicherung . . 31
+
+xii
+
+Abbildungsverzeichnis
+4.7
+
+Modellierung der Grenzwerte
+
+. . . . . . . . . . . . . . . . . . . . . . 33
+
+4.8
+
+Umsetzung eines defekten Komponenten  SWRL . . . . . . . . 33
+
+4.9
+
+Das Konzept der Zugriffskontrolle . . . . . . . . . . . . . . . . . . . . 34
+
+5.1
+
+Die Architektur der Komponenten . . . . . . . . . . . . . . . . . . . . 37
+
+5.2
+
+Ausschnitt der App, zur Präsentation der Teilehistorie eines Produktes 40
+
+6.1
+
+Ergebnisse der Performance-Untersuchung . . . . . . . . . . . . . . . 43
+
+Abbildungsverzeichnis
+CPS Cyber-physisches System
+MES Manufacturing Execution System
+ERP Enterprise Resource Planing
+SCM Supply Chain Management
+DAC Discretionary Access Control
+MAC Matory Access Control
+RBAC Rolebased Access Control
+RDF Resource Description Framework
+OWL Web Ontology Language
+
+xiii
+
+xiv
+
+Abbildungsverzeichnis
+
+1. Einleitung
+Unter Industrie 4.0 versteht man die Vernetzung von Mensch, Maschine, Fabriken
+- kurzum die Vernetzung von allem, mit allem.
+Dabei stellt [SSLL14] fest, dass die Vernetzung die Identifizierbarkeit einzelner Produkte, deren Herstellungshistorie sowie die Erfassung alternativer Produktionswege
+umfasst. Damit verfolgt das von der deutschen Bundesregierung vorangetriebene
+Forschungsprojekt nach [dFor12] das Ziel autonome, selbststeuernde, wissenbasierte
+und sensorgestützte Produktionssysteme zu entwickeln, zu vermarkten und zu betreiben. Motiviert wird das Forschungsfeld nach [Baue17] durch die steigende Komplexität externer Faktoren von Produktionsunternehmen. Zu diesen Faktoren gehört
+neben der steigenden Produktvielfalt und -funktionalität sowie durch diversifizierte
+Variantenausstattung auch die Notwendigkeit einer höheren, internen Flexibilität.
+Auch [Stee14] sieht heutige Produktionssysteme in einem Konflikt zwischen Flexibilität und Wlungsfähigkeit, welche durch dynamischere Märkte und individuellere
+Kundenwünsche sowie die fortschreitende Digitalisierung getrieben wird.
+
+Abbildung 1.1: Industrie 4.0: Bestteile des Forschungsgebietes [Admi17]
+
+2
+
+1. Einleitung
+
+Weiterhin sieht [KDDK+ 15] die Folgen einer fehlenden Adapationsbereitschaft insbesondere in einer schlechterer Maschinenproduktivität, in hohen Lagerbeständen
+sowie in schlechteren Durchlaufzeiten, wodurch auch hier die Entwicklung nach mehr
+Digitalisierung in der Industrie gefordert wird. Unterstützt werden diese Entwicklungen nach der Studie [SGGH+ 13] des Fraunhofer-Instituts von 2013 durch die Erfolge
+der Informations- und Kommunikationstechnik, welche als Treiber der Entwicklungen von Sensoren und Aktoren gelten.
+Neben der Vernetzung von Fabriken und Produktionsanlagen  cyber-physischenSystemen (CPS) beschäftigen sich, wie in Abbildung 1.1 gezeigt, weitere Teilgebiete
+der Industrie 4.0 mit der Entwicklung von Mensch-Maschine-Interaktionsmodellen,
+Überwachungswerkzeugen sowie mit dem Entwurf von Kontrollsystemen. Diese steuern und überwachen den Informationsfluss dieser dezentral vernetzten Systeme.
+Dabei spricht [Herr04] dem Informationsfluss eines Produktionsunternehmens eine
+hohe Bedeutung zu, welche er durch eine Vielzahl von zeitkritischen Faktoren sowie einem schwierigen decision-making in der Produktionsplanung begründet. Dabei
+wird die Entscheidungsfindung durch eine Vielzahl von Parametern beeinflusst, welche  in einer hohen Komplexität resultieren.
+Unter der Informationsflusskontrolle (Information Flow Control) versteht man die
+Behlung der Problemstellungen wer, wann auf welcher dieser Informationen zugreifen darf und wie dieser Zugriff erfolgen soll. Auch [Lehm07] definiert die Informationsflusskontrolle als eine Erweiterung der Zugriffskontrolle, indem Sie sie
+um die Beobachtung der Informationsausbreitung ergänzt.  kann die Informationsflusskontrolle als eine Anforderung eines Kontrollsystems der Industrie 4.0
+betrachtet werden. Dabei differenziert man den Informationsfluss nach seiner vertikalen und horizontalen Ausbreitung. Die DIKW Pyramide (Abb. 1.2) beschreibt
+die Verdichtung von Daten zur Informationen, Wissen und schließlich zu Wisdom
+ der vertikalen Achse der Informationsausbreitung:
+
+Abbildung 1.2: DIKW-Modell der Informationsabstaktion [Long15]
+
+1.1. Zielsetzung der Arbeit
+
+3
+
+Dabei geht das DIKW -Modell davon aus, dass  Daten die Grundlage jeglicher Informationsbildung darstellen. Diese werden aggregiert und verarbeitet um
+ weiter Informationen bilden zu . Informationen führen mit Erfahrungen
+und Beobachtungen zu Wissen. Dieses wiederum bildet die Grundlage der Entscheidungsfindung (Wisdom).
+In Bezug auf das Anwendungsgebiet der Industrie 4.0 erfordert die Informationsflusskontrolle nach [SSLL14] neue Konzepte und Überlegungen, um den anfallenden
+Datenmengen aus dezentralen stammenden Sensoren und Sensornetzwerken gerecht
+zu werden. Dies wird von [SSLL14] durch die Komplexität hochgradig vernetzter
+Systeme begründet. Es wird nach Lösungen gesucht, welche sowohl in der Lage sind
+Fabriken, Produktionsanlagen und deren Sensoren digital abzubilden als auch deren Informationsfluss  geeigneter Technologien zu kontrollieren und an die
+zuständigen Akteure zu verteilen. Aus den heterogenen und großflächig verteilten
+Informationsquellen resultiert die Anforderung an eine Lösung zur semantischen Aufbereitung dieser Daten. Ebenso soll nach [KhHC09] eine autonome Kommunikation
+zwischen Geräten dieser cyber-physischen-Systemen (CPS) ermöglicht werden.
+
+1.1
+
+Zielsetzung der Arbeit
+
+In dieser Arbeit werden zwei aufeiner aufbauende Ziele verfolgt:
+Im ersten Schritt wird ein Modell  ein klassisches Produktionsunternehmen der
+Industrie 4.0 konzipiert. Das Modell soll so generisch wie möglich gehalten werden
+und gleichzeitig möglichst präzise verschiedene Sichten eines Unternehmens erfassen. Dabei soll das Modell möglichst Ressourcen, Tätigkeiten sowie die Beziehungen
+zwischen Akteuren und deren Tätigkeiten beschreiben.
+Im zweiten Schritt wird anschließend ein Kontrollmodul entwickelt. Dieses enthält
+das im ersten Schritt entworfene Modell als Eingabe. Zusätzlich soll es den Informationsfluss kontrolliert verteilen. Dabei soll weiterhin die Anwendbarkeit moderner
+Spezifikation des Semantic Webs auf das Forschungsgebiet der Industrie 4.0 untersucht werden. Da wird das vorgeschlagene Modell  der Web Ontology
+Language entworfen und im  der Evaluierung auf die Nutzbarkeit untersucht.
+
+1.2
+
+Gliederung der Arbeit
+
+Die vorliegende Arbeit ist dabei wie folgt aufgeteilt:
+Im ersten Kapitel soll dem Leser als Ausgangspunkt der vorliegenden Arbeit die
+Grundzüge der matik näher bringen sowie den  der Arbeit abstecken.
+Kapitel 2 behelt als Einstieg die Grundlagen der mengebiete Industrie 4.0.
+Dazu gehören neben bestehenden Planungslösungen wie dem Manufacturing Executing System auch das Konzept der Automatisierungspyramide. Weiterhin werden
+die existierenden Ansätze der Informationsflusskontrolle sowie wichtige Techniken
+aus dem Bereich des Semantic Web behelt.
+Kapitel 3 vertieft diese Grundlagen, indem die Tätigkeiten und Strukturen produzierender Unternehmen näher betrachtet werden. Ferner soll die verwendete Modellierungssprache und deren Möglichkeiten und Erweiterungen behelt werden.
+
+4
+
+1. Einleitung
+
+Abschließend wird in Kapitel 3 ein Anwendungsbeispiel vorgestellt, welches die Möglichkeiten und Grenzen des ontologischen Ansatzes aufzeigen soll.
+Kapitel 4 beschäftigt sich anschließend mit dem Entwurf von zwei Ontologien. Dazu gehört neben einem generischen Unternehmensmodell auch die Umsetzung eines
+Simulationsmodelles  eines konkreten Unternehmens. Dieses soll den Ausgangspunkt des Anwendungsbeispieles bilden. Weiterhin werden die Entwürfe der
+Informationsflusskontrolle sowie deren ontologische Umsetzung behelt.
+Kapitel 5 stellt anschließend die Komponenten vor, welche im  der Implementierung entworfen wurden. Die Komponenten bestehen dabei aus einer ClientAnwendung, einer Datenbank sowie einer Java-App. Dabei werden verschiedene Ansätze der Informationsaufbereitung untersucht.
+In Kapitel 6 werden die Möglichkeiten der Umsetzung evaluiert sowie die Umsetzung
+des Anwendungsbeispieles diskutiert. Im  dessen wurde eine PerformanceMessung durchgeführt, welche den Ausgangspunkt der Modellanalyse bildet.
+Kapitel 7 wird anschließend eine Zusammenfassung und einen Ausblick  die nächsten Schritte gegeben.
+
+2. Grundlagen
+Im Folgenden wird der Ausgangspunkt der Industrie 4.0 sowie die aufkommende
+Schnittmenge mit dem Bereich des Linked Data vorgestellt. Dabei bildet Linked
+Data, ein Begriff aus dem Bereich des Semantic Web, einen sinnvollen Ausgangspunkt um grundlegende Begriffe der matik näher zu bringen. Weiterhin werden
+die Entwicklungen produzierender Unternehmen vorgestellt sowie auf die bisherigen
+Methoden der Informationsverarbeitung in Unternehmen eingegangen. Ferner sollen grundlegende Konzepte der Zugriffskontrolle sowie die Erweiterungen durch die
+Informationsflusskontrolle vorgestellt werden.
+
+Abbildung 2.1: Vernetzung in der Industrie 4.0 [Alfa17]
+
+6
+
+2. Grundlagen
+
+2.1
+
+Digitale Vernetzung in der Industrie 4.0
+
+Industrie 4.0 sieht neben der Vernetzung von Mensch und Maschine auch den Einsatz
+von digitalen Modellen vor, welche den Informationbedarf von modernen Produktionsunternehmen steuern und verwalten sollen. Dabei werden die Entwicklungen in
+Richtung Industrie 4.0 durch die zunehmende Dezentralisierung und die Forderung
+nach mehr Autonomie und Automatisierung von Produktionssystemen und Produktionsanlagen getrieben. Der Informationsfluss einer automatisierten Produktionsanlage wurde bisher mit der Automatisierungspyramide (Abb. 2.2) beschrieben. Diese
+ist nach nach ISA-95/ICE62264 spezifiziert und zeigt die vertikale Ausbreitung und
+Verarbeitung von Informationen:
+
+Abbildung 2.2: Die Automatisierungspyramide der Industrie 4.0 [BKCC+ 14]
+
+Dabei stellt sie die Ebenen der Informationsabstraktion dar. Auf der untersten Ebene
+beginnt sie mit der Erfassung von Daten, bestehend aus Sensoren und Aktoren. Diese werden ausgewertet, gespeichert, aufbereitet und bilden  eine Grundlage 
+die Kontrollsysteme des Managements. Dabei bilden die aggregierten Daten weiterhin Informationen, welche mit ihrem semantischem Kontext Wissen bilden. Wissen
+wiederum bildet zusammen mit Erfahrung dann die benötigte Informationsdichte,
+wie auch in [Rowl07] dargestellt wird. [KDDK+ 15] beschreibt das Manufacturing
+Execution System, ein Kontrollsystem, welches sich in Level 3 der Automatisierungspyramide (Abb. 2.2) befindet.
+Die Entwicklung schreitet hin zu modular-gekapselt, physischen Systemen, sogenannte cyber-physische Systeme (CPS). Sie sollen nach [SSLL14] die Vielzahl von
+Informationen über Produktionsgüter, Produkte und Prozesse in ein gemeinsames
+System integrieren. Dabei stellt [Baue17] fest, dass diese physisch existierende Objekte umfassen und  Sensoren und Sensornetzwerken in der Lage sind ihre
+Umwelt zu erfassen. Sie   ihren Parametern entsprechen auf Situationen
+
+2.1. Digitale Vernetzung in der Industrie 4.0
+
+7
+
+reagieren. Weiterhin stellen sie nach [Berg15] durch ihre Funktionalität die Schnittstelle zwischen physischen und digitalen Systemen dar. Durch einen optimierten
+Informationsfluss zielt die zukunftsfähige Fabrik der Industrie 4.0 dann auf eine Effizienzsteigerung durch eine reaktionsfähige Produktion, schlanke Produktions- und
+Planungsprozesse sowie ein aktives Shopfloor Management. Dabei versteht man unter dem englischen Begriff Shopfloor die Fertigungs- und Produktionsabteilung eines
+Unternehmens.
+Der Ausgangspunkt einer heterogenen Gerätelschaft und die Forderung nach
+einer autonomen Kommunikation dieser Systeme führt zu der Fragestellung, wie der
+entstehende Informationsfluss vertikal und horizontal geleitet und reguliert werden
+kann. Dies wird  der Abbildung 2.3 von [Aach17] veranschaulicht. Diese stellt
+den vertikalen und horizontalen Informationsfluss  der Kette von Lieferant,
+Produzent und Kunde sowie den Ebenen der Informationsabstraktion dar.
+
+Abbildung 2.3: Vertikaler und horizontaler Informationsfluss [Aach17]
+
+Vertikal betrachtet entstehen  auf unterster Ebene die Rohdaten von Sensoren, Maschinen und Interakteuren. Diese Daten stellen die Grundlage  die
+Weiterverarbeitung zu Informationen dar. Die Daten werden dabei in jeder
+vertikalen Ebene verdichtet, wobei dieser Prozess von Systemen vorgenommen
+wird. Der Informationsfluss durchdringt die Ebenen also  von unten
+nach oben.
+Horizontal vernetzt werden nicht nur einzelne Produktionsanlagen sondern die gesamte Kette von Bestellungen, Rohstoffbeschaffung, Produktion, Lager und
+Distribution. Dazu muss das Wissen über Verantwortlichkeiten und deren
+Fähigkeiten in konsistenten Informationsmodellen festgehalten geworden, um
+Planungsmodelle frühzeitig bewerten zu  und , wie [BüTr14] schon
+herausarbeitete, von Effizienzsteigerungen profitieren zu . Die Werkzeuge der höheren Ebenen bauen nach [Aach17] auf Managementsystemen
+wie dem Manufacturing Execution System (MES), dem Enterprise-ResourcePlanning (ERP) oder dem Supply-Chain-Management (SCM) auf.
+Unter einem MES versteht man eine Ansammlung von Systemen und Funktionalitäten, die vom Management und zur Koordination der Produktion eines
+Unternehmens genutzt wird. Dabei setzt die Funktionalität nach [KDDK+ 15]
+auf drei unternehmerischen Säulen auf:
+
+8
+
+2. Grundlagen
+Auf der Fertigungsplanung, welche unter eren die Erfassung von Betriebsund Maschinendaten enthält, der Personalplanung, welche die Personalzeiterfassung und Personaleinsatzplanung koordiniert und die Qualitätsicherung, zu
+welcher auch die Fertigungsprüfung gehört.
+Diese Teil- und Aufgabenbereiche benötigen jeweils eine Hierarchie der Informationsabstraktion und Informationsverdichtung, welche durch die Informationsflusskontrolle vorgegeben wird.
+Auf horizontaler Ebene ist insbesondere der Informationsaustausch zwischen
+Akteuren sowie die Informationsfreigabe von Objekten auf gleicher Ebene von
+Relevanz. Dies wird auch durch die zunehmende Vernetzung motiviert, welche
+bisher durch statische Zugriffsfreigaben eingeschränkt wird.
+
+Abbildung 2.4: Klassifikation einzelner Daten entstehend in Prozessen einzelner Produktionslinien [Schm17]
+
+Die Automatisierungspyramide (Abb. 2.2), die lange Zeit als Referenzmodell des
+Informationsflusses in einem modernen Fertigungsunternehmen darstellte, gilt nach
+[Voge17, Baue17] langsam als überholt. Dies ist vor allem in der intensiveren Betrachtung des horizontalen Informationsflusses begründet, welche insbesondere aus
+hochgradig vernetzten Sensornetzwerken resultiert. Sie wird  von komplexeren
+Modellen, wie dem Datacube, abgelöst.
+Der Datacube (Abb. 2.4) unterteilt das Konzept der Daten in Produkt-, Maschinen-,
+Prozess-, Prüf-, Qualitäts-, Auftrags- und Umgebungsdaten. Weiterhin  diese
+Datenk  von Prozessschritten und einzelnen Linien tiefgreifender spezifiziert werden. Damit wird das bisherige Modell einer zweidimensionalen Datenzuordnung um ein komplexeres Konzept erweitert. Dieses klassifiziert die Daten 
+
+2.2. Information Flow Control in der Industrie 4.0
+
+9
+
+verschiedener Datenk sowie ihrer temporalen und lokalen Herkunft. Während
+klassische Produktionssysteme,  angelehnt an das Manufacturing Execution System, diese inhomogenen Datenströme in mehreren System versucht zu
+verwalten, werden im  dieser Arbeit neue Methoden zur Bearbeitung dieses
+Problems untersucht.
+
+2.2
+
+Information Flow Control in der Industrie 4.0
+
+Da sich die Informationsflusskontrolle laut [Lehm07] mit der Frage der Ausbreitung einer Information oder einer Anwendung beschäftigt, beginnen seine Konzepte
+ mit der klassischen Zugangskontrolle. Dabei werden nach [SaSa96] drei
+Formen der Zugriffskontrolle genannt:
+• Discretionary Access Control (DAC)
+• Matory Access Control (MAC)
+• Role-based Access Control (RBAC)
+Es wurde dabei von [Macf14] herausgearbeitet, dass sich die Konzepte von DAC und
+MAC in verschiedenen Bereichen, wie der Betriebssystemsoftware oder dem Militär durchgesetzt haben, aufgrund konzeptionell bedingter mangelnder Flexibilität
+allerdings  viele industrielle Einsatzbereiche ausscheidet. RBAC hingegen bindet
+Zugriffsrechte nicht an Benutzer, sondern an Rollen. Dies führt zu einer höheren Flexibilität, allerdings auch zu einem komplexeren System mit einer potentiell höheren
+Fehleranfälligkeit. Nach [Lehm07] erweitert sich die Informationsflusskontrolle ferner auf die Ausbreitung einer Information in einer Anwendung oder einem System.
+Dazu ist es hilfreich die vertikale und horizontale Entstehung und Verteilung von
+Informationen im Kontext des Informationsflusskontrolle zu betrachten:
+Vertikal betrachtet verändert sich der Informationsfluss in seiner Abstraktion aufsteigend. Aus Daten werden nach [Rowl07] und Abb. 1.2 Informationen gewonnen, aus Informationen Wissen abstrahiert und  Wissen wird 
+Hlungsoptionen ergriffen werden.  kann weiterhin an die Informationsflusskontrolle gefordert werden,  einer Wissensdatenbank Daten zu
+Informationen zu verarbeiten.
+Horizontal entstehen nach Abb. 2.3 Informationen auf Shopfloor-Ebene aus den
+Daten von Sensoren, Sensornetzwerken und Maschinen. Diese solten nach
+[Baue17] in einem automatisierten Betrieb miteiner kommunizieren 
+und durch ein cyber-physisches Produktionssystem (CPPS) koordiniert werden. Dadurch sind Anforderungen an ein gemeinsames Nachrichtenaustauschformat, eine eindeutige Identifizierung jedes Gerätes sowie nach [Voge17] Architekturmodelle gegeben. Um eine maschinenlesbare Kommunikation zu ermöglichen ist es nötig die Informationen um den semantischem Kontext zu
+erweitern sowie Konzepte zur eindeutigen Beschreibung von physischen Einheiten zu definieren.
+Da sich der Austausch von Daten und Informationen im Industrie 4.0 Kontext nicht
+auf maschinelle Geräte beschränkt, muss die Informationsflusskontrolle weiterhin das
+Wissen über Rollen, Zuständigkeiten und die Beziehungen zwischen Unternehmensund Prozessbeteiligten enthalten.
+
+10
+
+2.3
+
+2. Grundlagen
+
+Linked Data in der Industrie 4.0
+
+Das World Wide Web besteht aus systematisch angeordneten Dateien, welche sich
+gegenseitig mit Hyperlinks verbinden und  ein Netzwerk bilden. Dies hat zur
+Folge, dass ein Benutzer  der Informationen einer betrachteten Webseite und
+dem Kontext der verknüpften Webseiten den semantischen Inhalt, also seine Bedeutung, erschließen kann. Gleichzeitig lässt sich, so auch [KhHC09], daraus folgern,
+dass ein maschineller Akteur nicht in der Lage ist Wissen zu erschließen, sofern sein
+Kontext nicht mitgeliefert wird. Gesucht werden also nach [TeKo03] Lösungen, welche bestehende Web Service Technologien um einen semantic-orientierten Wel
+erweitern.
+
+Abbildung 2.5: Die Entwicklung von Spezifikationen in Richtung dynamischer und
+maschinell verarbeitbarer Technologien [KhHC09]
+
+Aus dieser Problemstellung resultiert der Begriff des Web Of Data, eine Spezifikation des World Wide Web Consortium (W3C), welche den Begriff des Linked Data
+abgelöst hat. Das W3C ist ein Gremium, welches sich mit der Entwicklung von einheitlichen Web-Stards beschäftigt und diese spezifiziert. Die Entwicklungen des
+Web Of Data sollen die oben beschriebenen Probleme angehen und eine Lösung
+da liefern. Da sollen Webseiten   spezifizierbarer Beziehungen verknüpft werden, welche  eindeutig identifizierbar definiert werden
+sollen. Dies soll eine maschinell lesbare Brücke bilden, welche  eine autonome
+Verarbeitung ermöglichen kann. Dabei folgert auch [LiZh05], dass skalierbare Sensornetzwerke, wie sie im Kontext der Industrie 4.0 benötigt werden, auf Ontologien und
+assoziierten Sensor-Hierarchien aufbauen sollten. Die Voraussetzungen da wurden
+zum Teil mit den Spezifikation des W3C Semantic Web Konsortiums geschaffen, zu
+denen unter erem das Austauschformat Extensible Markup Language (XML) sowie das Resource Definition Framework (RDF) gehört. Diese Beschreibungssprachen
+finden zum Modellieren von Ontologien im Kontext des Semantic Webs Anwendung.
+Näher wird darauf im folgenden Kapitel eingegangen.
+
+2.4. Verwte Arbeiten
+
+11
+
+Die jüngsten Entwicklung des Semantic Web treiben auch die Entwicklungen der Industrie 4.0 voran. So sieht [KhHC09] relevante Treiber  die Intelligenz moderner
+Produktion vor allem in der Web Technologie und Web Services, in der Entwicklung von Ontologien und insbesondere in semantic-basierten multiagenten Systemen
+und Webanwendungen. Diese Technologien und Spezifikationen sollen auch nach
+[ShHS08] die Möglichkeiten bilden, die Informationen aus unstrukturierten, dezentralen Sensornetzwerken zu annotieren und sie in einem maschinell lesbaren Informationsfluss zu verarbeiten um die Informationen so automatisierbar und autonom
+nutzbar zu machen.
+
+2.4
+
+Verwte Arbeiten
+
+Die verwten Arbeiten  sich in verschiedenen Bereichen identifizieren.
+So bildet die Arbeit von [L14] einen ausführlichen Ausgangspunkt, um die Entwicklungen im Bereich der Industrie 4.0 näher zu betrachten. Dabei werden grundlegende Konzepte, wie der ontologie-basierte Ansatz eines Informationsmodell vorgestellt. Auch werden dabei verschiedene Aspekte der Fertigung und Montage behelt.
+Weiterhin gibt die Arbeit [KDDK+ 15] einen umfangreichen Einblick in die Organisation und Struktur produzierender Unternehmen. Es werden weiterhin Aufgaben- und
+Funktionsbereiche erläutert, welche als Ausgangspunkt der Modellierung verwendet
+wurden. Diese werden im  Manufacturing Execution System behelt. Als
+verwte Arbeiten der selben Domäne wurde weiterhin auf das Buch [Baue17] zurückgegriffen, welches  verschiedene Konzepte erläutert.
+Die Überlegungen und Konzepte der Informationsflusskontrolle stammen neben der
+Arbeit von [Lehm07], welche die Abgrenzung der Informationsflusskontrolle von
+den klassichen Konzepte des Zugriffskontrolle erläutert auch aus der Arbeit von
+[MaJo10]. Diese Arbeit richtet den Fokus der Zugriffskontrolle auf das N-ary Design
+Pattern, welches im  der Analyse tiefgreifender behelt wird.
+
+12
+
+2. Grundlagen
+
+3. Analyse
+Dieses Kapitel behelt  die Domäne produzierender Unternehmen, welche die Grundlage des Entwurfs im folgenden Kapitel bildet. Weiter werden anschließend die Technologien und Spezifikation vorgestellt, welche im  dieser
+Arbeit Anwendung finden. Es werden ferner Konzepte der Informationsflusskontrolle
+vorgestellt, welche im  der Implementierung ontologisch umgesetzt werden
+sollen. Abschließend wird das Kapitel ein Anwendungsbeispiel beschreiben, welches
+einen Teil der Evaluation in Kapitel 6 darstellen wird.
+
+3.1
+
+Die Domäne eines Industrie 4.0 Szenarios
+
+Unter einer Domäne versteht man die Begriffe und Konzepte eines Fach- oder Wissensgebietes. Die Domäne eines Industrie 4.0 Szenarios versteht also die Gesamit
+der Begriffe und Beziehungen, die mit einem Szenario im Forschungsfeld der Industrie 4.0 assoziiert sind. Im  dieser Arbeit soll ein Anwendungsfall konstruiert
+werden, welcher die Einsatzmöglichkeiten neuer Technologien des Semantic Web im
+Kontext moderner Produktionsunternehmen untersucht. Dabei soll im Folgenden
+ auf elementare Begriffe und Konzepte sowie auf die Strukturen produzierender Unternehmen eingegangen werden.
+Um die Domäne eines modernen Produktionsunternehmens zu erschließen, ist es
+hilfreich sich die Konzepte eines MES zu veranschaulichen. Diese werden in der
+gängigen Literatur ausgiebig behelt:
+Funktionssicht Nach [KDDK+ 15]  die wichtigsten Daten der Produktion
+ der drei Funktionsgruppen von Fertigung, Personal und Qualität herausgearbeitet werden. Aus den gegebenen Funktionsgruppen  sich nach
+[KDDK+ 15] weiterhin diverse Aufgaben ableiten.
+Aufgabensicht Diese Aufgaben bestehen zum einen aus dem Personalmanagement, dem Qualitätsmanagement, der Feinplanung und -steuerung sowie dem
+Materialmanagement. Weitere Aufgaben  sich in der Qualitätsprüfung,
+der Fertigungsprüfung, dem Produktionslenkungsplan sowie dem Prüfmittelmanagement lokalisieren.
+
+14
+
+3. Analyse
+
+Ressourcen-Sicht Die Bearbeitung dieser Aufgaben benötigt einen gewissen Informationsbedarf, welchen nach [KDDK+ 15] den Anforderungen diverser Abteilungen und Rollen, wie  dem Management & Controlling, dem
+Vertrieb, der Fertigungssteuerung oder auf der Fertigungsebene dem Meister,
+Insthalter und Werker gerecht werden müssen. Diese bilden einen Teil der
+Ressourcen-Sicht. Zu eren Ressourcen zählen weiterhin Maschinen, Werkzeuge, Betriebs- und Hilfsmittel sowie Peripherie und Hilfsgeräte. Auch sie
+bilden durch die grundlegende Vernetzung einen Teil des Daten- und Informationsmodelles.
+
+Aus diesen Konzepten  sich Begriffe und Hlungsrichtungen ableiten, welche  die Entwicklung eines ontologie-basierten Modells im  dieser Arbeit
+von Relevanz sind. Dazu gehört neben den grundlegenden Konzepten wie der Unterteilung eines Unternehmens in Abteilungen mit Angestellten auch die Prozesssicht.
+Diese steuert die Produktion eines Produktes, welche durch granulare Unterteilung
+in Aufgaben präzisiert wird. Weiter ist die Allokation von Prozessbeteiligten sowie
+deren Informationsbedarf von Relevanz.
+
+3.2
+
+Spezifikationen und Technologien des
+Semantic Web
+
+Die Technologien des Semantic Webs stammen aus den Spezifikationen des W3C.
+Diese bauen auf dem Grundbasisstack der Web Technologien auf, wozu neben dem
+Hypertext-Transport-Protokoll (HTTP) und dem Universal-Resource-Identifier (URI)
+auch RDF/XML gehört, und erweitern diese um spezifische Funktionalitäten besonderer Einsatzgebiete. Dabei  sich die Arbeitsgruppen des W3C in die sechs
+Kategorien Web Applikationen, Mobile, Voice, Web Services, Semantic Web und
+Privacy & Security einteilen (Abb. 3.1).
+
+Abbildung 3.1: W3C Technology Stack [W3C10]
+
+3.2. Spezifikationen und Technologien des
+Semantic Web
+
+15
+
+ das Einsatzgebiet eines Industrie 4.0 Szenarios sind dabei auch nach [BlPe06] die
+Technologien des Semantic Web von besonderer Relevanz. Diese bauen grundlegend
+auf dem Resource Description Framework auf und werden durch die Web Ontology
+Language sowie die Abfragesprache SPARQL erweitert. Relevante Spezifikationen
+werden dabei im Folgenden vorgestellt:
+Resource Description Framework (RDF) RDF ist eine formale Beschreibungssprache, welches das Ziel verfolgt Daten einheitlich zu beschreiben und zu
+verarbeiten. Ziel ist es Aussagen über Daten im Web einheitlich definiert festhalten sowie diese maschinell verarbeiten zu . RDF bildet dabei die
+Grundlage, indem es neben einem Syntax auch die grundlegenden Konstrukte
+zur Modellierung bereithält. So wird ein Datum in RDF  Eigenschaften
+beschrieben und eine Aussage über das Datum  eines Tripels gebildet.
+Ein Tripel hat dabei die Form Subjekt Prädikat Objekt, wobei Subjekt und
+Prädikat Ressourcen darstellen. Ein Objekt in RDF kann dabei  eine
+Ressource oder auch ein Literal, also einen Wert, darstellen. Eine Ressource
+stellt dabei das ’Ding’ dar, was als ein Objekt das Ziel der Modellierung ist.
+Die Ressource wird dabei  einer URI eindeutig bezeichnet. Dies vereinfacht, bei einem gemeinsamem Vokabular, die maschinelle Verarbeitung von
+mit RDF modellierten Aussagen. Da RDF auf dem Nachrichtenformat XML
+aufbaut,  Aussagen in RDF  XML serialisiert werden. Eine ere Form der Serialisierung findet sich dabei in dem Syntax Turtle, welcher
+den Fokus auf die Darstellung von Aussagen in der Form Subjekt Prädikat
+Objekt legt.
+Resource Description Framework Schema (RDFS) Eine Erweiterung von
+RDF stellt RDF-Schema (RDFS) dar. RDFS erweitert RDF dabei um weitere K und Eigenschaften (Properties). So werden neben K auch
+neue Literale, Datentypen und spezifischere Eigenschaften eingeführt. Zu den
+spezifischeren Eigenschaften gehören neben dem Definitions- und Zielbereich
+(Domain, Range) einer Eigenschaft auch Subk- und Subeigenschaftsbeschreibungen. So lässt sich mit dem Definitionsbereich einer Eigenschaft definieren, welcher Kzugehörigkeit eine Ressource besitzt, die diese Eigenschaft beschreibt.
+Wird  die Domäne einer Pizza beschrieben, so besitzt der Definitionsbereich der Eigenschaft hatPizzaBelag immer die Klasse Pizza. Individuen
+die mit der Eigenschaft hatPizzaBelag beschrieben werden,  durch den
+Definitionsbereich  auch als eine Pizza klassifiziert werden. Dies wird
+auch weiter in [oMan11] behelt.
+Weiterhin spezialisieren Subk und Subeigenschaften die K und Eigenschaften gleicher Art, erben ihre Definitionen von ihren Eltern und erweitern diese.
+Web Ontology Language (OWL) OWL ist eine Spezifikation zur Modellierung
+von Ontologien und baut auf den Empfehlungen von RDF und RDFS auf. Eine
+Ontologie ist eine Formalisierung von Wissen, oft mit dem Ziel Konzepte und
+Begriffe einer Domäne zu beschreiben. OWL ermöglicht dieses durch komplexere K- und Eigenschaftsbeschreibungen. So  Axiome modelliert
+
+16
+
+3. Analyse
+werden, welche äquivalente K oder K als Schnittmengen von Aussagen beschreiben. Des Weiteren  Eigenschaften symmetrisch, reflexiv,
+transitiv oder funktional sein sowie definierte inverse Eigenschaften besitzen.
+Dies ermöglicht die maschinelle Verarbeitung dieser Aussagen sowie die Extraktion impliziten Wissens.   transitive Eigenschaften
+während des Inferenz Prozesses erkannt und  neue Aussagen geschlossen
+werden. Diesen Prozess übernehmen Reasoner, auf die im weiteren Kapitel
+noch eingegangen wird. Die Modellierung von Aussagen ähnlich der Prädikatenlogik führt dazu, dass mit OWL Full modellierte Ontologien unentscheidbar
+sind. In Folge dessen und  den praktischen Gebrauch sind die Untermengen
+OWL DL sowie OWL Lite entwickelt worden. In Version 2 wurde dies mit
+der Einführung von Profilen eingeschränkter Funktionalität fortgeführt. Unter
+Einhaltung der bestimmten Restriktionen einzelner Profile  Laufzeiten
+versprochen werden, die den Einsatz in datenintensiven Umgebungen ermöglicht. Die Einsatzmöglichkeiten und der Nutzen von OWL werden wie auch
+bei RDF(S) durch die Verwendung gemeinsamer Vokabulare gesteigert. Weiterhin ist anzuführen, dass OWL der Open-World-Assumption unterliegt. Dies
+bedeutet, dass eine im Modell nicht festgehaltene Aussage nicht zu der Verneinung einer Aussage führen kann. Dies Verhalten, welches wie erwähnt nicht
+von OWL unterstützt wird, wird als Negation-as-a-failure bezeichnet. Weiterhin wird auf diesen Sachverhalt im  der Evaluation eingegangen.
+
+Semantic Web Rule Language (SWRL) Die Semantic Web Rule Language ist
+der Vorschlag einer Erweiterung von OWL. Diese ist momentan noch keine
+Empfehlung des W3C, wird allerdings aufgrund ihrer praktischen Funktionalität von diversen Reasonern wie HermiT oder Pellet unterstützt.  SWRL
+ sich konditionale Regeln definieren, welche während des ReasoningProzesses ausgeführt werden. So ist es mit SWRL, im Gegensatz zu OWL,
+möglich Werte zu aggregieren, multiplizieren sowie zu vergleichen. Aus der
+Anwendung von SWRL folgt der Prozess des regelbasiertes Reasonings, welcher in der Implementierung Anwendung finden wird.
+Eine Ontologie besteht  aus gesetzten Aussagen, welche bestimmte Sachverhalte beschreiben. Aus diesen expliziten Aussagen   eines Reasoners
+implizite Aussagen inferiert werden. Zu den bekannten und dieser Arbeit verwendeten Reasoner gehören der Reasoner HermiT und Pellet sowie seine quelloffene
+Weiterführung Openllet. Diese Reasoner besitzen sowohl eine Java Implementierung
+als auch ein Plugin  die Modellierungssoftware Protégé, die  verwendet
+wurde. Weiterhin beherrschen die vorgestellten Reasoner die Ausdrucksmächtigkeit
+von OWL DL.
+Neben der Spezifikation von Sprachen und Formaten gibt das W3C auch empfohlene Vokabulare heraus, welche es ermöglichen definierte Konzepte wiederzuverwerten.
+Dies begünstigt  die Entwicklung von maschinellen, ontologie-basierten Akteuren. Die Grundidee baut dabei auf dem Ansatz auf, Ressourcen eindeutig identifzieren zu .  sollen gleiche Konzepte an unterschiedlicher Stelle verwenden werden , ohne dabei das zusätzliche Wissen eines menschlichen Akteurs
+zu benötigen. Zu den Veröffentlichungen des W3C zählt unter erem das Sensor, Observation, Sample  Actuator (SOSA) Vokabular, die Simple part-whole
+Relations (part) sowie das Organizational Vocabular :
+
+3.2. Spezifikationen und Technologien des
+Semantic Web
+
+17
+
+Sensor, Observation, Sample  Actuator (SOSA) SOSA ist eine Empfehlung des W3C. Sie findet ihren Ursprung in der Semantic Sensor Network
+(SSN) Ontologie und erweitert diese. Sie ist weiterhin in der Entwicklung,
+bietet allerdings in der aktuellen Version eine Grundlage, die es ermöglicht
+die Konzepte in einem produktiven Umfeld zu nutzen. Dabei bildet das SSN
+Vokabular die Grundlage zur Beschreibung einzelner Sensoren und Sensornetzwerken. SOSA sitzt auf SSN auf und fokussiert sich dabei auf die Modellierung
+von Beobachtungen, welche aus den Sensoren resultieren. Dabei observiert eine
+Beobachtung ein Merkmal eines Gegenstes zu einem Zeitpunkt.
+
+Abbildung 3.2: Die relevanten Bestteile des SOSA Vocabularies
+
+Die primäre Klasse dessen ist die Observation, welche eine Merkmal auf eine Eigenschaft hin untersucht. Ein Merkmal ist dabei ein FeatureOfInterest
+und kann dabei sowohl physische als auch virtuelle Gegenstände darstellen.
+Es beschreibt lediglich, was das Ziel der Beobachtung ist, nicht aber die Eigenschaften eben dieser Beobachtung. Eigenschaften werden durch eine ObservableProperty definiert, worunter man  eine metrische Einheit
+verstehen kann.
+Ein Informationsobjekt beschreibt zusammenfassend  eine Beobachtung,
+welche von einem Sensor, zu einem Zeitpunkt über eine Eigenschaft stattgefunden hat und das Ziel genauer einer Beobachtung beschreibt.
+Simple part-whole Relations (part) Die Simple part-whole Relations drücken
+die Zusammensetzung verschiedener Gegenstände aus. Primär relevant sind
+da die inversen Beziehungen part:hasPart und part:partOf. Diese Beziehungen, auch Eigenschaften genannt, sind dabei transitiv definiert. Das bedeutet,
+dass ein Reasoner in der späteren Anwendung in der Lage ist, transitive Zusammenhänge zwischen Objekten, die diese Eigenschaft verwenden, erkennen
+zu . Dies führt zu einem niedrigeren Aufw der Modellierung sowie zu einer höheren Ausdrucksmächtigkeit.  ist eine Baugruppe
+nach [L14] die Konkatenation verschiedener Einzelteile. Eine Baugruppe
+kann  um die Information ihrer Einzelteile erweitert werden, indem diese
+ part:hasPart Verknüpfungen modelliert werden. Zu einer Baugruppe
+ im späteren Verlauf auch alle indirekt verbundenen Einzelteile erkannt
+werden, ohne deren Zugehörigkeit explizit modellieren zu müssen.
+
+18
+
+3. Analyse
+
+Organizational Vocabulary (ORG) Das Organizational Vokalubary umfasst
+K und Eigenschaften zur Beschreibung von Unternehmensmodellen und
+Beziehungen. Zu den relevanten K gehört die Modellierung von Rollen
+und Positionen. Dabei werden Zugehörigkeiten von Angestellten zu Abteilungen durch die Beziehung hasMember sowie die inverse Beziehung memberOf
+modelliert. Weiter  auch Verantwortlichkeiten zwischen Angestellten
+durch die Beziehung reportsTo ausgedrückt werden.
+
+Abbildung 3.3: Die Struktur des Organizational Vocabularies
+
+Das Organizational Vokalubary ist allerdings zum aktuellen Zeitpunkt noch
+keine Empfehlung des W3C, sondern lediglich ein Vorschlag mit rudimentären
+Implementierungen. Verfeinerungen dessen wurden deswegen im  des
+Entwurfs vorgenommen.
+
+Bei der Modellierung von Ontologien  Ontology Design Patterns die Vorgehensweise unterstützen. Dabei sind Design Patterns Muster der Modellierung, welche
+sich bei einer Vielzahl von Problemen wiederholen und  diese erleichern. Relevante Designpatterns  sich dabei unter ontologydesignpatterns.org auffinden.
+
+N-ary Das N-ary Design Pattern (Abb. 3.4) ist das Ergebnis der W3C Working
+Group. Es resultiert aus der Komplikation, dass Eigenschaften lediglich zwei
+Individuen (oder ein Individum mit einem Literal) verknüpfen und  mehrdimensionale Information nur bedingt festgehalten werden . Als Lösung
+dessen resultiert das N-Ary Design Pattern, welches vorschlägt multidimensionale Informationen durch separat gekapselten Objekte umzusetzen.
+
+Abbildung 3.4: Der Vorschlag des N-ary Design [W3C06]
+
+3.3. Konzepte des Information Flow Controls
+
+3.3
+
+19
+
+Konzepte des Information Flow Controls
+
+Wie bereits von [Lehm07] herausgearbeitet wurde, lässt sich die Informationsflusskontrolle in zwei Sichtweisen untergliedern:
+ beginnt er mit der klassichen Zugangskontrolle. Dabei hat sich wie bereits
+behelt das Konzept des Role-based access control (RBAC) durchgesetzt.
+Zum eren behelt er die Frage, wie sich Informationen in einer Anwendung
+oder einem System ausbreiten.
+Die Zugriffskontrolle setzt  auf einem Modell auf, welches im Falle einer
+Ontologie die Konzepte einer Domäne umfasst. Dieses Modell stellt in einem produktiven Einsatz das Schema dar, welches  in einer Datenbank hinterlegt ist. Diese verwaltet in einem Industrie 4.0 Szenario, auch nach [TaOD17],
+neben den Stammdaten auch konstant anfallende Produktionsdaten, welche neben
+Maschinenausgaben auch Sensordaten umfassen. Die Freigabe und Zugriffskontrolle
+eben dieser entstehenden Daten ist dabei von Relevanz.
+Die Informationsflusskontrolle reguliert dann die horizontale und vertikale Ausbreitung des Informationsflusses. Vertikal, so nach Abschnitt 2.2 formuliert, beginnt
+ auf der Fertigungsebene. Auf dieser Ebene bilden cyber-physische Systeme, worunter man eine funktionelle Abkapslung physischer Geräte, wie Maschinen
+aber auch Sensoren und Sensornetzwerken versteht, die Basis. Diese Sensornetzwerke, dessen Informationsfluss es nun gilt maschinell und autonom verwalten zu
+, werden im Folgenden näher betrachtet:
+
+Abbildung 3.5: Traditional  Role-based Access Control [Chen08]
+
+Die Vorgehensweise den entstehenden Informationsfluss  die maschinelle Verarbeitung aufzubereiten wird von den Techniken des Semantic Webs geliefert. Die
+Semantic Sensor Network (SNN) Ontology ist ein Vokabular zum semantischen Beschreiben von Sensornetzwerken.  einer Ontologie werden Sensoren und Akteure in einer Wissensdatenbank erfasst und semantisch annotiert.  kann ein
+
+20
+
+3. Analyse
+
+autonomes System in die Lage versetzt werden den Kontext eben dieser Geräte
+miteinzubeziehen und dementsprechend zu heln. Die nächste Schlussfolgerung
+besteht dann darin, diese Wissensdatenbank um Rollenkonzepte und Berechtigungen zu erweitern.
+Ein Sicherheitsmodell, basierend auf einem relationalen Modell  semantische Sensornetzwerke, wird von [JJPJ+ 11] vorgeschlagen. Es wird dabei ein Semantic Sensor
+Netzwerk vorgesehen, dessen Ontologie rudimentär in einer relationalen Datenbank
+(RDBMS) gespeichert wird. Die Zugriffskontrolle wird dabei  eines Rollenkonzepts und  von vier Zugriffsk entschieden. Die vorgeschlagene Zugriffskontrolle beschränkt sich dabei auf die Selektion von Spalten und Zeilen.
+Die Arbeit verfolgt dabei erfolgreich das Ziel Rollenkonzepte und Zugriffskontrolle
+mit den Konzepten eines semantisches Sensornetzwerkes zu verknüpfen. Schwachstellen sind allerdings vor allem in der Flexibilität des Zugriffs zu finden, insbesondere
+in der dynamischen Kopplung von Rollen an spezifische Sensor-Instanzen sowie dem
+damit verbundenen Informationsfluss. Durch die nahe Anbindung an ein relationales Modell finden die Vorteile, die sich aus der Verwendung einer Ontologie und der
+damit verbundenen Möglichkeiten wie dem Reasoning (mehr dazu in Abschnitt 3.2)
+ergeben, nur eingeschränkt Anwendung.
+Auch [ChCK14] verfolgt die Idee eine ontologie- und kontextbasierten Zugriffskontrolle  eines reasoning-basierten Sicherheitskonzeptes umzusetzen. Ähnlich zu
+[JJPJ+ 11] wird der Informationsfluss dabei  einer Ontologie um seinen Kontext erweitert sowie  eines integrierten Rollenkonzeptes der Zusammenhang
+zwischen einer Information und der Berechtigung des Zugriffs auf diese Information
+umgesetzt.  SPARQL Abfragen kann die Frage nach der Zugriffsberechtigung
+dann aufgeschlüsselt werden. Diese Arbeit bildet einen sinnvollen Ausgangspunkt
+um die Grundlagen dieser Technologien auf eine Industrie 4.0 Szenario zu erweitern
+und  die Möglichkeiten, Grenzen und Effizienz dieses Systems aufzuzeigen.
+
+Abbildung 3.6: Kontext Ontologie nach [ChCK14]
+
+Abbildung 3.6 zeigt dabei das von [ChCK14] verstene Kontext Konzept, welches
+ einer Ontologie modelliert wurde. Dabei bilden verschiedene K, die
+
+3.3. Konzepte des Information Flow Controls
+
+21
+
+einen Kontext  der Kriterien Event, Location, User oder Zeit beschreiben,
+den Ausgangspunkt  ein autonomes System. Dieses kann daraus  die
+Zuordnung zwischen beobachteten Werten und der daraus resultierenden Aktion, wie
+der Benachrichtung der verantworlichen Person, vornehmen.
+Die Arbeit von [HPST09] beschäftigt sich wiederum ausschließlich mit eben dieser Frage, indem er mit SemSOS: Semantic Sensor Observation Service ein Modell
+zum automatisierten Erkennen von Beobachtungen und deren Schlussfolgerungen
+ eines semantischen Sensornetzwerkes vorschlägt. Sein Fokus liegt dabei auf
+den Möglichkeiten der Modellierung von Beobachtungen  einer Ontologie,
+dem Annotieren von entstehenden Sensordaten sowie der Technologie des Reasoning
+zum Identifizieren von relevanten Beobachtungen. Relevante Beobachtungen sind in
+Abhängigkeit der Domäne und Anforderungen geben. Im Beispiel des Industrie 4.0
+Szenarios kann man darunter  das automatisierte Erkennen von defekten Bauteilen oder auch einen ungeplant erhöhten Stromverbrauch, dessen Ursacher
+es zu identifizieren gilt, nennen. Beispiele und Hinweise zur Implementierung und
+Nutzung des regelbasierten Reasonings werden dabei in [HPST09] aufgezählt. Allerdings wird dieses nur exemplarisch an einem eren Beispiel durchgeführt sowie
+relevante Sicherheitskonzepte außer acht ge.
+Diese Schwachstellen greifen [MaJo10] in Abbildung 3.7 auf, indem sie neue Konzepte der Zugriffskontrolle  ontologie-basierte Datenmodelle vorschlagen. Ihre Arbeit
+richtet den Fokus dabei auf Zugriffskontrolle in sozialen Netzwerken. Dabei wird
+neue
+Teilontologie vorgeschlagen, welche die Frage beantworten soll, wer Zugriff auf welchen Informationen erhalten darf. Dabei werden die Zugriffsberechtigungen 
+ Axiome definiert. Diese Axiome dürfen dann von autorisierten Personen erstellt werden und verknüpfen Personen über Eigenschaften (read/write) mit Objekten.
+
+Abbildung 3.7: Ontologie-basierte Zugriffskontrolle nach [MaJo10]
+
+22
+
+3.4
+
+3. Analyse
+
+Anforderungen
+
+Die Modellierung einer Ontologie als Datenmodell eines Industrie 4.0 Szenarios
+bringt verschiedene Anforderungen mit sich, auf die im Folgenden eingegangen werden soll. Das Datenmodell unterteilt sich dabei logisch in die zwei Teilbereiche der
+T-Box und die A-Box :
+Die T-Box enthält dabei die Axiome über die Konzepte und K der beinhalteten
+Domäne. Sie enthält eine Menge an K- und Eigenschaftsdefinitionen, welche
+zur Modellierung entwickelt werden und im Laufenden Betrieb häufig konstant sind.
+Die A-Box hingegen sitzt auf ihr auf und enthält die Instanzen und ihre Eigenschaften. Konkrete Anwendungsfälle nutzen die T- und A-Box in unterschiedlicher
+Vielfalt und mit unterschiedlichem Zweck.
+Aus diesem Grund wurde OWL 2 neben OWL 2 DL in den drei weiteren Profilen
+EL, RL und QL entwickelt:
+
+Abbildung 3.8: Die Abgrenzung existierender OWL Profile [Fram13]
+
+OWL 2 EL Das EL Profil wurde  Anwendungsfälle entwickelt, welche eine große
+Vielzahl von K- und Eigenschaften besitzen und sich durch verhältnismäßig wenig Instanzdaten auszeichnet. Dabei liegt der Schwerpunkt auf dem
+Inferieren über K und unterscheidet sich  von den eren Profilen.
+Entsten ist das Profil  die medizinischen Domäne, in der komplexe Aussagen über K von Anatomien ausgedrückt werden wollen. 
+wurde  OWL 2 EL die medizinische Wissensdatenbank SNOMED CT
+entwickelt, welche  300.000 Konzepten etwa 800.000 Begriffe definiert
+und etwa 1.000.000 Beziehungen zwischen den Konzepten enthält.
+OWL 2 QL Das QL Profil wurde  Modelle mit großer A-Box, also verhältnismäßig vielen Instanzen entwickelt. Unter Einhaltung der Restriktionen wird
+eine schnelle Abfragenbeantwortung sowie die Nutzung von relationalen Datenbankmanagementsystemen versprochen, wobei verschiedene Features von
+
+3.5. Anwendungsfall des Industrie 4.0 Szenarios
+
+23
+
+OWL dennoch genutzt werden . Die nahe Anbindung an relationale
+Datenbanken ermöglicht dabei die einfache Übersetzung von Datenmodellen
+und Abfragen.
+OWL 2 RL Das RL Profil verspricht schnelles, skalierbares Reasoning. Es bringt
+diverse Einschränkungen bezüglich der Modellierung mit sich, welche allerdings
+durch regelbasiertes Reasoning ausgeglichen werden .
+Es ist zu vermuten, dass eine Ontologie  den Einsatz in einem Industrie 4.0 aus
+einer großen Anzahl von Instanzen gegenüber einer kleiner T-Box steht. Aus diesem
+Grund sind die OWL 2 RL und QL Profile als die Geeigneten  einen performanten
+Echtzeit-Betrieb anzunehmen. Um die Möglichkeiten der Ausdrucksmächtigkeit aufzuzeigen, bietet sich allerdings eine Modellierung  OWL 2 DL an. Dies bringt
+den Vorteil die neuen Konstrukte, welche mit OWL 2 eingeführt wurden, nutzen
+zu . Allerdings birgt dies auch den Nachteil keine Garantien der Laufzeit in
+einem produktiven Einsatz mehr versprechen zu .
+Im  dieser Arbeit wurde deswegen eine Ontologie in zwei Profilen entwickelt:
+ wurde eine Ontologie in OWL 2 DL entwickelt, welche die Möglichkeiten
+der Modellierung aufzeigen.
+Im weiteren Schritt wurde die Ontologie auf das Profil RL reduziert, um Belastbarkeitsstudien  den verwendeten Datenbankservern aufzuzeigen.
+
+3.5
+
+Anwendungsfall des Industrie 4.0 Szenarios
+
+Im  der Arbeit wurde ein Anwendungsbeispiel entwickelt, welches die Modellierung und Implementierung in vielen Punkten bestimmte. Dieses soll im Folgenden
+vorgestellt werden:
+Gegeben sei ein Unternehmen, welches Platinen in einem Fertigungsprozess produziert und vertreibt. Dabei helt es im Konkreten um Surface-Mounted-Devices,
+auch SMD-Platinen genannt. Eine SMD Platine besteht dabei aus einer Platine,
+welche mit verschiedenen Komponenten wie Kondensatoren bestückt werden. Die
+SMD Platine entsteht in einem Prozess, welcher sich durch fünf aufeiner folgende Prozessschritte auszeichnet:
+SMD-Prozess  wird auf eine Platine eine Wärmeleitpaste aufgetragen.
+Anschließend wird die Platine mit den vorgesehenen Komponenten bestückt
+und einer automatisierten, optischen Kontrolle (AOI) unterzogen. Findet diese
+keine defekten Bauteile, so wird die Platine in einen Bestückungsofen weitergeben. In diesem härten die Verbundstoffe aus, woraus  die produzierte
+Platine resultiert. Nachdem anschließend eine weitere AOI Kontrolle positiv
+durchgeführt wird, kann die SMD Platine im  dieses Anwendungsbeispiels als ein fertiges Produkt angenommen werden.
+Im Laufe dieses Prozessen  ungewünschte Fälle eintreten. Ein möglicher Ausnahmefall ist die Feststellung einer negativen AOI Kontrolle. Wurde ein Bauteil während des Produktionsprozesses beschädigt oder falsch montiert, so gibt es bestimmte
+Hlungsdirektiven, die unter bestimmten Bedingungen eintreten:
+
+24
+
+3. Analyse
+
+(1) Rohmaterialien nicht verfügbar Im ersten Fall ist davon auszugehen, dass
+die Prozesswiederholung lediglich an fehlenden Rohmaterialien scheitert. Ist
+dies der Fall, so muss der Prozess an dieser Stelle angehalten werden und eine
+neue Aufgabe  die Warendisposition erstellt werden. Diese muss die Information erhalten, welche Rohmaterialien benötigt werden sowie eine Verbindung
+zwischen dieser Aufgabe und dem auslösenden Prozess hergestellt werden.  kann sowohl der Prozessverantwortliche als auch der Disponent Einsicht
+über die Zusammenhänge des Fehlerfalles erfahren und notwendige Schritte
+einleiten.
+(2) Arbeiter nicht verfügbar Im zweiten Fall ist davon auszugehen, dass die
+Prozesswiederholung an fehlendem Personal scheitert. Dabei muss die Information über die Arbeits- und Anwesenheitszeiten des Personal sowie über den
+Prozessverantwortlichen festgehalten werden. Weiterhin soll die entstehende
+Fehlerinformation an den Verantwortlichen oder nächst höheren verantwortlichen Vorgesetzten überreicht werden. In der Fertigung beträfe die Information
+über den Ausfall eines Arbeiters  den zuständigen Meister.
+(3) Zeit  Prozessneustart nicht verfügbar Ist ein Prozess nicht mehr durchführbar, da seine interne zeitliche Begrenzung erreicht ist, so muss dies dem
+Prozessverantwortlichen informativ mitgeteilt werden.
+Die Umsetzung dieser Anwendungsbeispiels wird im  der Evaluierung behelt.
+
+3.6
+
+Zusammenfassung
+
+Eine Analyse bisheriger Arbeiten und bestehender Lösungsansätze zeigt, dass sich
+Ontologien gut da eignen Datenmodelle mit semantischer Beschreibung von Kinformationen zu erstellen. Dabei zeigen Arbeiten, dass es funktionierende Ansätze gibt Ontologien n  soziale Netzwerke oder medizinische Anwendungsbereiche zu nutzen. Ebenso bieten sich Ontologien durch existierende Vokabulare wie SOSA/SSN, ORG und part zum Modellieren von Unternehmenskontexten.
+Es wurden weiterhin Konzepte vorgestellt, welche sich Ontologie Design Patterns
+zunutze machen um ontologische Entwürfe praktisch umzusetzen. So wurde die Informationsflusskontrolle  des N-ary Design Patterns vorgestellt.
+Offen bleibt dabei weiterhin die Frage, in welcher Form sich Ontologien  den
+Einsatz mit komplexer T-Box im Einsatzbereich produzierender Unternehmen anbieten. Dabei spielt die Abwägung des jeweiligen OWL 2 Profiles sowie die lokalen
+Anforderungen eine Rolle.
+
+4. Entwurf
+Der Entwurf der ontologie-basierten Informationsflusskontrolle wurde im 
+dieser Arbeit in zwei Teilschritten durchgeführt:
+Der erste Schritt des Entwurfs befasst sich mit der Modellierung von Ontologien,
+welche sowohl die allgemeinen Begriffe und Konzepte produzierender Unternehmen
+als auch die spezifischen Begriffe eines beispielhaft modellierten Unternehmens umfassen. Dabei orientiert sich die Modellierung an [L14], welcher zum einen diverse
+Funktionen und Zusammenhänge der Domäne anführt und zum eren  eine Differenzierung zwischen einer generischen und einer spezifischen Ontologie empfiehlt. Der zweite Teilschritt der Modellierung befasst sich mit den Aspekten der
+Informationsflusskontrolle und der Implementierung  einer Ontologie.
+Im  der Modellierung sollen zwei Ontologien entworfen werden:
+Generische Ontologie Die erste Ontologie soll dabei eine generische Unternehmensontologie  den Einsatz von produzierenden Unternehmen darstellen.
+Sie soll eine Schnittstelle zwischen den etablierten Vokabularen, wie SOSA/SSN,
+ORG und part sowie der spezifischen Unternehmensontologie darstellen. Sie
+soll dabei möglichst breite Begriffe verwenden, die sich dennoch an spezifischen Vorgaben des Industrie 4.0 Szenarios ausrichten.
+Spezifische Ontologie Die zweite Ontologie stellt dann das Modell eines konkreten Unternehmen dar. Dieses Modell bedient sich der Konzepte der generischen
+Ontologie und erweitert diese um spezifische Begriffe und Konzepte.
+Dabei werden beide Ontologien in insgesamt drei Teilschritten modelliert:
+1. Im ersten Schritt werden die bestehenden Vokabulare näher betrachtet und eine Ontologie entworfen, welche diese Begriffe zentral einbindet und verwendet.
+2. Anschließend wird diese Ontologie mit Konzepten erweitert, die die Begriffe
+eines produzierenden Unternehmens näher aber dennoch allgemein beschreiben.
+
+26
+
+4. Entwurf
+3. Im letzten Schritt wird dann eine individuelle Ontologie entworfen, welche
+wiederum an der generischen Ontologie ockt und unternehmenseigene Begriffe und Konzepte definiert. Dazu zählt  die Definition eines
+spezifischen Prozessablaufes.
+
+Die entworfene Ontologie wird dann im  der Evaluierung instanziiert um die
+Erfüllung des Anwendungsfalles auszuwerten.
+
+4.1
+
+Entwurf der generischen Ontologie
+
+Um ein Unternehmen  einer Ontologie zu modellieren, bietet es sich an mit
+dem Organizational Vocabulary (ORG) anzufangen:
+Demnach ist ein Unternehmen eine Organization, welche sich in verschiedene Abteilungen (OrganizationalUnits) unterteilt. Diese stellen verschiedene Positionen und
+Rollen bereit. Die Zugehörigkeit von Abteilungen zu einem Unternehmen wird durch
+die Beziehung hasUnit, bzw. die inverse Beziehung unitOf modelliert. Angestellte
+werden durch die Beziehung memberOf beschrieben und ihre Positionen durch role. Bei der Verwendung der Begriffe wurden leichte Modifikationen vorgenommen.
+So unterteilt sich eine Rolle in der Modellierung in eine interne und externe Rolle.
+Interne Rollen sind dabei direkt dem Unternehmen zugeteilt, externe Rollen sind Akteure, die mit dem Unternehmen agieren. Akteure sind dabei  Kunden
+oder Zulieferer. Interne Rollen sind mit Positionen gleichzusetzen.
+
+Abbildung 4.1: Die Struktur des Organizational Vocabularies
+
+Ein Unternehmen im Sinne des Industrie 4.0 Szenarios ist der Produzent eines Produktes. Dieses Produkt wird auf der einen Seite durch Aufträge von einem Kunden
+bestellt und auf der eren Seite durch den Warenfluss eines Disponenten produziert. Das Produkt entsteht durch den Ablauf mindestens eines Prozesses, welcher
+sich aus verschiedenen, sequenziellen Prozessschritten zusammensetzt. Ein Prozessschritt enthält dabei mindestens eine Aufgabe. Dabei werden Aufgabe, Prozessschritt
+und Prozess werden von einem internen Akteur überwacht. Interne Akteuere sind
+Abteilungen zugeordnet und diese wiederum funktionellen Aufgabenbereichen des
+Unternehmens. Die Abteilungen und Aufgabenbereiche unterscheiden sich zwar von
+Unternehmen zu Unternehmen, allgemeingültige Begriffe  sich allerdings dennoch finden. So besitzt jedes produzierende Unternehmen eine Warendisposition,
+
+4.1. Entwurf der generischen Ontologie
+
+27
+
+eine Produktion, einen Vertrieb und eine Qualitätssicherung. Die Arbeitnehmer eines Unternehmens  sich grob in die zwei K der Angestellten und Arbeiter
+differenzieren:
+Angestellter und Manager Eine Spezialisierung eines Angestellten ist dabei der
+Manager, welcher sich durch seine Verantwortung von einem Angestellten differenziert und sich durch weitere, spezifischere Subk konkreter definiert.
+So ist anzunehmen, dass jede Abteilung einen Abteilungsleiter besitzt, welcher
+als Manager zu klassifizieren ist. Jede Abteilung besitzt zudem Angestellte,
+welche Aufgaben angepasst an die Funktion der Abteilung übernehmen.
+Arbeiter und Meister Ein Arbeiter hingegen differenziert sich von einem Angestellten durch die Arbeit, die er verrichtet. So finden sich Arbeiter in der
+Produktion. Diese Abteilung untergliedert sich weiterhin in die Fertigung und
+Montage. Eine Subklasse eines Arbeiters ist der Meister, welcher die Verantwortung  einen oder mehrere Arbeiter übernimmt und diese ausbildet. Ebenso wie in dem Verhältnis zwischen Manager und Angestellten findet sich eine
+Form der Hierarchie. Diese kann durch die Beziehung org:reportsTo des Organizational Vocabularies ausgedrückt werden.
+
+Abbildung 4.2: Die Ausrichtung von internen Angestellten zu den Abteilungen eines
+Unternehmens
+
+Produkt Ein Produkt entsteht wie bereits erwähnt als Abfolge von Prozessen, welche physische Aufgaben bündeln, die zur Produktion des Produktes maßgeblich
+sind. Dabei enthält ein Prozess eine sequenzielle Abfolge von Prozessschritten
+und ist durch einen definierten Anfang und ein definiertes Ende bestimmt.
+Ein Prozessschritt enthält mindestens eine Aufgabe, welche definierte Ein- und
+Ausgaben erhält. Eingaben  dabei wie von [L14] erwähnt Einzelteile
+und Ausrüstungsgegenstände sein, Ausgaben  daraus entstehende Baugruppen. Einzelteile und Ausrüstungsgegenstände  sich dabei in
+
+28
+
+4. Entwurf
+den Bereich der Ressourcen eines Unternehmens zuordnen. Ressourcen bestehen dabei aus Ausrüstung, Personal und Materialien. Zu den Ausrüstungsgegenständen eines produzierenden Unternehmens gehören nach [L14] Werkzeuge, Stationen, Linien und Zellen. Weiter sollen Produktionshallen zukünftig
+mit Sensoren ausgestattet sein, welche  als Ausrüstungsgegenstände
+zählen. Materialien  unterschieden werden in Rohmaterialien, Zwischenprodukte als Ergebnis von Aufgaben sowie Endprodukte. Ein Material kann
+demnach verschiedene Zustände annehmen:
+Es kann unverarbeitet sein, als Teil einer Baugruppe benutzt sein, beschädigt
+sein oder Teil eines Abfallsproduktes sein.
+
+Abbildung 4.3: Aufgabe und Materialien
+
+Eine Aktivität, wozu Prozesse, Prozessschritte und Aufgaben gehören, besitzt neben einem Verantwortlichen einen Status. Ein Status kann dabei die Ausprägungen
+’Aktiv’, ’Wartend’ oder ’Beendet’ besitzen. Dabei vererbt sich der Status von unten
+nach oben weiter, worunter zu verstehen ist, dass ein Prozessschritt erst beendet
+ist, wenn alle zugehörigen Teilaufgaben beendet sind. Während sich Prozessschritte
+durch einen nächsten Schritt auszeichnen, ist die Sammlung der Aufgaben eines Prozessschrittes ungeordnet. Dies ermöglicht eine asynchrone Bearbeitung der Aufgaben
+eines Prozessschrittes, wobei eine synchrone Bearbeitung durch die Anwendung von
+Prozessschritten modelliert werden kann.
+
+Prozess Ein Prozess als Gesamit der damit verbundenen Aufgaben wird von
+einem Manager mit der Unterstützung der Informationssysteme überwacht.
+Die dazugehörigen Prozessschritte  entweder  seiner Verantwortung unterliegen oder von einem Angestellten kontrolliert werden. Eine
+konkrete Aufgabe hingegen wird von jeder Form eines internen Akteures ausgeführt oder überwacht. Die Beziehung zwischen Prozess, Prozessschritt und
+
+4.1. Entwurf der generischen Ontologie
+
+29
+
+Abbildung 4.4: Die Modellierung von Aufgabe, Prozessschritt, Prozess, Produkt und
+Auftragsliste zu seinem Auftrag
+
+einer Aufgabe zu seinem verantwortlichen Akteur wird durch die neu eingeführte Beziehung owns ausgedrückt, welche durch die Spezialisierungen ownsFunctionalTask, ownsProcessStep und ownsProcess verfeinert werden .
+Diese Beziehungen  durch inverse Beziehungen wie hasFunctionalTaskOwner erweitert werden, um die Ausdrucksmächtigkeit zu erhöhen.
+Da ein interner Akteur Teil einer Abteilung ist, welche spezifische Aufgaben
+bündelt und zudem selber konkrete Aufgaben bearbeitet,  die seine
+Aufgaben als abteilungsspezifische Aufgaben klassifiziert werden. So kann die
+Aufgabe bestimmte Rohmaterialien zu bestellen, welche von einem Materialdisponent ausgeführt wird, auch der Abteilung Materialdisposition über eben
+diese gesetzten Beziehungen automatisiert zugeordnet werden.
+Prozessschritt Ein Prozessschritt definiert sich primär durch die Kapslung von
+Aufgaben gleicher Art sowie durch den Verweis auf einen nächsten Prozessschritt.  erlaubt die Modellierung  Prozessschritten das Ausdrücken
+von sequentiellen Schritten. Ein Prozess besitzt dabei ein oder mehrere Prozessschritte. Die Anzahl seiner Prozessschritte ist dabei aber wohldefiniert. Ein
+Prozessschritt hingegen besitzt mindestens eine Aufgabe, kann jedoch unbestimmt viele besitzen.  ist modelloretisch die Möglichkeit gegeben,
+ durch eine negative Produktkontrolle, eine neue Aufgabe während der Prozessausführung in einen Prozessschritt zu integrieren.
+Aufgabe Eine Aufgabe stellt die granularste Form der Aktivität dar und beinhaltet
+oft auch die physische Verrichtung einer Aktivität. Im  dieser Modellierung wurde sie als ein Eingabe-/ Ausgabe-System modelliert, welche 
+hasFunctionalTaskInput Eingaben erhält und  hasFunctionalTaskOutput auf die produzierte Ausgabe verweist. Dies verfolgt die Idee die Historie
+der Rohstoffverarbeitung aufrecht zu erhalten.
+
+30
+
+4. Entwurf
+
+Neben einer Zugehörigkeit zu einer Abteilung besitzt ein interner Angestellter Arbeitszeiten, zu denen er verfügbar steht. Diese wurden  mit einer n-Ary
+Relation umgesetzt. Dabei besitzt eine Person ein Objekt Availability, welches seine
+Arbeitszeiten sowie seinen aktuellen Verfügbarkeitsstatus enthalten.
+
+4.2
+
+Entwurf der spezifischen Ontologie
+
+Mit dem Entwurf der spezifischen Ontologie wurde  das Materiallager eines
+Unternehmens konkretisiert:
+Material Dabei ist ein Material ein Gegenst, welcher in verschiedenen Formen
+auftritt und in seiner Gesamtfunktion dem Aufbau eines Produktes gilt. Dabei
+wurde im  der Modellierung zwischen Rohmaterialen, Zwischenmaterialien (Intermediate), unbrauchbaren Gegenstände (Unusables) und fertigen
+Produkten unterschieden. Dabei bilden alle Rohmaterialien, welche noch als
+Einzelteil in einer Baugruppe oder einem Produkt verbaut wurden, die Menge
+der noch verfügbaren Materialien. Diese  sich  der nicht vorhenen part:partOf Beziehung identifizieren.
+
+Abbildung 4.5: Materialien eines spezifischen Unternehmens
+
+Der Entwurf der spezifischen Ontologie soll den konkreten Anwendungsfall einer
+ontologie-basierten Umsetzung simulieren. Dabei wurde der Fokus der Modellierung
+auf die Aktivitäten und Informationsflüsse innerhalb der Fertigung und Produktion
+gerichtet  eines pragmatischen Beispiels gerichtet. Dieses soll im Folgenden
+erläutert werden:
+SMD-Prozess Es kann dabei angenommen werden, dass sich ein produzierendes
+Unternehmen mit der Entwicklung von Platinen, im Konkreten mit SurfaceMounted-Devices, beschäftigt. Eine SMD-Platine besteht dabei aus einer Leiterplatte, welche mit Komponenten bestückt wird. Komponenten  dabei
+
+4.2. Entwurf der spezifischen Ontologie
+
+31
+
+ Kondensatoren oder Widerstände darstellen. Eine SMD-Platine
+wird im Produktionsprozess in einem mehrstufigen Verfahren erstellt. Zusammengefasst kann der Prozess dabei auf fünf Prozessschritte reduziert werden,
+welche im Optimalfall aus jeweils einer Aufgabe (Task) bestehen. Letzteres ist
+allerdings nicht als Restriktion eines Prozessschrittes, sondern kann als Definition des Normalfalls versten werden. Die Aufgaben der fünf Prozessschritte
+ sich wie folgt beschreiben:
+• (T1) Wärmeleitpaste auf die Leiterplatte auftragen
+• (T2) Leiterplatte mit Komponenten bestücken
+• (T3) Durchführung der ersten automatischen, optischen Inspektion (AOI)
+• (T4) Härtung der Verbundmaterialien im Leiterplattenofen
+• (T5) Durchführung der zweiten automatischen, optischen Inspektion (AOI)
+Gemäß des Entwurfs von Prozess, Prozessschritt und Aufgabe gilt ein Prozessschritt
+als erfüllt, wenn alle seine Teilaufgaben erfüllt sind. Die Teilaufgaben  sich hier
+in zwei funktionelle Gruppen unterteilen:
+In die Aufgaben der Fertigung und die Aufgaben der Qualitätssicherung.
+
+Abbildung 4.6: Die Abbildung eines Prozesses am Beispiel der Qualitätssicherung
+
+Aufgabe als Transformations-Prozess Die Aufgaben der Fertigung und insbesondere des SMD-Prozesses bestehen dabei aus Input-Output-Systemen. Eine
+Aufgabe nimmt dabei ein Material, worunter Rohmaterialien, verarbeitete Materialien sowie Verbrauchsmaterialien zählen und verarbeiten diese zu einem
+neuen verarbeiteten Material. Beispielsweite besteht der erste Prozessschritt
+aus einer Aufgabe, welche eine Leiterplatte und Wärmeleitpaste als Eingabe
+
+32
+
+4. Entwurf
+benötigt und damit eine vorbereitete Platine produziert. Der folgende Schritt
+nimmt dieses Zwischenmaterial und bestückt es weiteren Rohmaterialien, den
+Komponenten. Das Ergebnis stellt die bestückte Platine dar, welche in ihren
+Einzelteilen aus einer ursprünglichen Platine, einer Menge an Wärmeleitpaste und den entsprechenden Komponenten besteht. Durch die Möglichkeiten
+transitiver Eigenschaften von mit OWL modellierten Aussagen  sich diese Beziehungen  der Durchführung einzelner Aufgaben beschreiben,
+wobei die Information über das gesamte hergestellte Produkt im Laufe des
+Produktionsprozesses erhalten bleibt.
+
+Aufgabe als Informationsgewinnungs-Prozess Eine Alternative dessen stellen
+Prozessschritt 3 und 5 dar, welche im  der Qualitätssicherung eine
+AOI-Kontrollen durchführen. Eine AOI-Kontrolle misst  eines optischen
+Sensors die Abweichung platzierter Komponenten  drei Dimensionen.
+Dabei stellen SOSA und SSN ontologische Konzepte um die entsten Messungen in die Ontologie zu integrieren. Eine Observation beinhaltet die Information eines Sensors über eine Komponente und eine Dimension (Eigenschaft). Eine Aufgabe, welche die AOI-Kontrolle durchführt, produziert im
+Gegensatz zu einer Aufgabe der Fertigung  keine neuen physischen Gegenstände, sondern Beobachtungen als Informationsobjekte. Um innerhalb des
+Prozesses den semantischen Zusammenhang zwischen den Teilen eines hergestellten Produktes und seinen Messungen zu bewahren, erhält auch eine
+AOI-Kontrolle die zu messenden Objekte als Eingabe der Aufgaben. Um dies
+fortzuführen enthält sie weiterhin die korrespondierenden Messergebnisse als
+Ausgabe.
+Die AOI Kontrolle untersucht dabei die Positionierung einer Komponente auf einer
+Platine. Dabei wird die Positionierung  drei Dimensionen untersucht. Dazu
+zählt die Abweichung der Positionierung bezüglich eines x-Wertes (links/rechts), eines y-Wertes (oben/unten) sowie der Verwindung der Komponente. Dabei wurde
+untersucht inwiefern es möglich ist defekte Komponenten  von Schwellwertabweichungen automatisiert als solche zu klassifizieren. Ein defekter Komponent
+lässt sich dabei wie folgt definieren:
+Defekter Komponent Ein defekter Komponent zeichnet sich durch eine fehlerhafte Platzierung auf einer Platine aus. Dabei wird die Platzierung durch eine
+sensorische Beobachtung in drei Dimensionen gemessen. Diese beinhalten die
+Positionierung in x- und y-Dimension sowie die Verdrehung einer Komponente. Überschreiten die gemessenen Werte dabei gesetzte Grenzwerte, so ist der
+Komponenten als defekt zu deklarieren.
+Defekte Platine Eine Platine gilt dabei als defekt, wenn sie eine bestimmte Anzahl an defekten Komponenten trägt. Dies lässt sich  OWL durch die
+Erfassung von Platinen mit deren bestückten Komponenten praktisch umsetzen. Als Voraussetzung muss lediglich jeder defekte Komponent als solcher
+klassifiziert werden sowie die Verbindung zwischen Platine und Komponent
+ part:partOf ausgedrückt werden.
+Die Grenzwerte wurden dabei  mit dem N-ary Design Pattern umgesetzt.
+
+4.2. Entwurf der spezifischen Ontologie
+
+33
+
+Dabei wurden neben den beobachtbaren Eigenschaften, wie der x-, y- und z-Abweichung,
+auch die Klasse der Grenzwerte eingeführt. Dabei wurde definiert, dass jede beobachtbare Eigenschaft genau einen Grenzwert besitzt:
+
+Abbildung 4.7: Modellierung der Grenzwerte
+
+Dies lässt sich mit den Kkonstrukten von OWL nicht definieren, da diese keine
+Vergleichsoperatoren  Literale vorsehen. So ließe sich definieren, dass ein defekter
+Komponent genau die Abweichung eines spezifischen Wertes besitzt. Allerdings lässt
+sich dies nicht auf einen Bereich von Werten definieren.
+Um dieses Problem anzugehen, bietet sich die Semantic Web Rule Language (SWRL)
+als Erweiterung von OWL an.  lies sich eine Regel zur Identifizierung defekter
+Komponenten implementieren. Diese wird in Abbildung 4.8 vorgestellt.
+
+Abbildung 4.8: Umsetzung eines defekten Komponenten  SWRL
+
+34
+
+4. Entwurf
+
+Weiterhin wurde  SWRL Regeln implementiert, welche geeignet sind weitere Einsatzmöglichkeiten der Modellierung aufzuzeigen. Es wurden insgesamt zwei
+weitere Regeln definiert, welche das Ziel verfolgen während des Prozessablaufes automatisiert und nachträglich Informationen zu annotieren. Die entworfenen Regeln
+werden im Folgenden vorgestellt:
+SWRL Regel R1 Wenn die Aufgabe (T1, T2 oder T4) den Status ’Beendet’ trägt,
+verbinde die produzierten Bauteile (Task-Ausgabe)  der part:hasPart
+Eigenschaft mit den benötigten Task-Eingaben. Die Task-Eingaben stellen dabei die benötigten Einzelteile dar.
+SWRL Regel R2 Wenn die Aufgabe (T3 oder T5) den Status ’Beendet’ trägt,
+verbinde alle gesuchten Beobachtungen als Task-Ausgabe. Gesuchte Beobachtungen observieren dabei ein Bau- oder Einzelteil, welches direkt mit der TaskEingabe verbunden ist.
+ dieser Regeln ist es möglich die Historie eines hergestellten Produktes auf
+jedes seiner benötigten Einzelteile zurückzuverfolgen. Umgekehrt kann  jedes
+Einzelteil nachverfolgt werden, in welcher Baugruppe es schlussendlich verbaut wurde. Anstrebt wurde hierbei eine Lösung, welche das Problem ontologisch und regelbasiert löst.
+
+4.3
+
+Integration des Information Flow Control
+
+Der Entwurf der Informationsflusskontrolle findet  der n-ary Design Patterns statt. Er richtet sich dabei nach den Vorschlägen von [MaJo10] und erweitert
+diese um sogenannte DataCollections. Eine DataCollection stellt dabei die Klasse
+von Objekten dar, welche einer Person bestimmte Zugriffsrecht auf definierte Informationsobjekte bereitstellt. Unterstützt wird sie ferner durch die eingeführten
+Eigenschaften canRead und canWrite. Durch den Einsatz von Property Chaining
+ DataCollections dabei  den Endanwender in den Hintergrund rücken und
+zentral die jeweiligen Zugriffsobjekte klassifizieren.
+
+Abbildung 4.9: Das Konzept der Zugriffskontrolle
+
+Dabei wird die Modellierung von DataCollections durch die hohe Informationsdichte
+begünstigt. Die hohe Informationsdichte ist dabei durch die semantische Modellierung gegeben. Sie begünstigt die Verteilung modularer Informationspakete je nach
+
+4.4. Zusammenfassung
+
+35
+
+Bedarf. DataCollections verfolgen allerdings aus dem Grund der hohen Informationsdichte das Ziel Informationen nicht unmittelbar  ihres Kontextes auszuliefern,
+sondern die freigegeben Informationen  selektierter Kanten und Knoten zu
+bestimmen.
+
+4.4
+
+Zusammenfassung
+
+In diesem Kapitel wurde ein ontologie-basiertes Datenmodell eines Produktionsunternehmens entworfen. Das Schema des Datenmodells unterteilt sich dabei in einen
+generischen Teil, welcher als Schnittstelle bekannte Ontologien mit den Konzepten
+produzierender Unternehmen verbindet sowie in einen spezifischen Teil des Entwurfs.
+Die Modellierung wurde dabei  klassischer Produktionssysteme, wie dem
+MES, entworfen und beinhaltet neben den Konzepten des Produktes auch die Begriffe des Prozesses, der Aufgabe sowie dem Status. Diese bilden die Grundlage 
+spezifischere Ontologien, welche dann ein konkretes Unternehmen beschreiben. Das
+spezifische Modell beinhaltet dabei die Modellierung eines Industrie-Unternehmens
+ eines praktischen Beispiels. Dieser wurde im zweiten Teil des Entwurfs vorgestellt.
+Weiterhin wurden Methoden zur Modellierung der Informationsflusskontrolle vorgeschlagen. Diese setzen auf den Analysen des vorherigen Kapitels auf und wurden
+ der vorgestellten Ontologie Design Patterns, wie dem N-ary Design, umgesetzt.
+
+36
+
+4. Entwurf
+
+5. Implementierung
+Im  dieser Arbeit wurden drei Komponenten entwickelt, die eine ontologiebasierte Informationsflusskontrolle in einem Industrie 4.0 Szenario simulieren. Diese
+Komponenten bestehen aus einer Client-App, einer Datenbank sowie einer Java App,
+welche neben der Verwaltung neuer Daten einen integrierten Reasoner  lokale
+Inferenz besitzt:
+
+Abbildung 5.1: Die Architektur der Komponenten
+
+38
+
+5. Implementierung
+
+Dabei wurde zwei verschiedene Herangehensweisen implementiert, welche den ReasoningProzess in einem Echtzeitbetrieb unterschiedlich lösen:
+1. Der erste Ansatz verfolgt dabei eine lokale, java-basierte Inferenz. Dabei wird
+der Inferenz Prozess lokal von der Java-Komponente ausgeführt. Es wird vermutet, dass hierbei umfangreichere Inferenz Ergebnisse erwartet werden . Dabei verfolgt der Ansatz die Idee, lediglich inferierten Axiome in einem
+separaten Graphen der Datenbank abzulegen.   später inferierte
+Axiome von gesetzten Axiomen unterschieden werden.
+2. Der zweite Ansatz testet die Möglichkeiten datenbankbasierter Inferenz 
+eines in die Datenbank integrierten Reasoners. Dieser Ansatz vermeidet die
+Synchronisationskonflikte, die mit dem ersten Ansatz der Implementierung
+auftreten .
+
+5.1
+
+Implementierung der Java-App
+
+Die implementierte Java App stellt als eine der drei Komponenten zwei wesentliche
+Funktionalitäten bereit:
+• Zum einen verarbeitet sie ankommende Dateien,  Sensormessungen, und annotiert sie gemäß dem Schema der Datenbank. Dazu werden die
+Daten in eine Ontologie integriert, welche dann in den entsprechenden Graphen (siehe Kapitel 5.2) abgelegt wird. Da hier lediglich ankommende Daten
+in bestehende Daten integriert werden, ist an dieser Stelle mit keinen Synchronisationskonflikten zu rechnen.
+• Die zweite Funktionalität wird durch ein Modul integriert, welches 
+dem javabasierten Reasoner Openllet inferierte Axiome berechnen kann. Dazu
+verwendet das Modul die Biblioken Apache Jena sowie OWL API. Auf diese
+Biblioken wird im Weiteren eingegangen.
+Apache Jena Die Java-Komponente wurde  mit dem Framework Apache
+Jena umgesetzt, welche ihren Fokus auf die Verarbeitung von RDF/XML basierten Dokumenten legt und diese um Basisfunktionalitäten von OWL erweitert. Apache Jena liefert dazu  die Datenbankserversoftware Apache
+Jena Fuseki mit, welche  eines Triple-Stores RDF-Daten per HTTP
+verteilt. Dies wird sowohl mit dem GraphStore-Protokoll als auch mit einem
+SPAQRL-Endpoint umgesetzt. Das Framework beinhaltet zudem mehrerer Reasoner, wie den Generic Rule Reasoner, zum Inferieren von RDF und OWL
+Dokumenten. Diese bringen allerdings diverse Einschränkung und Anforderungen an die Implementierung der Ontologie mit. Dies findet ihren Ursprung in
+der Ausrichtung von Jena auf RDF/XML Dokumente sowie die fehlende Integration von OWL 2. So wurde festgestellt, dass auch mit dem OWL 2 Reasoner
+Openllet keine Inferenz von Property Chaining  Apache Jena durchgeführt werden konnte. Dabei ist Property Chaining eine Eigenschaft, welche mit
+OWL 2 eingeführt wurde. Allerdings bietet der Generic Rule Reasoner, welcher
+sowohl eine Jena-Schnittstelle als auch eine Integration in Fuseki beinhaltet,
+
+5.2. Implementierung der Datenbank
+
+39
+
+die Option Regeln zu entwerfen.  dieser Regeln kann versucht werden
+fehlenden Funktionalitäten zu integrieren. Dabei wurden allerdings 
+Performanceeinbußen festgestellt, auf welche im folgenden Kapitel eingegangen
+wird.
+OWL API stellt eine weitere Bibliok zum Verwalten und Bearbeiten von Ontologien dar. Dabei unterstützt OWL API neben OWL 2 auch die Option externe
+Reasoner zu verwenden. Dabei werden die Neuerungen von OWL 2 unterstützt.
+ OWL API und Openllet kann  eine vollständige Inferenz über das
+Profil OWL 2 DL durchgeführt werden. Des Weiteren unterstützt Openllet die
+Ausführung von SWRL Regeln.
+Aus diesen Feststellungen wurde eine Java-Komponente entwickelt, welche den Datenstream  auf eine vorkonfigurierte Datenbank lädt und anschließend wahlweise lokale Inferenz  OWL API und Openllet durchführt. Bei der Implementierung wurde dabei darauf geachtet lediglich inferierte Axiome in den separaten
+Graphen der Datenbank abzulegen.   im späteren Verlauf gesetzte Axiome von inferierten differenziert werden.
+
+5.2
+
+Implementierung der Datenbank
+
+Die Axiome einer Ontologie resultieren in der Serialisierung in Tripeln, welche in
+der Anwendung in einem Triple-Store gespeichert werden. Da wurden im 
+dieser Arbeit die zwei Triple-Stores Apache Fuseki sowie Stardog von Stardog Union
+verwendet.
+Apache Fuseki stammt aus dem Framework Apache Jena und bildet die Verwaltung des Triple-Stores TDB. Dabei bietet Fuseki über die Anbindung an Jena
+die gleichen Funktionalitäten bezüglich des Reasonings mit. Diese beinhalten Inferenz über RDF sowie OWL Dokumente, nicht allerdings über OWL
+2.  des integrierten Generic Rule Reasoners  eigene Regeln implementiert werden, welche über die Funktionalität von OWL 2 hinausgehen.
+Dies kann allerdings in einer schlechteren Performance resultieren.  des
+Generic Rule Reasoners ist es möglich, während des Reasonings Instanzen zu
+erzeugen.
+Stardog ist ein Triple-Store des US-Unternehmens Stardog Union, welcher Unterstützung von OWL 2 sowie verschiedene Modi des Reasonings unterstützt. So
+unterstützt Stardog Reasoning über OWL 2 DL sowie eine Implementierung
+von regelbasiertem Reasoning. Das Reasoning unterstützt dabei nach eigenen
+Angaben das Profil SL, welches an die Profile EL, QL und RL angepasst ist.
+Die Unterstützung von regelbasiertem Reasoning ermöglicht es mit Stardog
+ Instanzen während des Reasonings zu erstellen. Diese Regeln
+werden  eines an SPARQL angelehnten Syntax umgesetzt und intern in
+SWRL Regeln normalisiert. Da diese während des Inferenz-Prozesses verarbeitet werden,  sich SWRL Regeln auch direkt in die Ontologie integrieren.
+
+40
+
+5.3
+
+5. Implementierung
+
+Implementierung der Client-App
+
+Die Client App verfolgt das Ziel eine Schnittstelle zwischen dem Benutzer und der
+Datenbank zu bilden. Da wurden Module entwickelt, welche sich primär mit seiner vorkonfigurierten Datenbank verbinden und darüber Informationen austauschen
+soll. Dabei wurde die App sowohl  Apache Fuseki als auch  Stardog vorbereitet
+und mit NodeJS umgesetzt. Sie bietet in der ersten Version Funktionalität zum erleichterten Durchsuchen der Eigenschaften einer Instanz. So lässt sich 
+wie in Abbildung 5.2 die Historie der benötigten Einzelteile einer Baugruppe oder
+eines Produktes zurückverfolgen.
+
+Abbildung 5.2: Ausschnitt der App, zur Präsentation der Teilehistorie eines Produktes
+
+6. Evaluierung
+Im  der Implementierung wurden Komponenten entwickelt, welche die Anwendbarkeit von Ontologien als Datenmodell eines produzierenden Unternehmens
+untersuchen. Dabei wurden verschiedene Komplikationen aufgedeckt, welche im Folgenden behelt werden sollen.
+
+6.1
+
+Evaluation der Implementierung
+
+Die Komponenten wurden wie in Kapitel 5 beschrieben umgesetzt und erfüllen die
+in Kapitel 5.1 vorgesehene Funktionalität. Dabei wurde im Betrieb mit der entwickelten Ontologie bezüglich der verwendeten Komponenten folgende Beobachtungen
+festgestellt:
+Stardog Der Graphstore Stardog bringt aufgrund seiner OWL 2 Unterstützung sowie durch den integrierten Reasoner Vorteile mit sich. Dabei ist zu erwähnen,
+dass Stardog den Reasoner auf das eigene OWL Profil SL eingrenzt. Dieses
+umfasst nach eigenen Angaben die Möglichkeiten der OWL Profile EL, RL
+und QL.  ausgegrenzt bleibt die Option eine Ontologie nach dem OWL
+2 DL Profil im Echtzeit zusammen mit dem integrierten Reasoner zu verwenden. Auf der eren Seite bietet die Restriktion an OWL SL zusammen mit
+dem Reasoner die Funktionalität neue Instanzen der Ontologie regelbasiert
+während der Inferenz zu erstellen. Dies ist mit OWL selbst erweitig nicht
+möglich. Es bleibt zu erwähnen, dass die während der Inferenz erzeugten Objekte nur existent sind solange der Reasoner auch aktiv ist.
+Wurde Stardog mit einer Ontologie im Profil SL verwendet, so wurde die Performance lediglich durch den Einsatz umfangreicher Regeln beeinflusst. Auch
+hier wurden Restriktionen bezüglich der Komplexität von Regeln und 
+der möglichen ontologie-basierten Umsetzung identifiziert.
+Fuseki Das Framework von Apache Jena, welches auch den Graphstore Fuseki liefert, besitzt  den Einsatz in einem Industrie 4.0 Szenario aufgrund der fehlenden OWL 2 Unterstützung nur bedingt Funktionalität. So wurde festgestellt, dass sich auch externe OWL 2 Reasoner nur bedingt mit dem Jena Framework verwenden , da auch hier nicht alle Funktionalitäten von OWL 2
+
+42
+
+6. Evaluierung
+ausgeschöpft werden konnten. Der Generic Rule Reasoner, den sowohl Jena als
+auch Fuseki verwendet, bietet in einigen Fällen die Möglichkeit sich fehlenden
+Features nachzurüsten. Darüber hinaus bietet auch der Generic Rule Reasoner die Option Individuen zu instanziieren. Aufgrund der fehlenden OWL 2
+Unterstützung wurde Fuseki im Weiteren allerdings nicht mehr betrachtet.
+
+Lokale Inferenz  die Simulierung eines Industrie 4.0 Szenarios im 
+dieser Arbeit ergab sich aus der lokalen Inferenz die umfangreichste Funktionalität. Dabei wurde die Java-Komponente mit dem quelloffenen Reasoner
+Openllet verwendet. Dieser entst als eine Weiterführung des Pellet Reasoners, welcher nun in Stardog weitergeführt wird.  Openllet und der
+Java-Komponente wurde lokal die inferierte Hülle berechnet, wobei diese neben
+den OWL 2 Axiomen auch SWRL Regeln übersetzen konnte. Dabei unterstützt
+Openllet allerdings nicht die Option zum Instanziieren von Objekten.
+Es bleibt festzustellen, dass der Einsatz von Ontologien in einem Industrie 4.0 Szenario verschiedene Komplikationen bei der technischen Umsetzung beinhaltet.
+
+6.2
+
+Evaluation der Performance
+
+Im  der Evaluation wurde eine Performance-Analyse durchgeführt. Die Versuche wurden dabei auf einem Laptop mit Hardware aus dem Jahr 2015 durchgeführt. Der Laptop arbeitet mit einem 3.1 Ghz DualCore i7 Prozessor sowie mit 8Gb
+Ram unter Mac OS 10.11. Das Schema der Datenbank best dabei aus der generischen und spezifischen Ontologie sowie aus den Vokabularen von ORG, PART,
+SOSA und SSN. Des Weiterin wurden die in Abschnitt 4.2 vorgeschlagenen Regeln
+implementiert. Das Schema umfasst dabei 2252 Tripel.
+Setup Als Grundlage des Versuchs wurden Demodaten produziert. Da wurde
+die Java-App  um eine Komponente erweitert, welche  des
+Anwendungsbeispieles Demodaten generiert. Dabei enthält ein Demodatum
+einen SMD-Prozess, welcher sich durch die fünf Prozessschritte und Aufgaben
+auszeichnet. Dabei wird pro Prozess eine SMD-Platine herstellt, welche neben
+einer Platine aus sechs Komponenten besteht. Jede Komponente wird dabei
+von drei Beobachtungen auf die Merkmale der Positionsabweichung bzgl. der
+x-, y- und z-Achse untersucht.
+Ablauf Die generierten Demodaten wurden dabei auf einen konfigurierten StardogServer abgelegt und anschließend die lokale Inferenz ausgeführt. Der interne
+Reasoner von Stardog wurde dabei  nicht verwendet. Die Versuche
+wurden dabei über die Anzahl der Prozesse gesteigert und  sich wie in
+Abbildung 6.1 zusammenfassen.
+Vergleichbarkeit Um die Ergebnisse der lokalen Inferenz vergleichen zu 
+wurden die selben Ontologien   des in Protégé integrierten Pellet Reasoners inferiert. Dabei ist zu erwähnen, dass es  die verwendete OWL
+API Version keine direkte Implementierung von Pellet gab und  auf die
+Openllet zurückgegriffen werden musste. Diese setzt auf Pellet auf, was zu
+Performance-Einbußen führen kann.
+
+6.2. Evaluation der Performance
+
+43
+
+Abbildung 6.1: Ergebnisse der Performance-Untersuchung
+
+Aus den Messergebnissen werden deutliche Probleme der Implementierung sichtbar.
+Dabei ist vorerst hervorzuheben, dass die Performance des Reasonings mit Protégé
+zu deutlich besseren Ergebnissen führte als die lokale Inferenz  der Java-App.
+Untersuchungen haben dabei ergeben, dass die Probleme der Performance bei den
+implementierten SWRL-Regeln zu identifizieren sind. Dies soll im Folgenden genauer
+erläutert werden:
+Analyse SWRL Regel R1  der SWRL-Regeln wurde versucht eine automatisierte Annotierung der verarbeiteten Materialien zu erzielen. Dabei wird
+bei Abschluss einer Aufgabe des SMD-Prozesses das produzierte Material  der part:hasPart Eigenschaft mit den Ausgangsmaterialien verbunden.
+Diese Regel stellte nach den Untersuchungsergebnissen kein Problem dar.
+Analyse SWRL Regel R2 Die zweite implementierte SWRL-Regel setzt bei der
+AOI-Kontrolle in Prozessschritt drei und fünf an. Dabei wurde das Ziel verfolgt, die Messergebnisse der AOI-Kontrolle automatisiert als Ausgabe der zugehörigen Aufgabe zu verknüpfen. Dies führt in Kombination mit SWRL Regel
+R1 zu einem Konflikt, welcher lösbar allerdings nicht performant lösbar war.
+Ausgeführt werden kann dies  von Aufgabenschritt 3, respektive Aufgabenschritt 2. Aufgabenschritt 2 gibt dabei ein Bauteil aus, welches aus der
+vorbereiteten Platine und den bestückten Komponenten besteht. Dabei wird
+der Bezug zwischen dem Bauteil und seinen Einzelteilen durch SWRL Regel
+R1 inferiert.
+Aufgabenschritt 3 (AOI-Kontrolle) erhält nun als Eingabe das Bauteil und soll
+als Ausgabe alle Beobachtungen erhalten, welche ein Einzelteil dieses Bauteils
+untersuchen. Dabei werden die Einzelteile, wie beschrieben durch SWRL Regel
+R1, dem Bauteil  während des Inferenz Prozesses hinzugefügt.
+Diese Regel-Abhängigkeit, bei der SWRL Regel R2 von der Inferenz der SWRL
+Regel R1 abhängt, führte zu den gemessenen Inferenzdauern. Dies wurde auch von
+Stardog bemerkt und resultierte in einer Nichtanwendbarkeit dessen  Stardog.
+
+44
+
+6.3
+
+6. Evaluierung
+
+Evaluation der Ontologie
+
+Die entworfene Ontologie wird im  der Evaluation  der Erfüllung des
+Anwendungsbeispiels diskutiert:
+Rohmaterialien nicht verfügbar Der Anwendungsfall ’Rohmaterialien nicht verfügbar’ resultiert aus einem defekten Bauteil sowie den gegebenen Bedingungen eines Prozessneustartes. Weiterhin muss die Menge verfügbarer Rohmaterialien quantifizierbar sein, um weiterhin Aussagen über eine Aufgabe der
+Materialdisposition treffen zu . Aufgrund der fehlenden Unique Name Assumption ist dies nur mit entsprechenden Maßnahmen möglich. Des
+Weiteren wurde im  der Implementierung die Möglichkeit untersucht
+entsprechende Hlungsdirektiven, wie die Aufgabe der Materialbeschaffung,
+während der Inferenz als Aufgaben zu instanziieren. Dies war, wie in Kapitel
+6.1 erwähnt, nur bedingt möglich. Im  weiterer Untersuchungen sollten
+Lösungen erarbeitet werden, die dies erweitig lösen.
+Arbeiter nicht verfügbar Die Eskalation des Fehlerfalles ’Arbeiter nicht verfügbar’ wurde dabei durch die Einführung der Klasse Availability gelöst. Sie umfasst dabei neben der Beziehung available auch die Arbeitszeiten eines Angestellten.   sich über die Prozessbeteiligten die momentan anwesenden Mitarbeiter identifizieren und kontaktieren.
+Zeit  Prozessneustart nicht verfügbar Die Eskalation eines nicht-möglichen
+Prozessneustartes wurde im  dieser Arbeit konzeptionell erarbeitet.
+So ist eine Vorbedingung dieses Ereignisses die Erfassung der Prozessschrittund Prozessdauer. Es wurden Lösungen gesucht, welche die Zeiten dynamisch
+aus den gegebenen Aufgaben berechnen. Dies ließe sich lediglich mit SWRL
+umsetzen, was sich in der Performance der Anwendung bemerkbar macht. erweitig ließe sich dies durch Kdefinitionen umsetzen, wobei hier die
+Herausforderungen dann in der selben Fragen der Informationsinstanziierung,
+wie auch bei den vorherigen Anwendungsfällen, identifizieren lässt.
+Dabei gibt es noch zwei Bemerkung zur Schwierigkeiten bezüglich der Modellierung
+mit OWL:
+Open World Assumption Bei der Modellierung des Prozesses wurden Schwierigkeiten identifiziert, die auf die Open-World-Assumption von OWL zurückzuführen sind. So lies sich  nicht der Status eines Prozessschrittes
+mit unbestimmt vielen Teilaufgaben modellieren. Dabei besitzt jede Aufgabe
+einen Status und es folgender Zusammenhang:
+Wenn jede Teilaufgabe den Status ’Beendet’ besitzt, gilt der zugehörige Prozessschritt als beendet.
+Dies lässt sich nur dann modellieren, wenn die Anzahl der Aufgaben eines Prozessschrittes bekannt ist. Begründet wird dies über die Open-World-Assumption
+damit, dass nicht bekannt ist ob nicht noch eine Aufgabe dieses Prozessschrittes existiert, welche noch nicht beendet und noch nicht im Modell festgehalten
+wurde. Lösen ließe sich dieses Problem, indem jeder Prozessschritt eine abgeschlossene Menge an Aufgaben besäße. Dies entsprach im  der Arbeit
+
+6.4. Weitere Möglichkeiten der Evaluation
+
+45
+
+jedoch nicht der modelloretischen Annahme. Diese sah eine abgeschlossene
+Menge an Prozessschritten mit einer flexiblen Anzahl von parallelen Teilaufgaben vor.
+Unique Name Assumption OWL verfolgt nicht den Ansatz der Unique Name
+Assumption. Das Fehlen der Unique Name Assumption (UNA) führt dazu,
+dass sich Individuen nicht durch deren ID bzgl. URI kennzeichnen. Das bedeutet, dass ein Reasoner während der Inferenz schließen kann, dass zwei Individuen das gleiche ’Ding’ darstellen  (oder auch nicht), solange dies nicht
+explizit durch Axiome gegeben ist. Dies führt gerade auch bei der Modellierung von Rohmaterialien zu Komplikationen, da über diese zum Zeitpunkt der
+Systemaufnahme keine weiteren Aussagen getroffen werden . Als Lösung dessen müssen Individuen, die sich nicht implizit von eren Individuen
+unterscheiden, explizit mit dem OWL Syntax differentFrom gekennzeichnet
+werden.
+
+6.4
+
+Weitere Möglichkeiten der Evaluation
+
+Weitere Möglichkeiten der allgemeinen Evaluation finden sich in der kognitiven Evaluation sowie im Vergleich mit bisherigen Lösungen.
+Dabei konnten im  dieser Arbeit keine Umfragen durchgeführt werden, welche eine kognitive Evaluation ermöglicht hätte.
+Des Weiteren wurden  keine öffentlich verfügbaren Ontologien gefunden,
+ dessen die im  dieser Arbeit entworfene Ontologie verglichen werden konnte. Aus diesem Grund beschränkt sich die Evaluation auf die gemessenen
+Performance-Ergebnisse sowie auf die Untersuchung des Anwendungsbeispieles.
+
+6.5
+
+Zusammenfassung
+
+Es lässt sich zusammenfassen, dass sich viele Anwendungsfälle  Ontologien umsetzen . Dabei wurden im  dieser Arbeit zwei Anwendungsfälle implementiert und diskutiert sowie ein weiterer Anwendungsfall konzeptionell
+durchdacht. Probleme  sich dabei sowohl im Bereich der technischen Implementierung als auch in der Abwägung zwischen A-Box- und T-Box-Komplexität
+der Ontologie identifizieren. Diese resultiert, unter einem zu komplex definierten
+Schema, zu nicht skalierbarem Reasoning sowie zu Einschränkungen bezüglich der
+Modellierung.
+
+46
+
+6. Evaluierung
+
+7. Zusammenfassung und Ausblick
+In dieser Arbeit wurde die Web Ontology Language vorgestellt und in einem Industrie
+4.0 Szenario auf verschiedene Anforderungen hin untersucht.
+Dabei wurde  die Domäne produzierenden Unternehmen im Kontext des
+Forschungsgebietes Industrie 4.0 beleuchtet. Es wurden dabei Begriffe wie die Automatisierungspyramide, der vertikale und horizontale Informationsfluss sowie existierende Lösungen zur Daten- und Informationsverarbeitung, wie dem MES vorgestellt. Weiterhin wurden die Technologien des Semantic Webs vorgestellt sowie die
+aufkommende Schnittmenge der Industrie 4.0 erläutert. Die in diesem Kontext relevante Technologie des Semantic Webs stellt dabei die Beschreibungssprache OWL
+dar, welche auf dem Resource Description Framework aufbaut und dieses durch
+umfangreiche Vokabulare erweitert. Dabei wurden geeignete Vokabulare zum Modellieren von Sensoren und Sensornetzwerken, Unternehmensstrukturen sowie der
+Zusammensetzung physischer Gegenstände vorgestellt, implementiert und bei Bedarf erweitert.
+ den Begriffen produzierender Unternehmen, den Kenntnissen der Technologien des Semantic Webs sowie den Konzepten der Informationsflusskontrolle wurden
+anschließend zwei Ontologien entworfen, die dieses Domänen Wissen maschinell verarbeitbar verpackt. Dabei wurde eine generische Ontologie entworfen, welche neben
+einer Schnittstellenfunktion auch eigene Konzepte und Eigenschaften etabliert.
+Zu den eigenen Konzepten gehören  die Überlegungen der Informationsflusskontrolle, welche auf dem N-ary Design Pattern beruht. Weiterhin wurde
+eine spezifische Ontologie als ein Anwendungsbeispiel eines konkreten Unternehmens
+aufgebaut. Dabei wurde die Informationsflusskontrolle durch den Einsatz umfangreicher SWRL-Regeln erweitert, welche geeignet sind die Einsatzmöglichkeiten und
+Grenzen dessen aufzuzeigen. Die Beschreibungssprache OWL bietet dabei unterschiedliche Funktionalitäten, die sich durch unterschiedliche Profile abgrenzen. So
+wurden die OWL Profile DL, EL, QL und RL vorgestellt sowie deren Ausrichtung erläutert. Die Entwicklung der Ontologie wurde dabei weitgehend an der Modellierung
+von RL ausgerichtet und verletzt deren Restriktionen nur in kleinen Bereichen.
+
+48
+
+7. Zusammenfassung und Ausblick
+
+Im  der Implementierung und Evaluation wurde  eines Anwendungsbeispieles die Einsatzmöglichkeiten und Grenzen der Modellierung aufgezeigt. Dabei wurde festgestellt, dass eine Abwägung von A- und T-Box Komplexität von
+nöten ist. Auch der Einsatz von umfangreichen SWRL-Erweiterungen ist zu bedenken. Dabei bieten die OWL Profile eine Möglichkeit Restriktionen angepasst an
+den spezifischen Anwendungszweck zu finden. Dies wurde auch in der Ausarbeitung
+[WLLB+ 07] festgestellt, welche die Möglichkeiten von echtzeitbasiertem Reasoning
+untersucht. Die Ausarbeitungen dieser Arbeit decken sich dabei mit den Untersuchungen von [KGJRL+ 16], welche  ein OWL RL Profil  den Einsatz in
+einem Industrie 4.0 Szenario vorsieht.
+Weitere Arbeiten sollten daher die umfangreiche Verwendung von SWRL Regeln
+sowie komplexerer Kdefinitionen  OWL DL vermeiden. Dabei kann die
+entsprechende Logik in Applikationen migriert werden, welche entsprechende Informationen außerhalb der Datenbank annotieren und sie anschließend zurückleiten.
+Dabei ist festzuhalten, dass OWL und SWRL sich nicht  den umfangreichen
+Einsatz konditionalen Verhaltens eignen, wenn gleichzeitig die Inferenz über eine
+Vielzahl von Instanzen gefordert wird. Die Stärken werden dabei im Bereich der
+Konsistenzprüfung sowie der Klassizierung im  der Möglichkeiten des jeweiligen Profils gefunden.
+Darüber hinaus wurden die Grundlagen einer Ontologie gelegt, welche in den nächsten Schritten weiter ausgebaut werden kann. Dazu gehören weitere Konzepte produzierende Unternehmen sowie der umfangreichere Ausbau der Informationsflusskontrolle. So wurde im  dieser Arbeit der Fokus auf den Prozessablauf sowie die
+Produktion eines Produktes gelegt. Nicht miteinbezogen wurde dabei die Integration von Maschinendaten, welche jedoch konzeptionell angelegt wurden. In weiteren
+Schritten sollten die Begriffe wie Station, Linie und Zelle tiefgreifender verwendet
+werden um die Informationsdichte des Systems zu erhöhen. Weiterhin kann 
+die betriebswissenschaftliche Sicht des Unternehmens verfeinert werden. Dazu gehört
+eine tiefgreifendere Beschreibung der personellen Ressourcen und Tätigkeiten.
+Abschließend bleibt zu merken, dass sich Ontologien zur Modellierung von Informationsund Wissensmodellen aufgrund ihrer Funktionalitäten  den Einsatz in einem Industrie 4.0 Szenario eignen. Da müssen allerdings Komplexität und Performance
+abgewogen werden.
+
+Literaturverzeichnis
+[Aach17] R. Aachen. Überbetrieblicher Material- und Informationsfluss /
+Logistikdemonstrator. http://www.produktionstechnik.rwth-aachen.
+de/cms/Produktionstechnik/Forschung/Demonstratoren/˜hhkc/
+Logistikdemonstrator/, 2017. Accessed: 2017-09-17.
+[Admi17] M. Admin. Industry 4.0: Evolution oder Revolution. https://
+www.mobinius.com/industry-4-0-evolution-revolution/, 2017. Accessed: 2017-09-13.
+[Alfa17] Alfacod.
+Workshop Fabbrica 4.0.
+https://www.alfacod.it/
+eventi-accademia-alfacod-2017-fabbrica-40, 2017. Accessed: 2017-0917.
+[Baue17] I. T. Bauernhansl. Die vierte industrielle Revolution–der Weg in ein
+wertschaffendes Produktionsparadigma. In Hbuch Industrie 4.0
+Bd. 4, S. 1–31. Springer, 2017.
+[Berg15] S. Bergweiler. Intelligent manufacturing based on self-monitoring
+cyber-physical systems. UBICOMM 2015, 2015, S. 121.
+[BKCC+ 14] T. Bangemann, S. Karnouskos, R. Camp, O. Carlsson, M. Riedl,
+S. McLeod, R. Harrison, A. W. Colombo und P. Stluka. State of
+ art in industrial automation. In Industrial Cloud-Based CyberPhysical Systems, S. 23–47. Springer, 2014.
+[BlPe06] A. Blumauer und T. Pellegrini. Semantic Web und semantische Technologien: Zentrale Begriffe und Unterscheidungen. Semantic Web,
+2006, S. 9–25.
+[BüTr14] T. Bürger und K. Tragl. SPS-Automatisierung mit den Technologien
+der IT-Welt verbinden. In Industrie 4.0 in Produktion, Automatisierung und Logistik, S. 559–569. Springer, 2014.
+[ChCK14] C. Choi, J. Choi und P. Kim. Ontology-based access control model
+for security policy reasoning in cloud computing.  Journal of Supercomputing 67(3), 2014, S. 711–722.
+[Chen08] T.-Y. Chen. Knowledge sharing in virtual enterprises via an ontologybased access control approach. Computers in Industry 59(5), 2008,
+S. 502–519.
+[CT17] S. CT.
+SNOMED CT.
+https://www.snomed.org/snomed-ct/
+what-is-snomed-ct, 2017. Accessed: 2017-10-29.
+
+50
+
+Literaturverzeichnis
+[dFor12] P. K. der Forschungsunion Wirtschaft. Wissenschaft (Hrsg.): Bericht
+der Promotorengruppe Kommunikation: Im Fokus: Das Zukunftsprojekt Industrie 4.0–Hlungsempfehlungen zur Umsetzung, 2012.
+[Fram13] O. S. Framework.
+Description of W3C Technology Stack Illustration. http://wiki.opensemanticframework.org/index.php/File:
+OWL1vOWL2.png, 2013. Accessed: 2017-10-29.
+[Herr04] J. W. Herrmann. Information flow  decision-making in production scheduling. In IIE Annual Conference. Proceedings. Institute of
+Industrial  Systems Engineers (IISE), 2004, S. 1.
+[HPST09] C. A. Henson, J. K. Pschorr, A. P. Sheth und K. Thirunarayan. SemSOS: Semantic sensor observation service. In Collaborative Technologies  Systems, 2009. CTS’09. International Symposium on. IEEE,
+2009, S. 44–53.
+[Jano] H. K. P. Janowicz, Gangemi. Introduction: Ontology Design Patterns
+in a Nutshell.
+[JJPJ+ 11] D. Jeong, H. Jeong, S.-H. Park, Y.-S. Jeong, S. Kim und C. Kim.
+A Security Model Based on Relational Model for Semantic Sensor
+Networks. Wireless Personal Communications 56(1), 2011, S. 131–
+146.
+
+[KDDK+ 15] J. Kletti, R. Deisenroth, M. Diesner, W. Kletti, J.-P. Lübbert, J. Schumacher und T. Strebel. Die Anforderungen an die moderne Produktion. In MES-Manufacturing Execution System, S. 1–18. Springer, 2015.
+[KGJRL+ 16] E. Kharlamov, B. C. Grau, E. Jiménez-Ruiz, S. Lamparter, G. Mehdi,
+M. Ringsqul, Y. Nenov, S. Grimm, M. Roshchin und I. Horrocks.
+Capturing industrial information models with ontologies  constraints. In International Semantic Web Conference. Springer, 2016,
+S. 325–343.
+[KhHC09] N. Khilwani, J. A. Harding und A. K. Choudhary. Semantic web in manufacturing. Proceedings of  Institution of Mechanical Engineers,
+Part B: Journal of Engineering Manufacture 223(7), 2009, S. 905–924.
+[L14] M. H. Lherr. Integrierte Produkt-und Montagekonfiguration  die
+variantenreiche Serienfertigung. 2014.
+[Lehm07] K. Lehmann. Modelle und Techniken  eine effiziente und lückenlose
+Zugriffskontrolle in Java-basierten betrieblichen Anwendungen. Dissertation, Technical University Munich, Germany, 2007.
+[LiZh05] J. Liu und F. Zhao. Towards semantic services for sensor-rich information systems. In Broadb Networks, 2005. BroadNets 2005. 2nd
+International Conference on. IEEE, 2005, S. 967–974.
+[Long15] Longliveux. Die Abstraktion von Daten zu Informationen und Wissen. http://mowl-power.cs.man.ac.uk/protegeowltutorial/resources/
+ProtegeOWLTutorialP4 v1 3.pdf, 2015. Accessed: 2017-10-29.
+
+Literaturverzeichnis
+
+51
+
+[Macf14] A. Macfie. Semantic role-based access control. Dissertation, University
+of Westminster, 2014.
+[MaJo10] A. Masoumzadeh und J. Joshi. Osnac: An ontology-based access control model for social networking systems. In Social Computing (SocialCom), 2010 IEEE Second International Conference on. IEEE, 2010,
+S. 751–759.
+[MRNP+ 17] C. Meilicke, D. Ruffinelli, A. Nolle, H. Paulheim und H. Stuckenschmidt. Fast ABox consistency checking using incomplete reasoning
+ caching. In International Joint Conference on Rules  Reasoning. Springer, 2017, S. 168–183.
+[oMan11] U. of Manchester. Das Protege Pizza Tutorial. https://commons.
+wikimedia.org/wiki/File:DIKW Pyramid.svg, 2011. Accessed: 201710-29.
+[Rowl07] J. Rowley.  wisdom hierarchy: representations of  DIKW hierarchy. Journal of information science 33(2), 2007, S. 163–180.
+[SaSa96] R. Shu und P. Samarati. Auntication, access control,  audit.
+ACM Computing Surveys (CSUR) 28(1), 1996, S. 241–243.
+[Schm17] F. Schmidt. SICK AG, 2017.
+[SGGH+ 13] D. Spath, O. Ganschar, S. Gerlach, M. Hämmerle, T. Krause und
+S. Schlund. Produktionsarbeit der Zukunft-Industrie 4.0. Fraunhofer
+Verlag Stuttgart. 2013.
+[ShHS08] A. Sheth, C. Henson und S. S. Sahoo. Semantic sensor web. IEEE
+Internet computing 12(4), 2008.
+[SSLL14] J. Schlick, P. Stephan, M. Loskyll und D. Lappe. Industrie 4.0 in der
+praktischen Anwendung. In Industrie 4.0 in Produktion, Automatisierung und Logistik, S. 57–84. Springer, 2014.
+[Stee14] D. Steegmüller. Wlungsfähige Produktionssysteme  den Automobilbau der Zukunft. In Industrie 4.0 in Produktion, Automatisierung und Logistik, S. 103–119. Springer, 2014.
+[TaOD17] M. Tao, K. Ota und M. Dong. Ontology-based data semantic management  application in IoT- cloud-enabled smart homes. Future
+Generation Computer Systems B 76, 2017, S. 528–539.
+[TeKo03] V. Terziyan und O. Kononenko. Semantic Web enabled Web services: State-of-art  industrial challenges. Web services-ICWSeurope 2003, 2003, S. 183–197.
+[Voge17] B. Vogel-Heuser. Herausforderungen und Anforderungen aus Sicht der
+IT und der Automatisierungstechnik. In Hbuch Industrie 4.0 Bd.
+4, S. 33–44. Springer, 2017.
+[W3C06] W3C. Defining N-ary Relations on  Semantic Web. https://www.
+w3.org/TR/swbp-n-aryRelations/, 2006. Accessed: 2017-10-29.
+
+52
+
+Literaturverzeichnis
+[W3C10] W3C. Description of W3C Technology Stack Illustration. https://
+www.w3.org/Consortium/techstack-desc.html, 2010. Accessed: 201709-14.
+
+[WLLB+ 07] T. Weithöner, T. Liebig, M. Lur, S. Böhm, F. Von Henke und
+O. Noppens. Real-world reasoning with OWL. In European Semantic
+Web Conference. Springer, 2007, S. 296–310.
+

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="openllet-jena-2.6.2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../apache-jena-fuseki/lib/openllet-jena-2.6.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

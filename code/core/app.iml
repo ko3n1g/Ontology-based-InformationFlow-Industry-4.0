@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="Spring" name="Spring">
+      <configuration />
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
+    <output url="file://$MODULE_DIR$/target/classes" />
+    <output-test url="file://$MODULE_DIR$/target/test-classes" />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/target" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="FaCTpp-OWLAPI-3.4-v1.6.3" level="project" />
+    <orderEntry type="library" name="openllet-jena-2.6.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.jena:jena-tdb:3.4.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.jena:jena-rdfconnection:3.4.0" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.25" level="project" />
+    <orderEntry type="library" name="Maven: com.github.galigator.openllet:openllet-owlapi:2.6.2" level="project" />
+    <orderEntry type="library" name="Maven: com.github.galigator.openllet:openllet-core:2.6.2" level="project" />
+    <orderEntry type="library" name="Maven: com.github.galigator.openllet:openllet-functions:2.6.2" level="project" />
+    <orderEntry type="library" name="Maven: org.jgrapht:jgrapht-ext:1.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.jgrapht:jgrapht-core:1.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.tinyjee.jgraphx:jgraphx:2.0.0.1" level="project" />
+    <orderEntry type="library" name="Maven: jgraph:jgraph:5.13.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.antlr:antlr4-runtime:4.5.3" level="project" />
+    <orderEntry type="library" name="Maven: com.github.galigator.openllet:openllet-query:2.6.2" level="project" />
+    <orderEntry type="library" name="Maven: net.sourceforge.owlapi:owlapi-distribution:5.1.3" level="project" />
+    <orderEntry type="library" name="Maven: net.sourceforge.owlapi:owlapi-compatibility:5.1.3" level="project" />
+    <orderEntry type="library" name="Maven: net.sourceforge.owlapi:owlapi-apibinding:5.1.3" level="project" />
+    <orderEntry type="library" name="Maven: net.sourceforge.owlapi:owlapi-api:5.1.3" level="project" />
+    <orderEntry type="library" name="Maven: net.sourceforge.owlapi:owlapi-impl:5.1.3" level="project" />
+    <orderEntry type="library" name="Maven: net.sourceforge.owlapi:owlapi-parsers:5.1.3" level="project" />
+    <orderEntry type="library" name="Maven: net.sourceforge.owlapi:owlapi-oboformat:5.1.3" level="project" />
+    <orderEntry type="library" name="Maven: net.sourceforge.owlapi:owlapi-tools:5.1.3" level="project" />
+    <orderEntry type="library" name="Maven: net.sourceforge.owlapi:owlapi-rio:5.1.3" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.8.5" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.8.5" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.8.5" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-rdf-api:0.3.0-incubating" level="project" />
+    <orderEntry type="library" name="Maven: org.tukaani:xz:1.6" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:jcl-over-slf4j:1.7.22" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.rdf4j:rdf4j-model:2.2.2" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.rdf4j:rdf4j-rio-api:2.2.2" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.rdf4j:rdf4j-rio-languages:2.2.2" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.rdf4j:rdf4j-rio-datatypes:2.2.2" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.rdf4j:rdf4j-rio-binary:2.2.2" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.rdf4j:rdf4j-rio-n3:2.2.2" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.rdf4j:rdf4j-rio-nquads:2.2.2" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.rdf4j:rdf4j-rio-ntriples:2.2.2" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.rdf4j:rdf4j-rio-rdfjson:2.2.2" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.rdf4j:rdf4j-rio-jsonld:2.2.2" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.rdf4j:rdf4j-rio-rdfxml:2.2.2" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.rdf4j:rdf4j-rio-trix:2.2.2" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.rdf4j:rdf4j-rio-turtle:2.2.2" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.rdf4j:rdf4j-rio-trig:2.2.2" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.rdf4j:rdf4j-util:2.2.2" level="project" />
+    <orderEntry type="library" name="Maven: com.github.jsonld-java:jsonld-java:0.9.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpclient-osgi:4.5.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents:fluent-hc:4.5.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpcore-osgi:4.4.4" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpcore-nio:4.4.4" level="project" />
+    <orderEntry type="library" name="Maven: net.sf.trove4j:trove4j:3.0.3" level="project" />
+    <orderEntry type="library" name="Maven: com.github.ben-manes.caffeine:caffeine:2.5.6" level="project" />
+    <orderEntry type="library" name="Maven: com.google.guava:guava:20.0" level="project" />
+    <orderEntry type="library" name="Maven: com.google.inject:guice:4.1.0" level="project" />
+    <orderEntry type="library" name="Maven: javax.inject:javax.inject:1" level="project" />
+    <orderEntry type="library" name="Maven: aopalliance:aopalliance:1.0" level="project" />
+    <orderEntry type="library" name="Maven: com.google.inject.extensions:guice-assistedinject:4.1.0" level="project" />
+    <orderEntry type="library" name="Maven: com.google.inject.extensions:guice-multibindings:4.1.0" level="project" />
+    <orderEntry type="library" name="Maven: com.google.code.findbugs:jsr305:3.0.1" level="project" />
+    <orderEntry type="library" name="Maven: commons-io:commons-io:2.5" level="project" />
+    <orderEntry type="library" name="Maven: com.github.galigator.openllet:openllet-jena:2.6.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.jena:jena-core:3.4.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.jena:jena-iri:3.4.0" level="project" />
+    <orderEntry type="library" name="Maven: xerces:xercesImpl:2.11.0" level="project" />
+    <orderEntry type="library" name="Maven: xml-apis:xml-apis:1.4.01" level="project" />
+    <orderEntry type="library" name="Maven: commons-cli:commons-cli:1.4" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.jena:jena-base:3.4.0" level="project" />
+    <orderEntry type="library" name="Maven: com.github.andrewoma.dexx:collection:0.7" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.jena:jena-arq:3.4.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.jena:jena-shaded-guava:3.4.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpclient:4.5.3" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpcore:4.4.6" level="project" />
+    <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.9" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpclient-cache:4.5.3" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.thrift:libthrift:0.9.3" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-csv:1.4" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.4" level="project" />
+    <orderEntry type="library" name="Maven: org.antlr:antlr-runtime:3.5.2" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-core:5.0.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-jcl:5.0.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: com.complexible.stardog:stardog-spring:5.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-beans:4.1.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-context:4.1.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-aop:4.1.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-expression:4.1.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-tx:4.1.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: com.complexible.stardog:client-http:5.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-iostreams:2.8.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-api:2.8.1" level="project" />
+    <orderEntry type="library" name="Maven: com.complexible.stardog.versioning.http:stardog-versioning-protocols-http-client:5.0.1" level="project" />
+    <orderEntry type="library" name="Maven: net.sf.opencsv:opencsv:2.3" level="project" />
+    <orderEntry type="library" name="Maven: com.complexible.stardog.versioning:stardog-versioning-api:5.0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.complexible.stardog.versioning:stardog-versioning-shared:5.0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.complexible.stardog.prov:stardog-prov:5.0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.complexible.stardog.icv.http:stardog-icv-protocols-http-client:5.0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.complexible.stardog.core:stardog-core-shared:5.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.quartz-scheduler:quartz:2.1.3" level="project" />
+    <orderEntry type="library" name="Maven: com.complexible.stardog:stardog-api:5.0.1" level="project" />
+    <orderEntry type="library" name="Maven: commons-pool:commons-pool:1.6" level="project" />
+    <orderEntry type="library" name="Maven: javax.mail:mailapi:1.4.3" level="project" />
+    <orderEntry type="library" name="Maven: com.complexible.stardog.icv:stardog-icv-api_snarl:5.0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.complexible.stardog.icv:stardog-icv-api:5.0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.complexible.stardog.reasoning.http:stardog-reasoning-protocols-http-client:5.0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.complexible.stardog.reasoning:stardog-reasoning-api:5.0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.complexible.stardog.reasoning:stardog-reasoning-shared:5.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-queryalgebra-model:4.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-model:4.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-util:4.0.0" level="project" />
+    <orderEntry type="library" name="Maven: com.complexible.stardog.utils:stardog-utils-openrdf:5.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-repository-api:4.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-sail-api:4.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-queryparser-sparql:4.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-queryparser-api:4.0.0" level="project" />
+    <orderEntry type="library" name="Maven: com.complexible.stardog.search.http:stardog-search-protocols-http-client:5.0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.complexible.stardog.search:stardog-search-api:5.0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.complexible.stardog.protocols.http:stardog-protocols-http-client:5.0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.complexible.stardog.utils:stardog-utils-rdf:5.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-rio-languages:4.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-queryresultio-sparqljson:4.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-rio-n3:4.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-query:4.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-rio-api:4.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-queryresultio-binary:4.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-rio-binary:4.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-queryresultio-text:4.0.0" level="project" />
+    <orderEntry type="library" name="Maven: com.opencsv:opencsv:3.2" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-rio-rdfjson:4.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-rio-trix:4.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-compress:1.6" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-rio-datatypes:4.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-queryresultio-sparqlxml:4.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-rio-jsonld:4.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-rio-ntriples:4.0.0" level="project" />
+    <orderEntry type="library" name="Maven: com.carrotsearch:hppc:0.7.1" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-rio-trig:4.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-queryresultio-api:4.0.0" level="project" />
+    <orderEntry type="library" name="Maven: com.brsanthu:data-exporter:1.0.4" level="project" />
+    <orderEntry type="library" name="Maven: commons-beanutils:commons-beanutils:1.8.3" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-rio-nquads:4.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-rio-turtle:4.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-rio-rdfxml:4.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpmime:4.5.2" level="project" />
+    <orderEntry type="library" name="Maven: com.complexible.stardog.protocols.spec:stardog-protocols-spec-client:5.0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.complexible.common.protocols.api:stardog-protocols-api-client:5.0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.complexible.stardog.protocols.http:stardog-protocols-http-shared:5.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.json:json:20090211" level="project" />
+    <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.6.2" level="project" />
+    <orderEntry type="library" name="Maven: com.complexible.common.protocols.api:stardog-protocols-api-shared:5.0.1" level="project" />
+    <orderEntry type="library" name="Maven: javax.activation:activation:1.1" level="project" />
+    <orderEntry type="library" name="Maven: com.complexible.stardog.protocols.spec:stardog-protocols-spec-shared:5.0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.complexible.stardog.virtual.http:stardog-virtual-protocols-http-client:5.0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.complexible.stardog.virtual.http:stardog-virtual-protocols-http-shared:5.0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.complexible.stardog.virtual:stardog-virtual-api:5.0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.complexible.stardog.stardocs.http:stardog-stardocs-protocols-http-client:5.0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.complexible.stardog.stardocs.http:stardog-stardocs-protocols-http-shared:5.0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.complexible.stardog.stardocs:stardog-stardocs-api:5.0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.complexible.stardog.stardocs:stardog-stardocs-shared:5.0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.complexible.stardog.utils:stardog-utils-common:5.0.1" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-common:4.0.32.Final" level="project" />
+    <orderEntry type="library" name="Maven: pellet:pellet-owlapi:2.2.2" level="project" />
+  </component>
+</module>

@@ -1,0 +1,85 @@
+@prefix : <http://localhost/concept/ManufacturingOntologyLanguage.Sick#> .
+@prefix aoi: <http://localhost/concept/aoi#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix part: <http://www.w3.org/2001/sw/BestPractices/OEP/SimplePartWhole/part.owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sick: <http://localhost/concept/ManufacturingOntologyLanguage.Sick#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix oml.gn: <http://localhost/concept/ManufacturingOntologyLanguage.General#> .
+@prefix shopfloor: <http://localhost/concept/shopfloor#> .
+
+###  http://localhost/concept/observations/1
+<http://localhost/concept/observations/1> rdf:type owl:NamedIndividual ,
+                                                   sosa:Observation ;
+                                          sosa:hasFeatureOfInterest <http://localhost/concept/material/component#c1-1> ;
+                                          sosa:madeBySensor <http://localhost/concept/equipment/AOI_SMD407> ;
+                                          sosa:observedProperty aoi:x-shift ;
+                                          sosa:hasSimpleResult 10 ;
+                                          sosa:resultTime "2016-05-18T12:55:27.954"^^xsd:dateTime .
+
+
+###  http://localhost/concept/observations/2
+<http://localhost/concept/observations/2> rdf:type owl:NamedIndividual ,
+                                                   sosa:Observation ;
+                                          sosa:hasFeatureOfInterest <http://localhost/concept/material/component#c1-1> ;
+                                          sosa:madeBySensor <http://localhost/concept/equipment/AOI_SMD407> ;
+                                          sosa:observedProperty aoi:y-shift ;
+                                          sosa:hasSimpleResult 3 ;
+                                          sosa:resultTime "2016-05-18T12:55:27.954"^^xsd:dateTime .
+
+
+###  http://localhost/concept/observations/3
+<http://localhost/concept/observations/3> rdf:type owl:NamedIndividual ,
+                                                   sosa:Observation ;
+                                          sosa:hasFeatureOfInterest <http://localhost/concept/material/component#c1-1> ;
+                                          sosa:madeBySensor <http://localhost/concept/equipment/AOI_SMD407> ;
+                                          sosa:observedProperty aoi:twisting ;
+                                          sosa:hasSimpleResult 3 ;
+                                          sosa:resultTime "2016-05-18T12:55:27.954"^^xsd:dateTime .
+
+
+###  http://localhost/concept/observations/4
+<http://localhost/concept/observations/4> rdf:type owl:NamedIndividual ,
+                                                   sosa:Observation ;
+                                          sosa:hasFeatureOfInterest <http://localhost/concept/material/component#c2-1> ;
+                                          sosa:madeBySensor <http://localhost/concept/equipment/AOI_SMD407> ;
+                                          sosa:observedProperty aoi:x-shift ;
+                                          sosa:hasSimpleResult 10 ;
+                                          sosa:resultTime "2016-05-18T12:55:27.954"^^xsd:dateTime .
+
+
+###  http://localhost/concept/observations/5
+<http://localhost/concept/observations/5> rdf:type owl:NamedIndividual ,
+                                                   sosa:Observation ;
+                                          sosa:hasFeatureOfInterest <http://localhost/concept/material/component#c2-1> ;
+                                          sosa:madeBySensor <http://localhost/concept/equipment/AOI_SMD407> ;
+                                          sosa:observedProperty aoi:y-shift ;
+                                          sosa:hasSimpleResult 3 ;
+                                          sosa:resultTime "2016-05-18T12:55:27.954"^^xsd:dateTime .
+
+
+###  http://localhost/concept/observations/6
+<http://localhost/concept/observations/6> rdf:type owl:NamedIndividual ,
+                                                   sosa:Observation ;
+                                          sosa:hasFeatureOfInterest <http://localhost/concept/material/component#c2-1> ;
+                                          sosa:madeBySensor <http://localhost/concept/equipment/AOI_SMD407> ;
+                                          sosa:observedProperty aoi:twisting ;
+                                          sosa:hasSimpleResult -5 ;
+                                          sosa:resultTime "2016-05-18T12:55:27.954"^^xsd:dateTime .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( <http://localhost/concept/observations/1>
+                        <http://localhost/concept/observations/2>
+                        <http://localhost/concept/observations/3>
+                        <http://localhost/concept/observations/4>
+                        <http://localhost/concept/observations/5>
+                        <http://localhost/concept/observations/6>
+                      )
+] .

@@ -1,0 +1,30 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <h3>{{label}}</h3>
+    </div>
+    <div class="modal-body">
+      <form id="uploadForm">
+        <fieldset>
+          <input class="fileChoose" type="file" style="display: none;" />
+          <div class="input-group">
+            <input class="filename  form-control" type="text" class="input-large" placeholder="Choose file..." disabled />
+            <span class="input-group-btn">
+              <button class="btn btn-default browse" type="button">Browse</button>
+            </span>
+          </div>
+          <input id="graphUri" class="form-control input-large" type="text" placeholder="tag:stardog:api:context:default" style="margin-top: 5px;" />
+          <div style="margin-top:10px;">
+            <label style="display: none;">Are you sure?</label>
+            <button class="btn btn-primary upload" style="display: none;"><span id="uploadSpin" class="glyphicon glyphicon-refresh glyphicon-refresh-animate" style="display: none;"></span> Upload </button>
+            <button class="btn btn-danger cancel" style="display: none;">Cancel </button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+  </div>
+</div>

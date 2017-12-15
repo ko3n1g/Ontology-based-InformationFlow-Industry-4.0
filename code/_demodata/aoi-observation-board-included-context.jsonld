@@ -1,0 +1,271 @@
+{
+  "@context": {
+    "ssn": "http://purl.oclc.org/NET/ssnx/ssn#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "aoi": "http://www.scale-it.org/ontologies/sick/2016/10/aoi-features#",
+    "shopfloor": "http://www.scale-it.org/ontologies/2016/11/shopfloor#",
+    "part":"http://www.w3.org/2001/sw/BestPractices/OEP/SimplePartWhole/part.owl#",
+    "observationResult": {
+      "@id": "ssn:observationResult",
+      "@type": "@id"
+    },
+    "ssn:Observation": {
+      "@type": "@id"
+    },
+    "ObservationValue": {
+      "@id": "ssn:ObservationValue",
+      "@type": "@id"
+    },
+    "hasValue": {
+      "@id": "ssn:hasValue",
+      "@type": "@id"
+    },
+    "observationResultTime": {
+      "@id": "ssn:observationResultTime",
+      "@type": "xsd:dateTime"
+    },
+    "features": {
+      "@id": "aoi:features",
+      "@type": "@id"
+    },
+    "observedBy": {
+      "@id": "ssn:observedBy",
+      "@type": "@id"
+    },
+    "isProducedBy": {
+      "@id": "ssn:isProducedBy",
+      "@type": "@id"
+    },
+    "observedProperty": {
+      "@id": "ssn:observedProperty",
+      "@type": "@id"
+    },
+    "featureOfInterest": {
+      "@id": "ssn:featureOfInterest",
+      "@type": "@id"
+    },
+    "testFeature": {
+      "@id": "shopfloor:testFeature",
+      "@type": "@id"
+    },
+    "feature": {
+      "@id": "shopfloor:feature",
+      "@type": "@id"
+    },
+    "observedPart": {
+      "@id": "shopfloor:observedPart",
+      "@type": "@id"
+    },
+    "observedStep": {
+      "@id": "shopfloor:observedStep",
+      "@type": "@id"
+    },
+    "analysisMode": {
+      "@id": "shopfloor:analysisMode",
+      "@type": "@id"
+    },
+    "materialNumber": {
+      "@id": "shopfloor:materialNumber",
+      "@type": "@id"
+    },
+    "dataClass": {
+      "@id": "shopfloor:dataClass",
+      "@type": "@id"
+    },
+    "hasPart": {
+      "@id": "part:hasPart",
+      "@type": "@id"
+    },
+    "boardUID": {
+      "@id": "aoi:boardUID",
+      "@type": "@id"
+    },
+    "isBadBoard": {
+      "@id": "aoi:isBadBoard",
+      "@type": "xsd:boolean"
+    },
+    "componentType": {
+      "@id": "aoi:componentType",
+      "@type": "@id"
+    },
+    "position": {
+      "@id": "aoi:position",
+      "@type": "xsd:int"
+    },
+    "windowNumber": {
+      "@id": "aoi:windowNumber",
+      "@type": "xsd:int"
+    },
+    "featureFlag": {
+      "@id": "aoi:featureFlag",
+      "@type": "xsd:int"
+    },
+    "mode": {
+      "@id": "aoi:mode",
+      "@type": "xsd:string"
+    },
+    "orderNo": {
+      "@id": "aoi:orderNo",
+      "@type": "@id"
+    },
+    "partNr": {
+      "@id": "aoi:partNr",
+      "@type": "@id"
+    },
+    "startTime": {
+      "@id": "aoi:startTime",
+      "@type": "xsd:dateTime"
+    },
+    "endTime": {
+      "@id": "aoi:endTime",
+      "@type": "xsd:dateTime"
+    }
+
+  },
+  "@graph": [
+    {
+      "@id": "http://localhost:3000/observations/185",
+      "@type": "ssn:Observation",
+      "featureOfInterest": "aoi:Feature",
+      "observationSamplingTime": "2016-05-18T12:55:27.954Z",
+      "observedProperty": [
+        "aoi:twisting",
+        "aoi:y-shift",
+        "aoi:x-shift"
+      ],
+      "observationResult": "http://localhost:3000/observations/185/sensor-output",
+      "observationResultTime": "2016-05-18T12:55:27.954Z",
+      "observedBy": "http://localhost:3001/AOI_SMD407",
+      "dataClass": "Testdata"
+    },
+    {
+      "@id": "http://localhost:3000/observations/185/sensor-output",
+      "@type": "ssn:SensorOutput",
+      "isProducedBy": "http://localhost:3001/equipment/AOI_SMD407",
+      "hasValue": "http://localhost:3000/observations/185/result"
+    },
+    {
+      "@id": "http://localhost:3000/observations/185/result",
+      "@type": ["ssn:ObservationValue", "shopfloor:Panel"],
+      "orderNo": "http://localhost:3000/order#0",
+      "partNr": "http://localhost:3000/part#2060817",
+      "hasPart": "http://localhost:3000/observations/185/board#3827581",
+      "startTime": "2016-05-18T12:55:27.954Z",
+      "endTime": "2016-05-18T12:56:27.954Z"
+    },
+    {
+      "@id": "http://localhost:3000/observations/185/board#3827581",
+      "@type": "shopfloor:Board",
+      "hasPart": ["http://localhost:3000/observations/185/component#C1-1","http://localhost:3000/observations/185/component#C2-1"],
+      "boardUID":"3827581",
+      "isBadBoard": false
+    },
+    {
+      "@id": "http://localhost:3000/observations/185/component#C1-1",
+      "@type": "shopfloor:Component",
+      "componentType": "C0603",
+      "position":0,
+      "testFeature":[
+        {
+          "@id": "http://localhost:3000/observations/185/component#C1-1/C0603-MENI-901-TWISTING",
+          "feature": "aoi:twisting1",
+          "analysisMode": [
+            {"@id": "http://localhost:3000/observations/185/AnalysisMode#C0603-MENI-901-TWISTING",
+              "windowNumber": "901",
+              "featureFlag": "0",
+              "mode":"MENI"
+            }
+          ],
+          "hasValue": {
+            "@type": "xsd:integer",
+            "@value": "10"
+          }
+
+        },
+        {
+          "@id": "http://localhost:3000/observations/185/component#C1-1/C0603-MENI-901-Y-Shift",
+          "feature": "aoi:y-shift1",
+          "analysisMode": [
+            {"@id": "http://localhost:3000/observations/185/AnalysisMode#C0603-MENI-901-Y-Shift",
+              "windowNumber": "901",
+              "featureFlag": "0",
+              "mode":"MENI"
+            }
+          ],
+          "hasValue": {
+            "@type": "xsd:integer",
+            "@value": "-17"
+          }
+        },
+        {
+          "@id": "http://localhost:3000/observations/185/component#C1-1/C0603-MENI-901-X-Shift",
+          "feature": "aoi:x-shift1",
+          "analysisMode": [
+            {"@id": "http://localhost:3000/observations/185/AnalysisMode#C0603-MENI-901-X-Shift",
+              "windowNumber": "901",
+              "featureFlag": "0",
+              "mode":"MENI"
+            }
+          ],
+          "hasValue": {
+            "@type": "xsd:integer",
+            "@value": "20"
+          }
+        }
+      ]
+    },
+    {
+      "@id": "http://localhost:3000/observations/185/component#C2-1",
+      "@type": "aoi:Component",
+      "componentType": "C0603",
+      "position":0,
+      "testFeature":[
+        {
+          "@id": "http://localhost:3000/observations/185/component#C2-1/C0603-MENI-901-TWISTING",
+          "feature": "aoi:twisting1",
+          "analysisMode": [
+            {"@id": "http://localhost:3000/observations/185/AnalysisMode#C0603-MENI-901-TWISTING",
+              "windowNumber": "901",
+              "featureFlag": "0",
+              "mode":"MENI"
+            }
+          ],
+          "hasValue": {
+            "@type": "xsd:integer",
+            "@value": "12"
+          }
+        },
+        {
+          "@id": "http://localhost:3000/observations/185/component#C2-1/C0603-MENI-901-Y-Shift",
+          "feature": "aoi:y-shift1",
+          "analysisMode": [
+            {"@id": "http://localhost:3000/observations/185/AnalysisMode#C0603-MENI-901-Y-Shift",
+              "windowNumber": "901",
+              "featureFlag": "0",
+              "mode":"MENI"
+            }
+          ],
+          "hasValue": {
+            "@type": "xsd:integer",
+            "@value": "14"
+          }
+        },
+        {
+          "@id": "http://localhost:3000/observations/185/component#C2-1/C0603-MENI-901-X-Shift",
+          "feature": "aoi:x-shift1",
+          "analysisMode": [
+            {"@id": "http://localhost:3000/observations/185/AnalysisMode#C0603-MENI-901-X-Shift",
+              "windowNumber": "901",
+              "featureFlag": "0",
+              "mode":"MENI"
+            }
+          ],
+          "hasValue": {
+            "@type": "xsd:integer",
+            "@value": "11"
+          }
+        }
+      ]
+    }
+  ]
+}

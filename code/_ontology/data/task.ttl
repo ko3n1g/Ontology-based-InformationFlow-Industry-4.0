@@ -1,0 +1,393 @@
+@prefix : <http://localhost/concept/ManufacturingOntologyLanguage.Sick#> .
+@prefix aoi: <http://localhost/concept/aoi#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix part: <http://www.w3.org/2001/sw/BestPractices/OEP/SimplePartWhole/part.owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sick: <http://localhost/concept/ManufacturingOntologyLanguage.Sick#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix oml.gn: <http://localhost/concept/ManufacturingOntologyLanguage.General#> .
+@prefix shopfloor: <http://localhost/concept/shopfloor#> .
+
+###  http://localhost/concept/task/smd_aoiInspection_01
+<http://localhost/concept/task/smd_aoiInspection_01> rdf:type owl:NamedIndividual ,
+                                                               aoi:AutomatedOpticalInspectionTask ;
+                                                      oml.gn:hasFunctionalTaskStatus oml.gn:TASK_PENDING ;
+                                                      ssn:implementedBy <http://localhost/concept/equipment/AOI_SMD407> .
+
+
+###  http://localhost/concept/task/smd_aoiInspection_02
+<http://localhost/concept/task/smd_aoiInspection_02> rdf:type owl:NamedIndividual ,
+                                                               aoi:AutomatedOpticalInspectionTask ;
+                                                      oml.gn:hasFunctionalTaskStatus oml.gn:TASK_PENDING .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( <http://localhost/concept/task/smd_aoiInspection_01>
+                        <http://localhost/concept/task/smd_aoiInspection_02>
+                      )
+] .
+
+
+###  http://localhost/concept/task/smd_boardSetting
+<http://localhost/concept/task/smd_boardSetting> rdf:type owl:NamedIndividual ,
+                                                           sick:SettingOfBoardTask ;
+                                                  oml.gn:hasFunctionalTaskOutput <http://localhost/concept/product/SMDPlatine> ;
+                                                  oml.gn:hasFunctionalTaskStatus oml.gn:TASK_PENDING .
+
+
+###  http://localhost/concept/task/smd_componentApplication
+<http://localhost/concept/task/smd_componentApplication> rdf:type owl:NamedIndividual ,
+                                                                   sick:ApplyComponentsTask ;
+                                                          oml.gn:hasFunctionalTaskInput <http://localhost/concept/material/board#3827581> ,
+                                                                                  <http://localhost/concept/material/component#c1-1> ,
+                                                                                  <http://localhost/concept/material/component#c2-1> ,
+                                                                                  <http://localhost/concept/material/component#c3-1> ;
+                                                          oml.gn:hasFunctionalTaskOutput <http://localhost/concept/material/board#3827581> ;
+                                                          oml.gn:hasFunctionalTaskStatus oml.gn:TASK_PENDING .
+
+
+###  http://localhost/concept/task/smd_solderPasteApplication
+<http://localhost/concept/task/smd_solderPasteApplication> rdf:type owl:NamedIndividual ,
+                                                                     sick:ApplySolderPasteTask ;
+                                                            oml.gn:hasFunctionalTaskInput <http://localhost/concept/material/board#3827581> ,
+                                                                                    <http://localhost/concept/material/solderpaste#1> ;
+                                                            oml.gn:hasFunctionalTaskOutput <http://localhost/concept/material/board#3827581> ;
+                                                            oml.gn:hasFunctionalTaskStatus oml.gn:TASK_PENDING .
+
+
+###  http://localhost/concept/task/stock_components_refill
+<http://localhost/concept/task/stock_components_refill> rdf:type owl:NamedIndividual ,
+                                                                  sick:RollenEinkauf .
+
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://localhost/concept/ManufacturingOntologyLanguage.Sick#has_boards
+sick:has_boards rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf sick:stockDataProperty ;
+                rdfs:range xsd:integer .
+
+
+###  http://localhost/concept/ManufacturingOntologyLanguage.Sick#has_components
+sick:has_components rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf sick:stockDataProperty ;
+                    rdfs:range xsd:integer .
+
+
+###  http://localhost/concept/ManufacturingOntologyLanguage.Sick#has_solderPaste
+sick:has_solderPaste rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf sick:stockDataProperty ;
+                     rdfs:range xsd:integer .
+
+
+###  http://localhost/concept/ManufacturingOntologyLanguage.Sick#stockDataProperty
+sick:stockDataProperty rdf:type owl:DatatypeProperty .
+
+
+###  http://localhost/concept/ManufacturingOntologyLanguage.Sick#thresholdProperties
+sick:thresholdProperties rdf:type owl:DatatypeProperty ;
+                         rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://localhost/concept/ManufacturingOntologyLanguage.Sick#twisting-threshold
+sick:twisting-threshold rdf:type owl:DatatypeProperty ;
+                        rdfs:subPropertyOf sick:thresholdProperties .
+
+
+###  http://localhost/concept/ManufacturingOntologyLanguage.Sick#x-shift-threshold
+sick:x-shift-threshold rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf sick:thresholdProperties .
+
+
+###  http://localhost/concept/ManufacturingOntologyLanguage.Sick#y-shift-threshold
+sick:y-shift-threshold rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf sick:thresholdProperties .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://localhost/concept/ManufacturingOntologyLanguage.Sick#ApplyComponentsTask
+sick:ApplyComponentsTask rdf:type owl:Class ;
+                         rdfs:subClassOf oml.gn:ShopFloorTask ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty oml.gn:hasFunctionalTaskInput ;
+                                           owl:someValuesFrom sick:Component
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty oml.gn:hasFunctionalTaskInput ;
+                                           owl:someValuesFrom sick:PreparedBoard
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty oml.gn:hasFunctionalTaskOutput ;
+                                           owl:someValuesFrom sick:StickedBoard
+                                         ] .
+
+
+###  http://localhost/concept/ManufacturingOntologyLanguage.Sick#ApplySolderPasteTask
+sick:ApplySolderPasteTask rdf:type owl:Class ;
+                          rdfs:subClassOf oml.gn:ShopFloorTask ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty oml.gn:hasFunctionalTaskInput ;
+                                            owl:someValuesFrom sick:Board
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty oml.gn:hasFunctionalTaskInput ;
+                                            owl:someValuesFrom sick:SolderPaste
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty oml.gn:hasFunctionalTaskOutput ;
+                                            owl:someValuesFrom sick:PreparedBoard
+                                          ] .
+
+
+###  http://localhost/concept/ManufacturingOntologyLanguage.Sick#Board
+sick:Board rdf:type owl:Class ;
+           rdfs:subClassOf oml.gn:RawMaterial .
+
+
+###  http://localhost/concept/ManufacturingOntologyLanguage.Sick#Capacitor
+sick:Capacitor rdf:type owl:Class ;
+               rdfs:subClassOf sick:Component ;
+               owl:disjointWith sick:Resistor .
+
+
+###  http://localhost/concept/ManufacturingOntologyLanguage.Sick#Component
+sick:Component rdf:type owl:Class ;
+               rdfs:subClassOf oml.gn:RawMaterial ;
+               rdfs:comment "Beispielsweise Kondensator"@de .
+
+
+###  http://localhost/concept/ManufacturingOntologyLanguage.Sick#Panel
+sick:Panel rdf:type owl:Class ;
+           rdfs:subClassOf oml.gn:RawMaterial ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty part:hasPart ;
+                             owl:someValuesFrom sick:Board
+                           ] .
+
+
+###  http://localhost/concept/ManufacturingOntologyLanguage.Sick#PastenEinkauf
+sick:PastenEinkauf rdf:type owl:Class ;
+                   rdfs:subClassOf sick:RohMaterialEinkauf ;
+                   owl:disjointWith sick:RollenEinkauf .
+
+
+###  http://localhost/concept/ManufacturingOntologyLanguage.Sick#PreparedBoard
+sick:PreparedBoard rdf:type owl:Class ;
+                   rdfs:subClassOf oml.gn:IntermediateMaterial ,
+                                   sick:Board .
+
+
+###  http://localhost/concept/ManufacturingOntologyLanguage.Sick#Resistor
+sick:Resistor rdf:type owl:Class ;
+              rdfs:subClassOf sick:Component .
+
+
+###  http://localhost/concept/ManufacturingOntologyLanguage.Sick#RohMaterialEinkauf
+sick:RohMaterialEinkauf rdf:type owl:Class ;
+                        rdfs:subClassOf oml.gn:MaterialPlaningTask .
+
+
+###  http://localhost/concept/ManufacturingOntologyLanguage.Sick#RollenEinkauf
+sick:RollenEinkauf rdf:type owl:Class ;
+                   rdfs:subClassOf sick:RohMaterialEinkauf .
+
+
+###  http://localhost/concept/ManufacturingOntologyLanguage.Sick#Rundle
+sick:Rundle rdf:type owl:Class ;
+            rdfs:subClassOf oml.gn:RawMaterial ;
+            rdfs:comment "Das Ding, wo die zu bestückenden Komponenten, wie Kondensatoren oder so gedöns, drauf sind."@de ;
+            rdfs:label "Rolle"@de .
+
+
+###  http://localhost/concept/ManufacturingOntologyLanguage.Sick#SMDPlatine
+sick:SMDPlatine rdf:type owl:Class ;
+                rdfs:subClassOf oml.gn:Product .
+
+
+###  http://localhost/concept/ManufacturingOntologyLanguage.Sick#SMDProcess
+sick:SMDProcess rdf:type owl:Class ;
+                rdfs:subClassOf oml.gn:Process ;
+                rdfs:isDefinedBy """oml.gn:Process
+ and (oml.gn:hasProcessStart some 
+    (oml.gn:ProcessStep
+     and (oml.gn:hasFunctionalTask some sick:ApplySolderPasteTask)
+     and (oml.gn:hasNextStep_directly some 
+        (oml.gn:ProcessStep
+         and (oml.gn:hasFunctionalTask some sick:ApplyComponentsTask)
+         and (oml.gn:hasNextStep_directly some 
+            (oml.gn:ProcessStep
+             and (oml.gn:hasFunctionalTask some aoi:AutomatedOpticalInspectionTask)
+             and (oml.gn:hasNextStep_directly some 
+                (oml.gn:ProcessStep
+                 and (oml.gn:hasFunctionalTask some sick:SettingOfBoardTask)
+                 and (oml.gn:hasNextStep_directly some 
+                    (oml.gn:ProcessStep
+                     and (oml.gn:hasFunctionalTask some aoi:AutomatedOpticalInspectionTask)))))))))))"""@de .
+
+
+###  http://localhost/concept/ManufacturingOntologyLanguage.Sick#SettedBoard
+sick:SettedBoard rdf:type owl:Class ;
+                 rdfs:subClassOf oml.gn:IntermediateMaterial .
+
+
+###  http://localhost/concept/ManufacturingOntologyLanguage.Sick#SettingOfBoardTask
+sick:SettingOfBoardTask rdf:type owl:Class ;
+                        rdfs:subClassOf oml.gn:ShopFloorTask ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty oml.gn:hasFunctionalTaskInput ;
+                                          owl:someValuesFrom sick:StickedBoard
+                                        ] .
+
+
+###  http://localhost/concept/ManufacturingOntologyLanguage.Sick#SolderPaste
+sick:SolderPaste rdf:type owl:Class ;
+                 rdfs:subClassOf oml.gn:RawMaterial ;
+                 rdfs:label "Wärmeleitpaste"@de .
+
+
+###  http://localhost/concept/ManufacturingOntologyLanguage.Sick#StickedBoard
+sick:StickedBoard rdf:type owl:Class ;
+                  rdfs:subClassOf oml.gn:IntermediateMaterial ,
+                                  sick:Board ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty part:hasPart ;
+                                    owl:someValuesFrom sick:Component
+                                  ] .
+
+
+###  http://localhost/concept/aoi#AOISettedBoard
+aoi:AOISettedBoard rdf:type owl:Class ;
+                   rdfs:subClassOf aoi:AutomatedOpticalInspectionTask ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty oml.gn:hasFunctionalTaskInput ;
+                                     owl:someValuesFrom sick:StickedBoard
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty oml.gn:hasFunctionalTaskOutput ;
+                                     owl:someValuesFrom sick:SMDPlatine
+                                   ] .
+
+
+###  http://localhost/concept/aoi#AOIStickedBoard
+aoi:AOIStickedBoard rdf:type owl:Class ;
+                    rdfs:subClassOf aoi:AutomatedOpticalInspectionTask ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty oml.gn:hasFunctionalTaskInput ;
+                                      owl:someValuesFrom sick:StickedBoard
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty oml.gn:hasFunctionalTaskOutput ;
+                                      owl:someValuesFrom sick:StickedBoard
+                                    ] .
+
+
+###  http://localhost/concept/aoi#AutomatedOpticalInspectionTask
+aoi:AutomatedOpticalInspectionTask rdf:type owl:Class ;
+                                   rdfs:subClassOf oml.gn:QualityControlTask ,
+                                                   ssn:Stimulus .
+
+
+###  http://localhost/concept/aoi#BadBoard
+aoi:BadBoard rdf:type owl:Class ;
+             rdfs:subClassOf oml.gn:BrokenMaterial ,
+                             sick:Board ,
+                             sosa:FeatureOfInterest .
+
+
+###  http://localhost/concept/aoi#BadBoardObservation
+aoi:BadBoardObservation rdf:type owl:Class ;
+                        rdfs:subClassOf sosa:Observation ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty sosa:hasFeatureOfInterest ;
+                                          owl:allValuesFrom aoi:BadComponent
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty sosa:madeBySensor ;
+                                          owl:allValuesFrom aoi:Sensor
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty sosa:observedProperty ;
+                                          owl:allValuesFrom aoi:ObservableProperty
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty ssn:wasOriginatedBy ;
+                                          owl:allValuesFrom aoi:AutomatedOpticalInspectionTask
+                                        ] .
+
+
+###  http://localhost/concept/aoi#BadComponent
+aoi:BadComponent rdf:type owl:Class ;
+                 rdfs:subClassOf oml.gn:BrokenMaterial ,
+                                 sick:Component ,
+                                 sosa:FeatureOfInterest ;
+                 rdfs:comment """sick:Component and sosa:isFeatureOfInterestOf some 
+  (sosa:Observation and 
+   sosa:hasFeatureOfInterest some sick:Component and
+   sosa:hasSimpleResult some (xsd:int[> \"0\"^^xsd:int] or xsd:int[< \"0\"^^xsd:int]))""" .
+
+
+###  http://localhost/concept/aoi#ObservableProperty
+aoi:ObservableProperty rdf:type owl:Class ;
+                       rdfs:subClassOf sosa:ObservableProperty .
+
+
+###  http://localhost/concept/aoi#Sensor
+aoi:Sensor rdf:type owl:Class ;
+           rdfs:subClassOf oml.gn:Sensor .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( sick:ApplyComponentsTask
+                sick:ApplySolderPasteTask
+                sick:SettingOfBoardTask
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( sick:Board
+                sick:Component
+                sick:Panel
+                sick:Rundle
+                sick:SolderPaste
+              )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( sick:twisting-threshold
+                        sick:x-shift-threshold
+                        sick:y-shift-threshold
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( aoi:twisting
+                        aoi:x-shift
+                        aoi:y-shift
+                      )
+] .
+
+
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi

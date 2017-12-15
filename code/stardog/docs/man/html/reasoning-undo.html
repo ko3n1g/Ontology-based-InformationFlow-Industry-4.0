@@ -1,0 +1,129 @@
+<html>
+<head>
+<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+</head>
+<style>
+    body { margin: 50px; }
+</style>
+<body>
+<hr/>
+<h1 class="text-info">stardog reasoning undo Manual Page
+<hr/>
+<h1 class="text-info">NAME</h1>
+<br/>
+<div class="row"><div class="span8 offset1">stardog reasoning undo &mdash;Generate an update plan that will undo an inference. There might be multiple different explanations for a statement to be inferred. We need to remove at least one statement from each explanation toremove an inference. This command can generate multiple different plans showing different possibilities but executing only one plan will undo the specified inference.The generated plans are output as SPARQL update sequences and can be executed with the query command that will apply the suggested changes. You can also use the --execute option tothis command to execute the update directly.This command can fix the inconsistency of a database as well. </div>
+</div>
+<br/>
+<h1 class="text-info">SYNOPSIS</h1>
+<br/>
+<div class="row">
+<div class="span8 offset1">
+stardog reasoning undo [ --execute ] [ {-f | --format} &lt;format&gt; ] [ {-i | --inconsistency} ] [ {-l | --limit} &lt;limit&gt; ] [ {-p | --passwd} &lt;password&gt; ] [ {-P | --ask-password} ] [ {-u | --username} &lt;username&gt; ] [ --update-schema ] [ {-v | --verbose} ] [--] &lt;database&gt; &lt;input&gt;...</div>
+</div>
+<br/>
+<h1 class="text-info">OPTIONS</h1>
+<br/>
+<div class="row">
+<div class="span8 offset1">
+--execute</div>
+</div>
+<div class="row">
+<div class="span8 offset2">
+Executes the first update plan generated</div>
+</div>
+<div class="row">
+<div class="span8 offset1">
+-f &lt;format&gt;, --format &lt;format&gt;</div>
+</div>
+<div class="row">
+<div class="span8 offset2">
+Input data format: NTRIPLES, RDF/XML, TURTLE, PRETTY_TURTLE, TRIG, TRIX, N3, NQUADS</div>
+</div>
+<div class="row">
+<div class="span8 offset1">
+-i, --inconsistency</div>
+</div>
+<div class="row">
+<div class="span8 offset2">
+Fix inconsistency of the database</div>
+</div>
+<div class="row">
+<div class="span8 offset1">
+-l &lt;limit&gt;, --limit &lt;limit&gt;</div>
+</div>
+<div class="row">
+<div class="span8 offset2">
+Limits the number of update plans returned. The default limit is 1. Each plan may contain more than one update operation.</div>
+</div>
+<div class="row">
+<div class="span8 offset1">
+-p &lt;password&gt;, --passwd &lt;password&gt;</div>
+</div>
+<div class="row">
+<div class="span8 offset2">
+Password.</div>
+</div>
+<div class="row">
+<div class="span8 offset1">
+-P, --ask-password</div>
+</div>
+<div class="row">
+<div class="span8 offset2">
+Prompt for password.</div>
+</div>
+<div class="row">
+<div class="span8 offset1">
+-u &lt;username&gt;, --username &lt;username&gt;</div>
+</div>
+<div class="row">
+<div class="span8 offset2">
+User name.</div>
+</div>
+<div class="row">
+<div class="span8 offset1">
+--update-schema</div>
+</div>
+<div class="row">
+<div class="span8 offset2">
+Includes schema axioms in the update plans</div>
+</div>
+<div class="row">
+<div class="span8 offset1">
+-v, --verbose</div>
+</div>
+<div class="row">
+<div class="span8 offset2">
+Verbose flag that causes more detailed information to be printed</div>
+</div>
+<div class="row">
+<div class="span8 offset1">
+--
+</div>
+</div>
+<div class="row">
+<div class="span8 offset2">
+This option can be used to separate command-line options from the list of argument, (useful when arguments might be mistaken for command-line options
+</div>
+</div>
+<div class="row">
+<div class="span8 offset1">
+&lt;database&gt; &lt;input&gt;</div>
+</div>
+<div class="row">
+<div class="span8 offset2">
+The name of the database or the full connection string of the database to connect to. If only the name is provided, the default server URL will be pre-pended to the name of the database in order to construct the connection string. Connection parameters such as ';reasoning=true' can be included in the provided database name. Connection parameters specified like this can be overridden by specific options on the command. The default server URL will be read from the JVM argument 'stardog.default.cli.server'. If the JVM argument is not set, the default value 'http://localhost:5820' is used. If the server URL has no explicit port value, the default port value '5820' is used.  To use a secure connection, you should specify the full connection string and postfix 's' to the protocol, e.g. https. The subsequent argument is the inference to undo. This can either be a file name or an RDF string. When Turtle string is given as an argument the prefixes stored in the database can be omitted.</div>
+</div>
+<br/>
+<h1 class="text-info">EXAMPLES</h1>
+<br/>
+<div class="row">
+<div class="span12 offset1">
+<p>
+Generate a plan that will fix all the constraint violations in the db</p>
+<pre>
+    $ stardog reasoning undo db</pre>
+</div>
+</div>
+</body>
+</html>
+

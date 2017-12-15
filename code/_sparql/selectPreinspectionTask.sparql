@@ -1,0 +1,6 @@
+SELECT ?s ?p ?o
+
+WHERE {
+
+    <http://localhost/concept/preInspectionTask#3> ?p ?o
+}

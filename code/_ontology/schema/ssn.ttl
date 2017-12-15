@@ -1,0 +1,593 @@
+@prefix : <http://www.w3.org/ns/ssn/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <http://www.w3.org/ns/ssn/> .
+
+<http://www.w3.org/ns/ssn/> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.w3.org/ns/sosa/actsOnProperty
+sosa:actsOnProperty rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/hasFeatureOfInterest
+sosa:hasFeatureOfInterest rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/hasResult
+sosa:hasResult rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/hasSample
+sosa:hasSample rdf:type owl:ObjectProperty ,
+                        owl:InverseFunctionalProperty .
+
+
+###  http://www.w3.org/ns/sosa/hosts
+sosa:hosts rdf:type owl:ObjectProperty ;
+           owl:propertyChainAxiom ( ssn:inDeployment
+                                    ssn:deployedSystem
+                                  ) .
+
+
+###  http://www.w3.org/ns/sosa/isActedOnBy
+sosa:isActedOnBy rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/isHostedBy
+sosa:isHostedBy rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/isObservedBy
+sosa:isObservedBy rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/isResultOf
+sosa:isResultOf rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/isSampleOf
+sosa:isSampleOf rdf:type owl:ObjectProperty ,
+                         owl:FunctionalProperty .
+
+
+###  http://www.w3.org/ns/sosa/madeActuation
+sosa:madeActuation rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/madeByActuator
+sosa:madeByActuator rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/madeBySampler
+sosa:madeBySampler rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/madeBySensor
+sosa:madeBySensor rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/madeObservation
+sosa:madeObservation rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/madeSampling
+sosa:madeSampling rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/observedProperty
+sosa:observedProperty rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/observes
+sosa:observes rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf ssn:forProperty .
+
+
+###  http://www.w3.org/ns/sosa/phenomenonTime
+sosa:phenomenonTime rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/usedProcedure
+sosa:usedProcedure rdf:type owl:ObjectProperty ;
+                   owl:propertyChainAxiom ( sosa:madeByActuator
+                                            ssn:implements
+                                          ) ,
+                                          ( sosa:madeBySampler
+                                            ssn:implements
+                                          ) ,
+                                          ( sosa:madeBySensor
+                                            ssn:implements
+                                          ) .
+
+
+###  http://www.w3.org/ns/ssn/deployedOnPlatform
+ssn:deployedOnPlatform rdf:type owl:ObjectProperty ;
+                       owl:inverseOf ssn:inDeployment .
+
+
+###  http://www.w3.org/ns/ssn/deployedSystem
+ssn:deployedSystem rdf:type owl:ObjectProperty ;
+                   owl:inverseOf ssn:hasDeployment .
+
+
+###  http://www.w3.org/ns/ssn/detects
+ssn:detects rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/ssn/forProperty
+ssn:forProperty rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/ssn/hasDeployment
+ssn:hasDeployment rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/ssn/hasInput
+ssn:hasInput rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/ssn/hasOutput
+ssn:hasOutput rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/ssn/hasProperty
+ssn:hasProperty rdf:type owl:ObjectProperty ;
+                owl:inverseOf ssn:isPropertyOf .
+
+
+###  http://www.w3.org/ns/ssn/hasSubSystem
+ssn:hasSubSystem rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/ssn/implementedBy
+ssn:implementedBy rdf:type owl:ObjectProperty ;
+                  owl:inverseOf ssn:implements .
+
+
+###  http://www.w3.org/ns/ssn/implements
+ssn:implements rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/ssn/inDeployment
+ssn:inDeployment rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/ssn/isPropertyOf
+ssn:isPropertyOf rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/ssn/isProxyFor
+ssn:isProxyFor rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/ssn/wasOriginatedBy
+ssn:wasOriginatedBy rdf:type owl:ObjectProperty ,
+                             owl:FunctionalProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.w3.org/ns/sosa/resultTime
+sosa:resultTime rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.org/vocommons/voaf#Vocabulary
+voaf:Vocabulary rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/ActuatableProperty
+sosa:ActuatableProperty rdf:type owl:Class ;
+                        rdfs:subClassOf ssn:Property ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty sosa:isActedOnBy ;
+                                          owl:allValuesFrom sosa:Actuation
+                                        ] .
+
+
+###  http://www.w3.org/ns/sosa/Actuation
+sosa:Actuation rdf:type owl:Class ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty sosa:actsOnProperty ;
+                                 owl:allValuesFrom sosa:ActuatableProperty
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty sosa:hasFeatureOfInterest ;
+                                 owl:allValuesFrom sosa:FeatureOfInterest
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty sosa:hasResult ;
+                                 owl:allValuesFrom sosa:Result
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty sosa:madeByActuator ;
+                                 owl:allValuesFrom sosa:Actuator
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty sosa:usedProcedure ;
+                                 owl:allValuesFrom sosa:Procedure
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty sosa:actsOnProperty ;
+                                 owl:minCardinality "1"^^xsd:nonNegativeInteger
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty sosa:hasResult ;
+                                 owl:minCardinality "1"^^xsd:nonNegativeInteger
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty sosa:hasFeatureOfInterest ;
+                                 owl:cardinality "1"^^xsd:nonNegativeInteger
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty sosa:madeByActuator ;
+                                 owl:cardinality "1"^^xsd:nonNegativeInteger
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty sosa:resultTime ;
+                                 owl:cardinality "1"^^xsd:nonNegativeInteger
+                               ] .
+
+
+###  http://www.w3.org/ns/sosa/Actuator
+sosa:Actuator rdf:type owl:Class ;
+              rdfs:subClassOf ssn:System ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty sosa:madeActuation ;
+                                owl:allValuesFrom sosa:Actuation
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty ssn:forProperty ;
+                                owl:allValuesFrom sosa:ActuatableProperty
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty ssn:implements ;
+                                owl:minCardinality "1"^^xsd:nonNegativeInteger
+                              ] .
+
+
+###  http://www.w3.org/ns/sosa/FeatureOfInterest
+sosa:FeatureOfInterest rdf:type owl:Class ;
+                       rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                         owl:onProperty sosa:hasSample ;
+                                         owl:allValuesFrom sosa:Sample
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty ssn:hasProperty ;
+                                         owl:allValuesFrom ssn:Property
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty ssn:hasProperty ;
+                                         owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                       ] .
+
+
+###  http://www.w3.org/ns/sosa/ObservableProperty
+sosa:ObservableProperty rdf:type owl:Class ;
+                        rdfs:subClassOf ssn:Property ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty sosa:isObservedBy ;
+                                          owl:allValuesFrom sosa:Sensor
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty [ owl:inverseOf sosa:observedProperty
+                                                         ] ;
+                                          owl:allValuesFrom sosa:Observation
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty [ owl:inverseOf ssn:isProxyFor
+                                                         ] ;
+                                          owl:allValuesFrom ssn:Stimulus
+                                        ] .
+
+
+###  http://www.w3.org/ns/sosa/Observation
+sosa:Observation rdf:type owl:Class ;
+                 rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                   owl:onProperty sosa:hasFeatureOfInterest ;
+                                   owl:allValuesFrom sosa:FeatureOfInterest
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty sosa:hasResult ;
+                                   owl:allValuesFrom sosa:Result
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty sosa:madeBySensor ;
+                                   owl:allValuesFrom sosa:Sensor
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty sosa:observedProperty ;
+                                   owl:allValuesFrom sosa:ObservableProperty
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty sosa:usedProcedure ;
+                                   owl:allValuesFrom sosa:Procedure
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty ssn:wasOriginatedBy ;
+                                   owl:allValuesFrom ssn:Stimulus
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty sosa:hasResult ;
+                                   owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty sosa:hasFeatureOfInterest ;
+                                   owl:cardinality "1"^^xsd:nonNegativeInteger
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty sosa:madeBySensor ;
+                                   owl:cardinality "1"^^xsd:nonNegativeInteger
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty sosa:observedProperty ;
+                                   owl:cardinality "1"^^xsd:nonNegativeInteger
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty sosa:phenomenonTime ;
+                                   owl:cardinality "1"^^xsd:nonNegativeInteger
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty ssn:wasOriginatedBy ;
+                                   owl:cardinality "1"^^xsd:nonNegativeInteger
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty sosa:resultTime ;
+                                   owl:cardinality "1"^^xsd:nonNegativeInteger
+                                 ] .
+
+
+###  http://www.w3.org/ns/sosa/Platform
+sosa:Platform rdf:type owl:Class ;
+              rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                owl:onProperty sosa:hosts ;
+                                owl:allValuesFrom ssn:System
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty ssn:inDeployment ;
+                                owl:allValuesFrom ssn:Deployment
+                              ] .
+
+
+###  http://www.w3.org/ns/sosa/Procedure
+sosa:Procedure rdf:type owl:Class ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty ssn:hasInput ;
+                                 owl:allValuesFrom ssn:Input
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty ssn:hasOutput ;
+                                 owl:allValuesFrom ssn:Output
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty ssn:implementedBy ;
+                                 owl:allValuesFrom ssn:System
+                               ] .
+
+
+###  http://www.w3.org/ns/sosa/Result
+sosa:Result rdf:type owl:Class ;
+            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                              owl:onProperty sosa:isResultOf ;
+                              owl:minCardinality "1"^^xsd:nonNegativeInteger
+                            ] .
+
+
+###  http://www.w3.org/ns/sosa/Sample
+sosa:Sample rdf:type owl:Class ;
+            rdfs:subClassOf sosa:FeatureOfInterest ,
+                            sosa:Result ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty sosa:isResultOf ;
+                              owl:allValuesFrom sosa:Sampling
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty sosa:isSampleOf ;
+                              owl:allValuesFrom sosa:FeatureOfInterest
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty sosa:isResultOf ;
+                              owl:minCardinality "1"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty sosa:isSampleOf ;
+                              owl:minCardinality "1"^^xsd:nonNegativeInteger
+                            ] .
+
+
+###  http://www.w3.org/ns/sosa/Sampler
+sosa:Sampler rdf:type owl:Class ;
+             rdfs:subClassOf ssn:System ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty sosa:madeSampling ;
+                               owl:allValuesFrom sosa:Sampling
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty ssn:implements ;
+                               owl:minCardinality "1"^^xsd:nonNegativeInteger
+                             ] .
+
+
+###  http://www.w3.org/ns/sosa/Sampling
+sosa:Sampling rdf:type owl:Class ;
+              rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                owl:onProperty sosa:hasFeatureOfInterest ;
+                                owl:allValuesFrom sosa:FeatureOfInterest
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty sosa:hasResult ;
+                                owl:allValuesFrom sosa:Sample
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty sosa:madeBySampler ;
+                                owl:allValuesFrom sosa:Sampler
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty sosa:usedProcedure ;
+                                owl:allValuesFrom sosa:Procedure
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty sosa:hasResult ;
+                                owl:minCardinality "1"^^xsd:nonNegativeInteger
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty sosa:hasFeatureOfInterest ;
+                                owl:cardinality "1"^^xsd:nonNegativeInteger
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty sosa:madeBySampler ;
+                                owl:cardinality "1"^^xsd:nonNegativeInteger
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty sosa:resultTime ;
+                                owl:cardinality "1"^^xsd:nonNegativeInteger
+                              ] .
+
+
+###  http://www.w3.org/ns/sosa/Sensor
+sosa:Sensor rdf:type owl:Class ;
+            rdfs:subClassOf ssn:System ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty sosa:madeObservation ;
+                              owl:allValuesFrom sosa:Observation
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty sosa:observes ;
+                              owl:allValuesFrom sosa:ObservableProperty
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty ssn:detects ;
+                              owl:allValuesFrom ssn:Stimulus
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty ssn:implements ;
+                              owl:minCardinality "1"^^xsd:nonNegativeInteger
+                            ] .
+
+
+###  http://www.w3.org/ns/ssn/Deployment
+ssn:Deployment rdf:type owl:Class ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty ssn:deployedOnPlatform ;
+                                 owl:allValuesFrom sosa:Platform
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty ssn:deployedSystem ;
+                                 owl:allValuesFrom ssn:System
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty ssn:forProperty ;
+                                 owl:allValuesFrom ssn:Property
+                               ] .
+
+
+###  http://www.w3.org/ns/ssn/Input
+ssn:Input rdf:type owl:Class ;
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty [ owl:inverseOf ssn:hasInput
+                                           ] ;
+                            owl:allValuesFrom sosa:Procedure
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty [ owl:inverseOf ssn:hasInput
+                                           ] ;
+                            owl:minCardinality "1"^^xsd:nonNegativeInteger
+                          ] .
+
+
+###  http://www.w3.org/ns/ssn/Output
+ssn:Output rdf:type owl:Class ;
+           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                             owl:onProperty [ owl:inverseOf ssn:hasOutput
+                                            ] ;
+                             owl:allValuesFrom sosa:Procedure
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty [ owl:inverseOf ssn:hasOutput
+                                            ] ;
+                             owl:minCardinality "1"^^xsd:nonNegativeInteger
+                           ] .
+
+
+###  http://www.w3.org/ns/ssn/Property
+ssn:Property rdf:type owl:Class ;
+             rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty ssn:isPropertyOf ;
+                               owl:allValuesFrom sosa:FeatureOfInterest
+                             ] .
+
+
+###  http://www.w3.org/ns/ssn/Stimulus
+ssn:Stimulus rdf:type owl:Class ;
+             rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty ssn:isProxyFor ;
+                               owl:allValuesFrom sosa:ObservableProperty
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty [ owl:inverseOf ssn:detects
+                                              ] ;
+                               owl:allValuesFrom sosa:Sensor
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty [ owl:inverseOf ssn:wasOriginatedBy
+                                              ] ;
+                               owl:allValuesFrom sosa:Observation
+                             ] .
+
+
+###  http://www.w3.org/ns/ssn/System
+ssn:System rdf:type owl:Class ;
+           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                             owl:onProperty sosa:isHostedBy ;
+                             owl:allValuesFrom sosa:Platform
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty ssn:hasDeployment ;
+                             owl:allValuesFrom ssn:Deployment
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty ssn:hasSubSystem ;
+                             owl:allValuesFrom ssn:System
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty ssn:implements ;
+                             owl:allValuesFrom sosa:Procedure
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty [ owl:inverseOf ssn:hasSubSystem
+                                            ] ;
+                             owl:allValuesFrom ssn:System
+                           ] .
+
+
+###  http://xmlns.com/foaf/0.1/Agent
+foaf:Agent rdf:type owl:Class .
+
+
+[ rdf:type foaf:Agent
+] .
+
+[ rdf:type foaf:Agent
+ ] .
+
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi

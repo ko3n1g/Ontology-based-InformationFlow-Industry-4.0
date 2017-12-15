@@ -1,0 +1,1492 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1b8c528d-d3d2-4818-ae1b-30cbde374de6" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../_demodata/aoi-observation-board-included-context.jsonld.bak" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../_demodata/catalog-v001.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../_demodata/process-1/applyComponentsTask.ttl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../_demodata/process-1/applySolderPasteTask.ttl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../_demodata/process-1/functionalTask.ttl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../_demodata/process-1/material.ttl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../_demodata/process-1/observation.ttl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../_demodata/process-1/postInspectionTask.ttl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../_demodata/process-1/preInspectionTask.ttl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../_demodata/process-1/process.ttl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../_demodata/process-1/processStep.ttl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../_demodata/process-1/settingOfBoardTask.ttl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../_input/catalog-v001.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../README.md" afterPath="$PROJECT_DIR$/../../README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../app/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/EventProcessor/Main.java" afterPath="$PROJECT_DIR$/src/main/java/EventProcessor/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../stardog/stardog-data/stardog.log" afterPath="$PROJECT_DIR$/../stardog/stardog-data/stardog.log" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <expand />
+    <select />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="core" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/EventDataProcessor/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SMDProcess.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/EventDataProcessor/SMDProcess.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="7" column="35" lean-forward="true" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Process.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/EventDataProcessor/Process.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="7" column="25" lean-forward="false" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Thing.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/EventDataProcessor/Thing.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="48" column="16" lean-forward="false" selection-start-line="48" selection-start-column="16" selection-end-line="48" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IRIHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/EventProcessor/IRIHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/EventProcessor/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="27" column="36" lean-forward="true" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>d</find>
+      <find>Is axiom contained in ontology ? :- fa</find>
+      <find>BadCom</find>
+      <find>featur</find>
+      <find>appoml</find>
+      <find>subClass</find>
+      <find>syste</find>
+      <find>BadBoard</find>
+      <find>system.o</find>
+      <find>dataFactory</find>
+      <find>loadOntologyFromOntologyDocument</find>
+      <find>loadOntology</find>
+      <find>OpenlletReasoner</find>
+      <find>getOntology</find>
+      <find>aConn</find>
+      <find>{</find>
+      <find>getOWLObjectPropertyAssertionAxiom</find>
+      <find>createOntology</find>
+      <find>self</find>
+      <find>SolderPaste</find>
+      <find>add</find>
+      <find>taskName</find>
+      <find>saveOntology</find>
+      <find>list</find>
+      <find>print()</find>
+      <find>ontology.add(</find>
+      <find>InferredOntologyGenerator</find>
+      <find>USE_CONTINUOUS_RULES</find>
+      <find>getOWLDifferentIndividualsAxiom</find>
+      <find>uploadTTL</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+      <replace>app</replace>
+      <replace>axiomsSet</replace>
+      <replace>OWLReasoner</replace>
+      <replace>conn</replace>
+      <replace>Board</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/ApplySolderPasteTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SMDStickBoardProcessStep.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SMDSetBoardProcessStep.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SetBoardTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SMDPreInspectionProcessStep.java" />
+        <option value="$PROJECT_DIR$/src/main/java/AOITask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/FunctionalTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SMDPostInspectionProcessStep.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ProcessStep.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Board.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SetBoard.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SMDProcess.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Thing.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Sensor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Process.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Observation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Material.java" />
+        <option value="$PROJECT_DIR$/src/main/java/oml/EventDataProcessor/PreparedBoard.java" />
+        <option value="$PROJECT_DIR$/src/main/java/oml/EventDataProcessor/ApplyComponentsTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/oml/EventDataProcessor/ApplySolderPasteTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/oml/EventDataProcessor/AOITask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/oml/EventDataProcessor/Material.java" />
+        <option value="$PROJECT_DIR$/src/main/java/oml/EventDataProcessor/SMDPostInspectionProcessStep.java" />
+        <option value="$PROJECT_DIR$/src/main/java/oml/EventDataProcessor/AOIPostInspectionTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/oml/EventDataProcessor/SMDPreInspectionProcessStep.java" />
+        <option value="$PROJECT_DIR$/src/main/java/oml/EventDataProcessor/SetBoardTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/oml/EventDataProcessor/SMDSetBoardProcessStep.java" />
+        <option value="$PROJECT_DIR$/src/main/java/oml/EventProcessor/FusekiHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/oml/EventDataProcessor/ProcessStep.java" />
+        <option value="$PROJECT_DIR$/src/main/java/oml/EventDataProcessor/Process.java" />
+        <option value="$PROJECT_DIR$/src/main/java/oml/EventDataProcessor/Observation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/oml/EventProcessor/StardogHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/oml/EventProcessor/IRIHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/oml/EventDataProcessor/PreInspectionTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/oml/EventDataProcessor/PostInspectionTask.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/idea.vmoptions" />
+        <option value="$PROJECT_DIR$/src/main/java/oml/EventDataProcessor/Thing.java" />
+        <option value="$PROJECT_DIR$/src/main/java/oml/EventDataProcessor/FunctionalTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/oml/EventProcessor/JenaHandler.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/oml/EventDataProcessor/SMDProcess.java" />
+        <option value="$PROJECT_DIR$/src/main/java/oml/EventProcessor/OWLApiHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/oml/EventDataProcessor/EventDataProcessor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/oml/EventProcessor/EventProcessor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/EventProcessor/FusekiHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/EventProcessor/JenaHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/EventProcessor/EventProcessor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/EventProcessor/OWLApiHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/EventProcessor/StardogHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/EventDataProcessor/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/EventProcessor/Main.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="151" />
+    <option name="y" value="51" />
+    <option name="width" value="1726" />
+    <option name="height" value="929" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>JUnit issuesJava</id>
+          </State>
+          <State>
+            <id>Java</id>
+          </State>
+          <State>
+            <id>Struts</id>
+          </State>
+          <State>
+            <id>Struts 2Struts</id>
+          </State>
+        </expanded-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="EventProcessor" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="SearchEverywhereHistoryKey" value="eventdat&#9;FILE&#9;file:///Users/oliver/Documents/Projects/BA-Thesis/bitbucket/project/core/src/main/java/oml/EventDataProcessor/EventDataProcessor.java&#10;USE_CONTINUOUS_RULES&#9;PSI&#9;JAVA://com.clarkparsia.pellet.PelletOptions#USE_CONTINUOUS_RULES&#10;print()&#9;null&#9;null&#10;aoi&#9;PSI&#9;JAVA://oml.EventDataProcessor.AOITask&#10;sensor&#9;PSI&#9;JAVA://oml.EventDataProcessor.Material#addSensor&#10;create&#9;PSI&#9;JAVA://SMDSetBoardProcessStep#create&#10;openllet&#9;FILE&#9;jar:///Users/oliver/.m2/repository/com/github/galigator/openllet/openllet-owlapi/2.6.2/openllet-owlapi-2.6.2.jar!/openllet/owlapi/OpenlletReasonerFactory.class&#10;Options&#9;FILE&#9;jar:///Users/oliver/.m2/repository/com/github/galigator/openllet/openllet-core/2.6.2/openllet-core-2.6.2.jar!/openllet/core/OpenlletOptions.class&#10;jgraph&#9;PSI&#9;JAVA://org.jgraph.JGraph&#10;trowl&#9;PSI&#9;JAVA://org.semanticweb.owlapi.profiles.KnownFactories#TrOWL&#10;fus&#9;FILE&#9;file:///Users/oliver/Documents/Projects/BA-Thesis/bitbucket/project/app/src/main/java/FusekiHandler.java&#10;documentsource&#9;FILE&#9;jar:///Users/oliver/.m2/repository/net/sourceforge/owlapi/owlapi-distribution/5.1.2/owlapi-distribution-5.1.2.jar!/org/semanticweb/owlapi/io/StringDocumentSource.class&#10;saveOntology&#9;PSI&#9;JAVA://OWLApiHandler#saveOntology&#10;loadOntology&#9;PSI&#9;JAVA://openllet.owlapi.OntologyUtils#loadOntology&#10;realize&#9;PSI&#9;JAVA://javax.swing.text.rtf.RTFReader.StylesheetDestination.StyleDefiningDestination#realize&#10;OWLReasoner&#9;FILE&#9;jar:///Users/oliver/.m2/repository/net/sourceforge/owlapi/owlapi-distribution/5.1.2/owlapi-distribution-5.1.2.jar!/org/semanticweb/owlapi/reasoner/OWLReasoner.class&#10;getReasoner&#9;PSI&#9;JAVA://openllet.owlapi.facet.FacetReasonerOWL#getReasoner&#10;FunIn&#9;FILE&#9;jar:///Users/oliver/.m2/repository/com/github/galigator/openllet/openllet-functions/2.6.2/openllet-functions-2.6.2.jar!/openllet/aterm/pure/owl/FunInv.class&#10;FunInv&#9;PSI&#9;JAVA://openllet.aterm.pure.owl.FunInverseFunctional&#10;NodeSet&#9;FILE&#9;jar:///Users/oliver/.m2/repository/net/sourceforge/owlapi/owlapi-api/5.1.2/owlapi-api-5.1.2.jar!/org/semanticweb/owlapi/reasoner/NodeSet.class&#10;FaCTPlusPlusReasonerFactory&#9;PSI&#9;JAVA://uk.ac.manchester.cs.factplusplus.owlapiv3.FaCTPlusPlusReasonerFactory&#10;factpl&#9;PSI&#9;JAVA://uk.ac.manchester.cs.factplusplus.FaCTPlusPlus&#10;jenau&#9;PSI&#9;JAVA://openllet.jena.JenaUtils" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.35517243" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="oml.EventDataProcessor" />
+      <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/main/java" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.EventDataProcessor.main">
+    <configuration name="EventDataProcessor.main" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="EventDataProcessor.Main" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="-Xmx4g" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="app" />
+      <envs />
+    </configuration>
+    <configuration name="EventProcessor.main" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="EventProcessor.Main" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="app" />
+      <envs />
+    </configuration>
+    <configuration name="InformationFlow" type="CompoundRunConfigurationType" factoryName="Compound Run Configuration">
+      <toRun type="Application" name="EventDataProcessor.main" />
+      <toRun type="Application" name="EventProcessor.main" />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="appoml" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+    <list size="3">
+      <item index="0" class="java.lang.String" itemvalue="Application.EventProcessor.main" />
+      <item index="1" class="java.lang.String" itemvalue="Application.EventDataProcessor.main" />
+      <item index="2" class="java.lang.String" itemvalue="Compound.InformationFlow" />
+    </list>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1b8c528d-d3d2-4818-ae1b-30cbde374de6" name="Default" comment="" />
+      <created>1508084667867</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1508084667867</updated>
+      <workItem from="1508084671835" duration="16883000" />
+      <workItem from="1508162450975" duration="114000" />
+      <workItem from="1508162976100" duration="15197000" />
+      <workItem from="1508182560421" duration="1591000" />
+      <workItem from="1508187445304" duration="72000" />
+      <workItem from="1508191400989" duration="16604000" />
+      <workItem from="1508259309831" duration="55055000" />
+      <workItem from="1508416291677" duration="16243000" />
+      <workItem from="1508435187061" duration="847000" />
+      <workItem from="1508443379925" duration="1943000" />
+      <workItem from="1508506911943" duration="3277000" />
+      <workItem from="1508581536192" duration="3000" />
+      <workItem from="1508588270426" duration="3950000" />
+      <workItem from="1508600234354" duration="62000" />
+      <workItem from="1508602001544" duration="5711000" />
+      <workItem from="1508788861645" duration="500000" />
+      <workItem from="1508790252660" duration="3770000" />
+      <workItem from="1508969801525" duration="2463000" />
+      <workItem from="1509033861144" duration="10002000" />
+      <workItem from="1509067052143" duration="2000" />
+      <workItem from="1509067064358" duration="24000" />
+      <workItem from="1509068374464" duration="326000" />
+      <workItem from="1509110718915" duration="1311000" />
+      <workItem from="1509140905222" duration="53572000" />
+      <workItem from="1509373631576" duration="2455000" />
+      <workItem from="1509535304471" duration="4127000" />
+      <workItem from="1509539527864" duration="13056000" />
+      <workItem from="1509560596337" duration="592000" />
+      <workItem from="1509788749674" duration="9418000" />
+      <workItem from="1509803874064" duration="1034000" />
+      <workItem from="1509808315639" duration="1286000" />
+      <workItem from="1512998193097" duration="5040000" />
+      <workItem from="1513012900462" duration="200000" />
+      <workItem from="1513164503271" duration="1058000" />
+      <workItem from="1513172501428" duration="117000" />
+      <workItem from="1513268709500" duration="1248000" />
+    </task>
+    <task id="LOCAL-00001" summary="[project] [code] OWLApiHandler&#10;&#10;+ implemented createInferredOntology(), getInferredSubClassAxioms(), getInferredSubClassAxioms(), saveOntology()&#10;+ roadmap for updateInferredOntology()">
+      <created>1508193608137</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1508193608137</updated>
+    </task>
+    <task id="LOCAL-00002" summary="[project] [code] IRIHandler&#10;&#10;+ handles IRIs for FUSEKI communication / maybe PREFIXES">
+      <created>1508193652861</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1508193652861</updated>
+    </task>
+    <task id="LOCAL-00003" summary="[project] [code] OWLApiHandler&#10;&#10;+ adjustment of EventHandler for OWLApiHandler&#10;+ fixes @ OWLApiHandler&#10;+ first implementation of inferredAxiomsOntology @ OWLAPiHandler">
+      <created>1508196170864</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1508196170864</updated>
+    </task>
+    <task id="LOCAL-00004" summary="[project] [Ontology]&#10;&#10;+ removal of import, no good">
+      <created>1508196257337</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1508196257337</updated>
+    </task>
+    <task id="LOCAL-00005" summary="[project] [fuseki] &#10;&#10;+ folder path adjustment &#10;+ database">
+      <created>1508196313151</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1508196313151</updated>
+    </task>
+    <task id="LOCAL-00006" summary="[project] stuff&#10;&#10;+ handles IRIs for FUSEKI communication / maybe PREFIXES">
+      <created>1508196347598</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1508196347598</updated>
+    </task>
+    <task id="LOCAL-00007" summary="[project] [code] [CORE] &#10;&#10;+ OWLApiHandler.updateInferredOntology() :: Completion of OWLApi workflow &#10;+ EventProcessor.streamProcessing() :: Gap between OWLApi and JENA&#10;+ improvements of IRIHandler&#10;+">
+      <created>1508255311007</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1508255311007</updated>
+    </task>
+    <task id="LOCAL-00008" summary="[project] [code] [core] &#10;&#10;+ FUSEKIHandler: new IRIs, uploadModel(), deleteModel()&#10;+ IRIHandler: inferredIRI">
+      <created>1508267292060</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1508267292060</updated>
+    </task>
+    <task id="LOCAL-00009" summary="[project] [code] [core] JenaHandler&#10;&#10;+ inferOntologyJenaRules(): inference with generic rule reasoner&#10;+ saveOntology(): save to tempFile&#10;+ uploadTTL(): uploads a ttl to an IRI">
+      <created>1508267392850</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1508267392850</updated>
+    </task>
+    <task id="LOCAL-00010" summary="[project] [code] [core] OWLApiHandler, EventProcessor&#10;&#10;+ generalization&#10;+ fixes">
+      <created>1508267463752</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1508267463752</updated>
+    </task>
+    <task id="LOCAL-00011" summary="[project] [code] [core] OWLApiHandler&#10;&#10;+ strange 'bug' (?): forced to save a temporary owl in order to merge correctly (tf)">
+      <created>1508341052025</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1508341052025</updated>
+    </task>
+    <task id="LOCAL-00012" summary="[project] [code] [core] FusekiHandler&#10;&#10;+ upload(): add instead of putModel">
+      <created>1508341131598</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1508341131598</updated>
+    </task>
+    <task id="LOCAL-00013" summary="[project] [code] [Ontology] removal of import statements">
+      <created>1508348626649</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1508348626650</updated>
+    </task>
+    <task id="LOCAL-00014" summary="[project] [code] [core] working version 0.1">
+      <created>1508349137745</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1508349137745</updated>
+    </task>
+    <task id="LOCAL-00015" summary="[project] [code] [core] removal of deprecated files">
+      <created>1508349174454</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1508349174454</updated>
+    </task>
+    <task id="LOCAL-00016" summary="[project] [code] [core] code cleanup">
+      <created>1508349719929</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1508349719929</updated>
+    </task>
+    <task id="LOCAL-00017" summary="[project] [code] [FUSEKI] new architecture: 1 dataset to rule them (graphs) all&#10;&#10;+ 3 graphs atm: schema, data, inferred -&gt; merged with one uniongraph">
+      <created>1508417058605</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1508417058605</updated>
+    </task>
+    <task id="LOCAL-00018" summary="[project] [code] [core] Seem to work :: All graphs (schema, data, inferred+rule) in one dataset, which can be unioned (?) queried">
+      <created>1508434412020</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1508434412020</updated>
+    </task>
+    <task id="LOCAL-00019" summary="[code] [nodejs] first contact with nodejs">
+      <created>1508507008965</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1508507008965</updated>
+    </task>
+    <task id="LOCAL-00020" summary="[code] [core] Who needs a main?">
+      <created>1508508431232</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1508508431233</updated>
+    </task>
+    <task id="LOCAL-00021" summary="[code] [core] No output anymore">
+      <created>1508969863494</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1508969863494</updated>
+    </task>
+    <task id="LOCAL-00022" summary="[code] [core] now compatible with stardog">
+      <created>1509059370798</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1509059370798</updated>
+    </task>
+    <task id="LOCAL-00023" summary="[code] [core] EventProcessor to package (first self-made package ever, hurray)">
+      <created>1509283528387</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1509283528387</updated>
+    </task>
+    <task id="LOCAL-00024" summary="[code] [core] [EventDataProcessor] first setup, seem to work">
+      <created>1509283551624</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1509283551624</updated>
+    </task>
+    <task id="LOCAL-00025" summary="[code] [core] [EventDataProcessor] rework at SMDProcess &amp; SMDPrepareBoardProcessStep">
+      <created>1509301983159</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1509301983159</updated>
+    </task>
+    <task id="LOCAL-00026" summary="[code] [core] [EventDataProcessor] board, component, solderPaste and a task ready">
+      <created>1509304199752</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1509304199752</updated>
+    </task>
+    <task id="LOCAL-00027" summary="[code] [core] [EventDataProcessor] AOI Task on the way">
+      <created>1509305702790</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1509305702790</updated>
+    </task>
+    <task id="LOCAL-00028" summary="[code] [core] [EventDataProcessor] Setup ready, need to fix matching Ids">
+      <created>1509306874538</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1509306874538</updated>
+    </task>
+    <task id="LOCAL-00029" summary="[code] [core] [EventDataProcessor] Jep its working, finetuning time">
+      <created>1509311199583</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1509311199583</updated>
+    </task>
+    <task id="LOCAL-00030" summary="[code] [core] [EventDataProcessor] materials classified">
+      <created>1509312038763</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1509312038763</updated>
+    </task>
+    <task id="LOCAL-00031" summary="[code] [core] [EventDataProcessor] and there we go.. observations">
+      <created>1509314778834</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1509314778834</updated>
+    </task>
+    <task id="LOCAL-00032" summary="[code] [core] [EventDataProcessor] fixing">
+      <created>1509315537446</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1509315537446</updated>
+    </task>
+    <task id="LOCAL-00033" summary="[code] [core] [EventDataProcessor] Packaged">
+      <created>1509315629713</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1509315629713</updated>
+    </task>
+    <task id="LOCAL-00034" summary="[code] [core] [EventDataProcessor] good for now &#10;&#10;(worst. code. ever.)">
+      <created>1509316838284</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1509316838284</updated>
+    </task>
+    <task id="LOCAL-00035" summary="[code] [core] [EventDataProcessor] observation now with dateTime">
+      <created>1509318943399</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1509318943399</updated>
+    </task>
+    <task id="LOCAL-00036" summary="[code] [core] [EventDataProcessor] making them differentFrom">
+      <created>1509320482324</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1509320482324</updated>
+    </task>
+    <task id="LOCAL-00037" summary="[code] [core] [EventProcessor] ready for multi-file upload">
+      <created>1509320900598</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1509320900598</updated>
+    </task>
+    <task id="LOCAL-00038" summary="[code] [core] connecting them">
+      <created>1509321006283</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1509321006283</updated>
+    </task>
+    <task id="LOCAL-00039" summary="[code] [core] connecting them (fix)">
+      <created>1509321271252</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1509321271252</updated>
+    </task>
+    <task id="LOCAL-00040" summary="[code] [core] connecting them (fix)">
+      <created>1509321572341</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1509321572341</updated>
+    </task>
+    <task id="LOCAL-00041" summary="[code] [core] disable local inference">
+      <created>1509322811422</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1509322811422</updated>
+    </task>
+    <task id="LOCAL-00042" summary="[code] [core] replace data">
+      <created>1509323150469</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1509323150469</updated>
+    </task>
+    <task id="LOCAL-00043" summary="[code] [core] fixes at EventDataProcessor&#10;&#10;&#10;&#10;&#10;&#10;why the hell did i do this">
+      <created>1509555119885</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1509555119885</updated>
+    </task>
+    <task id="LOCAL-00044" summary="[code] [core] fixes at EventDataProcessor">
+      <created>1509791658134</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1509791658134</updated>
+    </task>
+    <task id="LOCAL-00045" summary="[code] [core] restructure of code">
+      <created>1513005144130</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1513005144130</updated>
+    </task>
+    <task id="LOCAL-00046" summary="[code] [core] restructure of code">
+      <created>1513007801282</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1513007801282</updated>
+    </task>
+    <task id="LOCAL-00047" summary="[code] [core] code cleanup">
+      <created>1513010190173</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1513010190173</updated>
+    </task>
+    <task id="LOCAL-00048" summary="[code] [core] cleanup of EventProcessor">
+      <created>1513170357615</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1513170357615</updated>
+    </task>
+    <task id="LOCAL-00049" summary="[code] [core] [EventDataProcessor] code commenting for Main">
+      <created>1513268902186</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1513268902187</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="249165000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="151" y="51" width="1726" height="929" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32887402" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2625139" sideWeight="0.50208455" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3285568" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.54472846" sideWeight="0.49564713" order="10" side_tool="false" content_ui="tabs" x="1100" y="49" width="741" height="965" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3944844" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28325415" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32971245" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22161172" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3979933" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.32664436" sideWeight="0.49291617" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32838982" sideWeight="0.49791542" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2625139" sideWeight="0.50208455" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998818" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22195122" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39920557" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.32703003" sideWeight="0.49291617" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969433" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.81962025" sideWeight="0.49564713" order="10" side_tool="false" content_ui="tabs" x="1100" y="49" width="741" height="965" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286991" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24113923" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925472" sideWeight="0.49791542" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="[code] [core] [EventDataProcessor] first setup, seem to work" />
+    <MESSAGE value="[code] [core] [EventDataProcessor] rework at SMDProcess &amp; SMDPrepareBoardProcessStep" />
+    <MESSAGE value="[code] [core] [EventDataProcessor] board, component, solderPaste and a task ready" />
+    <MESSAGE value="[code] [core] [EventDataProcessor] AOI Task on the way" />
+    <MESSAGE value="[code] [core] [EventDataProcessor] Setup ready, need to fix matching Ids" />
+    <MESSAGE value="[code] [core] [EventDataProcessor] Jep its working, finetiming time" />
+    <MESSAGE value="[code] [core] [EventDataProcessor] Jep its working, finetuning time" />
+    <MESSAGE value="[code] [core] [EventDataProcessor] materials classified" />
+    <MESSAGE value="[code] [core] [EventDataProcessor] and there we go.. observations" />
+    <MESSAGE value="[code] [core] [EventDataProcessor] fixing" />
+    <MESSAGE value="[code] [core] [EventDataProcessor] Packaged" />
+    <MESSAGE value="[code] [core] [EventDataProcessor] good for now &#10;&#10;(worst. code. ever.)" />
+    <MESSAGE value="[code] [core] [EventDataProcessor] observation now with dateTime" />
+    <MESSAGE value="[code] [core] [EventDataProcessor] making them differentFrom" />
+    <MESSAGE value="[code] [core] [EventProcessor] ready for multi-file upload" />
+    <MESSAGE value="[code] [core] connecting them" />
+    <MESSAGE value="[code] [core] connecting them (fix)" />
+    <MESSAGE value="[code] [core] disable local inference" />
+    <MESSAGE value="[code] [core] replace data" />
+    <MESSAGE value="[code] [core] fixes at EventDataProcessor&#10;&#10;&#10;&#10;&#10;&#10;why the hell did i do this" />
+    <MESSAGE value="[code] [core] fixes at EventDataProcessor" />
+    <MESSAGE value="[code] [core] restructure of code" />
+    <MESSAGE value="[code] [core] code cleanup" />
+    <MESSAGE value="[code] [core] cleanup of EventProcessor" />
+    <MESSAGE value="[code] [core] [EventDataProcessor] code commenting for Main" />
+    <option name="LAST_COMMIT_MESSAGE" value="[code] [core] [EventDataProcessor] code commenting for Main" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="28" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="jar://$MAVEN_REPOSITORY$/net/sourceforge/owlapi/owlapi-distribution/5.1.2/owlapi-distribution-5.1.2.jar!/org/semanticweb/owlapi/model/providers/ObjectAssertionProvider.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="16" column="78" lean-forward="false" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SMDPrepareBoardStep.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/SMDApplyCompoentsProcessStep.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/net/sourceforge/owlapi/owlapi-distribution/5.1.2/owlapi-distribution-5.1.2.jar!/org/semanticweb/owlapi/model/providers/NamedIndividualProvider.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="17" column="21" lean-forward="true" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/EventDataProcessor/SetBoard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="30" lean-forward="false" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/EventDataProcessor/StickedBoard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="8" column="36" lean-forward="false" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/EventDataProcessor/SolderPaste.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/util/List.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="237" column="12" lean-forward="false" selection-start-line="237" selection-start-column="12" selection-end-line="237" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/EventDataProcessor/Component.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/EventDataProcessor/PreparedBoard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/EventDataProcessor/Sensor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="8" column="12" lean-forward="false" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/EventDataProcessor/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="8" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/EventDataProcessor/SetBoardTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/EventDataProcessor/Material.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="34" column="5" lean-forward="true" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/io/FileOutputStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="99" column="11" lean-forward="false" selection-start-line="99" selection-start-column="11" selection-end-line="99" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/lang/System.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="352" column="30" lean-forward="false" selection-start-line="352" selection-start-column="30" selection-end-line="352" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/net/sourceforge/owlapi/owlapi-distribution/5.1.2/owlapi-distribution-5.1.2.jar!/org/semanticweb/owlapi/model/OWLOntologyManager.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="12" column="21" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/EventDataProcessor/Observation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="40" column="21" lean-forward="false" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/net/sourceforge/owlapi/owlapi-distribution/5.1.2/owlapi-distribution-5.1.2.jar!/org/semanticweb/owlapi/model/HasDirectAddAxioms.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="22" column="26" lean-forward="false" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/net/sourceforge/owlapi/owlapi-distribution/5.1.2/owlapi-distribution-5.1.2.jar!/org/semanticweb/owlapi/model/OWLOntology.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="60" column="26" lean-forward="false" selection-start-line="60" selection-start-column="26" selection-end-line="60" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/EventDataProcessor/SMDStickBoardProcessStep.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="54" lean-forward="true" selection-start-line="6" selection-start-column="54" selection-end-line="6" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/EventDataProcessor/SMDSetBoardProcessStep.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/EventDataProcessor/PreInspectionTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/EventDataProcessor/ApplySolderPasteTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="11" lean-forward="false" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/EventDataProcessor/ApplyComponentsTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="44" lean-forward="false" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/EventDataProcessor/SMDPostInspectionProcessStep.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="16" column="55" lean-forward="false" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/EventDataProcessor/ProcessStep.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="453">
+          <caret line="46" column="79" lean-forward="true" selection-start-line="46" selection-start-column="79" selection-end-line="46" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/EventDataProcessor/SMDPrepareBoardProcessStep.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="16" column="52" lean-forward="false" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/idea.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/idea.vmoptions">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="33" lean-forward="false" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/EventDataProcessor/FunctionalTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="17" column="103" lean-forward="false" selection-start-line="17" selection-start-column="103" selection-end-line="17" selection-end-column="103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/EventDataProcessor/SMDPreInspectionProcessStep.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="16" column="55" lean-forward="false" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/util/Properties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="138" column="11" lean-forward="false" selection-start-line="138" selection-start-column="11" selection-end-line="138" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/complexible/stardog/reasoning/stardog-reasoning-shared/5.0.1/stardog-reasoning-shared-5.0.1.jar!/com/clarkparsia/pellet/PelletOptions.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="97" column="43" lean-forward="true" selection-start-line="97" selection-start-column="43" selection-end-line="97" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/github/galigator/openllet/openllet-core/2.6.2/openllet-core-2.6.2.jar!/openllet/core/OpenlletOptions.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="48" column="26" lean-forward="false" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/net/sourceforge/owlapi/owlapi-distribution/5.1.2/owlapi-distribution-5.1.2.jar!/org/semanticweb/owlapi/model/providers/IndividualAssertionProvider.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="37" column="72" lean-forward="false" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/net/sourceforge/owlapi/owlapi-distribution/5.1.2/owlapi-distribution-5.1.2.jar!/org/semanticweb/owlapi/util/InferredOntologyGenerator.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="51" column="5" lean-forward="false" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="88" column="0" lean-forward="true" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/net/sourceforge/owlapi/owlapi-distribution/5.1.2/owlapi-distribution-5.1.2.jar!/org/semanticweb/owlapi/util/InferredDisjointClassesAxiomGenerator.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="16" column="37" lean-forward="false" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/EventProcessor/OWLApiHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="427">
+          <caret line="159" column="50" lean-forward="false" selection-start-line="159" selection-start-column="50" selection-end-line="159" selection-end-column="50" />
+          <folding>
+            <element signature="method#writeTTL#0;class#OWLApiHandler#0" expanded="false" />
+            <element signature="method#createInferredOntology#0;class#OWLApiHandler#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/EventDataProcessor/PostInspectionTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="12" column="10" lean-forward="false" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/EventProcessor/JenaHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="23" column="62" lean-forward="false" selection-start-line="23" selection-start-column="62" selection-end-line="23" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/EventProcessor/StardogHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="50" column="25" lean-forward="true" selection-start-line="50" selection-start-column="25" selection-end-line="50" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/EventProcessor/FusekiHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="900">
+          <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/EventDataProcessor/SMDProcess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" column="35" lean-forward="true" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/EventDataProcessor/Process.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" column="25" lean-forward="false" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/EventDataProcessor/Thing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="48" column="16" lean-forward="false" selection-start-line="48" selection-start-column="16" selection-end-line="48" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/EventDataProcessor/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/EventProcessor/IRIHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/EventProcessor/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="27" column="36" lean-forward="true" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.19462541" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>trowl-core-1.5.0</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.35517243" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>app</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.35517243" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>openllet-jena-2.6.2</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.35517243" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

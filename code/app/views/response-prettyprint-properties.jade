@@ -1,0 +1,13 @@
+
+li.column
+    ul
+        each item in result
+            - var property = JSON.stringify(item.p.value).slice(1, -1);
+            - var obj = JSON.stringify(item.o.value).slice(1, -1);
+
+            - property = property.substr(property.search("#") + 1, property.length);
+            li
+                span #{property}
+                a(href=obj) #{obj}
+
+

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="User Entered Import Resolution" name="http://localhost/concept/swrl" uri="file:/Users/oliver/Documents/Projects/BA-Thesis/bitbucket/project/_ontology/schema/ManufacturingOntologyLanguage.sick.swrl.ttl"/>
+    <uri id="User Entered Import Resolution" name="http://localhost/concept/oml/gn#" uri="file:/Users/oliver/Documents/Projects/BA-Thesis/bitbucket/project/_ontology/schema/ManufacturingOntologyLanguage.gn.ttl"/>
+    <uri id="User Entered Import Resolution" name="http://localhost/concept/oml/sick#" uri="file:/Users/oliver/Documents/Projects/BA-Thesis/bitbucket/project/_ontology/schema/ManufacturingOntologyLanguage.sick.ttl"/>
+    <uri id="User Entered Import Resolution" name="http://localhost/concept/ManufacturingOntologyLanguage.General#" uri="file:/Users/oliver/Documents/Projects/BA-Thesis/bitbucket/project/_ontology/schema/ManufacturingOntologyLanguage.gn.ttl"/>
+    <uri id="User Entered Import Resolution" name="http://localhost/concept/ManufacturingOntologyLanguage.Sick#" uri="file:/Users/oliver/Documents/Projects/BA-Thesis/bitbucket/project/_ontology/schema/ManufacturingOntologyLanguage.sick.ttl"/>
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base=""/>
+</catalog>

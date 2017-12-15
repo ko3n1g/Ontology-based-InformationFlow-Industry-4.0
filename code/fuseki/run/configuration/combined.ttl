@@ -1,0 +1,74 @@
+@prefix :      <http://base/#> .
+@prefix tdb:   <http://jena.hpl.hp.com/2008/tdb#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ja:    <http://jena.hpl.hp.com/2005/11/Assembler#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix fuseki: <http://jena.apache.org/fuseki#> .
+@prefix oml: <http://localhost/foo/> .
+
+
+[] ja:loadClass "org.apache.jena.tdb.TDB" .
+
+tdb:DatasetTDB  rdfs:subClassOf  ja:RDFDataset .
+tdb:GraphTDB    rdfs:subClassOf  ja:Model .
+
+:service_tdb_all  
+		rdf:type 							fuseki:Service ;
+        rdfs:label                    		"OML.complete" ;
+        fuseki:dataset                		:dataset ;
+        fuseki:name                   		"OML.complete" ;
+        fuseki:serviceQuery           		"query" , "sparql" ;
+        fuseki:serviceReadGraphStore  		"get" ;
+        fuseki:serviceReadWriteGraphStore 	"data" ;
+        fuseki:serviceUpdate          		"update" ;
+        fuseki:serviceUpload          		"upload" ;
+.
+
+:dataset 
+	rdf:type ja:RDFDataset ; 
+	ja:defaultGraph :unionGraph ; 
+	ja:namedGraph [ 
+			ja:graphName oml:schema ; 
+			ja:graph :schemaGraph ;
+	] ; 
+	ja:namedGraph [ 
+			ja:graphName oml:data ; 
+			ja:graph :dataGraph ;
+	] ;
+	ja:namedGraph [ 
+			ja:graphName oml:inferred ; 
+			ja:graph :inferredGraph ; 
+	] ;
+.
+
+:unionGraph 
+	rdf:type ja:UnionModel ; 
+	ja:subModel :schemaGraph ; 
+	ja:subModel :dataGraph ;
+	ja:subModel :inferredGraph ;
+.
+
+:schemaGraph 
+	rdf:type ja:MemoryModel ; 
+
+    ja:content [ ja:externalContent <file:///Users/oliver/Documents/Projects/BA-Thesis/bitbucket/project/_ontology/schema/org.ttl> ] ;
+    ja:content [ ja:externalContent <file:///Users/oliver/Documents/Projects/BA-Thesis/bitbucket/project/_ontology/schema/part.ttl> ] ;
+    ja:content [ ja:externalContent <file:///Users/oliver/Documents/Projects/BA-Thesis/bitbucket/project/_ontology/schema/ssn.ttl> ] ;
+    ja:content [ ja:externalContent <file:///Users/oliver/Documents/Projects/BA-Thesis/bitbucket/project/_ontology/schema/sosa.ttl> ] ;
+   
+    ja:content [ ja:externalContent <file:///Users/oliver/Documents/Projects/BA-Thesis/bitbucket/project/_ontology/schema/ManufacturingOntologyLanguage.gn.ttl> ] ;
+    ja:content [ ja:externalContent <file:///Users/oliver/Documents/Projects/BA-Thesis/bitbucket/project/_ontology/schema/ManufacturingOntologyLanguage.sick.ttl> ] ;
+    
+.
+
+:dataGraph 
+	rdf:type tdb:GraphTDB ; 
+	tdb:location  "/Users/oliver/Documents/Projects/BA-Thesis/bitbucket/project/fuseki/run/databases/data" ; 
+.
+
+:inferredGraph 
+	rdf:type tdb:GraphTDB ; 
+	tdb:location  "/Users/oliver/Documents/Projects/BA-Thesis/bitbucket/project/fuseki/run/databases/inferred" ; 
+.
+
+

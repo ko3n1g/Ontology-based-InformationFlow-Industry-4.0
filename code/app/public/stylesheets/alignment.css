@@ -1,0 +1,64 @@
+
+div#container {
+    width: 90%;
+    min-width: 800px;
+    height: 750px;
+    position: absolute;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    background: #EEEEEE;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+ul.outer {
+    overflow-y: hidden;
+    padding: 0;
+    border: 1px solid #CCC;
+    overflow-x: scroll;
+    list-style: none;
+    white-space: nowrap;
+    float: left;
+    margin: 0;
+}
+
+ul.outer li.column {
+    list-style: none;
+    height: 750px;
+    overflow-y: scroll;
+    padding: 0;
+    margin: 0;
+    overflow-x: auto;
+    display: inline-block;
+    position: relative;
+}
+
+ul.outer li.column ul { padding: 0; }
+
+ul.outer li.column ul li {
+    list-style: none;
+    height: 20px;
+    border-bottom: 1px dotted #CCC;
+    padding: 5px;
+    float: left;
+    clear: left;
+    position: relative;
+    width: 100%;
+}
+
+ul.outer li.column ul li a { margin-right: 10px; }
+ul.outer li.column ul li:nth-child(even) { background: #FFF }
+
+ul.outer li.column ul li.active { background: #666; }
+ul.outer li.column ul li.active a { color: #ECECEC; }
+
+span {
+    margin-right: 10px;
+    border-radius: 4px;
+    border: 1px solid #285e8e;
+    background-color: #3276b1;
+    color: #FFF;
+    padding: 3px;
+    font-size: 12px;
+}

@@ -1,0 +1,689 @@
+@prefix : <http://localhost/concept/oml/sick##> .
+@prefix gn: <http://localhost/concept/oml/gn#> .
+@prefix aoi: <http://localhost/concept/aoi#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix part: <http://www.w3.org/2001/sw/BestPractices/OEP/SimplePartWhole/part.owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sick: <http://localhost/concept/oml/sick#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix swrl: <http://localhost/concept/swrl> .
+@prefix shopfloor: <http://localhost/concept/shopfloor#> .
+@prefix stardog-rule: <tag:stardog:api:rule:> .
+@base <http://localhost/concept/oml/sick#> .
+
+<http://localhost/concept/oml/sick#> rdf:type owl:Ontology ;
+                                      owl:imports swrl: ,
+                                                  gn: .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://localhost/concept/aoi#hasPropertyThreshold
+aoi:hasPropertyThreshold rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf aoi:observationProperty ;
+                         rdf:type owl:FunctionalProperty .
+
+
+###  http://localhost/concept/aoi#observationProperty
+aoi:observationProperty rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/2001/sw/BestPractices/OEP/SimplePartWhole/part.owl#hasPart
+part:hasPart rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://localhost/concept/aoi#threshold_value
+aoi:threshold_value rdf:type owl:DatatypeProperty ,
+                             owl:FunctionalProperty ;
+                    rdfs:range xsd:integer .
+
+
+###  http://localhost/concept/oml/sick#has_boards
+sick:has_boards rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf sick:stockDataProperty ;
+                rdfs:range xsd:integer .
+
+
+###  http://localhost/concept/oml/sick#has_components
+sick:has_components rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf sick:stockDataProperty ;
+                    rdfs:range xsd:integer .
+
+
+###  http://localhost/concept/oml/sick#has_solderPaste
+sick:has_solderPaste rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf sick:stockDataProperty ;
+                     rdfs:range xsd:integer .
+
+
+###  http://localhost/concept/oml/sick#stockDataProperty
+sick:stockDataProperty rdf:type owl:DatatypeProperty .
+
+
+###  tag:stardog:api:rule:content
+stardog-rule:content rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://localhost/concept/aoi#AOITask
+aoi:AOITask rdf:type owl:Class ;
+            rdfs:subClassOf gn:QualityControlTask ,
+                            ssn:Stimulus .
+
+
+###  http://localhost/concept/aoi#BadBoard
+aoi:BadBoard rdf:type owl:Class ;
+             rdfs:subClassOf gn:BrokenMaterial ,
+                             sosa:FeatureOfInterest .
+
+
+###  http://localhost/concept/aoi#BadBoardObservation
+aoi:BadBoardObservation rdf:type owl:Class ;
+                        rdfs:subClassOf sosa:Observation .
+
+
+###  http://localhost/concept/aoi#BadComponent
+aoi:BadComponent rdf:type owl:Class ;
+                 rdfs:subClassOf sosa:FeatureOfInterest .
+
+
+###  http://localhost/concept/aoi#BadComponentObservation
+aoi:BadComponentObservation rdf:type owl:Class ;
+                            rdfs:subClassOf sosa:Observation .
+
+
+###  http://localhost/concept/aoi#ObservableProperty
+aoi:ObservableProperty rdf:type owl:Class ;
+                       rdfs:subClassOf sosa:ObservableProperty ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty aoi:hasPropertyThreshold ;
+                                         owl:someValuesFrom aoi:Threshold
+                                       ] .
+
+
+###  http://localhost/concept/aoi#PostInspectionTask
+aoi:PostInspectionTask rdf:type owl:Class ;
+                       rdfs:subClassOf aoi:AOITask ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty gn:hasFunctionalTaskInput ;
+                                         owl:someValuesFrom sick:SettedBoard
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty gn:hasFunctionalTaskOutput ;
+                                         owl:allValuesFrom aoi:BadBoardObservation
+                                       ] .
+
+
+###  http://localhost/concept/aoi#PreInspectionTask
+aoi:PreInspectionTask rdf:type owl:Class ;
+                      rdfs:subClassOf aoi:AOITask ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty gn:hasFunctionalTaskInput ;
+                                        owl:someValuesFrom sick:StickedBoard
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty gn:hasFunctionalTaskOutput ;
+                                        owl:allValuesFrom aoi:BadComponentObservation
+                                      ] .
+
+
+###  http://localhost/concept/aoi#Sensor
+aoi:Sensor rdf:type owl:Class ;
+           rdfs:subClassOf gn:Sensor .
+
+
+###  http://localhost/concept/aoi#Threshold
+aoi:Threshold rdf:type owl:Class ;
+              rdfs:subClassOf sosa:ObservableProperty .
+
+
+###  http://localhost/concept/oml/sick#ApplyComponentsTask
+sick:ApplyComponentsTask rdf:type owl:Class ;
+                         rdfs:subClassOf gn:ShopFloorTask ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty gn:hasFunctionalTaskInput ;
+                                           owl:someValuesFrom sick:Component
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty gn:hasFunctionalTaskInput ;
+                                           owl:someValuesFrom sick:PreparedBoard
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty gn:hasFunctionalTaskOutput ;
+                                           owl:allValuesFrom sick:StickedBoard
+                                         ] .
+
+
+###  http://localhost/concept/oml/sick#ApplySolderPasteTask
+sick:ApplySolderPasteTask rdf:type owl:Class ;
+                          rdfs:subClassOf gn:ShopFloorTask ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty gn:hasFunctionalTaskInput ;
+                                            owl:someValuesFrom sick:Board
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty gn:hasFunctionalTaskInput ;
+                                            owl:someValuesFrom sick:SolderPaste
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty gn:hasFunctionalTaskOutput ;
+                                            owl:allValuesFrom sick:PreparedBoard
+                                          ] .
+
+
+###  http://localhost/concept/oml/sick#Board
+sick:Board rdf:type owl:Class ;
+           rdfs:subClassOf gn:RawMaterial .
+
+
+###  http://localhost/concept/oml/sick#Capacitor
+sick:Capacitor rdf:type owl:Class ;
+               rdfs:subClassOf sick:Component ;
+               owl:disjointWith sick:Resistor .
+
+
+###  http://localhost/concept/oml/sick#Component
+sick:Component rdf:type owl:Class ;
+               rdfs:subClassOf gn:RawMaterial ;
+               rdfs:comment "Beispielsweise Kondensator"@de .
+
+
+###  http://localhost/concept/oml/sick#Panel
+sick:Panel rdf:type owl:Class ;
+           rdfs:subClassOf gn:RawMaterial ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty part:hasPart ;
+                             owl:someValuesFrom sick:Board
+                           ] .
+
+
+###  http://localhost/concept/oml/sick#PastenEinkauf
+sick:PastenEinkauf rdf:type owl:Class ;
+                   rdfs:subClassOf sick:RohMaterialEinkauf ;
+                   owl:disjointWith sick:RollenEinkauf .
+
+
+###  http://localhost/concept/oml/sick#PreparedBoard
+sick:PreparedBoard rdf:type owl:Class ;
+                   rdfs:subClassOf gn:IntermediateMaterial ,
+                                   sick:Board .
+
+
+###  http://localhost/concept/oml/sick#Resistor
+sick:Resistor rdf:type owl:Class ;
+              rdfs:subClassOf sick:Component .
+
+
+###  http://localhost/concept/oml/sick#RohMaterialEinkauf
+sick:RohMaterialEinkauf rdf:type owl:Class ;
+                        rdfs:subClassOf gn:MaterialPlaningTask .
+
+
+###  http://localhost/concept/oml/sick#RollenEinkauf
+sick:RollenEinkauf rdf:type owl:Class ;
+                   rdfs:subClassOf sick:RohMaterialEinkauf .
+
+
+###  http://localhost/concept/oml/sick#Rundle
+sick:Rundle rdf:type owl:Class ;
+            rdfs:subClassOf gn:RawMaterial ;
+            rdfs:comment "Das Ding, wo die zu bestückenden Komponenten, wie Kondensatoren oder so gedöns, drauf sind."@de ;
+            rdfs:label "Rolle"@de .
+
+
+###  http://localhost/concept/oml/sick#SMDPlatine
+sick:SMDPlatine rdf:type owl:Class ;
+                owl:equivalentClass [ owl:intersectionOf ( gn:Product
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty gn:buildBy ;
+                                                             owl:someValuesFrom sick:SMDProcess
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
+                                    ] .
+
+
+###  http://localhost/concept/oml/sick#SMDPostInspectionProcessStep
+sick:SMDPostInspectionProcessStep rdf:type owl:Class ;
+                                  owl:equivalentClass [ owl:intersectionOf ( gn:ProcessStep
+                                                                             [ rdf:type owl:Restriction ;
+                                                                               owl:onProperty gn:hasFunctionalTask ;
+                                                                               owl:someValuesFrom aoi:PostInspectionTask
+                                                                             ]
+                                                                           ) ;
+                                                        rdf:type owl:Class
+                                                      ] .
+
+
+###  http://localhost/concept/oml/sick#SMDPreInspectionProcessStep
+sick:SMDPreInspectionProcessStep rdf:type owl:Class ;
+                                 owl:equivalentClass [ owl:intersectionOf ( gn:ProcessStep
+                                                                            [ rdf:type owl:Restriction ;
+                                                                              owl:onProperty gn:hasFunctionalTask ;
+                                                                              owl:someValuesFrom aoi:PreInspectionTask
+                                                                            ]
+                                                                            [ rdf:type owl:Restriction ;
+                                                                              owl:onProperty gn:hasNextStep_directly ;
+                                                                              owl:someValuesFrom sick:SMDSetBoardProcessStep
+                                                                            ]
+                                                                          ) ;
+                                                       rdf:type owl:Class
+                                                     ] .
+
+
+###  http://localhost/concept/oml/sick#SMDPrepareBoardProcessStep
+sick:SMDPrepareBoardProcessStep rdf:type owl:Class ;
+                                owl:equivalentClass [ owl:intersectionOf ( gn:ProcessStep
+                                                                           [ rdf:type owl:Restriction ;
+                                                                             owl:onProperty gn:hasFunctionalTask ;
+                                                                             owl:someValuesFrom sick:ApplySolderPasteTask
+                                                                           ]
+                                                                           [ rdf:type owl:Restriction ;
+                                                                             owl:onProperty gn:hasNextStep_directly ;
+                                                                             owl:someValuesFrom sick:SMDStickBoardProcessStep
+                                                                           ]
+                                                                         ) ;
+                                                      rdf:type owl:Class
+                                                    ] .
+
+
+###  http://localhost/concept/oml/sick#SMDProcess
+sick:SMDProcess rdf:type owl:Class ;
+                owl:equivalentClass [ owl:intersectionOf ( gn:Process
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty gn:hasProcessStep ;
+                                                             owl:someValuesFrom sick:SMDPostInspectionProcessStep
+                                                           ]
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty gn:hasProcessStep ;
+                                                             owl:someValuesFrom sick:SMDPreInspectionProcessStep
+                                                           ]
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty gn:hasProcessStep ;
+                                                             owl:someValuesFrom sick:SMDPrepareBoardProcessStep
+                                                           ]
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty gn:hasProcessStep ;
+                                                             owl:someValuesFrom sick:SMDSetBoardProcessStep
+                                                           ]
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty gn:hasProcessStep ;
+                                                             owl:someValuesFrom sick:SMDStickBoardProcessStep
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
+                                    ] ;
+                rdfs:isDefinedBy """oml.gn:Process
+ and (oml.gn:hasProcessStart some 
+    (oml.gn:ProcessStep
+     and (oml.gn:hasFunctionalTask some sick:ApplySolderPasteTask)
+     and (oml.gn:hasNextStep_directly some 
+        (oml.gn:ProcessStep
+         and (oml.gn:hasFunctionalTask some sick:ApplyComponentsTask)
+         and (oml.gn:hasNextStep_directly some 
+            (oml.gn:ProcessStep
+             and (oml.gn:hasFunctionalTask some aoi:AutomatedOpticalInspectionTask)
+             and (oml.gn:hasNextStep_directly some 
+                (oml.gn:ProcessStep
+                 and (oml.gn:hasFunctionalTask some sick:SettingOfBoardTask)
+                 and (oml.gn:hasNextStep_directly some 
+                    (oml.gn:ProcessStep
+                     and (oml.gn:hasFunctionalTask some aoi:AutomatedOpticalInspectionTask)))))))))))"""@de .
+
+
+###  http://localhost/concept/oml/sick#SMDSetBoardProcessStep
+sick:SMDSetBoardProcessStep rdf:type owl:Class ;
+                            owl:equivalentClass [ owl:intersectionOf ( gn:ProcessStep
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty gn:hasFunctionalTask ;
+                                                                         owl:someValuesFrom sick:SettingOfBoardTask
+                                                                       ]
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty gn:hasNextStep_directly ;
+                                                                         owl:someValuesFrom sick:SMDPostInspectionProcessStep
+                                                                       ]
+                                                                     ) ;
+                                                  rdf:type owl:Class
+                                                ] .
+
+
+###  http://localhost/concept/oml/sick#SMDStickBoardProcessStep
+sick:SMDStickBoardProcessStep rdf:type owl:Class ;
+                              owl:equivalentClass [ owl:intersectionOf ( gn:ProcessStep
+                                                                         [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty gn:hasFunctionalTask ;
+                                                                           owl:someValuesFrom sick:ApplyComponentsTask
+                                                                         ]
+                                                                         [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty gn:hasNextStep_directly ;
+                                                                           owl:someValuesFrom sick:SMDPreInspectionProcessStep
+                                                                         ]
+                                                                       ) ;
+                                                    rdf:type owl:Class
+                                                  ] .
+
+
+###  http://localhost/concept/oml/sick#SettedBoard
+sick:SettedBoard rdf:type owl:Class ;
+                 rdfs:subClassOf gn:IntermediateMaterial .
+
+
+###  http://localhost/concept/oml/sick#SettingOfBoardTask
+sick:SettingOfBoardTask rdf:type owl:Class ;
+                        rdfs:subClassOf gn:ShopFloorTask ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty gn:hasFunctionalTaskInput ;
+                                          owl:someValuesFrom sick:StickedBoard
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty gn:hasFunctionalTaskOutput ;
+                                          owl:allValuesFrom sick:SettedBoard
+                                        ] .
+
+
+###  http://localhost/concept/oml/sick#SolderPaste
+sick:SolderPaste rdf:type owl:Class ;
+                 rdfs:subClassOf gn:RawMaterial ;
+                 rdfs:label "Wärmeleitpaste"@de .
+
+
+###  http://localhost/concept/oml/sick#StickedBoard
+sick:StickedBoard rdf:type owl:Class ;
+                  rdfs:subClassOf gn:IntermediateMaterial ,
+                                  sick:Board ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty part:hasPart ;
+                                    owl:someValuesFrom sick:Component
+                                  ] .
+
+
+###  http://localhost/concept/oml/sick#Stock
+sick:Stock rdf:type owl:Class ;
+           rdfs:subClassOf gn:Materialdisposition .
+
+
+###  tag:stardog:api:rule:SPARQLRule
+stardog-rule:SPARQLRule rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://localhost/concept/aoi#twisting
+aoi:twisting rdf:type owl:NamedIndividual ,
+                      aoi:ObservableProperty ;
+             aoi:hasPropertyThreshold aoi:twisting-threshold .
+
+
+###  http://localhost/concept/aoi#twisting-threshold
+aoi:twisting-threshold rdf:type owl:NamedIndividual ,
+                                aoi:Threshold ;
+                       aoi:threshold_value 2 .
+
+
+###  http://localhost/concept/aoi#x-shift
+aoi:x-shift rdf:type owl:NamedIndividual ,
+                     aoi:ObservableProperty ;
+            aoi:hasPropertyThreshold aoi:x-shift-threshold .
+
+
+###  http://localhost/concept/aoi#x-shift-threshold
+aoi:x-shift-threshold rdf:type owl:NamedIndividual ,
+                               aoi:Threshold ;
+                      aoi:threshold_value 2 .
+
+
+###  http://localhost/concept/aoi#y-shift
+aoi:y-shift rdf:type owl:NamedIndividual ,
+                     aoi:ObservableProperty ;
+            aoi:hasPropertyThreshold aoi:y-shift-threshold .
+
+
+###  http://localhost/concept/aoi#y-shift-threshold
+aoi:y-shift-threshold rdf:type owl:NamedIndividual ,
+                               aoi:Threshold ;
+                      aoi:threshold_value 2 .
+
+
+###  http://localhost/concept/oml/sick#AOISensor
+sick:AOISensor rdf:type owl:NamedIndividual .
+
+
+###  http://localhost/concept/oml/sick#board1
+sick:board1 rdf:type owl:NamedIndividual .
+
+
+###  http://localhost/concept/oml/sick#c1-1
+sick:c1-1 rdf:type owl:NamedIndividual .
+
+
+###  http://localhost/concept/oml/sick#c2-1
+sick:c2-1 rdf:type owl:NamedIndividual .
+
+
+###  http://localhost/concept/oml/sick#c3-1
+sick:c3-1 rdf:type owl:NamedIndividual .
+
+
+###  http://localhost/concept/oml/sick#observation1
+sick:observation1 rdf:type owl:NamedIndividual ;
+                  sosa:hasFeatureOfInterest sick:c1-1 ;
+                  sosa:madeBySensor sick:AOISensor ;
+                  sosa:observedProperty aoi:x-shift .
+
+
+###  http://localhost/concept/oml/sick#observation2
+sick:observation2 rdf:type owl:NamedIndividual ;
+                  sosa:hasFeatureOfInterest sick:c1-1 ;
+                  sosa:madeBySensor sick:AOISensor ;
+                  sosa:observedProperty aoi:y-shift .
+
+
+###  http://localhost/concept/oml/sick#observation3
+sick:observation3 rdf:type owl:NamedIndividual ;
+                  sosa:hasFeatureOfInterest sick:c1-1 ;
+                  sosa:madeBySensor sick:AOISensor ;
+                  sosa:observedProperty aoi:twisting .
+
+
+###  http://localhost/concept/oml/sick#observation4
+sick:observation4 rdf:type owl:NamedIndividual ;
+                  sosa:hasFeatureOfInterest sick:c2-1 ;
+                  sosa:madeBySensor sick:AOISensor ;
+                  sosa:observedProperty aoi:x-shift .
+
+
+###  http://localhost/concept/oml/sick#observation5
+sick:observation5 rdf:type owl:NamedIndividual ;
+                  sosa:hasFeatureOfInterest sick:c2-1 ;
+                  sosa:madeBySensor sick:AOISensor ;
+                  sosa:observedProperty aoi:y-shift .
+
+
+###  http://localhost/concept/oml/sick#observation6
+sick:observation6 rdf:type owl:NamedIndividual ;
+                  sosa:hasFeatureOfInterest sick:c2-1 ;
+                  sosa:madeBySensor sick:AOISensor ;
+                  sosa:observedProperty aoi:twisting .
+
+
+###  http://localhost/concept/oml/sick#preparedBoard1
+sick:preparedBoard1 rdf:type owl:NamedIndividual .
+
+
+###  http://localhost/concept/oml/sick#process1
+sick:process1 rdf:type owl:NamedIndividual ,
+                       sick:SMDProcess ;
+              gn:hasProcessEnd sick:processStep5 ;
+              gn:hasProcessStart sick:processStep1 ;
+              gn:hasProcessStep sick:processStep2 ,
+                                sick:processStep3 ,
+                                sick:processStep4 .
+
+
+###  http://localhost/concept/oml/sick#processStep1
+sick:processStep1 rdf:type owl:NamedIndividual ;
+                  gn:hasFunctionalTask sick:task1 ;
+                  gn:hasNextStep sick:processStep2 .
+
+
+###  http://localhost/concept/oml/sick#processStep2
+sick:processStep2 rdf:type owl:NamedIndividual ;
+                  gn:hasFunctionalTask sick:task2 ;
+                  gn:hasNextStep sick:processStep3 .
+
+
+###  http://localhost/concept/oml/sick#processStep3
+sick:processStep3 rdf:type owl:NamedIndividual ;
+                  gn:hasFunctionalTask sick:task3 ;
+                  gn:hasNextStep sick:processStep4 .
+
+
+###  http://localhost/concept/oml/sick#processStep4
+sick:processStep4 rdf:type owl:NamedIndividual ;
+                  gn:hasFunctionalTask sick:task4 ;
+                  gn:hasNextStep sick:processStep5 .
+
+
+###  http://localhost/concept/oml/sick#processStep5
+sick:processStep5 rdf:type owl:NamedIndividual ;
+                  gn:hasFunctionalTask sick:task5 .
+
+
+###  http://localhost/concept/oml/sick#solderPaste1
+sick:solderPaste1 rdf:type owl:NamedIndividual .
+
+
+###  http://localhost/concept/oml/sick#stickedBoard1
+sick:stickedBoard1 rdf:type owl:NamedIndividual .
+
+
+###  http://localhost/concept/oml/sick#task1
+sick:task1 rdf:type owl:NamedIndividual ;
+           gn:hasFunctionalTaskInput sick:board1 ,
+                                     sick:solderPaste1 ;
+           gn:hasFunctionalTaskOutput sick:preparedBoard1 .
+
+
+###  http://localhost/concept/oml/sick#task2
+sick:task2 rdf:type owl:NamedIndividual ;
+           gn:hasFunctionalTaskInput sick:c1-1 ,
+                                     sick:c2-1 ,
+                                     sick:c3-1 ,
+                                     sick:preparedBoard1 ;
+           gn:hasFunctionalTaskOutput sick:stickedBoard1 .
+
+
+###  http://localhost/concept/oml/sick#task3
+sick:task3 rdf:type owl:NamedIndividual ;
+           gn:hasFunctionalTaskInput sick:stickedBoard1 .
+
+
+###  http://localhost/concept/oml/sick#task4
+sick:task4 rdf:type owl:NamedIndividual .
+
+
+###  http://localhost/concept/oml/sick#task5
+sick:task5 rdf:type owl:NamedIndividual .
+
+
+###  http://localhost/concept/oml/sick#twisting-threshold
+sick:twisting-threshold rdf:type owl:NamedIndividual .
+
+
+###  http://localhost/concept/oml/sick#x-shift-threshold
+sick:x-shift-threshold rdf:type owl:NamedIndividual .
+
+
+###  http://localhost/concept/oml/sick#y-shift-threshold
+sick:y-shift-threshold rdf:type owl:NamedIndividual .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( sick:ApplyComponentsTask
+                sick:ApplySolderPasteTask
+                sick:SettingOfBoardTask
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( sick:Board
+                sick:Component
+                sick:Panel
+                sick:Rundle
+                sick:SolderPaste
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( sick:SMDPostInspectionProcessStep
+                sick:SMDPreInspectionProcessStep
+                sick:SMDPrepareBoardProcessStep
+                sick:SMDSetBoardProcessStep
+                sick:SMDStickBoardProcessStep
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( sick:SMDPreInspectionProcessStep
+                sick:SMDPrepareBoardProcessStep
+                sick:SMDSetBoardProcessStep
+                sick:SMDStickBoardProcessStep
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( sick:SMDPrepareBoardProcessStep
+                sick:SMDSetBoardProcessStep
+                sick:SMDStickBoardProcessStep
+              )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( aoi:twisting
+                        aoi:x-shift
+                        aoi:y-shift
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( aoi:twisting-threshold
+                        aoi:x-shift-threshold
+                        aoi:y-shift-threshold
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( sick:twisting-threshold
+                        sick:x-shift-threshold
+                        sick:y-shift-threshold
+                      )
+] .
+
+
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi

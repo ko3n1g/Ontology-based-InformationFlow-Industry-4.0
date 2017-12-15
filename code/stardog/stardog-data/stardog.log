@@ -1,0 +1,49 @@
+WARN  2017-11-04 15:30:00,013 [2108b7e9-dc21-4ea3-a1bf-3ed651f84e4a_Worker-3] com.complexible.stardog.db.DatabaseImpl:lambda$new$0(1351): Closing connection to database oml due to inactivity for 1h
+Waiting for running tasks to complete...done. Executor service has been shut down.
+Stardog server 5.0.4 shutdown on Tue Nov 07 16:13:58 CET 2017.
+
+
+objc[9658]: Class JavaLaunchHelper is implemented in both /Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/bin/java and /Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/libinstrument.dylib. One of the two will be used. Which one is undefined.
+INFO  2017-12-14 17:09:11,832 [main] com.complexible.stardog.StardogKernel:start(2236): Initializing Stardog
+
+************************************************************
+This copy of Stardog is licensed to oliver könig (ollie.koenig@gmail.com), Karlsruhe Institut f. Technologie
+This is a Community license
+This license does not expire.
+************************************************************
+
+                                                             :;   
+                                      ;;                   `;`:   
+  `'+',    ::                        `++                    `;:`  
+ +###++,  ,#+                        `++                    .     
+ ##+.,',  '#+                         ++                     +    
+,##      ####++  ####+:   ##,++` .###+++   .####+    ####++++#    
+`##+     ####+'  ##+#++   ###++``###'+++  `###'+++  ###`,++,:     
+ ####+    ##+        ++.  ##:   ###  `++  ###  `++` ##`  ++:      
+  ###++,  ##+        ++,  ##`   ##;  `++  ##:   ++; ##,  ++:      
+    ;+++  ##+    ####++,  ##`   ##:  `++  ##:   ++' ;##'#++       
+     ;++  ##+   ###  ++,  ##`   ##'  `++  ##;   ++:  ####+        
+,.   +++  ##+   ##:  ++,  ##`   ###  `++  ###  .++  '#;           
+,####++'  +##++ ###+#+++` ##`   :####+++  `####++'  ;####++`      
+`####+;    ##++  ###+,++` ##`    ;###:++   `###+;   `###++++      
+                                                    ##   `++      
+                                                   .##   ;++      
+                                                    #####++`      
+                                                     `;;;.        
+************************************************************
+
+
+Stardog server 5.0.4 started on Thu Dec 14 17:09:16 CET 2017.
+
+Stardog server is listening on all network interfaces.
+HTTP server available at http://localhost:5820.
+
+STARDOG_HOME=/Users/oliver/Documents/Projects/BA-Thesis/public/code/stardog/stardog-data 
+
+INFO  2017-12-14 17:09:16,300 [main] com.complexible.stardog.cli.impl.ServerStart:call(229): Memory options
+INFO  2017-12-14 17:09:16,303 [main] com.complexible.stardog.cli.impl.ServerStart:call(230): Memory mode: DEFAULT
+INFO  2017-12-14 17:09:16,303 [main] com.complexible.stardog.cli.impl.ServerStart:call(231): Min Heap Size: 128M
+INFO  2017-12-14 17:09:16,303 [main] com.complexible.stardog.cli.impl.ServerStart:call(232): Max Heap Size: 1,8G
+INFO  2017-12-14 17:09:16,303 [main] com.complexible.stardog.cli.impl.ServerStart:call(233): Max Direct Mem: 1,8G
+INFO  2017-12-14 17:09:16,303 [main] com.complexible.stardog.cli.impl.ServerStart:call(234): Max Mapped Mem: 235M
+INFO  2017-12-14 17:09:16,304 [main] com.complexible.stardog.cli.impl.ServerStart:call(235): System Memory: 8,0G

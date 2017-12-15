@@ -1,0 +1,29 @@
+#!/bin/bash
+
+PRG="$0"
+while [ -h "$PRG" ] ; do
+ ls=`ls -ld "$PRG"`
+ link=`expr "$ls" : '.*-> \(.*\)$'`
+ if expr "$link" : '/.*' > /dev/null; then
+   PRG="$link"
+ else
+   PRG=`dirname "$PRG"`/"$link"
+ fi
+done
+
+STARDOG_BIN=`dirname "$PRG"`
+. ${STARDOG_BIN}/helpers.sh
+
+build_classpath
+
+if [ -z "${STARDOG_JAVA_ARGS}" ]; then
+ STARDOG_JAVA_ARGS="-Xmx2g"
+fi
+if [ -n "${STARDOG_CLIENT_JAVA_ARGS}" ]; then
+ STARDOG_JAVA_ARGS="${STARDOG_CLIENT_JAVA_ARGS} ${STARDOG_JAVA_ARGS}"
+fi
+
+check_log4j_config
+
+exec "${java}" ${DEFAULT_JAVA_ARGS} ${STARDOG_JAVA_ARGS} -Dstardog.install.location="${STARDOG}" \
+     -client -classpath "${CLASSPATH}" com.complexible.stardog.cli.CLI "$@"

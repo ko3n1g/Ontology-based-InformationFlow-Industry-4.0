@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.complexible.common.protocols.api:stardog-protocols-api-client:5.0.1">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/complexible/common/protocols/api/stardog-protocols-api-client/5.0.1/stardog-protocols-api-client-5.0.1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/complexible/common/protocols/api/stardog-protocols-api-client/5.0.1/stardog-protocols-api-client-5.0.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/complexible/common/protocols/api/stardog-protocols-api-client/5.0.1/stardog-protocols-api-client-5.0.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

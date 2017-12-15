@@ -1,0 +1,678 @@
+@prefix : <http://localhost/concept/ManufacturingOntologyLanguage.Instances##> .
+@prefix gn: <http://localhost/concept/oml/gn#> .
+@prefix aoi: <http://localhost/concept/aoi#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix part: <http://www.w3.org/2001/sw/BestPractices/OEP/SimplePartWhole/part.owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sick: <http://localhost/concept/oml/sick#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix shopfloor: <http://localhost/concept/shopfloor#> .
+
+<http://localhost/concept/ManufacturingOntologyLanguage.Instances#> a owl:Ontology ;
+	owl:imports <http://localhost/concept/oml/sick#> .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
+
+<http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> a owl:AnnotationProperty .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Individuals
+# #
+# #################################################################
+# 
+# 
+# http://localhost/concept/materialdisposition
+
+<http://localhost/concept/materialdisposition> a owl:NamedIndividual , gn:Materialdisposition .
+# 
+# http://localhost/concept/customer/customer_01
+
+<http://localhost/concept/customer/customer_01> a owl:NamedIndividual , gn:Customer .
+# 
+# http://localhost/concept/datacollection#1
+
+<http://localhost/concept/datacollection#1> a owl:NamedIndividual , gn:DataCollection ;
+	gn:canRead <http://localhost/concept/processStep/smd_03> , <http://localhost/concept/processStep/smd_05> .
+# 
+# http://localhost/concept/equipment/AOI_SMD407
+
+<http://localhost/concept/equipment/AOI_SMD407> a owl:NamedIndividual , aoi:Sensor .
+# 
+# http://localhost/concept/internal/purchaseManager
+
+<http://localhost/concept/internal/purchaseManager> a owl:NamedIndividual , gn:PurchaseManager ;
+	gn:ownsDataCollection <http://localhost/concept/datacollection#1> ;
+	org:memberOf <http://localhost/concept/materialdisposition> .
+# 
+# http://localhost/concept/material/board#3827581
+
+<http://localhost/concept/material/board#3827581> a owl:NamedIndividual , sick:Board .
+# 
+# http://localhost/concept/material/component#c1-1
+
+<http://localhost/concept/material/component#c1-1> a owl:NamedIndividual , sick:Component .
+# 
+# http://localhost/concept/material/component#c2-1
+
+<http://localhost/concept/material/component#c2-1> a owl:NamedIndividual , sick:Component .
+# 
+# http://localhost/concept/material/component#c3-1
+
+<http://localhost/concept/material/component#c3-1> a owl:NamedIndividual , sick:Component .
+# 
+# http://localhost/concept/material/component#c4-1
+
+<http://localhost/concept/material/component#c4-1> a owl:NamedIndividual , sick:Component .
+# 
+# http://localhost/concept/material/preparedBoard#1
+
+<http://localhost/concept/material/preparedBoard#1> a owl:NamedIndividual .
+# 
+# http://localhost/concept/material/settedBoard#1
+
+<http://localhost/concept/material/settedBoard#1> a owl:NamedIndividual .
+# 
+# http://localhost/concept/material/solderpaste#1
+
+<http://localhost/concept/material/solderpaste#1> a owl:NamedIndividual , sick:SolderPaste .
+# 
+# http://localhost/concept/material/stickedBoard#1
+
+<http://localhost/concept/material/stickedBoard#1> a owl:NamedIndividual .
+# 
+# http://localhost/concept/materialdisposition/stock
+
+<http://localhost/concept/materialdisposition/stock> a owl:NamedIndividual , sick:Stock .
+# 
+# http://localhost/concept/observations/1
+
+<http://localhost/concept/observations/1> a owl:NamedIndividual , sosa:Observation ;
+	sosa:hasFeatureOfInterest <http://localhost/concept/material/component#c1-1> ;
+	sosa:madeBySensor <http://localhost/concept/equipment/AOI_SMD407> ;
+	sosa:observedProperty aoi:x-shift ;
+	sosa:hasSimpleResult "10"^^xsd:integer ;
+	sosa:resultTime "2016-05-18T12:55:27.954"^^xsd:dateTime .
+# 
+# http://localhost/concept/observations/2
+
+<http://localhost/concept/observations/2> a owl:NamedIndividual , sosa:Observation ;
+	sosa:hasFeatureOfInterest <http://localhost/concept/material/component#c1-1> ;
+	sosa:madeBySensor <http://localhost/concept/equipment/AOI_SMD407> ;
+	sosa:observedProperty aoi:y-shift ;
+	sosa:hasSimpleResult "3"^^xsd:integer ;
+	sosa:resultTime "2016-05-18T12:55:27.954"^^xsd:dateTime .
+# 
+# http://localhost/concept/observations/3
+
+<http://localhost/concept/observations/3> a owl:NamedIndividual , sosa:Observation ;
+	sosa:hasFeatureOfInterest <http://localhost/concept/material/component#c1-1> ;
+	sosa:madeBySensor <http://localhost/concept/equipment/AOI_SMD407> ;
+	sosa:observedProperty aoi:twisting ;
+	sosa:hasSimpleResult "3"^^xsd:integer ;
+	sosa:resultTime "2016-05-18T12:55:27.954"^^xsd:dateTime .
+# 
+# http://localhost/concept/observations/4
+
+<http://localhost/concept/observations/4> a owl:NamedIndividual , sosa:Observation ;
+	sosa:hasFeatureOfInterest <http://localhost/concept/material/component#c2-1> ;
+	sosa:madeBySensor <http://localhost/concept/equipment/AOI_SMD407> ;
+	sosa:observedProperty aoi:x-shift ;
+	sosa:hasSimpleResult "-10"^^xsd:integer ;
+	sosa:resultTime "2016-05-18T12:55:27.954"^^xsd:dateTime .
+# 
+# http://localhost/concept/observations/5
+
+<http://localhost/concept/observations/5> a owl:NamedIndividual , sosa:Observation ;
+	sosa:hasFeatureOfInterest <http://localhost/concept/material/component#c2-1> ;
+	sosa:madeBySensor <http://localhost/concept/equipment/AOI_SMD407> ;
+	sosa:observedProperty aoi:y-shift ;
+	sosa:hasSimpleResult "-3"^^xsd:integer ;
+	sosa:resultTime "2016-05-18T12:55:27.954"^^xsd:dateTime .
+# 
+# http://localhost/concept/observations/6
+
+<http://localhost/concept/observations/6> a owl:NamedIndividual , sosa:Observation ;
+	sosa:hasFeatureOfInterest <http://localhost/concept/material/component#c2-1> ;
+	sosa:madeBySensor <http://localhost/concept/equipment/AOI_SMD407> ;
+	sosa:observedProperty aoi:twisting ;
+	sosa:hasSimpleResult "-5"^^xsd:integer ;
+	sosa:resultTime "2016-05-18T12:55:27.954"^^xsd:dateTime .
+# 
+# http://localhost/concept/order/customer_01_order_01
+
+<http://localhost/concept/order/customer_01_order_01> a owl:NamedIndividual , gn:CustomerOrder ;
+	gn:orderList <http://localhost/concept/orderList/customer_01_order_01_01> .
+# 
+# http://localhost/concept/orderList/customer_01_order_01_01
+
+<http://localhost/concept/orderList/customer_01_order_01_01> a owl:NamedIndividual ;
+	gn:orderProduct <http://localhost/concept/product/SMDPlatine> ;
+	gn:orderQuantity "1"^^xsd:integer .
+# 
+# http://localhost/concept/process/smd
+
+<http://localhost/concept/process/smd> a owl:NamedIndividual , sick:SMDProcess ;
+	gn:hasProcessStep <http://localhost/concept/processStep/smd_01> , <http://localhost/concept/processStep/smd_02> , <http://localhost/concept/processStep/smd_03> , <http://localhost/concept/processStep/smd_04> , <http://localhost/concept/processStep/smd_05> .
+# 
+# http://localhost/concept/processStep/smd_01
+
+<http://localhost/concept/processStep/smd_01> a owl:NamedIndividual ;
+	gn:hasFunctionalTask <http://localhost/concept/task/smd_solderPasteApplication> ;
+	gn:hasNextStep_directly <http://localhost/concept/processStep/smd_02> .
+# 
+# http://localhost/concept/processStep/smd_02
+
+<http://localhost/concept/processStep/smd_02> a owl:NamedIndividual ;
+	gn:hasFunctionalTask <http://localhost/concept/task/smd_componentApplication> ;
+	gn:hasNextStep_directly <http://localhost/concept/processStep/smd_03> .
+# 
+# http://localhost/concept/processStep/smd_03
+
+<http://localhost/concept/processStep/smd_03> a owl:NamedIndividual ;
+	gn:hasFunctionalTask <http://localhost/concept/task/smd_aoiInspection_01> ;
+	gn:hasNextStep_directly <http://localhost/concept/processStep/smd_04> .
+# 
+# http://localhost/concept/processStep/smd_04
+
+<http://localhost/concept/processStep/smd_04> a owl:NamedIndividual ;
+	gn:hasFunctionalTask <http://localhost/concept/task/smd_boardSetting> ;
+	gn:hasNextStep_directly <http://localhost/concept/processStep/smd_05> .
+# 
+# http://localhost/concept/processStep/smd_05
+
+<http://localhost/concept/processStep/smd_05> a owl:NamedIndividual ;
+	gn:hasFunctionalTask <http://localhost/concept/task/smd_aoiInspection_02> .
+# 
+# http://localhost/concept/product/SMDPlatine
+
+<http://localhost/concept/product/SMDPlatine> a owl:NamedIndividual , sick:SMDPlatine .
+# 
+# http://localhost/concept/task/smd_aoiInspection_01
+
+<http://localhost/concept/task/smd_aoiInspection_01> a owl:NamedIndividual , aoi:PreInspectionTask ;
+	gn:hasFunctionalTaskInput <http://localhost/concept/material/stickedBoard#1> ;
+	gn:hasFunctionalTaskOutput <http://localhost/concept/observations/1> , <http://localhost/concept/observations/2> , <http://localhost/concept/observations/3> , <http://localhost/concept/observations/4> , <http://localhost/concept/observations/5> , <http://localhost/concept/observations/6> ;
+	gn:hasFunctionalTaskStatus gn:FINISHED ;
+	ssn:implementedBy <http://localhost/concept/equipment/AOI_SMD407> .
+# 
+# http://localhost/concept/task/smd_aoiInspection_02
+
+<http://localhost/concept/task/smd_aoiInspection_02> a owl:NamedIndividual , aoi:PostInspectionTask ;
+	gn:hasFunctionalTaskStatus gn:PENDING .
+# 
+# http://localhost/concept/task/smd_boardSetting
+
+<http://localhost/concept/task/smd_boardSetting> a owl:NamedIndividual , sick:SettingOfBoardTask ;
+	gn:hasFunctionalTaskInput <http://localhost/concept/material/stickedBoard#1> ;
+	gn:hasFunctionalTaskOutput <http://localhost/concept/material/settedBoard#1> ;
+	gn:hasFunctionalTaskStatus gn:FINISHED .
+# 
+# http://localhost/concept/task/smd_componentApplication
+
+<http://localhost/concept/task/smd_componentApplication> a owl:NamedIndividual , sick:ApplyComponentsTask ;
+	gn:hasFunctionalTaskInput <http://localhost/concept/material/component#c1-1> , <http://localhost/concept/material/component#c2-1> , <http://localhost/concept/material/component#c3-1> , <http://localhost/concept/material/preparedBoard#1> ;
+	gn:hasFunctionalTaskOutput <http://localhost/concept/material/stickedBoard#1> ;
+	gn:hasFunctionalTaskStatus gn:FINISHED .
+# 
+# http://localhost/concept/task/smd_solderPasteApplication
+
+<http://localhost/concept/task/smd_solderPasteApplication> a owl:NamedIndividual , sick:ApplySolderPasteTask ;
+	gn:hasFunctionalTaskInput <http://localhost/concept/material/board#3827581> , <http://localhost/concept/material/solderpaste#1> ;
+	gn:hasFunctionalTaskOutput <http://localhost/concept/material/preparedBoard#1> ;
+	gn:hasFunctionalTaskStatus gn:FINISHED .
+# 
+# http://localhost/concept/task/stock_components_refill
+
+<http://localhost/concept/task/stock_components_refill> a owl:NamedIndividual , sick:RollenEinkauf .
+# 
+# http://localhost/concept/worker#1
+
+<http://localhost/concept/worker#1> a owl:NamedIndividual .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    General axioms
+# #
+# #################################################################
+# 
+# 
+
+_:genid1 a owl:AllDifferent ;
+	owl:distinctMembers _:genid5 .
+
+_:genid5 a rdf:List ;
+	rdf:first <http://localhost/concept/material/component#c1-1> ;
+	rdf:rest _:genid4 .
+
+_:genid4 a rdf:List ;
+	rdf:first <http://localhost/concept/material/component#c2-1> ;
+	rdf:rest _:genid3 .
+
+_:genid3 a rdf:List ;
+	rdf:first <http://localhost/concept/material/component#c3-1> ;
+	rdf:rest _:genid2 .
+
+_:genid2 a rdf:List ;
+	rdf:first <http://localhost/concept/material/component#c4-1> ;
+	rdf:rest rdf:nil .
+# 
+
+_:genid6 a owl:AllDifferent ;
+	owl:distinctMembers _:genid12 .
+
+_:genid12 a rdf:List ;
+	rdf:first <http://localhost/concept/observations/1> ;
+	rdf:rest _:genid11 .
+
+_:genid11 a rdf:List ;
+	rdf:first <http://localhost/concept/observations/2> ;
+	rdf:rest _:genid10 .
+
+_:genid10 a rdf:List ;
+	rdf:first <http://localhost/concept/observations/3> ;
+	rdf:rest _:genid9 .
+
+_:genid9 a rdf:List ;
+	rdf:first <http://localhost/concept/observations/4> ;
+	rdf:rest _:genid8 .
+
+_:genid8 a rdf:List ;
+	rdf:first <http://localhost/concept/observations/5> ;
+	rdf:rest _:genid7 .
+
+_:genid7 a rdf:List ;
+	rdf:first <http://localhost/concept/observations/6> ;
+	rdf:rest rdf:nil .
+# 
+
+_:genid13 a owl:AllDifferent ;
+	owl:distinctMembers _:genid15 .
+
+_:genid15 a rdf:List ;
+	rdf:first <http://localhost/concept/task/smd_aoiInspection_01> ;
+	rdf:rest _:genid14 .
+
+_:genid14 a rdf:List ;
+	rdf:first <http://localhost/concept/task/smd_aoiInspection_02> ;
+	rdf:rest rdf:nil .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Rules
+# #
+# #################################################################
+# 
+# 
+
+:o a <http://www.w3.org/2003/11/swrl#Variable> .
+
+:c a <http://www.w3.org/2003/11/swrl#Variable> .
+
+:x a <http://www.w3.org/2003/11/swrl#Variable> .
+
+:thres a <http://www.w3.org/2003/11/swrl#Variable> .
+
+:thres_val a <http://www.w3.org/2003/11/swrl#Variable> .
+
+_:genid16 <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+	rdfs:comment "BadComponentZ"^^xsd:string ;
+	rdfs:label "S3"^^xsd:string ;
+	a <http://www.w3.org/2003/11/swrl#Imp> ;
+	<http://www.w3.org/2003/11/swrl#body> _:genid33 .
+
+_:genid33 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid34 .
+
+_:genid34 a <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+	<http://www.w3.org/2003/11/swrl#classPredicate> sosa:Observation ;
+	<http://www.w3.org/2003/11/swrl#argument1> :o .
+
+_:genid33 rdf:rest _:genid31 .
+
+_:genid31 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid32 .
+
+_:genid32 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> sosa:hasFeatureOfInterest ;
+	<http://www.w3.org/2003/11/swrl#argument1> :o ;
+	<http://www.w3.org/2003/11/swrl#argument2> :c .
+
+_:genid31 rdf:rest _:genid29 .
+
+_:genid29 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid30 .
+
+_:genid30 a <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> sosa:hasSimpleResult ;
+	<http://www.w3.org/2003/11/swrl#argument1> :o ;
+	<http://www.w3.org/2003/11/swrl#argument2> :x .
+
+_:genid29 rdf:rest _:genid27 .
+
+_:genid27 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid28 .
+
+_:genid28 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> sosa:observedProperty ;
+	<http://www.w3.org/2003/11/swrl#argument1> :o ;
+	<http://www.w3.org/2003/11/swrl#argument2> aoi:twisting .
+
+_:genid27 rdf:rest _:genid25 .
+
+_:genid25 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid26 .
+
+_:genid26 a <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+	<http://www.w3.org/2003/11/swrl#classPredicate> sick:Component ;
+	<http://www.w3.org/2003/11/swrl#argument1> :c .
+
+_:genid25 rdf:rest _:genid23 .
+
+_:genid23 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid24 .
+
+_:genid24 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> aoi:hasPropertyThreshold ;
+	<http://www.w3.org/2003/11/swrl#argument1> aoi:twisting ;
+	<http://www.w3.org/2003/11/swrl#argument2> :thres .
+
+_:genid23 rdf:rest _:genid21 .
+
+_:genid21 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid22 .
+
+_:genid22 a <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> aoi:threshold_value ;
+	<http://www.w3.org/2003/11/swrl#argument1> :thres ;
+	<http://www.w3.org/2003/11/swrl#argument2> :thres_val .
+
+_:genid21 rdf:rest _:genid17 .
+
+_:genid17 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid18 .
+
+_:genid18 a <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+	<http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> .
+
+<http://www.w3.org/2003/11/swrlb#greaterThan> a <http://www.w3.org/2003/11/swrl#Builtin> .
+
+_:genid18 <http://www.w3.org/2003/11/swrl#arguments> _:genid20 .
+
+_:genid20 a rdf:List ;
+	rdf:first :x ;
+	rdf:rest _:genid19 .
+
+_:genid19 a rdf:List ;
+	rdf:first :thres_val ;
+	rdf:rest rdf:nil .
+
+_:genid17 rdf:rest rdf:nil .
+
+_:genid16 <http://www.w3.org/2003/11/swrl#head> _:genid35 .
+
+_:genid35 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid36 .
+
+_:genid36 a <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+	<http://www.w3.org/2003/11/swrl#classPredicate> aoi:BadComponentZCiterion ;
+	<http://www.w3.org/2003/11/swrl#argument1> :c .
+
+_:genid35 rdf:rest rdf:nil .
+
+_:genid37 <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+	rdfs:comment "BadComponentX"^^xsd:string ;
+	rdfs:label "S1"^^xsd:string ;
+	a <http://www.w3.org/2003/11/swrl#Imp> ;
+	<http://www.w3.org/2003/11/swrl#body> _:genid54 .
+
+_:genid54 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid55 .
+
+_:genid55 a <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+	<http://www.w3.org/2003/11/swrl#classPredicate> sosa:Observation ;
+	<http://www.w3.org/2003/11/swrl#argument1> :o .
+
+_:genid54 rdf:rest _:genid52 .
+
+_:genid52 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid53 .
+
+_:genid53 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> sosa:hasFeatureOfInterest ;
+	<http://www.w3.org/2003/11/swrl#argument1> :o ;
+	<http://www.w3.org/2003/11/swrl#argument2> :c .
+
+_:genid52 rdf:rest _:genid50 .
+
+_:genid50 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid51 .
+
+_:genid51 a <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> sosa:hasSimpleResult ;
+	<http://www.w3.org/2003/11/swrl#argument1> :o ;
+	<http://www.w3.org/2003/11/swrl#argument2> :x .
+
+_:genid50 rdf:rest _:genid48 .
+
+_:genid48 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid49 .
+
+_:genid49 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> sosa:observedProperty ;
+	<http://www.w3.org/2003/11/swrl#argument1> :o ;
+	<http://www.w3.org/2003/11/swrl#argument2> aoi:x-shift .
+
+_:genid48 rdf:rest _:genid46 .
+
+_:genid46 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid47 .
+
+_:genid47 a <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+	<http://www.w3.org/2003/11/swrl#classPredicate> sick:Component ;
+	<http://www.w3.org/2003/11/swrl#argument1> :c .
+
+_:genid46 rdf:rest _:genid44 .
+
+_:genid44 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid45 .
+
+_:genid45 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> aoi:hasPropertyThreshold ;
+	<http://www.w3.org/2003/11/swrl#argument1> aoi:x-shift ;
+	<http://www.w3.org/2003/11/swrl#argument2> :thres .
+
+_:genid44 rdf:rest _:genid42 .
+
+_:genid42 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid43 .
+
+_:genid43 a <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> aoi:threshold_value ;
+	<http://www.w3.org/2003/11/swrl#argument1> :thres ;
+	<http://www.w3.org/2003/11/swrl#argument2> :thres_val .
+
+_:genid42 rdf:rest _:genid38 .
+
+_:genid38 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid39 .
+
+_:genid39 a <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+	<http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+	<http://www.w3.org/2003/11/swrl#arguments> _:genid41 .
+
+_:genid41 a rdf:List ;
+	rdf:first :x ;
+	rdf:rest _:genid40 .
+
+_:genid40 a rdf:List ;
+	rdf:first :thres_val ;
+	rdf:rest rdf:nil .
+
+_:genid38 rdf:rest rdf:nil .
+
+_:genid37 <http://www.w3.org/2003/11/swrl#head> _:genid56 .
+
+_:genid56 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid57 .
+
+_:genid57 a <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+	<http://www.w3.org/2003/11/swrl#classPredicate> aoi:BadComponentXCiterion ;
+	<http://www.w3.org/2003/11/swrl#argument1> :c .
+
+_:genid56 rdf:rest rdf:nil .
+
+_:genid58 <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+	rdfs:comment "BadComponentY"^^xsd:string ;
+	rdfs:label "S2"^^xsd:string ;
+	a <http://www.w3.org/2003/11/swrl#Imp> ;
+	<http://www.w3.org/2003/11/swrl#body> _:genid75 .
+
+_:genid75 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid76 .
+
+_:genid76 a <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+	<http://www.w3.org/2003/11/swrl#classPredicate> sosa:Observation ;
+	<http://www.w3.org/2003/11/swrl#argument1> :o .
+
+_:genid75 rdf:rest _:genid73 .
+
+_:genid73 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid74 .
+
+_:genid74 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> sosa:hasFeatureOfInterest ;
+	<http://www.w3.org/2003/11/swrl#argument1> :o ;
+	<http://www.w3.org/2003/11/swrl#argument2> :c .
+
+_:genid73 rdf:rest _:genid71 .
+
+_:genid71 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid72 .
+
+_:genid72 a <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> sosa:hasSimpleResult ;
+	<http://www.w3.org/2003/11/swrl#argument1> :o ;
+	<http://www.w3.org/2003/11/swrl#argument2> :x .
+
+_:genid71 rdf:rest _:genid69 .
+
+_:genid69 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid70 .
+
+_:genid70 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> sosa:observedProperty ;
+	<http://www.w3.org/2003/11/swrl#argument1> :o ;
+	<http://www.w3.org/2003/11/swrl#argument2> aoi:y-shift .
+
+_:genid69 rdf:rest _:genid67 .
+
+_:genid67 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid68 .
+
+_:genid68 a <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+	<http://www.w3.org/2003/11/swrl#classPredicate> sick:Component ;
+	<http://www.w3.org/2003/11/swrl#argument1> :c .
+
+_:genid67 rdf:rest _:genid65 .
+
+_:genid65 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid66 .
+
+_:genid66 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> aoi:hasPropertyThreshold ;
+	<http://www.w3.org/2003/11/swrl#argument1> aoi:y-shift ;
+	<http://www.w3.org/2003/11/swrl#argument2> :thres .
+
+_:genid65 rdf:rest _:genid63 .
+
+_:genid63 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid64 .
+
+_:genid64 a <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> aoi:threshold_value ;
+	<http://www.w3.org/2003/11/swrl#argument1> :thres ;
+	<http://www.w3.org/2003/11/swrl#argument2> :thres_val .
+
+_:genid63 rdf:rest _:genid59 .
+
+_:genid59 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid60 .
+
+_:genid60 a <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+	<http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+	<http://www.w3.org/2003/11/swrl#arguments> _:genid62 .
+
+_:genid62 a rdf:List ;
+	rdf:first :x ;
+	rdf:rest _:genid61 .
+
+_:genid61 a rdf:List ;
+	rdf:first :thres_val ;
+	rdf:rest rdf:nil .
+
+_:genid59 rdf:rest rdf:nil .
+
+_:genid58 <http://www.w3.org/2003/11/swrl#head> _:genid77 .
+
+_:genid77 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid78 .
+
+_:genid78 a <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+	<http://www.w3.org/2003/11/swrl#classPredicate> aoi:BadComponentYCiterion ;
+	<http://www.w3.org/2003/11/swrl#argument1> :c .
+
+_:genid77 rdf:rest rdf:nil .
+
+_:genid79 <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+	rdfs:comment ""^^xsd:string ;
+	rdfs:label "S4"^^xsd:string ;
+	a <http://www.w3.org/2003/11/swrl#Imp> ;
+	<http://www.w3.org/2003/11/swrl#body> _:genid82 .
+
+_:genid82 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid83 .
+
+_:genid83 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> gn:ownsDataCollection .
+
+_:genid82 rdf:rest _:genid80 .
+
+_:genid80 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid81 .
+
+_:genid81 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> gn:canRead .
+
+_:genid80 rdf:rest rdf:nil .
+
+_:genid79 <http://www.w3.org/2003/11/swrl#head> _:genid84 .
+
+_:genid84 a <http://www.w3.org/2003/11/swrl#AtomList> ;
+	rdf:first _:genid85 .
+
+_:genid85 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+	<http://www.w3.org/2003/11/swrl#propertyPredicate> gn:canRead .
+
+_:genid84 rdf:rest rdf:nil .
+# Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi

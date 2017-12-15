@@ -1,0 +1,5 @@
+INSERT DATA {
+	<http://localhost/concept/applySolderPasteTask#5> gn:hasFunctionalTaskStatus  gn:FINISHED .
+	<http://localhost/concept/applyComponentsTask#4> gn:hasFunctionalTaskStatus  gn:FINISHED .
+	<http://localhost/concept/preInspectionTask#3> gn:hasFunctionalTaskStatus  gn:FINISHED .
+}

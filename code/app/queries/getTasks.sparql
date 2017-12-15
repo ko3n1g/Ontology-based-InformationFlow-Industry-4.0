@@ -1,0 +1,7 @@
+SELECT ?p ?o
+
+WHERE {
+
+  	<http://localhost/concept/observations/1> ?p ?x
+}
+

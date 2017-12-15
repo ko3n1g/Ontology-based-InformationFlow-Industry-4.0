@@ -1,0 +1,34 @@
+sick:Component(?c) ^ 
+
+sosa:isFeatureOfInterestOf(?c, ?o1) ^ 
+sosa:isFeatureOfInterestOf(?c, ?o2) ^ 
+sosa:isFeatureOfInterestOf(?c, ?o3) ^ 
+
+sosa:hasSimpleResult(?o1, ?yVal) ^ 
+sosa:observedProperty(?o1, aoi:y-shift) ^ 
+
+sosa:hasSimpleResult(?o2, ?zVal) ^ 
+sosa:observedProperty(?o2, aoi:twisting) ^ 
+
+sosa:hasSimpleResult(?o3, ?xVal) ^ 
+sosa:observedProperty(?o3, aoi:x-shift) ^ 
+
+aoi:hasPropertyThreshold(aoi:x-shift, ?xThres) ^ 
+aoi:threshold_value(?xThres, ?xThresVal) ^ 
+
+aoi:hasPropertyThreshold(aoi:y-shift, ?yThres) ^ 
+aoi:threshold_value(?yThres, ?yThresVal) ^ 
+
+aoi:hasPropertyThreshold(aoi:twisting, ?zThres) ^ 
+aoi:threshold_value(?zThres, ?zThresVal) ^ 
+
+swrlb:multiply(?xThresValN, -1) ^ 
+swrlb:multiply(?yThresValN, -1) ^ 
+swrlb:multiply(?zThresValN, -1) ^ 
+
+swrlb:greaterThan(?xThresValN, ?xVal) ^ 
+swrlb:greaterThan(?yThresValN, ?yVal) ^ 
+swrlb:greaterThan(?zThresValN, ?zVal) 
+
+
+-> aoi:BadComponent(?c)

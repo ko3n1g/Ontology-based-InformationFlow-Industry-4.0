@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration status="ERROR" name="default-config">
+	<Properties>
+		<Property name="STARDOG_LOG">stardog</Property><!-- do not edit -->
+		<Property name="ZOOKEEPER_LOG">zookeeper</Property>
+		<Property name="LOG_DIR">${sys:stardog.home}</Property>
+		<Property name="ARCHIVE">${LOG_DIR}/.logs_archive</Property><!-- for use with RollingFile -->
+		<Property name="PATTERN">%-5level %d [%t] %c:%M(%L): %m%n</Property>
+	</Properties>
+	<Appenders>
+		<Console name="STDOUT" target="SYSTEM_ERR">
+			<PatternLayout pattern="${PATTERN}"/>
+		</Console>
+
+		<File name="stardogAppender"
+			  fileName="${LOG_DIR}/${STARDOG_LOG}.log">
+			<PatternLayout pattern="${PATTERN}"/>
+		</File>
+		<File name="zookeeperAppender"
+			  fileName="${LOG_DIR}/${ZOOKEEPER_LOG}.log">
+			<PatternLayout pattern="${PATTERN}"/>
+		</File>
+	</Appenders>
+	<Loggers>
+		<Root level="WARN">
+			<AppenderRef ref="stardogAppender"/>
+		</Root>
+		<Logger name="com.complexible.stardog" level="INFO" additivity="false">
+			<AppenderRef ref="stardogAppender"/>
+		</Logger>
+		<!-- ignore minor warnings from PDFBox about mis-named Unicode symbols -->
+		<Logger name="org.apache.pdfbox.encoding.Encoding" level="ERROR" additivity="false">
+			<AppenderRef ref="stardogAppender"/>
+		</Logger>
+		<!-- ignore warning from RIO about our replacing their TurtleWriter -->
+		<Logger name="org.openrdf.rio.RDFWriterRegistry" level="ERROR" additivity="false">
+			<AppenderRef ref="stardogAppender"/>
+		</Logger>
+		<!-- redirect all zookeeper records to its own log file -->
+		<Logger name="org.apache.zookeeper" level="INFO" additivity="false">
+			<AppenderRef ref="zookeeperAppender"/>
+		</Logger>
+
+		<!-- do not edit -->
+		<Logger name="com.complexible.stardog.Kernels" level="INFO" additivity="false">
+			<AppenderRef ref="stardogAppender"/>
+		</Logger>
+	</Loggers>
+</Configuration>

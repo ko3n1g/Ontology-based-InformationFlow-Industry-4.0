@@ -1,0 +1,12 @@
+aoi:AOITask(?x) ^ 
+
+omlgn:hasFunctionalTaskStatus(?x, omlgn:FINISHED) ^
+omlgn:hasFunctionalTaskInput(?x, ?input) ^
+
+part:hasPart_directly(?input, ?material) ^
+sosa:isFeatureOfInterestOf(?material, ?observation) ^
+sosa:Observation(?observation) 
+
+-> 
+
+	omlgn:hasFunctionalTaskOutput(?x, ?observation) ^

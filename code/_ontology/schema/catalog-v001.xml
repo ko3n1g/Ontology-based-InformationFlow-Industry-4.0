@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="Imports Wizard Entry" name="http://localhost/concept/swrl" uri="file:/Users/oliver/Documents/Projects/BA-Thesis/bitbucket/project/_ontology/ManufacturingOntologyLanguage.sick.swrl.ttl"/>
+    <uri id="User Entered Import Resolution" name="http://localhost/concept/oml/sick#" uri="ManufacturingOntologyLanguage.sick.ttl"/>
+    <uri id="Imports Wizard Entry" name="http://localhost/concept/ManufacturingOntologyLanguage.Instances#" uri="file:/Users/oliver/Documents/Projects/BA-Thesis/bitbucket/project/_ontology/data/_ManufacturingOntologyLanguage.instances.ttl"/>
+    <uri id="Imports Wizard Entry" name="http://localhost/concept/oml/omlgn#" uri="ManufacturingOntologyLanguage.gn.ttl"/>
+    <uri id="User Entered Import Resolution" name="http://localhost/concept/oml/gn#" uri="ManufacturingOntologyLanguage.gn.ttl"/>
+    <uri id="Imports Wizard Entry" name="http://localhost/concept/ManufacturingOntologyLanguage.Instances#" uri="file:/Users/oliver/Documents/Projects/BA-Thesis/bitbucket/project/_ontology/data/_instances.ttl"/>
+    <uri id="Imports Wizard Entry" name="http://www.w3.org/ns/org#" uri="org.ttl"/>
+    <uri id="Imports Wizard Entry" name="http://www.w3.org/ns/sosa/" uri="sosa.ttl"/>
+    <uri id="Imports Wizard Entry" name="http://www.w3.org/ns/ssn/" uri="ssn.ttl"/>
+    <uri id="Imports Wizard Entry" name="http://www.w3.org/ns/org#" uri="https://www.w3.org/ns/org"/>
+    <uri id="Imports Wizard Entry" name="http://www.w3.org/ns/ssn/" uri="http://www.w3.org/ns/ssn"/>
+    <uri id="User Entered Import Resolution" name="http://localhost/concept/ManufacturingOntologyLanguage.General#" uri="ManufacturingOntologyLanguage.gn.ttl"/>
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base=""/>
+</catalog>

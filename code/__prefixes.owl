@@ -1,0 +1,16 @@
+PREFIX owl: <http://www.w3.org/2002/07/owl#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX xml: <http://www.w3.org/XML/1998/namespace> 
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+
+PREFIX org: <http://www.w3.org/ns/org#> 
+PREFIX ssn: <http://www.w3.org/ns/ssn/> 
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
+PREFIX part: <http://www.w3.org/2001/sw/BestPractices/OEP/SimplePartWhole/part.owl#> 
+PREFIX sosa: <http://www.w3.org/ns/sosa/> 
+PREFIX time: <http://www.w3.org/2006/time#> 
+
+PREFIX oml.gn: <http://localhost/concept/ManufacturingOntologyLanguage.General#> 
+PREFIX sick: <http://localhost/concept/ManufacturingOntologyLanguage.Sick#> 
+PREFIX shopfloor: <http://localhost/concept/shopfloor#> 
+PREFIX aoi: <http://localhost/concept/aoi#>

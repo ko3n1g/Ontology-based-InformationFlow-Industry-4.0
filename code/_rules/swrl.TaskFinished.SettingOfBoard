@@ -1,0 +1,11 @@
+sick:SettingOfBoardTask(?x) ^ 
+
+gn:hasFunctionalTaskStatus(?x, gn:FINISHED) ^
+gn:hasFunctionalTaskInput(?x, ?input) ^
+
+gn:hasFunctionalTaskOutput(?x, ?output) ^
+
+-> 
+
+	part:hasPart_directly(?output, ?input) ^
+

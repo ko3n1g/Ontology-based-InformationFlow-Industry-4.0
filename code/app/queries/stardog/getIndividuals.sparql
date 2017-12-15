@@ -1,0 +1,9 @@
+SELECT DISTINCT ?s
+
+WHERE {
+
+  ?s a XXX
+}
+
+GROUP BY ?s
+ORDER BY ?s

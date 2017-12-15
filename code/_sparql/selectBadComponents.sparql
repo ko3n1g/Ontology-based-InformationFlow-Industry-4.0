@@ -1,0 +1,6 @@
+SELECT ?s ?p ?o
+
+WHERE {
+	
+	?s rdf:type aoi:BadComponent
+}

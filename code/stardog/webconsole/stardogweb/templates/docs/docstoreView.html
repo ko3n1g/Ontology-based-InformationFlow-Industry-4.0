@@ -1,0 +1,49 @@
+<div class="col-md-12 module">
+  <h2>Document Store - {{[docstore.name]}}</h2>
+  <h5><code>{{[docstore.home].path}}</code></h5>
+
+  <br />
+  <!-- Action bar on files -->
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+        <!-- <button id="btnDelete" type="button" class="btn btn-danger navbar-btn"><i class="glyphicon glyphicon-remove"></i> Delete</button> -->
+        <button id="btnUpload" type="button" class="btn btn-primary navbar-btn navbar-right"><i class="glyphicon glyphicon-upload"></i> Upload File</button>
+      </div>
+    </div>
+  </nav>
+
+  {{#ifnotequal [docstore.size] 0}}
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th class="check-all"><input type="checkbox" id="checkAll"></th>
+        <th class="file-name">File Name</th>
+        <!-- <th class="file-type">File Type</th> -->
+        <th class="file-size">File Size</th>
+        <th class="action"></th>
+      </tr>
+    </thead>
+  </table>
+  <div class="scrollable" style="height: 600px; margin-top:-21px;">
+    <table class="table table-striped">
+      <tbody id="fileList">
+      </tbody>
+    </table>
+  </div>
+  {{else}}
+  <div class="alert alert-info" role="alert">
+    <strong>No files uploaded!</strong>
+    <p>There are no files in the document store! Try uploading one <a href="#!/docs/upload" class="alert-link">here</a>!</p>
+  </div>
+  {{/ifnotequal}}
+</div>

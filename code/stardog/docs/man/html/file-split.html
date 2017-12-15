@@ -1,0 +1,113 @@
+<html>
+<head>
+<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+</head>
+<style>
+    body { margin: 50px; }
+</style>
+<body>
+<hr/>
+<h1 class="text-info">stardog file split Manual Page
+<hr/>
+<h1 class="text-info">NAME</h1>
+<br/>
+<div class="row"><div class="span8 offset1">stardog file split &mdash;Splits a given RDF file to multiple files</div>
+</div>
+<br/>
+<h1 class="text-info">SYNOPSIS</h1>
+<br/>
+<div class="row">
+<div class="span8 offset1">
+stardog file split [ -b &lt;byteCount[k|m]&gt; ] [ --compression &lt;Compression&gt; ] [ {-f | --format} &lt;rdf format&gt; ] [ --prefix &lt;prefix&gt; ] [ --suffix &lt;suffix&gt; ] [ -t &lt;tripleCount&gt; ] [--] &lt;inputFile&gt;</div>
+</div>
+<br/>
+<h1 class="text-info">OPTIONS</h1>
+<br/>
+<div class="row">
+<div class="span8 offset1">
+-b &lt;byteCount[k|m]&gt;</div>
+</div>
+<div class="row">
+<div class="span8 offset2">
+Create smaller files byteCount bytes in length. Suffix 'k', 'm', or 'g' can be used after the byteCount to indicatekilobyte, megabyte, or gigabyte respectively.</div>
+</div>
+<div class="row">
+<div class="span8 offset1">
+--compression &lt;Compression&gt;</div>
+</div>
+<div class="row">
+<div class="span8 offset2">
+Compression format [GZIP, BZ2] for the exported data.</div>
+</div>
+<div class="row">
+<div class="span8 offset1">
+-f &lt;rdf format&gt;, --format &lt;rdf format&gt;</div>
+</div>
+<div class="row">
+<div class="span8 offset2">
+RDF Format for the output. The supported formats are NTRIPLES, RDF/XML, TURTLE, PRETTY_TURTLE, TRIG, TRIX, N3, NQUADS. By default output files will have same format as input file.</div>
+</div>
+<div class="row">
+<div class="span8 offset1">
+--prefix &lt;prefix&gt;</div>
+</div>
+<div class="row">
+<div class="span8 offset2">
+Prefix for the output file names. By default the name of the input file is used as the prefix.</div>
+</div>
+<div class="row">
+<div class="span8 offset1">
+--suffix &lt;suffix&gt;</div>
+</div>
+<div class="row">
+<div class="span8 offset2">
+Number of letters to form the suffix of the file name.</div>
+</div>
+<div class="row">
+<div class="span8 offset1">
+-t &lt;tripleCount&gt;</div>
+</div>
+<div class="row">
+<div class="span8 offset2">
+Create smaller files with tripleCount triples</div>
+</div>
+<div class="row">
+<div class="span8 offset1">
+--
+</div>
+</div>
+<div class="row">
+<div class="span8 offset2">
+This option can be used to separate command-line options from the list of argument, (useful when arguments might be mistaken for command-line options
+</div>
+</div>
+<div class="row">
+<div class="span8 offset1">
+&lt;inputFile&gt;</div>
+</div>
+<div class="row">
+<div class="span8 offset2">
+Input file to split.</div>
+</div>
+<br/>
+<h1 class="text-info">EXAMPLES</h1>
+<br/>
+<div class="row">
+<div class="span12 offset1">
+<p>
+Splits input file into files with 10K triples each.</p>
+<pre>
+    $ stardog file split -t 10K input.rdf</pre>
+<p>
+Splits input file to 2MB files. The output files will be gzip-compressed Turtle files.</p>
+<pre>
+    $ stardog file split -b 2M input.ttl.gz</pre>
+<p>
+Splits input file to 1M triples. The output files will be in bzip-compressed N-Triples format and named out001.nt.bz2, out002.nt.bz2, and so on</p>
+<pre>
+    $ stardog file split -t 1M --prefix out --suffix 3 --format nt --compressed bz2 input.ttl</pre>
+</div>
+</div>
+</body>
+</html>
+

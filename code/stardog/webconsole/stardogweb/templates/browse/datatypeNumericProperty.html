@@ -1,0 +1,14 @@
+{{#if [@id]}}
+  <strong class="property_label" data-toggle="tooltip" data-placement="right" title="{{[@egadComment]}}">
+  {{#if [@egadLabel]}}{{[@egadLabel]}}{{else}}{{#localname [@id]}}{{this}}{{/localname}}{{/if}}
+  </strong>
+  <div class="controls">
+    {{#if [@value]}}
+    <strong class="wrapit">
+      {{[@value]}}
+    </strong>
+    {{else}}
+      <span class="label label-warning">Empty</span>
+    {{/if}}
+  </div>
+{{/if}}

@@ -1,0 +1,425 @@
+@prefix : <http://www.w3.org/ns/org##> .
+@prefix gr: <http://purl.org/goodrelations/v1#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix owlTime: <http://www.w3.org/2006/time#> .
+
+<http://www.w3.org/ns/org#> a owl:Ontology .
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/ns/org#basedAt
+
+org:basedAt a owl:ObjectProperty ;
+	rdfs:domain foaf:Person ;
+	rdfs:range org:Site .
+# 
+# http://www.w3.org/ns/org#changedBy
+
+org:changedBy a owl:ObjectProperty ;
+	owl:inverseOf org:originalOrganization ;
+	rdfs:domain org:Organization ;
+	rdfs:range org:ChangeEvent .
+# 
+# http://www.w3.org/ns/org#classification
+
+org:classification a owl:ObjectProperty ;
+	rdfs:domain org:Organization ;
+	rdfs:range skos:Concept .
+# 
+# http://www.w3.org/ns/org#hasMember
+
+org:hasMember a owl:ObjectProperty ;
+	owl:inverseOf org:memberOf ;
+	rdfs:domain org:Organization ;
+	rdfs:range foaf:Agent .
+# 
+# http://www.w3.org/ns/org#hasMembership
+
+org:hasMembership a owl:ObjectProperty ;
+	owl:inverseOf org:member ;
+	rdfs:domain foaf:Agent ;
+	rdfs:range org:Membership .
+# 
+# http://www.w3.org/ns/org#hasPost
+
+org:hasPost a owl:ObjectProperty ;
+	owl:inverseOf org:postIn ;
+	rdfs:domain org:Organization ;
+	rdfs:range org:Post .
+# 
+# http://www.w3.org/ns/org#hasPrimarySite
+
+org:hasPrimarySite a owl:ObjectProperty ;
+	rdfs:subPropertyOf org:hasSite ;
+	rdfs:domain org:Organization ;
+	rdfs:range org:Site .
+# 
+# http://www.w3.org/ns/org#hasRegisteredSite
+
+org:hasRegisteredSite a owl:ObjectProperty ;
+	rdfs:subPropertyOf org:hasPrimarySite ;
+	rdfs:domain org:FormalOrganization ;
+	rdfs:range org:Site .
+# 
+# http://www.w3.org/ns/org#hasSite
+
+org:hasSite a owl:ObjectProperty ;
+	owl:inverseOf org:siteOf ;
+	rdfs:domain org:Organization ;
+	rdfs:range org:Site .
+# 
+# http://www.w3.org/ns/org#hasSubOrganization
+
+org:hasSubOrganization a owl:ObjectProperty ;
+	owl:inverseOf org:subOrganizationOf ;
+	rdfs:domain org:Organization ;
+	rdfs:range org:Organization .
+# 
+# http://www.w3.org/ns/org#hasUnit
+
+org:hasUnit a owl:ObjectProperty ;
+	rdfs:subPropertyOf org:hasSubOrganization ;
+	owl:inverseOf org:unitOf ;
+	rdfs:domain org:FormalOrganization ;
+	rdfs:range org:OrganizationalUnit .
+# 
+# http://www.w3.org/ns/org#headOf
+
+org:headOf a owl:ObjectProperty ;
+	rdfs:subPropertyOf org:memberOf ;
+	rdfs:domain foaf:Person ;
+	rdfs:range org:Organization .
+# 
+# http://www.w3.org/ns/org#heldBy
+
+org:heldBy a owl:ObjectProperty ;
+	owl:inverseOf org:holds ;
+	rdfs:domain org:Post ;
+	rdfs:range foaf:Agent .
+# 
+# http://www.w3.org/ns/org#holds
+
+org:holds a owl:ObjectProperty ;
+	rdfs:domain foaf:Agent ;
+	rdfs:range org:Post .
+# 
+# http://www.w3.org/ns/org#linkedTo
+
+org:linkedTo a owl:ObjectProperty ;
+	rdfs:domain org:Organization ;
+	rdfs:range org:Organization .
+# 
+# http://www.w3.org/ns/org#member
+
+org:member a owl:ObjectProperty , owl:FunctionalProperty ;
+	rdfs:domain org:Membership ;
+	rdfs:range foaf:Agent .
+# 
+# http://www.w3.org/ns/org#memberDuring
+
+org:memberDuring a owl:ObjectProperty ;
+	rdfs:domain org:Membership .
+# 
+# http://www.w3.org/ns/org#memberOf
+
+org:memberOf a owl:ObjectProperty ;
+	rdfs:domain foaf:Agent ;
+	rdfs:range org:Organization .
+# 
+# http://www.w3.org/ns/org#organization
+
+org:organization a owl:ObjectProperty , owl:FunctionalProperty ;
+	rdfs:domain org:Membership ;
+	rdfs:range org:Organization .
+# 
+# http://www.w3.org/ns/org#originalOrganization
+
+org:originalOrganization a owl:ObjectProperty ;
+	rdfs:subPropertyOf prov:used ;
+	rdfs:domain org:ChangeEvent ;
+	rdfs:range org:Organization .
+# 
+# http://www.w3.org/ns/org#postIn
+
+org:postIn a owl:ObjectProperty ;
+	rdfs:domain org:Post ;
+	rdfs:range org:Organization .
+# 
+# http://www.w3.org/ns/org#remuneration
+
+org:remuneration a owl:ObjectProperty ;
+	rdfs:domain org:Role .
+# 
+# http://www.w3.org/ns/org#reportsTo
+
+org:reportsTo a owl:ObjectProperty ;
+	rdfs:domain _:genid1 .
+
+_:genid1 a owl:Class ;
+	owl:unionOf _:genid3 .
+
+_:genid3 a rdf:List ;
+	rdf:first org:Post ;
+	rdf:rest _:genid2 .
+
+_:genid2 a rdf:List ;
+	rdf:first foaf:Agent ;
+	rdf:rest rdf:nil .
+
+org:reportsTo rdfs:range _:genid4 .
+
+_:genid4 a owl:Class ;
+	owl:unionOf _:genid6 .
+
+_:genid6 a rdf:List ;
+	rdf:first org:Post ;
+	rdf:rest _:genid5 .
+
+_:genid5 a rdf:List ;
+	rdf:first foaf:Agent ;
+	rdf:rest rdf:nil .
+# 
+# http://www.w3.org/ns/org#resultedFrom
+
+org:resultedFrom a owl:ObjectProperty ;
+	rdfs:subPropertyOf prov:wasGeneratedBy ;
+	owl:inverseOf org:resultingOrganization ;
+	rdfs:domain org:Organization ;
+	rdfs:range org:ChangeEvent .
+# 
+# http://www.w3.org/ns/org#resultingOrganization
+
+org:resultingOrganization a owl:ObjectProperty ;
+	rdfs:domain org:ChangeEvent ;
+	rdfs:range org:Organization .
+# 
+# http://www.w3.org/ns/org#role
+
+org:role a owl:ObjectProperty ;
+	rdfs:domain _:genid7 .
+
+_:genid7 a owl:Class ;
+	owl:unionOf _:genid9 .
+
+_:genid9 a rdf:List ;
+	rdf:first org:Membership ;
+	rdf:rest _:genid8 .
+
+_:genid8 a rdf:List ;
+	rdf:first org:Post ;
+	rdf:rest rdf:nil .
+
+org:role rdfs:range org:Role .
+# 
+# http://www.w3.org/ns/org#siteAddress
+
+org:siteAddress a owl:ObjectProperty ;
+	rdfs:domain org:Site .
+# 
+# http://www.w3.org/ns/org#siteOf
+
+org:siteOf a owl:ObjectProperty ;
+	rdfs:domain org:Site ;
+	rdfs:range org:Organization .
+# 
+# http://www.w3.org/ns/org#subOrganizationOf
+
+org:subOrganizationOf a owl:ObjectProperty ;
+	rdfs:subPropertyOf org:transitiveSubOrganizationOf ;
+	rdfs:domain org:Organization ;
+	rdfs:range org:Organization .
+# 
+# http://www.w3.org/ns/org#transitiveSubOrganizationOf
+
+org:transitiveSubOrganizationOf a owl:ObjectProperty , owl:TransitiveProperty ;
+	rdfs:domain org:Organization ;
+	rdfs:range org:Organization .
+# 
+# http://www.w3.org/ns/org#unitOf
+
+org:unitOf a owl:ObjectProperty ;
+	rdfs:subPropertyOf org:subOrganizationOf ;
+	rdfs:domain org:OrganizationalUnit ;
+	rdfs:range org:FormalOrganization .
+# 
+# http://www.w3.org/ns/prov#used
+
+prov:used a owl:ObjectProperty .
+# 
+# http://www.w3.org/ns/prov#wasDerivedFrom
+
+prov:wasDerivedFrom a owl:ObjectProperty ;
+	owl:propertyChainAxiom _:genid11 .
+
+_:genid11 a rdf:List ;
+	rdf:first org:resultedFrom ;
+	rdf:rest _:genid10 .
+
+_:genid10 a rdf:List ;
+	rdf:first org:originalOrganization ;
+	rdf:rest rdf:nil .
+# 
+# http://www.w3.org/ns/prov#wasGeneratedBy
+
+prov:wasGeneratedBy a owl:ObjectProperty .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/2004/02/skos/core#notation
+
+skos:notation a owl:DatatypeProperty .
+# 
+# http://www.w3.org/ns/org#identifier
+
+org:identifier a owl:DatatypeProperty ;
+	rdfs:subPropertyOf skos:notation ;
+	rdfs:domain org:Organization .
+# 
+# http://www.w3.org/ns/org#location
+
+org:location a owl:DatatypeProperty ;
+	rdfs:domain foaf:Person ;
+	rdfs:range xsd:string .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/goodrelations/v1#BusinessEntity
+
+gr:BusinessEntity a owl:Class ;
+	rdfs:subClassOf org:FormalOrganization .
+# 
+# http://www.w3.org/2004/02/skos/core#Concept
+
+skos:Concept a owl:Class .
+# 
+# http://www.w3.org/ns/org#ChangeEvent
+
+org:ChangeEvent a owl:Class ;
+	rdfs:subClassOf prov:Activity ;
+	owl:disjointWith org:Membership , org:Organization , org:Role , org:Site .
+# 
+# http://www.w3.org/ns/org#FormalOrganization
+
+org:FormalOrganization a owl:Class ;
+	rdfs:subClassOf org:Organization , foaf:Organization .
+# 
+# http://www.w3.org/ns/org#Membership
+
+org:Membership a owl:Class ;
+	owl:disjointWith org:Organization , org:Role , org:Site .
+# 
+# http://www.w3.org/ns/org#Organization
+
+org:Organization a owl:Class ;
+	owl:equivalentClass foaf:Organization ;
+	rdfs:subClassOf foaf:Agent ;
+	owl:disjointWith org:Role , org:Site ;
+	owl:hasKey _:genid12 .
+
+_:genid12 a rdf:List ;
+	rdf:first org:identifier ;
+	rdf:rest rdf:nil .
+# 
+# http://www.w3.org/ns/org#OrganizationalCollaboration
+
+org:OrganizationalCollaboration a owl:Class ;
+	owl:equivalentClass _:genid13 .
+
+_:genid13 owl:intersectionOf _:genid16 .
+
+_:genid16 a rdf:List ;
+	rdf:first org:Organization ;
+	rdf:rest _:genid14 .
+
+_:genid14 a rdf:List ;
+	rdf:first _:genid15 .
+
+_:genid15 a owl:Restriction ;
+	owl:onProperty org:hasMember ;
+	owl:allValuesFrom org:Organization .
+
+_:genid14 rdf:rest rdf:nil .
+
+_:genid13 a owl:Class .
+
+org:OrganizationalCollaboration rdfs:subClassOf org:Organization .
+# 
+# http://www.w3.org/ns/org#OrganizationalUnit
+
+org:OrganizationalUnit a owl:Class ;
+	rdfs:subClassOf org:Organization .
+# 
+# http://www.w3.org/ns/org#Post
+
+org:Post a owl:Class .
+# 
+# http://www.w3.org/ns/org#Role
+
+org:Role a owl:Class ;
+	rdfs:subClassOf skos:Concept ;
+	owl:disjointWith org:Site .
+# 
+# http://www.w3.org/ns/org#Site
+
+org:Site a owl:Class .
+# 
+# http://www.w3.org/ns/prov#Activity
+
+prov:Activity a owl:Class .
+# 
+# http://xmlns.com/foaf/0.1/Agent
+
+foaf:Agent a owl:Class .
+# 
+# http://xmlns.com/foaf/0.1/Organization
+
+foaf:Organization a owl:Class .
+# 
+# http://xmlns.com/foaf/0.1/Person
+
+foaf:Person a owl:Class .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Individuals
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/ns/org#Head
+
+org:Head a owl:NamedIndividual , org:Role .
+# 
+# Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi

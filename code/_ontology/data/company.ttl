@@ -1,0 +1,24 @@
+@prefix aoi: <http://localhost/concept/aoi#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix part: <http://www.w3.org/2001/sw/BestPractices/OEP/SimplePartWhole/part.owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sick: <http://localhost/concept/ManufacturingOntologyLanguage.Sick#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix oml.gn: <http://localhost/concept/ManufacturingOntologyLanguage.General#> .
+@prefix shopfloor: <http://localhost/concept/shopfloor#> .
+
+###  http://localhost/concept/internal/manager/purchaseManager
+<http://localhost/concept/internal/purchaseManager> rdf:type owl:NamedIndividual ,
+                                                                     oml.gn:PurchaseManager ;
+                                                            org:memberOf <http://localhost/concept/materialdisposition> .
+
+###  http://localhost/concept/materialdisposition/stock
+<http://localhost/concept/department/materialdisposition/stock> rdf:type owl:NamedIndividual ,
+                                                              sick:Stock ;
+                                                     sick:has_components 1 .

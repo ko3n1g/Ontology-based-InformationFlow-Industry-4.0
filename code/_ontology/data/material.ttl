@@ -1,0 +1,51 @@
+@prefix : <http://localhost/concept/ManufacturingOntologyLanguage.Sick#> .
+@prefix aoi: <http://localhost/concept/aoi#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix part: <http://www.w3.org/2001/sw/BestPractices/OEP/SimplePartWhole/part.owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sick: <http://localhost/concept/ManufacturingOntologyLanguage.Sick#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix oml.gn: <http://localhost/concept/ManufacturingOntologyLanguage.General#> .
+@prefix shopfloor: <http://localhost/concept/shopfloor#> .
+
+###  http://localhost/concept/material/board#3827581
+<http://localhost/concept/material/board#3827581> rdf:type owl:NamedIndividual ,
+                                                            sick:Board .
+
+###  http://localhost/concept/material/component#c1-1
+<http://localhost/concept/material/component#c1-1> rdf:type owl:NamedIndividual ,
+                                                             sick:Component .
+
+
+###  http://localhost/concept/material/component#c2-1
+<http://localhost/concept/material/component#c2-1> rdf:type owl:NamedIndividual ,
+                                                             sick:Component .
+
+
+###  http://localhost/concept/material/component#c3-1
+<http://localhost/concept/material/component#c3-1> rdf:type owl:NamedIndividual ,
+                                                             sick:Component .
+
+
+###  http://localhost/concept/material/component#c4-1
+<http://localhost/concept/material/component#c4-1> rdf:type owl:NamedIndividual ,
+                                                             sick:Component .
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( <http://localhost/concept/material/component#c1-1>
+                        <http://localhost/concept/material/component#c2-1>
+                        <http://localhost/concept/material/component#c3-1>
+                        <http://localhost/concept/material/component#c4-1>
+                      )
+] .
+
+###  http://localhost/concept/material/solderpaste#1
+<http://localhost/concept/material/solderpaste#1> rdf:type owl:NamedIndividual ,
+                                                            sick:SolderPaste .
+

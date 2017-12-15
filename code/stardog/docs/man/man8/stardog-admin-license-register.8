@@ -1,0 +1,43 @@
+.\" generated with Ronn/v0.7.3
+.\" http://github.com/rtomayko/ronn/tree/0.7.3
+.
+.TH "STARDOG\-ADMIN_LICENSE_REGISTER" "8" "October 2017" "Stardog Union" "stardog-admin"
+.
+.SH "NAME"
+\fBstardog\-admin_license_register\fR \- Request a Stardog license\.
+.
+.SH "SYNOPSIS"
+\fBstardog\-admin\fR \fBlicense\fR \fBregister\fR [ \-\-company \fIcompany\fR ] [ \-\-email \fIemail address\fR ] [ \-\-family\-name \fIfamily name\fR ] [ \-\-given\-name \fIgiven name\fR ] [ \-\-subscribe ] [ \-\-timeout \fItimeout\fR ] [ \-\-type \fItype\fR ]
+.
+.SH "OPTIONS"
+.
+.TP
+\fB\-\-company\fR \fIcompany\fR
+The name of the requester\'s company\.
+.
+.TP
+\fB\-\-email\fR \fIemail address\fR
+The requester\'s email address\.
+.
+.TP
+\fB\-\-family\-name\fR \fIfamily name\fR
+The requester\'s family name\.
+.
+.TP
+\fB\-\-given\-name\fR \fIgiven name\fR
+The requester\'s given name\.
+.
+.TP
+\fB\-\-subscribe\fR
+Subscribe to the email list\.
+.
+.TP
+\fB\-\-timeout\fR \fItimeout\fR
+The number of seconds to wait for interactions with the registration server\.
+.
+.TP
+\fB\-\-type\fR \fItype\fR
+The type of license [ enterprise | community ]\.
+.
+.SH "DISCUSSION"
+This will contact https://dl\.stardog\.com and request a license\.A link to the license will be sent in email\.

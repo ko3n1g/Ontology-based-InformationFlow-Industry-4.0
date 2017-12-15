@@ -1,0 +1,63 @@
+.\" generated with Ronn/v0.7.3
+.\" http://github.com/rtomayko/ronn/tree/0.7.3
+.
+.TH "STARDOG_DOC_PUT" "1" "October 2017" "Stardog Union" "stardog"
+.
+.SH "NAME"
+\fBstardog_doc_put\fR \- Add/modify a document in the document store\.
+.
+.SH "SYNOPSIS"
+\fBstardog\fR \fBdoc\fR \fBput\fR [ \-\-name \fIname\fR ] [ {\-p | \-\-passwd} \fIpassword\fR ] [ {\-P | \-\-ask\-password} ] [ {\-r | \-\-rdf\-extractors} \fIRDF extractors\fR ] [ {\-t | \-\-text\-extractors} \fItext extractors\fR ] [ {\-u | \-\-username} \fIusername\fR ] [ {\-v | \-\-verbose} ] [\-\-] \fIdatabase name\fR \fIfiles\fR\.\.\.
+.
+.SH "OPTIONS"
+.
+.TP
+\fB\-\-name\fR \fIname\fR
+Override the document name when adding a single document\.
+.
+.TP
+\fB\-p\fR \fIpassword\fR, \fB\-\-passwd\fR \fIpassword\fR
+Password\.
+.
+.TP
+\fB\-P\fR, \fB\-\-ask\-password\fR
+Prompt for password\.
+.
+.TP
+\fB\-r\fR \fIRDF extractors\fR, \fB\-\-rdf\-extractors\fR \fIRDF extractors\fR
+Choose the RDF extractors to be used for this `put\' request\.
+.
+.TP
+\fB\-t\fR \fItext extractors\fR, \fB\-\-text\-extractors\fR \fItext extractors\fR
+Choose the text extractors to be used for this `put\' request\.
+.
+.TP
+\fB\-u\fR \fIusername\fR, \fB\-\-username\fR \fIusername\fR
+User name\.
+.
+.TP
+\fB\-v\fR, \fB\-\-verbose\fR
+Verbose flag that causes more detailed information to be printed
+.
+.TP
+\-\-
+This option can be used to separate command\-line options from the list of arguments (useful when arguments might be mistaken for command\-line options)\.
+.
+.TP
+\fIdatabase name\fR \fIfiles\fR
+The name of the database or the full connection string of the database to connect to\. If only the name is provided, the default server URL will be pre\-pended to the name of the database in order to construct the connection string\. Connection parameters such as \';reasoning=true\' can be included in the provided database name\. Connection parameters specified like this can be overridden by specific options on the command\. The default server URL will be read from the JVM argument \'stardog\.default\.cli\.server\'\. If the JVM argument is not set, the default value \'http://localhost:5820\' is used\. If the server URL has no explicit port value, the default port value \'5820\' is used\. To use a secure connection, you should specify the full connection string and postfix \'s\' to the protocol, e\.g\. https\. Subsequent arguments are the list of files to be updated in the document store\.
+.
+.SH "EXAMPLES"
+.
+.TP
+Add a document to the store with the name given by the filename
+$ stardog doc put myDb aDocument\.pdf
+.
+.TP
+Add a document to the store with the name provided explicitly
+$ stardog doc put myDb \-\-name aSpecificDocument\.pdf aDocument\.pdf
+.
+.TP
+Add a sequence of documents to the store with names given by respective filenames
+$ stardog doc put myDb doc*\.pdf
+

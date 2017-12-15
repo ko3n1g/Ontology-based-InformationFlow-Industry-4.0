@@ -1,0 +1,224 @@
+@prefix aoi: <http://localhost/concept/aoi#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ssn: <http://purl.oclc.org/NET/ssnx/ssn#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix part: <http://www.w3.org/2001/sw/BestPractices/OEP/SimplePartWhole/part.owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix shopfloor: <http://localhost/concept/shopfloor#> .
+@base <http://www.w3.org/2002/07/owl#> .
+
+[ rdf:type owl:Ontology
+ ] .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.oclc.org/NET/ssnx/ssn#featureOfInterest
+ssn:featureOfInterest rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.oclc.org/NET/ssnx/ssn#hasValue
+ssn:hasValue rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.oclc.org/NET/ssnx/ssn#isProducedBy
+ssn:isProducedBy rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.oclc.org/NET/ssnx/ssn#observationResult
+ssn:observationResult rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.oclc.org/NET/ssnx/ssn#observationResultTime
+ssn:observationResultTime rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.oclc.org/NET/ssnx/ssn#observedBy
+ssn:observedBy rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.oclc.org/NET/ssnx/ssn#observedProperty
+ssn:observedProperty rdf:type owl:AnnotationProperty .
+
+
+###  http://www.scale-it.org/ontologies/2016/11/shopfloor#analysisMode
+shopfloor:analysisMode rdf:type owl:AnnotationProperty .
+
+
+###  http://www.scale-it.org/ontologies/2016/11/shopfloor#feature
+shopfloor:feature rdf:type owl:AnnotationProperty .
+
+
+###  http://www.scale-it.org/ontologies/2016/11/shopfloor#testFeature
+shopfloor:testFeature rdf:type owl:AnnotationProperty .
+
+
+###  http://www.scale-it.org/ontologies/sick/2016/10/aoi-features#endTime
+aoi:endTime rdf:type owl:AnnotationProperty .
+
+
+###  http://www.scale-it.org/ontologies/sick/2016/10/aoi-features#featureFlag
+aoi:featureFlag rdf:type owl:AnnotationProperty .
+
+
+###  http://www.scale-it.org/ontologies/sick/2016/10/aoi-features#isBadBoard
+aoi:isBadBoard rdf:type owl:AnnotationProperty .
+
+
+###  http://www.scale-it.org/ontologies/sick/2016/10/aoi-features#mode
+aoi:mode rdf:type owl:AnnotationProperty .
+
+
+###  http://www.scale-it.org/ontologies/sick/2016/10/aoi-features#orderNo
+aoi:orderNo rdf:type owl:AnnotationProperty .
+
+
+###  http://www.scale-it.org/ontologies/sick/2016/10/aoi-features#partNr
+aoi:partNr rdf:type owl:AnnotationProperty .
+
+
+###  http://www.scale-it.org/ontologies/sick/2016/10/aoi-features#position
+aoi:position rdf:type owl:AnnotationProperty .
+
+
+###  http://www.scale-it.org/ontologies/sick/2016/10/aoi-features#startTime
+aoi:startTime rdf:type owl:AnnotationProperty .
+
+
+###  http://www.scale-it.org/ontologies/sick/2016/10/aoi-features#windowNumber
+aoi:windowNumber rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2001/sw/BestPractices/OEP/SimplePartWhole/part.owl#hasPart
+part:hasPart rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.oclc.org/NET/ssnx/ssn#Observation
+ssn:Observation rdf:type owl:Class .
+
+
+###  http://purl.oclc.org/NET/ssnx/ssn#ObservationValue
+ssn:ObservationValue rdf:type owl:Class .
+
+
+###  http://purl.oclc.org/NET/ssnx/ssn#SensorOutput
+ssn:SensorOutput rdf:type owl:Class .
+
+
+###  http://www.scale-it.org/ontologies/2016/11/shopfloor#Board
+shopfloor:Board rdf:type owl:Class .
+
+
+###  http://www.scale-it.org/ontologies/2016/11/shopfloor#Component
+shopfloor:Component rdf:type owl:Class .
+
+
+###  http://www.scale-it.org/ontologies/2016/11/shopfloor#Panel
+shopfloor:Panel rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://localhost:3000/observations/185
+<http://localhost:3000/observations/185> rdf:type owl:NamedIndividual ,
+                                                  ssn:Observation ;
+                                         ssn:featureOfInterest aoi:Feature ;
+                                         ssn:observationResult <http://localhost:3000/observations/185/sensor-output> ;
+                                         ssn:observationResultTime "2016-05-18T12:55:27.954Z"^^xsd:dateTime ;
+                                         ssn:observedBy <http://localhost:3001/AOI_SMD407> ;
+                                         ssn:observedProperty aoi:twisting ,
+                                                              aoi:x-shift ,
+                                                              aoi:y-shift .
+
+
+###  http://localhost:3000/observations/185/result
+<http://localhost:3000/observations/185/result> rdf:type owl:NamedIndividual ,
+                                                         ssn:ObservationValue ,
+                                                         shopfloor:Panel ;
+                                                aoi:endTime "2016-05-18T12:56:27.954Z"^^xsd:dateTime ;
+                                                aoi:orderNo <http://localhost:3000/order#0> ;
+                                                aoi:partNr <http://localhost:3000/part#2060817> ;
+                                                aoi:startTime "2016-05-18T12:55:27.954Z"^^xsd:dateTime ;
+                                                part:hasPart <http://localhost:3000/observations/185/board#3827581> .
+
+
+###  http://localhost:3000/observations/185/sensor-output
+<http://localhost:3000/observations/185/sensor-output> rdf:type owl:NamedIndividual ,
+                                                                ssn:SensorOutput ;
+                                                       ssn:hasValue <http://localhost:3000/observations/185/result> ;
+                                                       ssn:isProducedBy <http://localhost:3001/equipment/AOI_SMD407> .
+
+
+###  http://localhost:3000/observations/185/board#3827581
+<http://localhost:3000/observations/185/board#3827581> rdf:type owl:NamedIndividual ,
+                                                                shopfloor:Board ;
+                                                       aoi:isBadBoard "false"^^xsd:boolean ;
+                                                       part:hasPart <http://localhost:3000/observations/185/component#C1-1> ,
+                                                                    <http://localhost:3000/observations/185/component#C2-1> .
+
+
+###  http://localhost:3000/observations/185/component#C1-1
+<http://localhost:3000/observations/185/component#C1-1> rdf:type owl:NamedIndividual ,
+                                                                 shopfloor:Component ;
+                                                        shopfloor:testFeature <http://localhost:3000/observations/185/component#C0603-MENI-901-TWISTING> ,
+                                                                              <http://localhost:3000/observations/185/component#C0603-MENI-901-X-Shift> ,
+                                                                              <http://localhost:3000/observations/185/component#C0603-MENI-901-Y-Shift> ;
+                                                        aoi:position "0"^^xsd:int .
+
+
+###  http://localhost:3000/observations/185/component#C2-1
+<http://localhost:3000/observations/185/component#C2-1> rdf:type owl:NamedIndividual ,
+                                                                 shopfloor:Component ;
+                                                        shopfloor:testFeature <http://localhost:3000/observations/185/component#C0603-MENI-901-TWISTING> ,
+                                                                              <http://localhost:3000/observations/185/component#C0603-MENI-901-X-Shift> ,
+                                                                              <http://localhost:3000/observations/185/component#C0603-MENI-901-Y-Shift> ;
+                                                        aoi:position "0"^^xsd:int .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+<http://localhost:3000/observations/185/AnalysisMode#C0603-MENI-901-TWISTING> aoi:windowNumber "901"^^xsd:int ;
+                                                                              aoi:mode "MENI" ;
+                                                                              aoi:featureFlag "0"^^xsd:int .
+
+
+<http://localhost:3000/observations/185/AnalysisMode#C0603-MENI-901-X-Shift> aoi:featureFlag "0"^^xsd:int ;
+                                                                             aoi:mode "MENI" ;
+                                                                             aoi:windowNumber "901"^^xsd:int .
+
+
+<http://localhost:3000/observations/185/AnalysisMode#C0603-MENI-901-Y-Shift> aoi:featureFlag "0"^^xsd:int ;
+                                                                             aoi:mode "MENI" ;
+                                                                             aoi:windowNumber "901"^^xsd:int .
+
+
+<http://localhost:3000/observations/185/component#C0603-MENI-901-TWISTING> ssn:hasValue 10 ,
+                                                                                        12 ;
+                                                                           shopfloor:feature aoi:twisting1 ;
+                                                                           shopfloor:analysisMode <http://localhost:3000/observations/185/AnalysisMode#C0603-MENI-901-TWISTING> .
+
+
+<http://localhost:3000/observations/185/component#C0603-MENI-901-X-Shift> ssn:hasValue 20 ;
+                                                                          shopfloor:feature aoi:x-shift1 ;
+                                                                          ssn:hasValue 11 ;
+                                                                          shopfloor:analysisMode <http://localhost:3000/observations/185/AnalysisMode#C0603-MENI-901-X-Shift> .
+
+
+<http://localhost:3000/observations/185/component#C0603-MENI-901-Y-Shift> shopfloor:feature aoi:y-shift1 ;
+                                                                          ssn:hasValue 14 ,
+                                                                                       -17 ;
+                                                                          shopfloor:analysisMode <http://localhost:3000/observations/185/AnalysisMode#C0603-MENI-901-Y-Shift> .
+
+
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi

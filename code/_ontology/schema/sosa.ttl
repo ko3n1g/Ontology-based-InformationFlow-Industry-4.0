@@ -1,0 +1,200 @@
+@prefix : <http://www.w3.org/ns/sosa/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix schema: <http://schema.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <http://www.w3.org/ns/sosa/> .
+
+<http://www.w3.org/ns/sosa/> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.w3.org/ns/sosa/actsOnProperty
+sosa:actsOnProperty rdf:type owl:ObjectProperty ;
+                    owl:inverseOf sosa:isActedOnBy .
+
+
+###  http://www.w3.org/ns/sosa/hasFeatureOfInterest
+sosa:hasFeatureOfInterest rdf:type owl:ObjectProperty ;
+                          owl:inverseOf sosa:isFeatureOfInterestOf .
+
+
+###  http://www.w3.org/ns/sosa/hasResult
+sosa:hasResult rdf:type owl:ObjectProperty ;
+               owl:inverseOf sosa:isResultOf .
+
+
+###  http://www.w3.org/ns/sosa/hasSample
+sosa:hasSample rdf:type owl:ObjectProperty ;
+               owl:inverseOf sosa:isSampleOf .
+
+
+###  http://www.w3.org/ns/sosa/hosts
+sosa:hosts rdf:type owl:ObjectProperty ;
+           owl:inverseOf sosa:isHostedBy .
+
+
+###  http://www.w3.org/ns/sosa/isActedOnBy
+sosa:isActedOnBy rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/isFeatureOfInterestOf
+sosa:isFeatureOfInterestOf rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/isHostedBy
+sosa:isHostedBy rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/isObservedBy
+sosa:isObservedBy rdf:type owl:ObjectProperty ;
+                  owl:inverseOf sosa:observes .
+
+
+###  http://www.w3.org/ns/sosa/isResultOf
+sosa:isResultOf rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/isSampleOf
+sosa:isSampleOf rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/madeActuation
+sosa:madeActuation rdf:type owl:ObjectProperty ;
+                   owl:inverseOf sosa:madeByActuator .
+
+
+###  http://www.w3.org/ns/sosa/madeByActuator
+sosa:madeByActuator rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/madeBySampler
+sosa:madeBySampler rdf:type owl:ObjectProperty ;
+                   owl:inverseOf sosa:madeSampling .
+
+
+###  http://www.w3.org/ns/sosa/madeBySensor
+sosa:madeBySensor rdf:type owl:ObjectProperty ;
+                  owl:inverseOf sosa:madeObservation .
+
+
+###  http://www.w3.org/ns/sosa/madeObservation
+sosa:madeObservation rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/madeSampling
+sosa:madeSampling rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/observedProperty
+sosa:observedProperty rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/observes
+sosa:observes rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/phenomenonTime
+sosa:phenomenonTime rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/usedProcedure
+sosa:usedProcedure rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.w3.org/ns/sosa/hasSimpleResult
+sosa:hasSimpleResult rdf:type owl:DatatypeProperty .
+
+
+###  http://www.w3.org/ns/sosa/resultTime
+sosa:resultTime rdf:type owl:DatatypeProperty ;
+                rdfs:range xsd:dateTime .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.org/vocommons/voaf#Vocabulary
+voaf:Vocabulary rdf:type owl:Class .
+
+
+###  http://www.w3.org/2006/time#TemporalEntity
+time:TemporalEntity rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/ActuatableProperty
+sosa:ActuatableProperty rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/Actuation
+sosa:Actuation rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/Actuator
+sosa:Actuator rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/FeatureOfInterest
+sosa:FeatureOfInterest rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/ObservableProperty
+sosa:ObservableProperty rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/Observation
+sosa:Observation rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/Platform
+sosa:Platform rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/Procedure
+sosa:Procedure rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/Result
+sosa:Result rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/Sample
+sosa:Sample rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/Sampler
+sosa:Sampler rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/Sampling
+sosa:Sampling rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/Sensor
+sosa:Sensor rdf:type owl:Class .
+
+
+###  http://xmlns.com/foaf/0.1/Agent
+foaf:Agent rdf:type owl:Class .
+
+
+[ rdf:type foaf:Agent
+] .
+
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi

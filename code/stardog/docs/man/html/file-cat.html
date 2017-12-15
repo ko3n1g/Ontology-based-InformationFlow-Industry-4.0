@@ -1,0 +1,73 @@
+<html>
+<head>
+<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+</head>
+<style>
+    body { margin: 50px; }
+</style>
+<body>
+<hr/>
+<h1 class="text-info">stardog file cat Manual Page
+<hr/>
+<h1 class="text-info">NAME</h1>
+<br/>
+<div class="row"><div class="span8 offset1">stardog file cat &mdash;Concatenate and print RDF files in desired format</div>
+</div>
+<br/>
+<h1 class="text-info">SYNOPSIS</h1>
+<br/>
+<div class="row">
+<div class="span8 offset1">
+stardog file cat [ {-f | --format} &lt;rdf format&gt; ] [--] &lt;inputFile&gt;...</div>
+</div>
+<br/>
+<h1 class="text-info">OPTIONS</h1>
+<br/>
+<div class="row">
+<div class="span8 offset1">
+-f &lt;rdf format&gt;, --format &lt;rdf format&gt;</div>
+</div>
+<div class="row">
+<div class="span8 offset2">
+RDF Format for the output. The supported formats are NTRIPLES, RDF/XML, TURTLE, PRETTY_TURTLE, TRIG, TRIX, N3, NQUADS. By default output files will have the same format as the first input file.</div>
+</div>
+<div class="row">
+<div class="span8 offset1">
+--
+</div>
+</div>
+<div class="row">
+<div class="span8 offset2">
+This option can be used to separate command-line options from the list of argument, (useful when arguments might be mistaken for command-line options
+</div>
+</div>
+<div class="row">
+<div class="span8 offset1">
+&lt;inputFile&gt;</div>
+</div>
+<div class="row">
+<div class="span8 offset2">
+Input files to concatenate.</div>
+</div>
+<br/>
+<h1 class="text-info">EXAMPLES</h1>
+<br/>
+<div class="row">
+<div class="span12 offset1">
+<p>
+Concatenate input files and output in Turtle format.</p>
+<pre>
+    $ stardog file cat input1.ttl input2.nt input3.rdf</pre>
+<p>
+Concatenate input files and output in RDF/XML format.</p>
+<pre>
+    $ stardog file cat -f rdf/xml input1.ttl input2.nt input3.rdf</pre>
+<p>
+Concatenate input files and output in gzipped Turtle format.</p>
+<pre>
+    $ stardog file cat -f rdf/xml input1.ttl.gz input2.ttl.gz &gt; output.ttl.gz</pre>
+</div>
+</div>
+</body>
+</html>
+

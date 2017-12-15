@@ -1,0 +1,25 @@
+@prefix : <http://localhost/concept/ManufacturingOntologyLanguage.Sick#> .
+@prefix aoi: <http://localhost/concept/aoi#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix part: <http://www.w3.org/2001/sw/BestPractices/OEP/SimplePartWhole/part.owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sick: <http://localhost/concept/ManufacturingOntologyLanguage.Sick#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix oml.gn: <http://localhost/concept/ManufacturingOntologyLanguage.General#> .
+@prefix shopfloor: <http://localhost/concept/shopfloor#> .
+
+###  http://localhost/concept/orders/customer_01_order_01
+<http://localhost/concept/order/customer_01_order_01> rdf:type owl:NamedIndividual ,
+                                                                oml.gn:CustomerOrder ;
+                                                       oml.gn:orderList <http://localhost/concept/orderList/customer_01_order_01_01> .
+
+###  http://localhost/concept/orderLists/customer_01_order_01_01
+<http://localhost/concept/orderList/customer_01_order_01_01> rdf:type owl:NamedIndividual ;
+                                                              oml.gn:orderProduct <http://localhost/concept/product/SMDPlatine> ;
+                                                              oml.gn:orderQuantity 1 .

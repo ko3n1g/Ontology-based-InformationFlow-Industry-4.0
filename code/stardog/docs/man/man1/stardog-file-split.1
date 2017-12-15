@@ -1,0 +1,59 @@
+.\" generated with Ronn/v0.7.3
+.\" http://github.com/rtomayko/ronn/tree/0.7.3
+.
+.TH "STARDOG_FILE_SPLIT" "1" "October 2017" "Stardog Union" "stardog"
+.
+.SH "NAME"
+\fBstardog_file_split\fR \- Splits a given RDF file to multiple files
+.
+.SH "SYNOPSIS"
+\fBstardog\fR \fBfile\fR \fBsplit\fR [ \-b \fIbyteCount[k|m]\fR ] [ \-\-compression \fICompression\fR ] [ {\-f | \-\-format} \fIrdf format\fR ] [ \-\-prefix \fIprefix\fR ] [ \-\-suffix \fIsuffix\fR ] [ \-t \fItripleCount\fR ] [\-\-] \fIinputFile\fR
+.
+.SH "OPTIONS"
+.
+.TP
+\fB\-b\fR \fIbyteCount[k|m]\fR
+Create smaller files byteCount bytes in length\. Suffix \'k\', \'m\', or \'g\' can be used after the byteCount to indicatekilobyte, megabyte, or gigabyte respectively\.
+.
+.TP
+\fB\-\-compression\fR \fICompression\fR
+Compression format [GZIP, BZ2] for the exported data\.
+.
+.TP
+\fB\-f\fR \fIrdf format\fR, \fB\-\-format\fR \fIrdf format\fR
+RDF Format for the output\. The supported formats are NTRIPLES, RDF/XML, TURTLE, PRETTY_TURTLE, TRIG, TRIX, N3, NQUADS\. By default output files will have same format as input file\.
+.
+.TP
+\fB\-\-prefix\fR \fIprefix\fR
+Prefix for the output file names\. By default the name of the input file is used as the prefix\.
+.
+.TP
+\fB\-\-suffix\fR \fIsuffix\fR
+Number of letters to form the suffix of the file name\.
+.
+.TP
+\fB\-t\fR \fItripleCount\fR
+Create smaller files with tripleCount triples
+.
+.TP
+\-\-
+This option can be used to separate command\-line options from the list of arguments (useful when arguments might be mistaken for command\-line options)\.
+.
+.TP
+\fIinputFile\fR
+Input file to split\.
+.
+.SH "EXAMPLES"
+.
+.TP
+Splits input file into files with 10K triples each\.
+$ stardog file split \-t 10K input\.rdf
+.
+.TP
+Splits input file to 2MB files\. The output files will be gzip\-compressed Turtle files\.
+$ stardog file split \-b 2M input\.ttl\.gz
+.
+.TP
+Splits input file to 1M triples\. The output files will be in bzip\-compressed N\-Triples format and named out001\.nt\.bz2, out002\.nt\.bz2, and so on
+$ stardog file split \-t 1M \-\-prefix out \-\-suffix 3 \-\-format nt \-\-compressed bz2 input\.ttl
+

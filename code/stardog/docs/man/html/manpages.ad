@@ -1,0 +1,25 @@
+// WARNING: This file is auto-generated. Do NOT edit manually.
+
+=== Stardog CLI
+
+. {manpages}/data-add.html[`data add`], {manpages}/data-export.html[`data export`], {manpages}/data-obfuscate.html[`data obfuscate`], {manpages}/data-remove.html[`data remove`], {manpages}/data-size.html[`data size`]
+. {manpages}/doc-count.html[`doc count`], {manpages}/doc-delete.html[`doc delete`], {manpages}/doc-get.html[`doc get`], {manpages}/doc-put.html[`doc put`]
+. {manpages}/file-cat.html[`file cat`], {manpages}/file-obfuscate.html[`file obfuscate`], {manpages}/file-split.html[`file split`]
+. {manpages}/icv-convert.html[`icv convert`], {manpages}/icv-explain.html[`icv explain`], {manpages}/icv-export.html[`icv export`], {manpages}/icv-fix.html[`icv fix`], {manpages}/icv-validate.html[`icv validate`]
+. {manpages}/namespace-add.html[`namespace add`], {manpages}/namespace-export.html[`namespace export`], {manpages}/namespace-import.html[`namespace import`], {manpages}/namespace-list.html[`namespace list`], {manpages}/namespace-remove.html[`namespace remove`]
+. {manpages}/query-execute.html[`query execute`], {manpages}/query-explain.html[`query explain`], {manpages}/query-obfuscate.html[`query obfuscate`], {manpages}/query-search.html[`query search`]
+. {manpages}/reasoning-consistency.html[`reasoning consistency`], {manpages}/reasoning-explain.html[`reasoning explain`], {manpages}/reasoning-schema.html[`reasoning schema`], {manpages}/reasoning-undo.html[`reasoning undo`]
+. {manpages}/tx-begin.html[`tx begin`], {manpages}/tx-commit.html[`tx commit`], {manpages}/tx-list.html[`tx list`], {manpages}/tx-rollback.html[`tx rollback`]
+. {manpages}/vcs-commit.html[`vcs commit`], {manpages}/vcs-diff.html[`vcs diff`], {manpages}/vcs-list.html[`vcs list`], {manpages}/vcs-query.html[`vcs query`], {manpages}/vcs-revert.html[`vcs revert`], {manpages}/vcs-tag.html[`vcs tag`]
+
+=== Stardog Admin CLI
+
+. {manpages}/data-add.html[`data add`], {manpages}/data-export.html[`data export`], {manpages}/data-obfuscate.html[`data obfuscate`], {manpages}/data-remove.html[`data remove`], {manpages}/data-size.html[`data size`]
+. {manpages}/doc-count.html[`doc count`], {manpages}/doc-delete.html[`doc delete`], {manpages}/doc-get.html[`doc get`], {manpages}/doc-put.html[`doc put`]
+. {manpages}/file-cat.html[`file cat`], {manpages}/file-obfuscate.html[`file obfuscate`], {manpages}/file-split.html[`file split`]
+. {manpages}/icv-convert.html[`icv convert`], {manpages}/icv-explain.html[`icv explain`], {manpages}/icv-export.html[`icv export`], {manpages}/icv-fix.html[`icv fix`], {manpages}/icv-validate.html[`icv validate`]
+. {manpages}/namespace-add.html[`namespace add`], {manpages}/namespace-export.html[`namespace export`], {manpages}/namespace-import.html[`namespace import`], {manpages}/namespace-list.html[`namespace list`], {manpages}/namespace-remove.html[`namespace remove`]
+. {manpages}/query-execute.html[`query execute`], {manpages}/query-explain.html[`query explain`], {manpages}/query-obfuscate.html[`query obfuscate`], {manpages}/query-search.html[`query search`]
+. {manpages}/reasoning-consistency.html[`reasoning consistency`], {manpages}/reasoning-explain.html[`reasoning explain`], {manpages}/reasoning-schema.html[`reasoning schema`], {manpages}/reasoning-undo.html[`reasoning undo`]
+. {manpages}/tx-begin.html[`tx begin`], {manpages}/tx-commit.html[`tx commit`], {manpages}/tx-list.html[`tx list`], {manpages}/tx-rollback.html[`tx rollback`]
+. {manpages}/vcs-commit.html[`vcs commit`], {manpages}/vcs-diff.html[`vcs diff`], {manpages}/vcs-list.html[`vcs list`], {manpages}/vcs-query.html[`vcs query`], {manpages}/vcs-revert.html[`vcs revert`], {manpages}/vcs-tag.html[`vcs tag`]
