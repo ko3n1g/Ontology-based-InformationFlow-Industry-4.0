@@ -1,6 +1,6 @@
 # Ontology-based Customization and Visualization of Information Flow control in an Industry 4.0 scenario
 
-![https://pixabay.com/de/industrie-industrie-4-0-2496192/](assets/industry-2496192_1920.jpg)
+![https://pixabay.com/de/industrie-industrie-4-0-2496192/][hero]
 
 ## Motivation
 In the context of digitalization, networking of manufacturing companies is also progressing. The developments in this domain are summarized under the term **Industry 4.0**, which covers not only the networking of human and machine, but also of factories and production facilities [[1]](#ref_1). Using sensors and sensor networks, production data is captured and the resulting high volume of information is processed using new technologies. Autonomous agents trigger the need for technologies, which serve *dynamic* and *machine-processable* documents. Documents of this type are served by the latest developments of *Semantic Web* [[2]](#ref_2).    
@@ -68,41 +68,46 @@ as well as several [*ontologies*](#ontologies) split over a few folders.
 <a name="core"></a>
 Simply open the folder `core` with your most beloved IDE and you will find two packages:
 
-1. EventDataProcessor, which serves to *produce* demo-data. The settings can be found at `Main.java`, where you can adjust the numbers of instances to instanciate. `IRIHandler.Input` offers the option to toggle the output folder of the produced data. 
+> 1. EventDataProcessor, which serves to *produce* demo-data. The settings can be found at `Main.java`, where you can adjust the numbers of instances to instanciate. `IRIHandler.Input` offers the option to toggle the output folder of the produced data. 
 
-2. EventProcessor, which serves as an intermediate layer between the produced files and the datastorage. Interfaces for both *Apache Fuseki* and *Stardog* are implemented and can be used through the methods `useStardog()` or `useFuseki()`. Reasoning is also supported (as described above) and can be activated by `enableInterference()`. **Note**: EventProcessor also uses `IRIHandler.Input` as input folder. 
+> 2. EventProcessor, which serves as an intermediate layer between the produced files and the datastorage. Interfaces for both *Apache Fuseki* and *Stardog* are implemented and can be used through the methods `useStardog()` or `useFuseki()`. Reasoning is also supported (as described above) and can be activated by `enableInterference()`. **Note**: EventProcessor also uses `IRIHandler.Input` as input folder. 
 
 ### App
 <a name="app"></a>
 
-* The client app was implemented with Node.js and can be found within the `app` folder. 
-* Simply install Node.Js, e.g with a Homebrew command `brew install node` 
-* Then, start the client app with `node bin/www` within the `app` folder. 
-* A port is opened at `3030`. 
-* The client app was implemented with interfaces supporting Apache Fuseki or Stardog (default). To change the database connected, simply open `controller/sparql.js` and set `core.mode` to either `fuseki` or `stardog`. 
-* Further settings can be observed within the specific implementation files `fusekiProcessor.js` and `stardogProcessor.js`
+The client app was implemented with Node.js and can be found within the `app` folder. 
+
+> * Simply install Node.Js, e.g with a Homebrew command `brew install node` 
+> * Then, start the client app with `node bin/www` within the `app` folder. 
+> * A port is opened at `3030`. 
+> * The client app was implemented with interfaces supporting Apache Fuseki or Stardog (default). To change the database connected, simply open `controller/sparql.js` and set `core.mode` to either `fuseki` or `stardog`. 
+> * Further settings can be observed within the specific implementation files `fusekiProcessor.js` and `stardogProcessor.js`
 
 ### Stardog
 <a name="Stardog"></a>
 
-* Stardog can be started by executing `./stardog-admin server start`, which is located within `stardog/bin`. A port is opened at num `5280`, which is also hardcoded within all other apps. 
-* A database was preconfigured and can be found at `stardog-data`, which is located within `stardog`. 
+Stardog can be started by executing `./stardog-admin server start`, which is located within `stardog/bin`. 
+> * A port is opened at num `5280`, which is also hardcoded within all other apps. 
+> * A database was preconfigured and can be found at `stardog-data`, which is located within `stardog`. 
 
 ### Fuseki
 <a name="Fuseki"></a>
 
-* Fuseki can be started by executing `./fuseki-server --update`. A port is opened at num `3030`, which is also used by all other apps.
-* Fuseki uses a TDB triple store, which is configured by an assembler configuration file. It is located at `fuseki/run/configuration/combined.ttl` and structures the triple graph into three subgraphs: `schema`, `data` and `inferred`, which collects all inferred axioms. This setup was chosen due to the reasoning restrictions of Apache Jena, which restricts reasoning to RDF and OWL 1 axioms. By using the EventProcessor inference engine, reasoning can be executed with integrated java reasoners (as described above) and results can be stored within the separat `inferred` graph.  
+Fuseki can be started by executing `./fuseki-server --update`. 
+
+> * A port is opened at num `3030`, which is also used by all other apps.
+> * Fuseki uses a TDB triple store, which is configured by an assembler configuration file. It is located at `fuseki/run/configuration/combined.ttl` and structures the triple graph into three subgraphs: `schema`, `data` and `inferred`, which collects all inferred axioms. This setup was chosen due to the reasoning restrictions of Apache Jena, which restricts reasoning to RDF and OWL 1 axioms. By using the EventProcessor inference engine, reasoning can be executed with integrated java reasoners (as described above) and results can be stored within the separat `inferred` graph.  
 
 ### Ontologies
 <a name="ontologies"></a>
 
-* All major ontologies are located within `_ontology`. 
-* The top-level ontology is located at `_ontology/schema/ManufacturingOntologyLanguage.gn.ttl` and serves as the intermediate layer between established concepts (SOSA/SSN/partOf) and a more specific company ontology
-* The base ontology is located at `_ontology/schema/ManufacturingOntologyLanguage.sick.ttl` and serves as an example of a specific company ontology
-* The concept for some SWRL rules can be found at `_rules`. They are written in pseudo-code and some of them where translated into an extra ontology
-* The extra ontology containing only SWRL rules can be found at `schema/ManufacturingOntologyLanguage.sick.swrl.ttl`
-* All ontologies use the import declarative to resolve depencenies 
+All major ontologies are located within `_ontology`. 
+
+> * The top-level ontology is located at `_ontology/schema/ManufacturingOntologyLanguage.gn.ttl` and serves as the intermediate layer between established concepts (SOSA/SSN/partOf) and a more specific company ontology
+> * The base ontology is located at `_ontology/schema/ManufacturingOntologyLanguage.sick.ttl` and serves as an example of a specific company ontology
+> * The concept for some SWRL rules can be found at `_rules`. They are written in pseudo-code and some of them where translated into an extra ontology
+> * The extra ontology containing only SWRL rules can be found at `schema/ManufacturingOntologyLanguage.sick.swrl.ttl`
+> * All ontologies use the import declarative to resolve depencenies 
  
 
 ## Results, Evaluation and further Objectives 
@@ -111,7 +116,7 @@ Simply open the folder `core` with your most beloved IDE and you will find two p
 
 ## TagCloud
 
-![](assets/Tagcloud.png)
+![][tagcloud]
 
 ## License 
 
@@ -176,3 +181,6 @@ Combining OWL and RuleML: [https://www.w3.org/Submission/SWRL/](https://www.w3.o
 
 <a name="ref_17"></a>
 [17] - Raynaud, Tanguy, Samir Amir, and Rafiqul Haque. "A generic and high-performance RDF instance generator." International Journal of Web Engineering and Technology 11.2 (2016): 133-152.
+
+[hero]: assets/industry-2496192_1920.jpg
+[tagcloud]: assets/Tagcloud.png
