@@ -126,7 +126,6 @@ Information of how to use this document to be found at: [License](LICENSE).
 
 * Creator: Oliver König @ okoenig@teco.edu
 * Supervisor: Dipl.-Ing. Antonios (Toni) Karatzoglou @ antonios@teco.edu
-* Co-Supervisor: Andrei Miclaus @ miclaus@teco.edu
 
 ## References
 
